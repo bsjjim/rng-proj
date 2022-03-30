@@ -1,0 +1,4 @@
+rootProject.name = 'rng-proj'
+include 'rng-be'
+include 'rng-core'
+include 'rng-demo'

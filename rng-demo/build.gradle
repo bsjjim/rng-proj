@@ -1,0 +1,51 @@
+//buildscript {
+//	ext {
+//		nexacroUiadapterVersion = '1.0.0-SNAPSHOT'
+//	}
+//}
+//
+//repositories {
+//	maven {
+//		url "http://mangosteen.tobesoft.co.kr/nexus/repository/maven-public"
+//		allowInsecureProtocol = true
+//	}
+//}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-batch'
+	implementation 'org.springframework.boot:spring-boot-starter-aop'
+
+	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
+	implementation 'javax.servlet:jstl'
+	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+	implementation 'org.hsqldb:hsqldb'
+	implementation 'com.google.code.gson:gson'
+	implementation 'commons-codec:commons-codec'
+	implementation 'org.apache.commons:commons-lang3'
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.1'
+	implementation 'commons-io:commons-io:2.11.0'
+	implementation 'commons-fileupload:commons-fileupload:1.4'
+	implementation 'dom4j:dom4j:1.6.1'
+	implementation 'org.apache.poi:poi:5.0.0'
+	implementation 'com.google.guava:guava:31.1-jre'
+
+//	implementation ("com.nexacro.uiadapter17.spring:uiadapter17-spring-core:${nexacroUiadapterVersion}") {
+//		exclude group: 'org.springframework', module: 'spring-webmvc'
+//		exclude group: 'org.slf4j', module: 'slf4j-api'
+//	}
+//
+//	implementation("com.nexacro.uiadapter17.spring:uiadapter17-spring-dataaccess:${nexacroUiadapterVersion}") {
+//		exclude group: 'org.springframework', module: 'spring-webmvc'
+//		exclude group: 'org.aspectj', module: 'aspectjweaver'
+//		exclude group: 'org.apache.ibatis', module: 'ibatis-sqlmap'
+//		exclude group: 'org.mybatis', module: 'mybatis'
+//		exclude group: 'org.mybatis', module: 'mybatis-spring'
+//		exclude group: 'org.springframework', module: 'spring-orm'
+//	}
+//
+//	implementation("com.nexacro.uiadapter17.spring:uiadapter17-spring-excel:${nexacroUiadapterVersion}") {
+//		exclude group: 'org.springframework', module: 'spring-webmvc'
+//	}
+}

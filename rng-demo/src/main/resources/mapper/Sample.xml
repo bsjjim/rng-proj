@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lotterental.rng.demo.mapper.SampleMapper">
+
+    <select id="selectSampleList" parameterType="java.util.Map" resultType="java.util.LinkedHashMap">
+        SELECT
+        ID, NAME, DESCRIPTION, USE_YN, REG_USER
+        FROM SAMPLE
+        WHERE 1=1
+        <if test="keyword != null and keyword != ''">
+            <choose>
+                <when test="searchType == 'ID'">
+                    AND ID LIKE '%' || #{keyword} || '%'
+                </when>
+                <when test="searchType == 'NAME'">
+                    AND  NAME LIKE '%' || #{keyword} || '%'
+                </when>
+            </choose>
+        </if>
+        ORDER BY ID ASC
+    </select>
+
+    <select id="selectId" parameterType="String" resultType="java.lang.Integer">
+        SELECT NEXT_ID FROM IDS WHERE TABLE_NAME='SAMPLE'
+    </select>
+    <update id="updateId" parameterType="java.util.Map">
+        UPDATE IDS SET NEXT_ID=#{ID} WHERE TABLE_NAME='SAMPLE'
+    </update>
+
+    <insert id="insertSampleList" parameterType="java.util.Map">
+        INSERT INTO SAMPLE
+        ( ID
+        , NAME
+        , DESCRIPTION
+        , USE_YN
+        , REG_USER )
+        VALUES ( (SELECT 'SAMPLE-' || LPAD(#{ID},5,'0') FROM IDS WHERE TABLE_NAME='SAMPLE')
+               , #{NAME}
+               , #{DESCRIPTION}
+               , #{USE_YN}
+               , #{REG_USER} )
+    </insert>
+
+    <update id="updateSampleList" parameterType="java.util.Map">
+        UPDATE SAMPLE
+        SET ID=#{ID}
+          , NAME=#{NAME}
+          , DESCRIPTION=#{DESCRIPTION}
+          , USE_YN=#{USE_YN}
+        WHERE ID=#{ID}
+    </update>
+
+    <delete id="deleteSampleList" parameterType="java.util.Map">
+        DELETE FROM SAMPLE
+        WHERE ID=#{ID}
+    </delete>
+</mapper>

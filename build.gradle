@@ -1,0 +1,64 @@
+buildscript {
+    ext {
+        springBootVersion = '2.6.4'
+        dependencyManagementVersion = '1.0.11.RELEASE'
+        nexacroUiadapterVersion = '1.0.0-SNAPSHOT'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath "io.spring.gradle:dependency-management-plugin:${dependencyManagementVersion}"
+    }
+}
+
+//allprojects {
+//    group 'com.lotterental.rng'
+//    version '0.0.1-SNAPSHOT'
+//}
+
+subprojects {
+    group = 'com.lotterental.rng'
+    version = '0.0.1-SNAPSHOT'
+
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    sourceCompatibility = 11
+
+    repositories {
+        mavenCentral()
+        maven {
+            url "http://mangosteen.tobesoft.co.kr/nexus/repository/maven-public"
+            allowInsecureProtocol = true
+        }
+    }
+
+    dependencies {
+        compileOnly 'org.projectlombok:lombok'
+        developmentOnly 'org.springframework.boot:spring-boot-devtools'
+        annotationProcessor 'org.projectlombok:lombok'
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+        implementation ("com.nexacro.uiadapter17.spring:uiadapter17-spring-core:${nexacroUiadapterVersion}") {
+            exclude group: 'org.springframework', module: 'spring-webmvc'
+            exclude group: 'org.slf4j', module: 'slf4j-api'
+        }
+
+        implementation("com.nexacro.uiadapter17.spring:uiadapter17-spring-dataaccess:${nexacroUiadapterVersion}") {
+            exclude group: 'org.springframework', module: 'spring-webmvc'
+            exclude group: 'org.aspectj', module: 'aspectjweaver'
+            exclude group: 'org.apache.ibatis', module: 'ibatis-sqlmap'
+            exclude group: 'org.mybatis', module: 'mybatis'
+            exclude group: 'org.mybatis', module: 'mybatis-spring'
+            exclude group: 'org.springframework', module: 'spring-orm'
+        }
+
+        implementation("com.nexacro.uiadapter17.spring:uiadapter17-spring-excel:${nexacroUiadapterVersion}") {
+            exclude group: 'org.springframework', module: 'spring-webmvc'
+        }
+    }
+}
