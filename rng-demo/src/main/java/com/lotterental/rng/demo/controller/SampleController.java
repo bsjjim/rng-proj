@@ -38,6 +38,7 @@ public class SampleController {
     public NexacroResult selectSampleList(
             @ParamDataSet(name = "input1") Map<String,String> ds_search
     ) throws Exception {
+    	// git commi test
         List<Map<String, Object>> sampleList = null;
         sampleList = sampleService.selectSampleList(ds_search);
         NexacroResult result = new NexacroResult();
