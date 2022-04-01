@@ -2,6 +2,7 @@ package com.lotterental.rng.demo.service.impl;
 
 
 import com.lotterental.rng.demo.mapper.SampleMapper;
+import com.lotterental.rng.demo.model.SampleModel;
 import com.lotterental.rng.demo.service.SampleService;
 import com.nexacro.uiadapter17.spring.core.data.DataSetRowTypeAccessor;
 import com.nexacro17.xapi.data.DataSet;
@@ -17,7 +18,7 @@ public class SampleServiceImpl implements SampleService {
     private SampleMapper sampleMapper;
 
     @Override
-    public List<Map<String, Object>> selectSampleList(Map<String, String> ds_search) throws Exception {
+    public List<SampleModel> selectSampleList(Map<String, String> ds_search) throws Exception {
         return sampleMapper.selectSampleList(ds_search);
     }
 

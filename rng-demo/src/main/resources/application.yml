@@ -25,3 +25,14 @@ server:
       charset: UTF-8
       enabled: true
       force: true
+
+
+
+#logging config
+logging:
+  config: classpath:logback-spring.xml
+
+
+log4jdbc:
+  spylogdelegator:
+    name: net.sf.log4jdbc.log.slf4j.Slf4jSpyLogDelegator

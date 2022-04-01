@@ -1,6 +1,7 @@
-package com.lotterental.rng.common.base;
+package com.lotterental.rng.core.base;
 
-import com.lotterental.rng.util.MaskingUtil;
+
+import com.lotterental.rng.core.util.MaskingUtils;
 import lombok.Data;
 
 import java.util.ArrayList;
@@ -24,7 +25,7 @@ public class BaseModel {
      */
     public String setMaskAll(String src){
         if(mask){
-            return MaskingUtil.masking(src, 0, src.length());
+            return MaskingUtils.masking(src, 0, src.length());
         }
         return src;
     }
@@ -37,7 +38,7 @@ public class BaseModel {
      */
     public String setMaskRrno(String src){
         if(mask){
-            return MaskingUtil.masking(src, 8, 6);
+            return MaskingUtils.masking(src, 8, 6);
         }
         return src;
     }
@@ -50,7 +51,7 @@ public class BaseModel {
      */
     public String setMaskPassport(String src){
         if(mask){
-            return MaskingUtil.masking(src, 1, 4);
+            return MaskingUtils.masking(src, 1, 4);
         }
         return src;
     }
@@ -63,7 +64,7 @@ public class BaseModel {
      */
     public String setMaskDriver(String src){
         if(mask){
-            return MaskingUtil.masking(src,'*','-', 10, 5);
+            return MaskingUtils.masking(src,'*','-', 10, 5);
         }
         return src;
     }
@@ -76,7 +77,7 @@ public class BaseModel {
      */
     public String setMaskCardNo(String src){
         if(mask){
-            return MaskingUtil.masking(src,'*','-', 7, 7);
+            return MaskingUtils.masking(src,'*','-', 7, 7);
         }
         return src;
     }
@@ -89,7 +90,7 @@ public class BaseModel {
      */
     public String setMaskAccountNo(String src){
         if(mask){
-            return MaskingUtil.masking(src,'*','-', 6, 6);
+            return MaskingUtils.masking(src,'*','-', 6, 6);
         }
         return src;
     }
@@ -102,7 +103,7 @@ public class BaseModel {
      */
     public String setMaskName(String src){
         if(mask){
-            return MaskingUtil.masking(src, 1, 1);
+            return MaskingUtils.masking(src, 1, 1);
         }
         return src;
     }
@@ -115,7 +116,7 @@ public class BaseModel {
      */
     public String setMaskCustId(String src){
         if(mask){
-            return MaskingUtil.masking(src, 2, 4);
+            return MaskingUtils.masking(src, 2, 4);
         }
         return src;
     }
@@ -128,7 +129,7 @@ public class BaseModel {
      */
     public String setMaskEmail(String src){
         if(mask){
-            return MaskingUtil.masking(src, 2, 4);
+            return MaskingUtils.masking(src, 2, 4);
         }
         return src;
     }
@@ -149,7 +150,7 @@ public class BaseModel {
                 indexList.add(index);
                 index = src.indexOf(word, index+word.length());
             }
-            return MaskingUtil.masking(src,indexList.get(indexList.size()-2));
+            return MaskingUtils.masking(src,indexList.get(indexList.size()-2));
         }
         return src;
     }
@@ -162,7 +163,7 @@ public class BaseModel {
      */
     public String setMaskPhoneNo(String src){
         if(mask){
-            return  MaskingUtil.masking(src, MaskingUtil.LAST_4_CHAR_PATTERN);
+            return  MaskingUtils.masking(src, MaskingUtils.LAST_4_CHAR_PATTERN);
         }
         return src;
     }
@@ -175,7 +176,7 @@ public class BaseModel {
      */
     public String setMaskValidity(String src){
         if(mask){
-            return MaskingUtil.masking(src,'*','-', 0, src.length());
+            return MaskingUtils.masking(src,'*','-', 0, src.length());
         }
         return src;
     }

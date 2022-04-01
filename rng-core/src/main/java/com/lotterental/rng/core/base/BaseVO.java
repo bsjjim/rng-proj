@@ -1,4 +1,4 @@
-package com.lotterental.rng.common.base;
+package com.lotterental.rng.core.base;
 
 import lombok.Data;
 

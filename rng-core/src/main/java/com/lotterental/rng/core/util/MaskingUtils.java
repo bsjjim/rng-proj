@@ -5,11 +5,11 @@ import lombok.extern.slf4j.Slf4j;
 import java.lang.reflect.Field;
 
 /**
- * 문자열 마스킹 유틸리티
+ * 문자열 Masking 유틸리티 클래스
  *
  * @author Byun Sang june
  * @version 1.0
- * @since 2017. 09. 01
+ * @since 2022. 04. 01
  */
 @Slf4j
 public abstract class MaskingUtils {

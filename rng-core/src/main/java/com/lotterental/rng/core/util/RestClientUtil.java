@@ -1,6 +1,6 @@
-package com.lotterental.rng.util;
+package com.lotterental.rng.core.util;
 
-import com.lotterental.rng.http.rest.RestClient;
+import com.lotterental.rng.core.http.rest.RestClient;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
@@ -53,10 +53,5 @@ public abstract class RestClientUtil {
             responseStr = res.getStatusCode().toString();
         }
         return responseStr;
-
     }
-
-
-
-
 }

@@ -1,5 +1,6 @@
 package com.lotterental.rng.common.base;
 
+import com.lotterental.rng.core.base.BaseVO;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -7,7 +8,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class BaseSearchVO extends BaseVO{
+public class BaseSearchVO extends BaseVO {
     protected int pageIdx;
     protected int rowCount;
     protected int rowOffset;

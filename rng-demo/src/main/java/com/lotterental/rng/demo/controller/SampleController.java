@@ -1,5 +1,6 @@
 package com.lotterental.rng.demo.controller;
 
+import com.lotterental.rng.demo.model.SampleModel;
 import com.lotterental.rng.demo.service.SampleService;
 import com.nexacro.uiadapter17.spring.core.NexacroException;
 import com.nexacro.uiadapter17.spring.core.annotation.ParamDataSet;
@@ -34,12 +35,12 @@ public class SampleController {
         return result;
     }
 
-    @RequestMapping(value = "/selectSampleList.do")
+    @RequestMapping(value = "/selectsamplelist.do")
     public NexacroResult selectSampleList(
             @ParamDataSet(name = "input1") Map<String,String> ds_search
     ) throws Exception {
     	// git commi test
-        List<Map<String, Object>> sampleList = null;
+        List<SampleModel> sampleList = null;
         sampleList = sampleService.selectSampleList(ds_search);
         NexacroResult result = new NexacroResult();
         result.addDataSet("output1", sampleList);
