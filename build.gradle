@@ -42,13 +42,13 @@ subprojects {
         developmentOnly 'org.springframework.boot:spring-boot-devtools'
         annotationProcessor 'org.projectlombok:lombok'
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
-
-        implementation ("com.nexacro.uiadapter17.spring:uiadapter17-spring-core:${nexacroUiadapterVersion}") {
+        
+        implementation ("com.nexacro:uiadapter-spring-core:${nexacroUiadapterVersion}") {
             exclude group: 'org.springframework', module: 'spring-webmvc'
             exclude group: 'org.slf4j', module: 'slf4j-api'
         }
 
-        implementation("com.nexacro.uiadapter17.spring:uiadapter17-spring-dataaccess:${nexacroUiadapterVersion}") {
+        implementation("com.nexacro:uiadapter-spring-dataaccess:${nexacroUiadapterVersion}") {
             exclude group: 'org.springframework', module: 'spring-webmvc'
             exclude group: 'org.aspectj', module: 'aspectjweaver'
             exclude group: 'org.apache.ibatis', module: 'ibatis-sqlmap'
@@ -57,8 +57,12 @@ subprojects {
             exclude group: 'org.springframework', module: 'spring-orm'
         }
 
-        implementation("com.nexacro.uiadapter17.spring:uiadapter17-spring-excel:${nexacroUiadapterVersion}") {
+        implementation("com.nexacro:uiadapter-spring-excel:${nexacroUiadapterVersion}") {
             exclude group: 'org.springframework', module: 'spring-webmvc'
+            exclude group: 'org.apache.xmlbeans', module: 'xmlbeans'	// 신규 버전 추가를 위해 제거
         }
+        
+        // 넥사크로 엑셀 버전 문제로 최신 버전 추가
+        implementation 'org.apache.xmlbeans:xmlbeans:3.1.0'
     }
 }

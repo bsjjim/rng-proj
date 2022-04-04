@@ -1,16 +1,18 @@
 package com.lotterental.rng.core.http.model;
 
-import com.nexacro.uiadapter17.spring.core.data.NexacroResult;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeParseException;
+import java.util.Date;
+
+import javax.servlet.http.HttpServletRequest;
+
+import com.nexacro.uiadapter.spring.core.data.NexacroResult;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-
-import javax.servlet.http.HttpServletRequest;
-import java.text.SimpleDateFormat;
-import java.time.format.DateTimeParseException;
-import java.util.Date;
 
 /**
  * Rest Reponse Body

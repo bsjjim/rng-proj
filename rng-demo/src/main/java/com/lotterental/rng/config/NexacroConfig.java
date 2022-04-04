@@ -1,18 +1,14 @@
 package com.lotterental.rng.config;
 
 
-import com.nexacro.uiadapter17.spring.core.context.ApplicationContextProvider;
-import com.nexacro.uiadapter17.spring.core.resolve.NexacroHandlerMethodReturnValueHandler;
-import com.nexacro.uiadapter17.spring.core.resolve.NexacroMappingExceptionResolver;
-import com.nexacro.uiadapter17.spring.core.resolve.NexacroMethodArgumentResolver;
-import com.nexacro.uiadapter17.spring.core.resolve.NexacroRequestMappingHandlerAdapter;
-import com.nexacro.uiadapter17.spring.core.view.NexacroFileView;
-import com.nexacro.uiadapter17.spring.core.view.NexacroView;
-import com.nexacro.uiadapter17.spring.dao.DbVendorsProvider;
-import com.nexacro.uiadapter17.spring.dao.Dbms;
-import com.nexacro.uiadapter17.spring.dao.dbms.Hsql;
-import com.nexacro17.xapi.tx.PlatformType;
-import com.nexacro17.xeni.services.GridExportImportServlet;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+
 import org.springframework.boot.autoconfigure.web.servlet.WebMvcRegistrations;
 import org.springframework.boot.web.servlet.ServletContextInitializer;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
@@ -29,12 +25,18 @@ import org.springframework.web.multipart.support.MultipartFilter;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.nexacro.java.xapi.tx.PlatformType;
+import com.nexacro.java.xeni.services.GridExportImportServlet;
+import com.nexacro.uiadapter.spring.core.context.ApplicationContextProvider;
+import com.nexacro.uiadapter.spring.core.resolve.NexacroHandlerMethodReturnValueHandler;
+import com.nexacro.uiadapter.spring.core.resolve.NexacroMappingExceptionResolver;
+import com.nexacro.uiadapter.spring.core.resolve.NexacroMethodArgumentResolver;
+import com.nexacro.uiadapter.spring.core.resolve.NexacroRequestMappingHandlerAdapter;
+import com.nexacro.uiadapter.spring.core.view.NexacroFileView;
+import com.nexacro.uiadapter.spring.core.view.NexacroView;
+import com.nexacro.uiadapter.spring.dao.DbVendorsProvider;
+import com.nexacro.uiadapter.spring.dao.Dbms;
+import com.nexacro.uiadapter.spring.dao.dbms.Hsql;
 
 @Configuration
 public class NexacroConfig extends WebAppConfig implements WebMvcRegistrations {
