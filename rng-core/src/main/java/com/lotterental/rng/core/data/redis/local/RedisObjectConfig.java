@@ -38,7 +38,7 @@ public class RedisObjectConfig {
     protected RedisObjectProperties redisObjectProperties;
 
     @Bean
-    @Profile("awsredis")
+    @Profile("redis")
     public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
         return new PropertySourcesPlaceholderConfigurer();
     }
@@ -63,7 +63,7 @@ public class RedisObjectConfig {
      *
      * @return JedisConnectionFactory Redis 연결용 ConnectionFactory
      */
-    @Profile("awsredis")
+    @Profile("redis")
     @Bean(name = "redisObjectConnectionFactory")
     public JedisConnectionFactory jedisConnectionFactory() {
         if (redisObjectProperties.getCluster() == null) {
@@ -91,7 +91,7 @@ public class RedisObjectConfig {
      *
      * @return Redis Object사용을 위한 RedisTemplate
      */
-    @Profile("awsredis")
+    @Profile("redis")
     @Bean(name = "redisObjectTemplate")
     public RedisTemplate redisObjectTemplate() {
         RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();

@@ -16,7 +16,8 @@ import org.springframework.stereotype.Repository;
  * @since 2022. 3. 2.
  */
 @Repository
-@Profile({ "local", "dev" })
+//@Profile({ "local", "dev" })
+@Profile({ "dev" })
 public class RedisSequenceImpl implements RedisSequence {
 
     @Autowired

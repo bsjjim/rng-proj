@@ -26,7 +26,6 @@ public class MaskCryptProcess {
 			ProtectField protectField = new ProtectField();
 			protectField.field = field;
 			protectField.maskCryptAno = maskCryptAno;
-			
 			return protectField;
 		}
 	}
@@ -239,7 +238,7 @@ public class MaskCryptProcess {
 	
 	private static String setMaskAddress(String src) {
         String word = " ";
-        List<Integer> indexList = new ArrayList<Integer>();
+        List<Integer> indexList = new ArrayList<>();
         int index = 0;
         index = src.indexOf(word);
         

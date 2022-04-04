@@ -22,7 +22,8 @@ import java.util.concurrent.TimeUnit;
  */
 @Slf4j
 @Repository
-@Profile({ "local", "dev", "stg", "prd" })
+//@Profile({ "local", "dev", "stg", "prd" })
+@Profile({ "dev", "stg", "prd" })
 public class RedisManager<T> {
 
     @Autowired
@@ -44,7 +45,7 @@ public class RedisManager<T> {
      * @param key redis-key
      * @return value redis-value (에러시 null을 리턴함)
      */
-    @Profile("awsredis")
+    @Profile("redis")
     public T getValue(String key) {
         try {
             log.debug("redisManager getValue --- key : [{}]", key);
@@ -64,7 +65,7 @@ public class RedisManager<T> {
      * @param timeUnit redis-해당 값이 유지(ttl)할 시간의 단위
      */
     @SuppressWarnings("unchecked")
-    @Profile("awsredis")
+    @Profile("redis")
     public void putValue(String key, T val, long timeout, TimeUnit timeUnit) {
         try {
             valueOps.set(key, val, timeout, timeUnit);
@@ -80,7 +81,7 @@ public class RedisManager<T> {
      * @param key redis-key
      * @return value redis-list value (에러시 null을 리턴함)
      */
-    @Profile("awsredis")
+    @Profile("redis")
     public List<T> getListValue(String key) {
         try {
             log.debug("redisManager getListValue --- key : [{}]", key);
@@ -101,7 +102,7 @@ public class RedisManager<T> {
      * @param timeout redis-해당 값이 유지(ttl)할 시간
      * @param timeUnit redis-해당 값이 유지(ttl)할 시간의 단위
      */
-    @Profile("awsredis")
+    @Profile("redis")
     public void putListValue(String key, List<T> list, long timeout, TimeUnit timeUnit){
         try {
             for (T t : list) {
@@ -119,7 +120,7 @@ public class RedisManager<T> {
      * @param key redis-key
      */
     @SuppressWarnings("unchecked")
-    @Profile("awsredis")
+    @Profile("redis")
     public void delete(String key) {
         try {
             redisTemplate.delete(key);

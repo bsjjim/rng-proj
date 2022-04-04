@@ -15,15 +15,15 @@ import java.util.Map;
  * @version 1.0
  * @since 2022. 3. 2.
  */
-@Component
-public class CustomErrorAttributes extends DefaultErrorAttributes {
+//@Component
+public class CustomErrorAttributes { // extends DefaultErrorAttributes {
 
-    @Override
-    public Map<String, Object> getErrorAttributes(WebRequest webRequest, ErrorAttributeOptions options) {
-        Map<String, Object> result = super.getErrorAttributes(webRequest, options);
-        result.put("type", "JSON");
-        result.put("path", webRequest.getContextPath());
-        return result;
-    }
+//    @Override
+//    public Map<String, Object> getErrorAttributes(WebRequest webRequest, ErrorAttributeOptions options) {
+//        Map<String, Object> result = super.getErrorAttributes(webRequest, options);
+//        result.put("type", "JSON");
+//        result.put("path", webRequest.getContextPath());
+//        return result;
+//    }
 }
 

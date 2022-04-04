@@ -25,7 +25,8 @@ import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @Configuration
-@Profile({ "local", "dev" })
+//@Profile({ "local", "dev" })
+@Profile({ "dev" })
 public class RedisSequenceConfig {
 
     @Autowired
