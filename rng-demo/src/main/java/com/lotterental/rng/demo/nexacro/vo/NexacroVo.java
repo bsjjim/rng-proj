@@ -9,8 +9,8 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = false)
-@Alias("sampleVo")
-public final class SampleVo extends BaseGridVo {
+@Alias("nexacroVo")
+public final class NexacroVo extends BaseGridVo {
 	private String sampleId;
 	private int sampleName;
 	private int sampleType;

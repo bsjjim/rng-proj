@@ -2,10 +2,13 @@ package com.lotterental.rng.config;
 
 
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
+import javax.annotation.PostConstruct;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 
@@ -25,12 +28,19 @@ import org.springframework.web.multipart.support.MultipartFilter;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 
+import com.lotterental.rng.common.converter.RentalDataSetToListConverter;
+import com.lotterental.rng.common.converter.RentalDataSetToObjectConverter;
+import com.lotterental.rng.common.exception.SysException;
+import com.lotterental.rng.common.resolver.RentalMethodArgumentResolver;
+import com.lotterental.rng.common.resolver.RentalMethodReturnValueHandler;
 import com.nexacro.java.xapi.tx.PlatformType;
 import com.nexacro.java.xeni.services.GridExportImportServlet;
 import com.nexacro.uiadapter.spring.core.context.ApplicationContextProvider;
-import com.nexacro.uiadapter.spring.core.resolve.NexacroHandlerMethodReturnValueHandler;
+import com.nexacro.uiadapter.spring.core.data.convert.NexacroConverter;
+import com.nexacro.uiadapter.spring.core.data.convert.NexacroConverterFactory;
+import com.nexacro.uiadapter.spring.core.data.support.DataSetToListConverter;
+import com.nexacro.uiadapter.spring.core.data.support.DataSetToObjectConverter;
 import com.nexacro.uiadapter.spring.core.resolve.NexacroMappingExceptionResolver;
-import com.nexacro.uiadapter.spring.core.resolve.NexacroMethodArgumentResolver;
 import com.nexacro.uiadapter.spring.core.resolve.NexacroRequestMappingHandlerAdapter;
 import com.nexacro.uiadapter.spring.core.view.NexacroFileView;
 import com.nexacro.uiadapter.spring.core.view.NexacroView;
@@ -64,9 +74,7 @@ public class NexacroConfig extends WebAppConfig implements WebMvcRegistrations {
      */
     @Override
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
-        NexacroMethodArgumentResolver nexacroResolver = new NexacroMethodArgumentResolver();
-        resolvers.add(nexacroResolver);
-        super.addArgumentResolvers(resolvers);
+        resolvers.add(new RentalMethodArgumentResolver());
     }
 
     /**
@@ -74,8 +82,7 @@ public class NexacroConfig extends WebAppConfig implements WebMvcRegistrations {
      */
     @Override
     public void addReturnValueHandlers(List<HandlerMethodReturnValueHandler> handlers) {
-
-        NexacroHandlerMethodReturnValueHandler returnValueHandler = new NexacroHandlerMethodReturnValueHandler();
+    	RentalMethodReturnValueHandler returnValueHandler = new RentalMethodReturnValueHandler();
         NexacroFileView nexacroFileView = new NexacroFileView();
         NexacroView     nexacroView     = new NexacroView();
         nexacroView.setDefaultContentType(PlatformType.CONTENT_TYPE_XML);
@@ -91,7 +98,6 @@ public class NexacroConfig extends WebAppConfig implements WebMvcRegistrations {
      */
     @Override
     public void configureHandlerExceptionResolvers(List<HandlerExceptionResolver> resolvers) {
-
         NexacroView nexacroView = new NexacroView();
         nexacroView.setDefaultContentType(PlatformType.CONTENT_TYPE_XML);
         nexacroView.setDefaultCharset("UTF-8");
@@ -188,5 +194,43 @@ public class NexacroConfig extends WebAppConfig implements WebMvcRegistrations {
         multipartFilter.setMultipartResolverBeanName("multipartResolver");
         return multipartFilter;
     }
+    
+    @PostConstruct
+	public void initialize() {
+    	new NexacroConfigInitializer().changeNxConverterToCustomConverter();
+	}
+	
+    private class NexacroConfigInitializer {
+    	private void changeNxConverterToCustomConverter() {
+    		removeNexacroConverter();
+    		addCustomConverter();
+    	}
 
+	  	private void removeNexacroConverter() {
+	  		@SuppressWarnings("rawtypes")
+				Set<NexacroConverter> converterSet = pickOutConverterSets();
+	  		converterSet.removeIf(converter -> converter instanceof DataSetToObjectConverter);
+	  		converterSet.removeIf(converter -> converter instanceof DataSetToListConverter);
+	  	}
+	
+	  	@SuppressWarnings({ "rawtypes", "unchecked" })
+	  	private Set<NexacroConverter> pickOutConverterSets() {
+	      	Field field = null;
+	  		try {
+	  			field = NexacroConverterFactory.class.getDeclaredField("converterSets");
+	  			field.setAccessible(true);
+	  			return (Set<NexacroConverter>) field.get(NexacroConverterFactory.getInstance());
+	  		} catch (Exception e) {
+	  			throw new SysException();
+	  		} finally {
+	  			field.setAccessible(false);
+	  		}
+	      }
+	
+	  	private void addCustomConverter() {
+	  		NexacroConverterFactory.register(new RentalDataSetToObjectConverter());
+	  		NexacroConverterFactory.register(new RentalDataSetToListConverter());
+	  	}
+    }
+    
 }
