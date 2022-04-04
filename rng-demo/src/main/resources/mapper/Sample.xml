@@ -2,56 +2,73 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lotterental.rng.demo.mapper.SampleMapper">
 
-    <select id="selectSampleList" parameterType="java.util.Map" resultType="com.lotterental.rng.demo.model.SampleModel">
-        SELECT
-        ID, NAME, DESCRIPTION, USE_YN, REG_USER
-        FROM SAMPLE
-        WHERE 1=1
-        <if test="keyword != null and keyword != ''">
-            <choose>
-                <when test="searchType == 'ID'">
-                    AND ID LIKE '%' || #{keyword} || '%'
-                </when>
-                <when test="searchType == 'NAME'">
-                    AND  NAME LIKE '%' || #{keyword} || '%'
-                </when>
-            </choose>
-        </if>
-        ORDER BY ID ASC
+    <select id="selectSampleList" parameterType="sampleVo" resultType="sampleVo">
+		SELECT SAMPLE_ID
+			 , SAMPLE_NAME
+			 , SAMPLE_TYPE
+			 , LOC
+		  FROM SAMPLE
+		 WHERE SAMPLE_ID = #{sampleId}
     </select>
 
-    <select id="selectId" parameterType="String" resultType="java.lang.Integer">
-        SELECT NEXT_ID FROM IDS WHERE TABLE_NAME='SAMPLE'
-    </select>
-    <update id="updateId" parameterType="java.util.Map">
-        UPDATE IDS SET NEXT_ID=#{ID} WHERE TABLE_NAME='SAMPLE'
-    </update>
-
-    <insert id="insertSampleList" parameterType="java.util.Map">
-        INSERT INTO SAMPLE
-        ( ID
-        , NAME
-        , DESCRIPTION
-        , USE_YN
-        , REG_USER )
-        VALUES ( (SELECT 'SAMPLE-' || LPAD(#{ID},5,'0') FROM IDS WHERE TABLE_NAME='SAMPLE')
-               , #{NAME}
-               , #{DESCRIPTION}
-               , #{USE_YN}
-               , #{REG_USER} )
+    <insert id="insertSample" parameterType="sampleVo">
+    	INSERT INTO SAMPLE (
+    		SAMPLE_ID
+			 , SAMPLE_NAME
+			 , SAMPLE_TYPE
+			 , LOC
+			 <include refid="Common.insert_cols" />
+    	) VALUES (
+    		#{sampleId}
+    		, #{sampleName}
+    		, #{sampleType}
+    		, #{loc}
+    		<include refid="Common.insert_vals" />
+    	)
     </insert>
 
-    <update id="updateSampleList" parameterType="java.util.Map">
+    <update id="updateSample" parameterType="sampleVo">
         UPDATE SAMPLE
-        SET ID=#{ID}
-          , NAME=#{NAME}
-          , DESCRIPTION=#{DESCRIPTION}
-          , USE_YN=#{USE_YN}
-        WHERE ID=#{ID}
+           SET SAMPLE_NAME = #{sampleName}
+             , SAMPLE_TYPE = #{sampleType}
+             , LOC = #{loc}
+             <include refid="Common.update" />
+         WHERE SAMPLE_ID = #{sampleId}
     </update>
 
-    <delete id="deleteSampleList" parameterType="java.util.Map">
-        DELETE FROM SAMPLE
-        WHERE ID=#{ID}
+    <delete id="deleteSample" parameterType="sampleVo">
+        DELETE SAMPLE
+         WHERE SAMPLE_ID = #{sampleId}
     </delete>
+    
+    <insert id="insert" parameterType="sampleVo">
+    	INSERT INTO SAMPLE (
+    		SAMPLE_ID
+			 , SAMPLE_NAME
+			 , SAMPLE_TYPE
+			 , LOC
+			 <include refid="Common.insert_cols" />
+    	) VALUES (
+    		#{sampleId}
+    		, #{sampleName}
+    		, #{sampleType}
+    		, #{loc}
+    		<include refid="Common.insert_vals" />
+    	)
+    </insert>
+
+    <update id="update" parameterType="sampleVo">
+        UPDATE SAMPLE
+           SET SAMPLE_NAME = #{sampleName}
+             , SAMPLE_TYPE = #{sampleType}
+             , LOC = #{loc}
+             <include refid="Common.update" />
+         WHERE SAMPLE_ID = #{sampleId}
+    </update>
+
+    <delete id="delete" parameterType="sampleVo">
+        DELETE SAMPLE
+         WHERE SAMPLE_ID = #{sampleId}
+    </delete>
+    
 </mapper>

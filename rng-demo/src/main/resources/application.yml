@@ -2,11 +2,10 @@ spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
-      driver-class-name: org.hsqldb.jdbc.JDBCDriver
-      jdbc-url: jdbc:hsqldb:mem:testdb;DB_CLOSE_DELAY=-1
+      driver-class-name: org.h2.Driver
+      jdbc-url: jdbc:h2:tcp://localhost/D:/rng/h2/store/rng_demo
       username: sa
       password:
-      connection-test-query: SELECT 1 FROM INFORMATION_SCHEMA.SYSTEM_USERS
       minimumIdle: 5
       maximumPoolSize: 50
       idleTimeout: 30000
