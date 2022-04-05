@@ -29,75 +29,75 @@ import java.util.concurrent.TimeUnit;
  * @since 2022. 3. 2.
  */
 
-@Slf4j
-@Configuration
-@Profile({ "stg", "prd" })
+//@Slf4j
+//@Configuration
+//@Profile({ "stg", "prd" })
 public class RedisSequenceConfig {
 
-    @Autowired
-    protected RedisSequenceProperties redisSequenceProperties;
-
-    @Bean(name = "redisSequenceClientResources", destroyMethod = "shutdown")
-    ClientResources clientResources() {
-        return DefaultClientResources.create();
-    }
-
-    @Bean(name = "redisSequenceRedisClient", destroyMethod = "shutdown")
-    RedisClusterClient redisClusterClient() {
-
-        RedisURI radisURI;
-
-        if (redisSequenceProperties.getCluster() == null) {
-            radisURI = new RedisURI(redisSequenceProperties.getHost(), redisSequenceProperties.getPort(), 10,
-                    TimeUnit.SECONDS);
-            return RedisClusterClient.create(radisURI);
-        }
-        try {
-            List<String> nodeList = redisSequenceProperties.getCluster().getNodes();
-            List<RedisURI> nodes = new ArrayList<RedisURI>();
-            for (int i = 0; i < nodeList.size(); i++) {
-                String host_port = nodeList.get(i);
-                log.debug("Redis Sequence - host_port :" + host_port);
-                radisURI = RedisURI.Builder
-                        .redis(StringUtils.substringBefore(host_port, ":"),
-                                Integer.parseInt(StringUtils.substringAfter(host_port, ":")))
-                        //.withDatabase(redisSequenceProperties.getDatabase())
-                        .build();
-                nodes.add(radisURI);
-            }
-
-            // redisClusterClient를 사용하지 않는이유는 cluster관련 명령을 사용하지 않고, 가볍게 사용하기 위함.
-            RedisClusterClient clusterClient = RedisClusterClient.create(nodes);
-            ClusterTopologyRefreshOptions topologyRefreshOptions = ClusterTopologyRefreshOptions.builder()
-                    .enableAdaptiveRefreshTrigger(RefreshTrigger.MOVED_REDIRECT, RefreshTrigger.PERSISTENT_RECONNECTS)
-                    .adaptiveRefreshTriggersTimeout(30, TimeUnit.SECONDS).build();
-
-            clusterClient
-                    .setOptions(ClusterClientOptions.builder().topologyRefreshOptions(topologyRefreshOptions).build());
-
-            clusterClient.setDefaultTimeout(redisSequenceProperties.getTimeout().toMillis(), TimeUnit.SECONDS);
-
-            return clusterClient;
-        } catch (RedisException e) {
-            log.info("RedisSequence Not Connected");
-            return null;
-        }
-    }
-
-    /**
-     * redis-sequence사용을 위한 connection을 리턴함.
-     * * lettuce는 내부적으로 thread로 실행되므로 pool이 필요없음
-     *
-     * @return Cluster 커넥션
-     */
-    @Bean(name = "redisSequenceConnection", destroyMethod = "close")
-    StatefulRedisClusterConnection<String, String> connection() {
-        try {
-            StatefulRedisClusterConnection<String, String> connection = this.redisClusterClient().connect();
-            return connection;
-        } catch (RedisException e) {
-            log.info("RedisSequence Not Connected");
-            return null;
-        }
-    }
+//    @Autowired
+//    protected RedisSequenceProperties redisSequenceProperties;
+//
+//    @Bean(name = "redisSequenceClientResources", destroyMethod = "shutdown")
+//    ClientResources clientResources() {
+//        return DefaultClientResources.create();
+//    }
+//
+//    @Bean(name = "redisSequenceRedisClient", destroyMethod = "shutdown")
+//    RedisClusterClient redisClusterClient() {
+//
+//        RedisURI radisURI;
+//
+//        if (redisSequenceProperties.getCluster() == null) {
+//            radisURI = new RedisURI(redisSequenceProperties.getHost(), redisSequenceProperties.getPort(), 10,
+//                    TimeUnit.SECONDS);
+//            return RedisClusterClient.create(radisURI);
+//        }
+//        try {
+//            List<String> nodeList = redisSequenceProperties.getCluster().getNodes();
+//            List<RedisURI> nodes = new ArrayList<RedisURI>();
+//            for (int i = 0; i < nodeList.size(); i++) {
+//                String host_port = nodeList.get(i);
+//                log.debug("Redis Sequence - host_port :" + host_port);
+//                radisURI = RedisURI.Builder
+//                        .redis(StringUtils.substringBefore(host_port, ":"),
+//                                Integer.parseInt(StringUtils.substringAfter(host_port, ":")))
+//                        //.withDatabase(redisSequenceProperties.getDatabase())
+//                        .build();
+//                nodes.add(radisURI);
+//            }
+//
+//            // redisClusterClient를 사용하지 않는이유는 cluster관련 명령을 사용하지 않고, 가볍게 사용하기 위함.
+//            RedisClusterClient clusterClient = RedisClusterClient.create(nodes);
+//            ClusterTopologyRefreshOptions topologyRefreshOptions = ClusterTopologyRefreshOptions.builder()
+//                    .enableAdaptiveRefreshTrigger(RefreshTrigger.MOVED_REDIRECT, RefreshTrigger.PERSISTENT_RECONNECTS)
+//                    .adaptiveRefreshTriggersTimeout(30, TimeUnit.SECONDS).build();
+//
+//            clusterClient
+//                    .setOptions(ClusterClientOptions.builder().topologyRefreshOptions(topologyRefreshOptions).build());
+//
+//            clusterClient.setDefaultTimeout(redisSequenceProperties.getTimeout().toMillis(), TimeUnit.SECONDS);
+//
+//            return clusterClient;
+//        } catch (RedisException e) {
+//            log.info("RedisSequence Not Connected");
+//            return null;
+//        }
+//    }
+//
+//    /**
+//     * redis-sequence사용을 위한 connection을 리턴함.
+//     * * lettuce는 내부적으로 thread로 실행되므로 pool이 필요없음
+//     *
+//     * @return Cluster 커넥션
+//     */
+//    @Bean(name = "redisSequenceConnection", destroyMethod = "close")
+//    StatefulRedisClusterConnection<String, String> connection() {
+//        try {
+//            StatefulRedisClusterConnection<String, String> connection = this.redisClusterClient().connect();
+//            return connection;
+//        } catch (RedisException e) {
+//            log.info("RedisSequence Not Connected");
+//            return null;
+//        }
+//    }
 }
