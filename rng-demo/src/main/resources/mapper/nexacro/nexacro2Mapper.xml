@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lotterental.rng.demo.nexacro.mapper.Nexacro2Mapper">
+
+    <select id="selectNexacroList1" parameterType="NexacroVo" resultType="NexacroModel">
+		SELECT SAMPLE_ID
+			 , SAMPLE_NAME
+			 , SAMPLE_TYPE
+			 , LOC
+		  FROM SAMPLE
+		 WHERE SAMPLE_ID = #{sampleId}
+    </select>
+
+	<select id="selectNexacroList2" parameterType="hashMap" resultType="Map">
+		SELECT SAMPLE_ID
+			 , SAMPLE_NAME
+			 , SAMPLE_TYPE
+			 , LOC
+		FROM SAMPLE
+		WHERE SAMPLE_ID = #{sampleId}
+	</select>
+
+
+    <insert id="insertNexacro" parameterType="NexacroVo">
+    	INSERT INTO SAMPLE (
+    		SAMPLE_ID
+			, SAMPLE_NAME
+			, SAMPLE_TYPE
+			, LOC
+			<include refid="common.insert_cols" />
+    	) VALUES (
+    		#{sampleId}
+    		, #{sampleName}
+    		, #{sampleType}
+    		, #{loc}
+    		<include refid="common.insert_vals" />
+    	)
+    </insert>
+
+    <update id="updateNexacro" parameterType="NexacroVo">
+        UPDATE SAMPLE
+           SET SAMPLE_NAME = #{sampleName}
+             , SAMPLE_TYPE = #{sampleType}
+             , LOC = #{loc}
+             <include refid="common.update" />
+         WHERE SAMPLE_ID = #{sampleId}
+    </update>
+
+    <delete id="deleteNexacro" parameterType="NexacroVo">
+        DELETE SAMPLE
+         WHERE SAMPLE_ID = #{sampleId}
+    </delete>
+
+</mapper>

@@ -8,7 +8,8 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = false)
-public abstract class BaseGridVo extends BaseVo {
+public abstract class BaseGridVo implements BaseVo {
+
 	@ResponseIgnore
 	private String chk;
 	@ResponseIgnore

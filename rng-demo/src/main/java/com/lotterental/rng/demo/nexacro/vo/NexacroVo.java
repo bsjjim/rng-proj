@@ -1,5 +1,6 @@
 package com.lotterental.rng.demo.nexacro.vo;
 
+import lombok.Builder;
 import org.apache.ibatis.type.Alias;
 
 import com.lotterental.rng.common.base.BaseGridVo;
@@ -8,11 +9,13 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Data
-@EqualsAndHashCode(callSuper = false)
 @Alias("nexacroVo")
+@Builder
+@EqualsAndHashCode(callSuper = false)
 public final class NexacroVo extends BaseGridVo {
-	private String sampleId;
-	private int sampleName;
-	private int sampleType;
-	private String loc;
+	private int id;
+	private String name;
+	private String description;
+	private String useYn;
+	private String regUser;
 }

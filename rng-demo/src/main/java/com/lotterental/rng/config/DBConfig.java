@@ -29,8 +29,8 @@ public class DBConfig {
         SqlSessionFactoryBean sqlSessionFactory = new SqlSessionFactoryBean();
         sqlSessionFactory.setDataSource(dataSource());
         Resource configLocation = new PathMatchingResourcePatternResolver().getResource("classpath:mybatis-config.xml");
-        Resource[] mapperLocations = new PathMatchingResourcePatternResolver().getResources("classpath:mapper/**/*.xml");
-        sqlSessionFactory.setTypeAliasesPackage("com.lotterental.rng");
+        Resource[] mapperLocations = new PathMatchingResourcePatternResolver().getResources("classpath:mapper/**/*Mapper.xml");
+        sqlSessionFactory.setTypeAliasesPackage("com.lotterental.rng.demo");
         sqlSessionFactory.setConfigLocation(configLocation);
         sqlSessionFactory.setMapperLocations(mapperLocations);
         return sqlSessionFactory.getObject();

@@ -4,7 +4,7 @@ package com.lotterental.rng.demo.etc.model;
 import lombok.Data;
 
 @Data
-public class SampleModel {
+public class EtcModel {
 
     String id;
     String name;
