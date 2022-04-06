@@ -8,6 +8,8 @@ build/
 gradle/wrapper/dists/
 
 log/
+*.log
+*.out
 
 ### STS ###
 .apt_generated

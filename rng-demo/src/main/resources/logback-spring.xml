@@ -3,7 +3,7 @@
 	<property name="LOG_FILE" value="rng-batch" />
 	
 	<springProfile name="local">
-		<property name="LOG_PATH" value="D:/rng/log" />
+		<property name="LOG_PATH" value="../log" />
 	</springProfile>
 	<springProfile name="dev, prd">
 		<!--
