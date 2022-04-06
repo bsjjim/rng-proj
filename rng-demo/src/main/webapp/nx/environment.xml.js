@@ -44,7 +44,7 @@ if (nexacro.Environment)
         nexacro._addService("SD", "form", "./SD/", "session", null, "", "0", "0");
         nexacro._addService("TR", "form", "./TR/", "session", null, "", "0", "0");
         nexacro._addService("WebCss", "file", "./WebCss/", "session", null, "", "0", "0");
-        nexacro._addService("svcUrl", "JSP", "http://erpq.lotterental.net:8004/ktrerp/xp/", "none", null, "", "0", "0");
+        nexacro._addService("svcUrl", "JSP", "http://localhost:8080", "none", null, "", "0", "0");
     	nexacro._component_uri = (nexacro._arg_compurl ? nexacro._arg_compurl : "./nexacrolib/component/");
     	nexacro._theme_uri = "./_resource_/_theme_/";
     	// load components

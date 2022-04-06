@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration scan="true"> <!-- default 1 minutes -->
-	<springProfile name="local, dev, prd">
+	<property name="LOG_FILE" value="rng-batch" />
+	
+	<springProfile name="local">
+		<property name="LOG_PATH" value="D:/rng/log" />
+	</springProfile>
+	<springProfile name="dev, prd">
 		<!--
 		<if condition='isDefined("OneDrive")'>
 			<then>
@@ -9,7 +14,6 @@
 		</if>
 		-->
 		<property name="LOG_PATH" value="./log" />
-		<property name="LOG_FILE" value="rng-batch" />
 	</springProfile>
 
 	<springProfile name="local, dev, prd">

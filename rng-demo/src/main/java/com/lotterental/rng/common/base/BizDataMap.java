@@ -4,12 +4,9 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Optional;
 
-import org.apache.ibatis.type.Alias;
-
 import com.lotterental.rng.common.cnst.DataRowStatus;
 import com.lotterental.rng.common.exception.SysException;
 
-@Alias("bizDataMap")
 @SuppressWarnings("serial")
 public class BizDataMap extends HashMap<String,Object> {
 	

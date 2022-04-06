@@ -1,25 +1,23 @@
 package com.lotterental.rng.demo.nexacro.controller;
 
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 
-import com.lotterental.rng.demo.etc.model.EtcModel;
-import com.lotterental.rng.demo.etc.service.EtcService;
-import com.lotterental.rng.demo.nexacro.model.NexacroModel;
-import com.lotterental.rng.demo.nexacro.service.NexacroService;
-import com.lotterental.rng.demo.nexacro.vo.NexacroVo;
-import com.nexacro.uiadapter.spring.core.NexacroException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.lotterental.rng.common.base.BizDataMap;
+import com.lotterental.rng.demo.nexacro.service.NexacroService;
+import com.lotterental.rng.demo.nexacro.service.NexacroService2;
+import com.lotterental.rng.demo.nexacro.service.NexacroService3;
+import com.lotterental.rng.demo.nexacro.vo.NexacroVo;
 import com.nexacro.uiadapter.spring.core.annotation.ParamDataSet;
 import com.nexacro.uiadapter.spring.core.data.NexacroResult;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Slf4j
 @Controller
@@ -30,19 +28,67 @@ public class NexacroController {
 
     @Autowired
     private NexacroService nexacroService;
+    
+    @Autowired
+    private NexacroService2 nexacroService2;
+    
+    @Autowired
+    private NexacroService3 nexacroService3;
 
-    @PostMapping("/selectlist")
-    public NexacroResult selectNexacroList(@ParamDataSet(name = "dsImp") NexacroVo nexacroVo) {
-    	log.debug("sampleVo = {}", nexacroVo);
-        List<NexacroVo> nexacroVoList = nexacroService.selectNexacroList(nexacroVo);
+    @PostMapping("/selectnexacro")
+    public NexacroResult selectNexacroMap(@ParamDataSet(name = "dsImp") NexacroVo nexacroVo) {
+    	log.info("parameter = {}", nexacroVo);
+        NexacroVo resultVo = nexacroService.selectNexacro(nexacroVo);
         NexacroResult result = new NexacroResult();
-        result.addDataSet("dsList", nexacroVoList);
+        result.addDataSet("dsRes", resultVo);
+        return result;
+    }
+    
+    @PostMapping("/selectnexacrolist")
+    public NexacroResult selectNexacroList(@ParamDataSet(name = "dsImp") NexacroVo nexacroVo) throws Exception {
+    	log.info("parameter = {}", nexacroVo);
+        List<NexacroVo> resultVoList = nexacroService.selectNexacroList(nexacroVo);
+        NexacroResult result = new NexacroResult();
+        result.addDataSet("dsList", resultVoList);
+        return result;
+    }
+    
+    @PostMapping("/selectnexacrolist2")
+    public NexacroResult selectNexacroList(@ParamDataSet(name = "dsImp") Map<String,Object> nexacroMap) {
+    	log.info("parameter = {}", nexacroMap);
+        List<Map<String,Object>> resultMapList = nexacroService2.selectNexacroList(nexacroMap);
+        NexacroResult result = new NexacroResult();
+        result.addDataSet("dsList", resultMapList);
+        return result;
+    }
+    
+    @PostMapping("/selectnexacrolist3")
+    public NexacroResult selectNexacroList(@ParamDataSet(name = "dsImp") BizDataMap nexacroMap) {
+    	log.info("parameter = {}", nexacroMap);
+        List<BizDataMap> resultMapList = nexacroService3.selectNexacroList(nexacroMap);
+        NexacroResult result = new NexacroResult();
+        result.addDataSet("dsList", resultMapList);
         return result;
     }
     
     @PostMapping("/savenexacrolist")
     public NexacroResult saveNexacroList(@ParamDataSet(name = "dsList") List<NexacroVo> nexacroVoList) {
-    	nexacroService.saveNexacroList1(nexacroVoList);
+    	log.info("parameter = {}", nexacroVoList);
+    	nexacroService.saveNexacroList(nexacroVoList);
+        return new NexacroResult();
+    }
+    
+    @PostMapping("/savenexacrolist2")
+    public NexacroResult saveNexacroList2(@ParamDataSet(name = "dsList") List<Map<String,Object>> nexacroMapList) {
+    	log.info("parameter = {}", nexacroMapList);
+    	nexacroService2.saveNexacroList(nexacroMapList);
+        return new NexacroResult();
+    }
+    
+    @PostMapping("/savenexacrolist3")
+    public NexacroResult saveNexacroList3(@ParamDataSet(name = "dsList") List<BizDataMap> nexacroMapList) {
+    	log.info("parameter = {}", nexacroMapList);
+    	nexacroService3.saveNexacroList(nexacroMapList);
         return new NexacroResult();
     }
 
@@ -53,17 +99,6 @@ public class NexacroController {
         log.debug(selectNexacroMap.toString());
         NexacroResult result = new NexacroResult();
         result.addDataSet("dsList", null);
-        return result;
-    }
-
-    @RequestMapping(value = "/savenexacromap")
-    public NexacroResult selectNexacroMap(
-            @ParamDataSet(name = "input1") Map<String, Object> selectMap
-    ) throws Exception {
-        // git commi test
-        List<Map<String, Object>> mapList =  nexacroService.selectNexacroList(selectMap);
-        NexacroResult result = new NexacroResult();
-        result.addDataSet("output1", mapList);
         return result;
     }
 

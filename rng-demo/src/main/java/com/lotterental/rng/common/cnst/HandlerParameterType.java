@@ -35,8 +35,7 @@ public enum HandlerParameterType {
 	
 	private static boolean isAssignableFrom(Class<?> type, Object object) {
 		log.info("object.getClass() = {}", object.getClass());
-		boolean flag = type.isAssignableFrom(object.getClass());
-		return flag;
+		return type.isAssignableFrom(object.getClass());
 	}
 	
 }

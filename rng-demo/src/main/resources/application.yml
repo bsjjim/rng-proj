@@ -12,6 +12,8 @@ spring:
       maxLifetime: 1800000
       connectionTimeout: 30000
       leak-detection-threshold: 48000
+    schema: classpath:schema.sql
+    initialization-mode: always
   main:
     allow-bean-definition-overriding: true
   h2:
@@ -35,3 +37,44 @@ logging:
 log4jdbc:
   spylogdelegator:
     name: net.sf.log4jdbc.log.slf4j.Slf4jSpyLogDelegator
+    
+
+# framework config
+config:
+  db-config:
+    config-location: classpath:mybatis-config.xml
+    mapper-location: classpath:mapper/**/*.xml
+    type-aliases-package: com.lotterental.rng.demo
+    sql-session-bean-name: sqlSession
+  nexacro-config:
+    default-error-msg: fail.common.msg
+    db-vendor: HSQL Database Engine
+    excel-url: /XExportImport.do
+    export-path: file:///C:/Temp/export/
+    import-path: file:///C:/Temp/import/
+    monitor-enabled: true
+    monitor-cycle-time: 30
+    file-storage-time: 10
+    default-encoding: utf-8
+    max-upload-size: 100000000
+    max-in-memory-size: 100000000
+    file-system-resource: C:\\Temp
+    multipart-resolver-bean-name: multipartResolver
+  simple-cors-filter:
+    allow-credentials: true
+    max-age: 3600
+    http-method: OPTIONS
+  tr-config:
+    expression: execution(* com.lotterental..service.impl.*Impl.*(..))
+  web-app-config:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+      name: forward:/index.html
+    resource-location: /nx/
+    message-base-loc: classpath:/messages/message
+    default-encoding: UTF-8
+    cache-seconds: 60
+    use_code_as-default-message: true
+    locale-change-interceptor:
+      param-name: lang    

@@ -24,14 +24,14 @@ public class BasicGridBizComponent<T extends BaseGridVo> {
 				.sum();
     }
 	
-	private int process(BaseGridVo vo) {
-		if (vo.isInsertedRow()) {
-			return mapper.insert(vo);
-		} else if (vo.isUpdatedRow()) {
-			return mapper.update(vo);
-		} else if (vo.isDeletedRow()) {
-			return mapper.delete(vo);
+	private int process(BaseGridVo baseGridVo) {
+		if (baseGridVo.isInsertedRow()) {
+			return mapper.insert(baseGridVo);
+		} else if (baseGridVo.isUpdatedRow()) {
+			return mapper.update(baseGridVo);
+		} else if (baseGridVo.isDeletedRow()) {
+			return mapper.delete(baseGridVo);
 		}
 		return 0;
-	}	
+	}
 }

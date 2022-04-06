@@ -1,9 +1,12 @@
 package com.lotterental.rng.config;
 
 
+import javax.sql.DataSource;
+
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
@@ -12,8 +15,6 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
-
-import javax.sql.DataSource;
 
 @Configuration
 public class DBConfig {
@@ -25,18 +26,20 @@ public class DBConfig {
     }
 
     @Bean
-    public SqlSessionFactory sqlSessionFactory() throws Exception {
-        SqlSessionFactoryBean sqlSessionFactory = new SqlSessionFactoryBean();
-        sqlSessionFactory.setDataSource(dataSource());
-        Resource configLocation = new PathMatchingResourcePatternResolver().getResource("classpath:mybatis-config.xml");
-        Resource[] mapperLocations = new PathMatchingResourcePatternResolver().getResources("classpath:mapper/**/*Mapper.xml");
-        sqlSessionFactory.setTypeAliasesPackage("com.lotterental.rng.demo");
-        sqlSessionFactory.setConfigLocation(configLocation);
-        sqlSessionFactory.setMapperLocations(mapperLocations);
-        return sqlSessionFactory.getObject();
+    public SqlSessionFactory sqlSessionFactory(@Value("${config.db-config.config-location}") String configLocationPath,
+												@Value("${config.db-config.mapper-location}") String mapperLocationPath,
+												@Value("${config.db-config.type-aliases-package}") String typeAliasesPackage) throws Exception {
+		SqlSessionFactoryBean sqlSessionFactory = new SqlSessionFactoryBean();
+		sqlSessionFactory.setDataSource(dataSource());
+		Resource configLocation = new PathMatchingResourcePatternResolver().getResource(configLocationPath);
+		Resource[] mapperLocations = new PathMatchingResourcePatternResolver().getResources(mapperLocationPath);
+		sqlSessionFactory.setTypeAliasesPackage(typeAliasesPackage);
+		sqlSessionFactory.setConfigLocation(configLocation);
+		sqlSessionFactory.setMapperLocations(mapperLocations);
+		return sqlSessionFactory.getObject();
     }
 
-    @Bean("sqlSession")
+    @Bean("${config.db-config.sql-session-bean-name}")
     SqlSessionTemplate sqlSession(SqlSessionFactory sqlSessionFactory) throws Exception {
         return new SqlSessionTemplate(sqlSessionFactory);
     }
@@ -47,4 +50,5 @@ public class DBConfig {
         transactionManager.setGlobalRollbackOnParticipationFailure(false);
         return transactionManager;
     }
+    
 }

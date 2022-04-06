@@ -24,6 +24,7 @@
         "./nexacrolib/component/extPrototype/Grid.js",
         "./nexacrolib/component/extPrototype/Popup.js",
         "./nexacrolib/component/extPrototype/Validation.js",
+        "./nexacrolib/component/extPrototype/Excel.js",
         "./nexacrolib/component/MultiCombo/MultiCombo.js",
         "./nexacrolib/component/CalMonth/CalMonth.js",
         "./nexacrolib/component/CalPeriod/CalPeriod.js",

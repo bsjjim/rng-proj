@@ -9,7 +9,6 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false)
 public abstract class BaseGridVo implements BaseVo {
-
 	@ResponseIgnore
 	private String chk;
 	@ResponseIgnore
@@ -28,10 +27,4 @@ public abstract class BaseGridVo implements BaseVo {
 	public boolean isDeletedRow() {
 		return DataRowStatus.isDeletedRow(GUBUN);
 	}
-	
-//	public BaseGridVo() {
-//		chk = "1";
-//		GUBUN = "2";
-//	}
-	
 }

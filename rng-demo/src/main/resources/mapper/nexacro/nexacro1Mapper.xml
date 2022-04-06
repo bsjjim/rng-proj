@@ -2,48 +2,77 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lotterental.rng.demo.nexacro.mapper.Nexacro1Mapper">
 
-    <select id="selectNexacroList" parameterType="NexacroVo" resultType="NexacroModel">
-		SELECT SAMPLE_ID
-			 , SAMPLE_NAME
-			 , SAMPLE_TYPE
-			 , LOC
+	<select id="selectNexacro" parameterType="NexacroVo" resultType="NexacroModel">
+		SELECT ID
+			 , NAME
+			 , DESCRIPTION
+			 , USE_YN
+			 , REG_USER
 		  FROM SAMPLE
-		 WHERE SAMPLE_ID = #{sampleId}
+		 WHERE ID = #{id}
+    </select>
+    
+    <select id="selectNexacroList" parameterType="NexacroVo" resultType="NexacroModel">
+		SELECT ID
+			 , NAME
+			 , DESCRIPTION
+			 , USE_YN
+			 , REG_USER
+		  FROM SAMPLE
+		 WHERE ID = #{id}
+    </select>
+    
+    <select id="selectNexacroList2" parameterType="map" resultType="map">
+		SELECT ID
+			 , NAME
+			 , DESCRIPTION
+			 , USE_YN
+			 , REG_USER
+		  FROM SAMPLE
+		 WHERE ID = #{id}
+    </select>
+    
+    <select id="selectNexacroList3" parameterType="bizDataMap" resultType="bizDataMap">
+		SELECT ID
+			 , NAME
+			 , DESCRIPTION
+			 , USE_YN
+			 , REG_USER
+		  FROM SAMPLE
+		 WHERE ID = #{id}
     </select>
 
     <insert id="insertNexacro" parameterType="NexacroVo">
-
 		<selectKey keyProperty="id" resultType="int" order="BEFORE">
 			select SEQ_ID.nextval FROM DUAL
 		</selectKey>
-
     	INSERT INTO SAMPLE (
-    		SAMPLE_ID
-			, SAMPLE_NAME
-			, SAMPLE_TYPE
-			, LOC
-			<include refid="common.insert_cols" />
+    		ID
+			 , NAME
+			 , DESCRIPTION
+			 , USE_YN
+			 , REG_USER
     	) VALUES (
-    		#{sampleId}
-    		, #{sampleName}
-    		, #{sampleType}
-    		, #{loc}
-    		<include refid="common.insert_vals" />
+    		#{id}
+			 , #{name}
+			 , #{description}
+			 , #{useYn}
+			 , #{regUser}
     	)
     </insert>
 
     <update id="updateNexacro" parameterType="NexacroVo">
         UPDATE SAMPLE
-           SET SAMPLE_NAME = #{sampleName}
-             , SAMPLE_TYPE = #{sampleType}
-             , LOC = #{loc}
-             <include refid="common.update" />
-         WHERE SAMPLE_ID = #{sampleId}
+           SET NAME = #{name}
+			 , DESCRIPTION = #{description}
+			 , USE_YN = #{useYn}
+			 , REG_USER = #{regUser}
+         WHERE ID = #{id}
     </update>
 
     <delete id="deleteNexacro" parameterType="NexacroVo">
         DELETE SAMPLE
-         WHERE SAMPLE_ID = #{sampleId}
+         WHERE ID = #{id}
     </delete>
 
 </mapper>
