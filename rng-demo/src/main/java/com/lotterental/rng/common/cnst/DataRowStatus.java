@@ -1,9 +1,9 @@
 package com.lotterental.rng.common.cnst;
 
+import com.lotterental.rng.core.common.exception.BusinessException;
+
 import java.util.Arrays;
 import java.util.Optional;
-
-import com.lotterental.rng.common.exception.SysException;
 
 public enum DataRowStatus {
 	
@@ -61,7 +61,7 @@ public enum DataRowStatus {
 	}
 	
 	private static RuntimeException raiseException() {
-		return new SysException("비정상적인 데이터 상태 존재");
+		return new BusinessException("비정상적인 데이터 상태 존재");
 	}
 	
 }

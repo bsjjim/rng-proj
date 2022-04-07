@@ -1,4 +1,6 @@
-package com.lotterental.rng.core.exception;
+package com.lotterental.rng.core.common.exception;
+
+import com.lotterental.rng.core.base.exception.BaseException;
 
 import java.util.Locale;
 
@@ -9,9 +11,13 @@ import java.util.Locale;
  * @version 1.0
  * @since 2022. 3. 2.
  */
-public class BusinessException extends AbstractRuntimeException {
+public class BusinessException extends AbstractRuntimeException implements BaseException {
 
 	private static final long serialVersionUID = 1L;
+
+	private String errorCode;
+
+	private String[] errorParams;
 
 	public BusinessException(String messageId) {
 		super(messageId);
@@ -48,4 +54,13 @@ public class BusinessException extends AbstractRuntimeException {
 	public BusinessException(String messageId, Object[] messageArgs, Locale locale, Throwable cause) {
 		super(messageId, messageArgs, locale, cause);
 	}
+
+	public String getErrorCode() {
+		return errorCode;
+	}
+
+	public String[] getErrorParams() {
+		return errorParams;
+	}
+
 }

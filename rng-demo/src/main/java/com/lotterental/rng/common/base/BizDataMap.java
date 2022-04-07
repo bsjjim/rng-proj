@@ -5,14 +5,15 @@ import java.util.HashMap;
 import java.util.Optional;
 
 import com.lotterental.rng.common.cnst.DataRowStatus;
-import com.lotterental.rng.common.exception.SysException;
+import com.lotterental.rng.core.common.exception.BusinessException;
+
 
 @SuppressWarnings("serial")
 public class BizDataMap extends HashMap<String,Object> {
 	
 	@SuppressWarnings("unchecked")
 	public BizDataMap(Object object) {
-		Object obj = Optional.ofNullable(object).orElseThrow(() -> new SysException());		
+		Object obj = Optional.ofNullable(object).orElseThrow(() -> new BusinessException(""));
 		Optional.of(obj)
 			.filter(o -> HashMap.class.isAssignableFrom(o.getClass()))
 			.ifPresent(e -> putAll((HashMap<String,Object>) e));

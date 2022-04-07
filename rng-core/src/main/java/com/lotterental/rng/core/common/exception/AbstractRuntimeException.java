@@ -1,6 +1,6 @@
-package com.lotterental.rng.common.exception;
+package com.lotterental.rng.core.common.exception;
 
-import com.lotterental.rng.util.MessageUtil;
+import com.lotterental.rng.core.utils.MessageUtils;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
@@ -10,9 +10,9 @@ import java.util.Locale;
 /**
  * Exception Abstract Base Class
  *
- * @author soo
+ * @author Byun Sang June
  * @version 1.0
- * @since 2017. 10. 19.
+ * @since 2022. 3. 2.
  */
 @Slf4j
 public abstract class AbstractRuntimeException extends RuntimeException {
@@ -36,7 +36,7 @@ public abstract class AbstractRuntimeException extends RuntimeException {
 		this.messageId = messageId;
 		this.messageEx = null;
 		this.messageArgs = null;
-		this.locale = MessageUtil.getLocale();
+		this.locale = MessageUtils.getLocale();
 	}
 
 	protected AbstractRuntimeException(String messageId, String message) {
@@ -44,7 +44,7 @@ public abstract class AbstractRuntimeException extends RuntimeException {
 		this.messageId = messageId;
 		this.messageEx = message;
 		this.messageArgs = null;
-		this.locale = MessageUtil.getLocale();
+		this.locale = MessageUtils.getLocale();
 	}
 
 	protected AbstractRuntimeException(String messageId, Locale locale) {
@@ -52,7 +52,7 @@ public abstract class AbstractRuntimeException extends RuntimeException {
 		this.messageId = messageId;
 		this.messageEx = null;
 		this.messageArgs = null;
-		this.locale = MessageUtil.getLocale();
+		this.locale = MessageUtils.getLocale();
 	}
 
 	protected AbstractRuntimeException(String messageId, Object[] messageArgs) {
@@ -60,7 +60,7 @@ public abstract class AbstractRuntimeException extends RuntimeException {
 		this.messageId = messageId;
 		this.messageEx = null;
 		this.messageArgs = messageArgs;
-		this.locale = MessageUtil.getLocale();
+		this.locale = MessageUtils.getLocale();
 	}
 
 	protected AbstractRuntimeException(String messageId, Object[] messageArgs, Locale locale) {
@@ -68,7 +68,7 @@ public abstract class AbstractRuntimeException extends RuntimeException {
 		this.messageId = messageId;
 		this.messageEx = null;
 		this.messageArgs = messageArgs;
-		this.locale = MessageUtil.getLocale();
+		this.locale = MessageUtils.getLocale();
 	}
 
 	protected AbstractRuntimeException(Throwable cause) {
@@ -76,7 +76,7 @@ public abstract class AbstractRuntimeException extends RuntimeException {
 		this.messageId = null;
 		this.messageEx = null;
 		this.messageArgs = null;
-		this.locale = MessageUtil.getLocale();
+		this.locale = MessageUtils.getLocale();
 	}
 
 	protected AbstractRuntimeException(String messageId, Throwable cause) {
@@ -84,7 +84,7 @@ public abstract class AbstractRuntimeException extends RuntimeException {
 		this.messageId = messageId;
 		this.messageEx = null;
 		this.messageArgs = null;
-		this.locale = MessageUtil.getLocale();
+		this.locale = MessageUtils.getLocale();
 	}
 
 	protected AbstractRuntimeException(String messageId, Locale locale, Throwable cause) {
@@ -92,7 +92,7 @@ public abstract class AbstractRuntimeException extends RuntimeException {
 		this.messageId = messageId;
 		this.messageEx = null;
 		this.messageArgs = null;
-		this.locale = MessageUtil.getLocale();
+		this.locale = MessageUtils.getLocale();
 	}
 
 	protected AbstractRuntimeException(String messageId, Object[] messageArgs, Throwable cause) {
@@ -100,7 +100,7 @@ public abstract class AbstractRuntimeException extends RuntimeException {
 		this.messageId = messageId;
 		this.messageEx = null;
 		this.messageArgs = messageArgs;
-		this.locale = MessageUtil.getLocale();
+		this.locale = MessageUtils.getLocale();
 	}
 
 	protected AbstractRuntimeException(String messageId, Object[] messageArgs, Locale locale, Throwable cause) {
@@ -108,7 +108,7 @@ public abstract class AbstractRuntimeException extends RuntimeException {
 		this.messageId = messageId;
 		this.messageEx = null;
 		this.messageArgs = messageArgs;
-		this.locale = MessageUtil.getLocale();
+		this.locale = MessageUtils.getLocale();
 	}
 
 	/**

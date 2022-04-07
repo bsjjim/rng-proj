@@ -1,4 +1,4 @@
-package com.lotterental.rng.core.util;
+package com.lotterental.rng.core.utils;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -12,7 +12,7 @@ import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.google.common.base.Charsets;
 import com.google.common.io.Files;
-import com.lotterental.rng.core.exception.JsonException;
+import com.lotterental.rng.core.common.exception.JsonException;
 
 import java.io.BufferedReader;
 import java.io.File;

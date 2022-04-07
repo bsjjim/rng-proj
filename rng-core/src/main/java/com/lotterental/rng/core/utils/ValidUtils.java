@@ -1,6 +1,6 @@
-package com.lotterental.rng.core.util;
+package com.lotterental.rng.core.utils;
 
-import com.lotterental.rng.core.exception.ValidationException;
+import com.lotterental.rng.core.common.exception.ValidationException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.util.CollectionUtils;

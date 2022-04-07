@@ -1,4 +1,4 @@
-package com.lotterental.rng.core.util;
+package com.lotterental.rng.core.utils;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import lombok.extern.slf4j.Slf4j;

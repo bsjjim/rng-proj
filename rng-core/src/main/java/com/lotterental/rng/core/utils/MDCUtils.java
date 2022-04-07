@@ -1,4 +1,4 @@
-package com.lotterental.rng.core.util;
+package com.lotterental.rng.core.utils;
 
 import org.slf4j.MDC;
 import org.slf4j.spi.MDCAdapter;

@@ -1,4 +1,4 @@
-package com.lotterental.rng.core.exception;
+package com.lotterental.rng.core.common.exception;
 
 import org.apache.commons.lang3.StringUtils;
 

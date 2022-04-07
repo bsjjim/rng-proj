@@ -3,7 +3,7 @@ package com.lotterental.rng.common.mask;
 import com.lotterental.rng.common.crypt.annotation.MaskCryptAno;
 import com.lotterental.rng.common.cnst.Constants;
 import com.lotterental.rng.common.mask.enums.MaskType;
-import com.lotterental.rng.core.util.MaskingUtils;
+import com.lotterental.rng.core.utils.MaskingUtils;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;

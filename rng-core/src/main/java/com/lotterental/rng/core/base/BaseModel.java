@@ -1,7 +1,7 @@
 package com.lotterental.rng.core.base;
 
 
-import com.lotterental.rng.core.util.MaskingUtils;
+import com.lotterental.rng.core.utils.MaskingUtils;
 import lombok.Data;
 
 import java.util.ArrayList;

@@ -12,6 +12,7 @@ import javax.annotation.PostConstruct;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 
+import com.lotterental.rng.core.common.exception.BusinessException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.web.servlet.WebMvcRegistrations;
 import org.springframework.boot.web.servlet.ServletContextInitializer;
@@ -31,7 +32,6 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 
 import com.lotterental.rng.common.converter.RentalDataSetToListConverter;
 import com.lotterental.rng.common.converter.RentalDataSetToObjectConverter;
-import com.lotterental.rng.common.exception.SysException;
 import com.lotterental.rng.common.resolver.RentalMethodArgumentResolver;
 import com.lotterental.rng.common.resolver.RentalMethodReturnValueHandler;
 import com.nexacro.java.xapi.tx.PlatformType;
@@ -266,7 +266,7 @@ public class NexacroConfig extends WebAppConfig implements WebMvcRegistrations {
 	  			field.setAccessible(true);
 	  			return (Set<NexacroConverter>) field.get(NexacroConverterFactory.getInstance());
 	  		} catch (Exception e) {
-	  			throw new SysException();
+	  			throw new BusinessException("");
 	  		} finally {
 	  			field.setAccessible(false);
 	  		}

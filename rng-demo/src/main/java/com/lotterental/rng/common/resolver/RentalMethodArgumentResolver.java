@@ -17,8 +17,12 @@ public class RentalMethodArgumentResolver extends NexacroMethodArgumentResolver 
 	}
 	
 	@Override
-    public Object resolveArgument(MethodParameter param, ModelAndViewContainer arg1, NativeWebRequest nativeWebRequest,
-            WebDataBinderFactory arg3) throws Exception {
+    public Object resolveArgument(
+			MethodParameter param,
+			ModelAndViewContainer arg1,
+			NativeWebRequest nativeWebRequest,
+            WebDataBinderFactory arg3
+	) throws Exception {
 		Object object = super.resolveArgument(param, arg1, nativeWebRequest, arg3);
 		processor.handleInputValue(object);
 		return object;

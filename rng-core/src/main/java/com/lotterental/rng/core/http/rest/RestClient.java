@@ -1,7 +1,7 @@
 package com.lotterental.rng.core.http.rest;
 
-import com.lotterental.rng.core.util.MDCUtils;
-import com.lotterental.rng.core.util.QueryStringBuilder;
+import com.lotterental.rng.core.utils.MDCUtils;
+import com.lotterental.rng.core.utils.QueryStringBuilder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.ConfigurableEnvironment;

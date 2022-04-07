@@ -2,12 +2,12 @@ package com.lotterental.rng.demo.nexacro.service.impl;
 
 import java.util.List;
 
+import com.lotterental.rng.core.common.exception.BusinessException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import com.lotterental.rng.common.base.BizDataMap;
-import com.lotterental.rng.common.exception.RentalException;
 import com.lotterental.rng.demo.nexacro.mapper.Nexacro1Mapper;
 import com.lotterental.rng.demo.nexacro.service.NexacroService3;
 
@@ -30,7 +30,7 @@ public class NexacroServiceImpl3 implements NexacroService3 {
     public List<BizDataMap> selectNexacroList(BizDataMap nexacroMap) {
     	log.info("parameter = {}", nexacroMap);
     	if (!StringUtils.hasText(nexacroMap.getString("name"))) {
-    		RentalException.occurException("required", "샘플ID");	// 샘플ID는 필수값 입니다.
+    		throw new BusinessException("required", "샘플ID");	// 샘플ID는 필수값 입니다.
     	}
     	return nexacroMapper.selectNexacroList3(nexacroMap);
     }

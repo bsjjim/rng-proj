@@ -10,9 +10,9 @@ import java.util.stream.Stream;
 import com.lotterental.rng.common.annotation.ResponseIgnore;
 import com.lotterental.rng.common.cnst.HandlerParameterType;
 import com.lotterental.rng.common.cnst.HandlerReturnType;
-import com.lotterental.rng.common.exception.SysException;
 import com.lotterental.rng.common.base.BaseGridVo;
 import com.lotterental.rng.common.base.BaseVo;
+import com.lotterental.rng.core.common.exception.BusinessException;
 import com.nexacro.uiadapter.spring.core.data.NexacroResult;
 
 public class HandlerExecPostProcessor {
@@ -32,7 +32,7 @@ public class HandlerExecPostProcessor {
 	
 	private void validateReturnType(Object object) {
 		if (!HandlerReturnType.isAllowedType(object)) {
-			throw new SysException("허용되지 않은 리턴 타입");
+			throw new BusinessException("허용되지 않은 리턴 타입");
 		}
 	}
 	
@@ -55,7 +55,7 @@ public class HandlerExecPostProcessor {
 	
 	private void validateElement(Object object) {
 		if (!HandlerParameterType.isAllowedType(object)) {
-			throw new SysException("허용되지 않은 리턴 파라미터 타입");
+			throw new BusinessException("허용되지 않은 리턴 파라미터 타입");
 		}
 	}
 	

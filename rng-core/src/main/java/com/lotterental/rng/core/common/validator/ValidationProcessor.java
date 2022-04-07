@@ -1,6 +1,6 @@
 package com.lotterental.rng.core.common.validator;
 
-import com.lotterental.rng.core.exception.ValidationException;
+import com.lotterental.rng.core.common.exception.ValidationException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

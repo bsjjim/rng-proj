@@ -1,4 +1,4 @@
-package com.lotterental.rng.core.exception;
+package com.lotterental.rng.core.common.exception;
 
 import org.springframework.boot.web.error.ErrorAttributeOptions;
 import org.springframework.boot.web.servlet.error.DefaultErrorAttributes;

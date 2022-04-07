@@ -2,6 +2,7 @@ package com.lotterental.rng.common.resolver;
 
 import java.util.Locale;
 
+import com.lotterental.rng.core.common.exception.BusinessException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.http.HttpStatus;
@@ -9,9 +10,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import com.lotterental.rng.common.base.exception.BaseException;
-import com.lotterental.rng.common.exception.BizException;
-import com.lotterental.rng.common.exception.SysException;
+import com.lotterental.rng.core.base.exception.BaseException;
 import com.nexacro.uiadapter.spring.core.data.NexacroResult;
 
 import lombok.extern.slf4j.Slf4j;
@@ -25,14 +24,14 @@ public class RentalHandlerExceptionResolver {
 
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	@ExceptionHandler
-	public NexacroResult handleBizException(BizException ex, Locale locale) {
+	public NexacroResult handleBizException(BusinessException ex, Locale locale) {
 		log.debug("exception = {}", ex);
 		return getErrorResult(100, "비즈에러발생");
 	}
 	
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	@ExceptionHandler
-	public NexacroResult handleSysException(SysException ex, Locale locale) {
+	public NexacroResult handleSysException(BusinessException ex, Locale locale) {
 		log.debug("exception = {}", ex);
 		return getErrorResult(100, "시스에러발생");
 	}

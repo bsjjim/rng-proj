@@ -1,6 +1,6 @@
 package com.lotterental.rng.util;
 
-import com.lotterental.rng.common.exception.BusinessException;
+import com.lotterental.rng.core.common.exception.BusinessException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;

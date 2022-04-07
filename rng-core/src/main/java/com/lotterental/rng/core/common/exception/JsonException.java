@@ -1,4 +1,4 @@
-package com.lotterental.rng.core.exception;
+package com.lotterental.rng.core.common.exception;
 
 /**
  * Json형식 Exception

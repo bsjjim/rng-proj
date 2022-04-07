@@ -1,4 +1,4 @@
-package com.lotterental.rng.core.util;
+package com.lotterental.rng.core.utils;
 
 import com.lotterental.rng.core.http.model.ResBody;
 import lombok.extern.slf4j.Slf4j;

@@ -1,4 +1,4 @@
-package com.lotterental.rng.core.util;
+package com.lotterental.rng.core.utils;
 
 import com.lotterental.rng.core.cnst.Constants;
 import com.lotterental.rng.core.common.maskcrypt.MaskCryptProcess;

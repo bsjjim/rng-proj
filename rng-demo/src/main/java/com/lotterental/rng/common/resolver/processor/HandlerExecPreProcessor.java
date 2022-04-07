@@ -6,7 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 import com.lotterental.rng.common.cnst.HandlerParameterType;
-import com.lotterental.rng.common.exception.SysException;
+import com.lotterental.rng.core.common.exception.BusinessException;
+
 
 public class HandlerExecPreProcessor {
 	
@@ -17,7 +18,7 @@ public class HandlerExecPreProcessor {
 	
 	public void validateParameterType(Object object) {
 		if (!isAllowedParameterType(object)) {
-			throw new SysException("허용되지 않은 파라미터 타입");
+			throw new BusinessException("허용되지 않은 파라미터 타입");
 		}
 	}
 	

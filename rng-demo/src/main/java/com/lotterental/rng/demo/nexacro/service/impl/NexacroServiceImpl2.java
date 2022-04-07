@@ -3,12 +3,12 @@ package com.lotterental.rng.demo.nexacro.service.impl;
 import java.util.List;
 import java.util.Map;
 
+import com.lotterental.rng.core.common.exception.BusinessException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import com.lotterental.rng.common.cnst.DataRowStatus;
-import com.lotterental.rng.common.exception.BizException;
 import com.lotterental.rng.demo.nexacro.mapper.Nexacro1Mapper;
 import com.lotterental.rng.demo.nexacro.service.NexacroService2;
 import com.nexacro.java.xapi.data.DataSet;
@@ -27,7 +27,7 @@ public class NexacroServiceImpl2 implements NexacroService2 {
 	public Map<String,Object> selectNexacro(Map<String, Object> nexacroMap) {
     	log.info("parameter = {}", nexacroMap);
     	if (!StringUtils.hasText((String) nexacroMap.get("name"))) {
-    		throw new BizException("required", "이름");	// 이름은 필수값 입니다.
+    		throw new BusinessException("required", "이름");	// 이름은 필수값 입니다.
     	}
     	return nexacroMapper.selectNexacro(nexacroMap);
 	}
@@ -36,7 +36,7 @@ public class NexacroServiceImpl2 implements NexacroService2 {
     public List<Map<String,Object>> selectNexacroList(Map<String,Object> nexacroMap) {
     	log.info("parameter = {}", nexacroMap);
     	if (!StringUtils.hasText((String) nexacroMap.get("name"))) {
-    		throw new BizException("required", "이름");	// 이름은 필수값 입니다.
+    		throw new BusinessException("required", "이름");	// 이름은 필수값 입니다.
     	}
     	return nexacroMapper.selectNexacroList2(nexacroMap);
     }

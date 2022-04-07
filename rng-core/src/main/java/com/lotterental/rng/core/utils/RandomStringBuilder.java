@@ -1,4 +1,4 @@
-package com.lotterental.rng.core.util;
+package com.lotterental.rng.core.utils;
 
 import java.security.SecureRandom;
 import java.util.ArrayList;
