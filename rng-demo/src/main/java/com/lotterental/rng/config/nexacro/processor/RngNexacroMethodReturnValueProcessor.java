@@ -1,4 +1,4 @@
-package com.lotterental.rng.common.resolver.processor;
+package com.lotterental.rng.config.nexacro.processor;
 
 import java.lang.reflect.Field;
 import java.util.Arrays;
@@ -11,16 +11,18 @@ import com.lotterental.rng.common.annotation.ResponseIgnore;
 import com.lotterental.rng.common.cnst.HandlerParameterType;
 import com.lotterental.rng.common.cnst.HandlerReturnType;
 import com.lotterental.rng.common.base.BaseGridVo;
-import com.lotterental.rng.common.base.BaseVo;
+import com.lotterental.rng.core.base.BaseVo;
 import com.lotterental.rng.core.common.exception.BusinessException;
 import com.nexacro.uiadapter.spring.core.data.NexacroResult;
+import org.springframework.stereotype.Component;
 
-public class HandlerExecPostProcessor {
+@Component
+public class RngNexacroMethodReturnValueProcessor {
 	
-	private final Field[] baseVoFields;	
+	private final Field[] baseVoFields;
 	private final Field[] baseGridVoFields;
 	
-	public HandlerExecPostProcessor() {
+	public RngNexacroMethodReturnValueProcessor() {
 		this.baseVoFields = BaseVo.class.getDeclaredFields();
 		this.baseGridVoFields = BaseGridVo.class.getDeclaredFields();
 	}
@@ -69,10 +71,12 @@ public class HandlerExecPostProcessor {
 	}
 	
 	private void assignVoModelPolicy(BaseVo baseVo) {
-		assignIgnoredFieldToNull(baseVoFields, baseVo);
+
+//		assignIgnoredFieldToNull(baseVoFields, baseVo);
 		if (baseVo instanceof BaseGridVo) {
-			assignIgnoredFieldToNull(baseGridVoFields, (BaseGridVo) baseVo);
+//			assignIgnoredFieldToNull(baseGridVoFields, (BaseGridVo) baseVo);
 		}
+
 	}
 	
 	private void assignIgnoredFieldToNull(Field[] fields, BaseVo baseVo) {

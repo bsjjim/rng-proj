@@ -3,6 +3,7 @@ package com.lotterental.rng.demo.nexacro.controller;
 import java.util.List;
 import java.util.Map;
 
+import com.lotterental.rng.utils.ResBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
@@ -27,6 +28,9 @@ public class NexacroController {
     private MessageSource messageSource;
 
     @Autowired
+    private ResBuilder resBuilder;
+
+    @Autowired
     private NexacroService nexacroService;
     
     @Autowired
@@ -34,6 +38,15 @@ public class NexacroController {
     
     @Autowired
     private NexacroService3 nexacroService3;
+
+    @PostMapping("/demonexacro")
+    public NexacroResult demoNexacroMap(@ParamDataSet(name = "dsImp") NexacroVo nexacroVo) {
+        log.info("parameter : [{}]", nexacroVo);
+        NexacroVo resultVo = nexacroService.selectNexacro(nexacroVo);
+        return resBuilder.success("dsRes", resultVo);
+    }
+
+
 
     @PostMapping("/selectnexacro")
     public NexacroResult selectNexacroMap(@ParamDataSet(name = "dsImp") NexacroVo nexacroVo) {

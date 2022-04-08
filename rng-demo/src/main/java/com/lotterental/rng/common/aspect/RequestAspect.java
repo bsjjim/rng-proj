@@ -3,7 +3,7 @@ package com.lotterental.rng.common.aspect;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Before;
 
-import com.lotterental.rng.common.resolver.processor.HandlerExecPreProcessor;
+import com.lotterental.rng.config.nexacro.processor.RngNexacroMethodArgumentProcessor;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -14,10 +14,10 @@ public class RequestAspect {
 	private final String postMappingPointcut = "com.lotterental.rng.temp.cmmn.aspect.pointcut.RentalPointcut.postMapping() ";	
 	private final String bizControllerPointcut = "com.lotterental.rng.temp.cmmn.aspect.pointcut.RentalPointcut.bizController()";
 	
-	private final HandlerExecPreProcessor processor;
+	private final RngNexacroMethodArgumentProcessor processor;
 	
 	public RequestAspect() {
-		processor = new HandlerExecPreProcessor();
+		processor = new RngNexacroMethodArgumentProcessor();
 	}
 
 	@Before(value = postMappingPointcut + "&&" + bizControllerPointcut)

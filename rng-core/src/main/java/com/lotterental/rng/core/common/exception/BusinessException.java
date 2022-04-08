@@ -15,10 +15,6 @@ public class BusinessException extends AbstractRuntimeException implements BaseE
 
 	private static final long serialVersionUID = 1L;
 
-	private String errorCode;
-
-	private String[] errorParams;
-
 	public BusinessException(String messageId) {
 		super(messageId);
 	}
@@ -53,14 +49,6 @@ public class BusinessException extends AbstractRuntimeException implements BaseE
 
 	public BusinessException(String messageId, Object[] messageArgs, Locale locale, Throwable cause) {
 		super(messageId, messageArgs, locale, cause);
-	}
-
-	public String getErrorCode() {
-		return errorCode;
-	}
-
-	public String[] getErrorParams() {
-		return errorParams;
 	}
 
 }

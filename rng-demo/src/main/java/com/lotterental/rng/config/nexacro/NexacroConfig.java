@@ -1,4 +1,4 @@
-package com.lotterental.rng.config;
+package com.lotterental.rng.config.nexacro;
 
 
 import java.io.IOException;
@@ -12,6 +12,7 @@ import javax.annotation.PostConstruct;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 
+import com.lotterental.rng.config.WebAppConfig;
 import com.lotterental.rng.core.common.exception.BusinessException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.web.servlet.WebMvcRegistrations;
@@ -32,8 +33,6 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 
 import com.lotterental.rng.common.converter.RentalDataSetToListConverter;
 import com.lotterental.rng.common.converter.RentalDataSetToObjectConverter;
-import com.lotterental.rng.common.resolver.RentalMethodArgumentResolver;
-import com.lotterental.rng.common.resolver.RentalMethodReturnValueHandler;
 import com.nexacro.java.xapi.tx.PlatformType;
 import com.nexacro.java.xeni.services.GridExportImportServlet;
 import com.nexacro.uiadapter.spring.core.context.ApplicationContextProvider;
@@ -114,7 +113,7 @@ public class NexacroConfig extends WebAppConfig implements WebMvcRegistrations {
      */
     @Override
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
-        resolvers.add(new RentalMethodArgumentResolver());
+        resolvers.add(new RngNexacroMethodArgumentResolver());
     }
 
     /**
@@ -122,7 +121,7 @@ public class NexacroConfig extends WebAppConfig implements WebMvcRegistrations {
      */
     @Override
     public void addReturnValueHandlers(List<HandlerMethodReturnValueHandler> handlers) {
-    	RentalMethodReturnValueHandler returnValueHandler = new RentalMethodReturnValueHandler();
+    	RngNexacroMethodReturnValueHandler returnValueHandler = new RngNexacroMethodReturnValueHandler();
         returnValueHandler.setView(getNexacroView());
         returnValueHandler.setFileView(new NexacroFileView());
         handlers.add(returnValueHandler);

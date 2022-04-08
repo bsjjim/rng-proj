@@ -1,4 +1,4 @@
-package com.lotterental.rng.util;
+package com.lotterental.rng.utils;
 
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.context.support.AbstractMessageSource;

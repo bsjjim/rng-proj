@@ -9,17 +9,17 @@ import org.springframework.stereotype.Component;
 @Component
 public class MaskConfig {
 
-//    @Around(value = "@annotation(com.shinhancard.nap.be.config.annotation.mask.annotation.MaskBuilder) && @ annotation(maskBuilder)")
+//    @Around(value = "@annotation(com.lotterental.rng.be.config.annotation.mask.annotation.MaskBuilder) && @ annotation(maskBuilder)")
 //    public Object maskAnnotation(final ProceedingJoinPoint proceedingJoinPoint, final MaskBuilder maskBuilder) throws Throwable {
-//    @Pointcut("execution(* build(..)) && @annotation(com.shinhancard.nap.be.config.annotation.mask.annotation.MaskClass)")
-//    @Around(value = "execution(* com.shinhancard.nap.*.*(..)) && @annotation(com.shinhancard.nap.be.config.annotation.mask.annotation.MaskClass)")
+//    @Pointcut("execution(* build(..)) && @annotation(com.lotterental.rng.be.config.annotation.mask.annotation.MaskClass)")
+//    @Around(value = "execution(* com.lotterental.rng.*.*(..)) && @annotation(com.lotterental.rng.be.config.annotation.mask.annotation.MaskClass)")
 //    @Around(value = "execution(* *..build(Boolean,..))")
 //    @Pointcut(value = "execution(public * build(..))")
 //    private void maskBuild() {}
-//    @Pointcut(value = "within(com.shinhancard.nap.be..*)")
+//    @Pointcut(value = "within(com.lotterental.rng.be..*)")
 //    private void maskNapBe() {}
 
-//    @Around("execution(* build(..)) && @annotation(com.shinhancard.nap.be.config.annotation.mask.annotation.MaskBuilder)")
+//    @Around("execution(* build(..)) && @annotation(com.lotterental.rng.be.config.annotation.mask.annotation.MaskBuilder)")
 //    public Object maskAnnotation(final ProceedingJoinPoint joinPoint) throws Throwable {
 //        log.debug("========================================>>>>>>>>>>> Start maskAnnotation");
 //        Object obj = joinPoint.proceed();

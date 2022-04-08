@@ -1,4 +1,4 @@
-package com.lotterental.rng.common.resolver;
+package com.lotterental.rng.config.nexacro;
 
 import java.util.Locale;
 
@@ -9,15 +9,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
-
-import com.lotterental.rng.core.base.exception.BaseException;
 import com.nexacro.uiadapter.spring.core.data.NexacroResult;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @ControllerAdvice
-public class RentalHandlerExceptionResolver {
+public class RngNexacroHandlerExceptionResolver {
 	
 	@Autowired
     private MessageSource messageSource;
@@ -44,8 +42,8 @@ public class RentalHandlerExceptionResolver {
 	}
 	
 	@SuppressWarnings("unused")
-	private String getErrorMessage(BaseException ex, Locale locale) {
-		return messageSource.getMessage(ex.getErrorCode(), ex.getErrorParams(), locale);
+	private String getErrorMessage(BusinessException ex, Locale locale) {
+		return messageSource.getMessage(ex.getMessageId(), ex.getMessageArgs(), locale);
 	}
 	
 	private NexacroResult getErrorResult(int errorCode, String errorMessage) {

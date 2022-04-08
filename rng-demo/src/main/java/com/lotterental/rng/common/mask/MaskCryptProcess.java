@@ -173,7 +173,7 @@ public class MaskCryptProcess {
     				&& !field.getType().isEnum()
     					&& (Collection.class.isAssignableFrom(field.getType())
     							|| field.getType().isArray()
-    								|| field.getType().getName().startsWith("com.shinhancard"))) {
+    								|| field.getType().getName().startsWith("com.lotterental"))) {
     			
     			field.setAccessible(true);
     			protectFieldList.add(ProtectField.create(field, null));

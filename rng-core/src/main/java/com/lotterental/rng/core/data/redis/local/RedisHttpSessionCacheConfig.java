@@ -7,7 +7,6 @@ package com.lotterental.rng.core.data.redis.local;
 // import org.springframework.data.redis.serializer.RedisSerializer;
 // import org.springframework.data.redis.serializer.StringRedisSerializer;
 // import org.springframework.session.data.redis.config.ConfigureRedisAction;
-// import com.shinhancard.nap.core.spring.redis.properties.RedisHttpSessionProperties;
 //import lombok.extern.slf4j.Slf4j;
 //import redis.clients.jedis.JedisPoolConfig;
 

@@ -123,7 +123,7 @@ public class BaseModel {
 
     /**
      * 이메일주소 : 3~6자리
-     * ex)sh****@shinhan.com Ab****inhan.com
+     * ex)sh****@lotterental.com Ab****inhan.com
      * @param src
      * @return
      */

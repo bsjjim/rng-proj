@@ -66,6 +66,6 @@ public final class Constants {
 	// public final static String ERROR_MESG = ERROR.ERROR_MESG;
 	// }
 	//
-	// public static final String PERFORMANCE_LOGGER = "com.shinhancard.nap.performance";
+	// public static final String PERFORMANCE_LOGGER = "com.lotterental.rng.performance";
 
 }

@@ -4,8 +4,7 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.Optional;
 
-import com.lotterental.rng.common.base.BaseVo;
-
+import com.lotterental.rng.core.base.BaseVo;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

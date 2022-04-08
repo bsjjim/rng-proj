@@ -1,4 +1,4 @@
-package com.lotterental.rng.common.resolver.processor;
+package com.lotterental.rng.config.nexacro.processor;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -7,9 +7,10 @@ import java.util.Map;
 
 import com.lotterental.rng.common.cnst.HandlerParameterType;
 import com.lotterental.rng.core.common.exception.BusinessException;
+import org.springframework.stereotype.Component;
 
-
-public class HandlerExecPreProcessor {
+@Component
+public class RngNexacroMethodArgumentProcessor {
 	
 	public void handleInputValue(Object object) {
 		validateParameterType(object);

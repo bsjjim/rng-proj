@@ -133,7 +133,11 @@ public abstract class AbstractRuntimeException extends RuntimeException {
 		return this.messageEx;
 	}
 
-	public List<String> getMessageArgs() {
+	public Object[] getMessageArgs() {
+		 return messageArgs;
+	}
+
+	public List<String> getMessageArgsList() {
 		if (this.messageArgs == null)
 			return null;
 

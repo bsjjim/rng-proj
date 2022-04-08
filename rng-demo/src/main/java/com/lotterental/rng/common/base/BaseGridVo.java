@@ -3,12 +3,14 @@ package com.lotterental.rng.common.base;
 import com.lotterental.rng.common.annotation.ResponseIgnore;
 import com.lotterental.rng.common.cnst.DataRowStatus;
 
+import com.lotterental.rng.core.base.BaseVo;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = false)
-public abstract class BaseGridVo implements BaseVo {
+public abstract class BaseGridVo extends BaseVo {
+
 	@ResponseIgnore
 	private String chk;
 	@ResponseIgnore
