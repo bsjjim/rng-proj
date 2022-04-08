@@ -13,7 +13,7 @@ public class RngDemoApplication {
 	public static void main(String[] args)  {
 
 		String profile = System.getProperty("spring.profiles.active");
-		log.info("Profile test: [{}]", profile);
+		log.info("Profile test1: [{}]", profile);
 		if (profile != null) {
 			System.setProperty("spring.profiles.active", profile);
 		} else {
