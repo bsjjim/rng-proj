@@ -3,56 +3,159 @@
 <mapper namespace="com.lotterental.rng.demo.nexacro.mapper.NexacroDataMapper">
 
 	<select id="selectNexacroData" parameterType="bizData" resultType="bizData">
-		SELECT ID
-			 , NAME
-			 , DESCRIPTION
+		SELECT SYS_CD
+			 , MOD_ID
+			 , MOD_NM
+			 , MOD_TY
+			 , MOD_GCD
+			 , CLA_NM
 			 , USE_YN
-			 , REG_USER
-		  FROM SAMPLE
-		 WHERE ID = #{id}
+			 , DES2
+			 , DUT_L
+			 , DUT_M
+			 , DUT_S
+			 , INQ_YN
+			 , RG_YN
+			 , DEL_YN
+			 , PRT_YN
+			 , EXL_YN
+			 , CON_YN
+			 , ERNAM
+			 , ERNAMT
+			 , ERDAT
+			 , AENAM
+			 , AENAMT
+			 , AEDAT
+			 , MESSAGE
+		  FROM NEXA_SAMPLE
+		 WHERE MOD_ID = #{modId}
     </select>
     
     <select id="selectNexacroDataList" parameterType="bizData" resultType="bizData">
-		SELECT ID
-			 , NAME
-			 , DESCRIPTION
+		SELECT SYS_CD
+			 , MOD_ID
+			 , MOD_NM
+			 , MOD_TY
+			 , MOD_GCD
+			 , CLA_NM
 			 , USE_YN
-			 , REG_USER
-		  FROM SAMPLE
-		 WHERE NAME = #{name}
+			 , DES2
+			 , DUT_L
+			 , DUT_M
+			 , DUT_S
+			 , INQ_YN
+			 , RG_YN
+			 , DEL_YN
+			 , PRT_YN
+			 , EXL_YN
+			 , CON_YN
+			 , ERNAM
+			 , ERNAMT
+			 , ERDAT
+			 , AENAM
+			 , AENAMT
+			 , AEDAT
+			 , MESSAGE
+		  FROM NEXA_SAMPLE
+		 WHERE MOD_ID = #{modId}
+		   AND MOD_NM LIKE '%' || #{modNm} || '%'
+		<if test="modGcd != null and modGcd != ''">		   
+		   AND MOD_GCD = #{modGcd}
+		</if>
+		<if test="modTy != null and modTy != ''">
+		   AND MOD_TY = #{modTy}
+		</if>
+		<if test="sysCd != null and sysCd != ''">
+		   AND SYS_CD = #{sysCd}
+		</if>
     </select>
 
     <insert id="insertNexacroData" parameterType="bizData">
-		<selectKey keyProperty="id" resultType="int" order="BEFORE">
-			select SEQ_ID.nextval FROM DUAL
-		</selectKey>
-    	INSERT INTO SAMPLE (
-    		ID
-			 , NAME
-			 , DESCRIPTION
+		INSERT 
+    	  INTO NEXA_SAMPLE (
+    	  	SYS_CD
+			 , MOD_ID
+			 , MOD_NM
+			 , MOD_TY
+			 , MOD_GCD
+			 , CLA_NM
 			 , USE_YN
-			 , REG_USER
-    	) VALUES (
-    		#{id}
-			 , #{name}
-			 , #{description}
+			 , DES2
+			 , DUT_L
+			 , DUT_M
+			 , DUT_S
+			 , INQ_YN
+			 , RG_YN
+			 , DEL_YN
+			 , PRT_YN
+			 , EXL_YN
+			 , CON_YN
+			 , ERNAM
+			 , ERNAMT
+			 , ERDAT
+			 , AENAM
+			 , AENAMT
+			 , AEDAT
+			 , MESSAGE
+		) VALUES (
+			#{sysCd}
+			 , #{modId}
+			 , #{modNm}
+			 , #{modTy}
+			 , #{modGcd}
+			 , #{claNm}
 			 , #{useYn}
-			 , #{regUser}
-    	)
+			 , #{des2}
+			 , #{dutL}
+			 , #{dutM}
+			 , #{dutS}
+			 , #{inqYn}
+			 , #{rgYn}
+			 , #{delYn}
+			 , #{prtYn}
+			 , #{exlYn}
+			 , #{conYn}
+			 , #{ernam}
+			 , #{ernamt}
+			 , #{erdat}
+			 , #{aenam}
+			 , #{aenamt}
+			 , #{aedat}
+			 , #{message}
+		)
     </insert>
 
     <update id="updateNexacroData" parameterType="bizData">
-        UPDATE SAMPLE
-           SET NAME = #{name}
-			 , DESCRIPTION = #{description}
+        UPDATE NEXA_SAMPLE
+           SET SYS_CD = #{sysCd}
+			 , MOD_NM = #{modNm}
+			 , MOD_TY = #{modTy}
+			 , MOD_GCD = #{modGcd}
+			 , CLA_NM = #{claNm}
 			 , USE_YN = #{useYn}
-			 , REG_USER = #{regUser}
-         WHERE ID = #{id}
+			 , DES2 = #{des2}
+			 , DUT_L = #{dutL}
+			 , DUT_M = #{dutM}
+			 , DUT_S = #{dutS}
+			 , INQ_YN = #{inqYn}
+			 , RG_YN = #{rgYn}
+			 , DEL_YN = #{delYn}
+			 , PRT_YN = #{prtYn}
+			 , EXL_YN = #{exlYn}
+			 , CON_YN = #{conYn}
+			 , ERNAM = #{ernam}
+			 , ERNAMT = #{ernamt}
+			 , ERDAT = #{erdat}
+			 , AENAM = #{aenam}
+			 , AENAMT = #{aenamt}
+			 , AEDAT = #{aedat}
+			 , MESSAGE = #{message}
+         WHERE MOD_ID = #{modId}
     </update>
 
     <delete id="deleteNexacroData" parameterType="bizData">
-        DELETE SAMPLE
-         WHERE ID = #{id}
+        DELETE NEXA_SAMPLE
+         WHERE MOD_ID = #{modId}
     </delete>
 
 </mapper>

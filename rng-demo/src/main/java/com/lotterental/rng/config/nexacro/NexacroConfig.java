@@ -41,6 +41,7 @@ import com.nexacro.uiadapter.spring.core.data.convert.NexacroConverterFactory;
 import com.nexacro.uiadapter.spring.core.data.support.DataSetToListConverter;
 import com.nexacro.uiadapter.spring.core.data.support.DataSetToObjectConverter;
 import com.nexacro.uiadapter.spring.core.resolve.NexacroMappingExceptionResolver;
+import com.nexacro.uiadapter.spring.core.resolve.NexacroMethodArgumentResolver;
 import com.nexacro.uiadapter.spring.core.resolve.NexacroRequestMappingHandlerAdapter;
 import com.nexacro.uiadapter.spring.core.view.NexacroFileView;
 import com.nexacro.uiadapter.spring.core.view.NexacroView;
@@ -113,7 +114,8 @@ public class NexacroConfig extends WebAppConfig implements WebMvcRegistrations {
      */
     @Override
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
-        resolvers.add(new RngNexacroMethodArgumentResolver());
+//        resolvers.add(new RngNexacroMethodArgumentResolver());
+        resolvers.add(new NexacroMethodArgumentResolver());
     }
 
     /**

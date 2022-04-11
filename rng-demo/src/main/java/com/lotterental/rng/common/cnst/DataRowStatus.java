@@ -14,7 +14,7 @@ public enum DataRowStatus {
 	UPDATE("U", String.valueOf(DataSet.ROW_TYPE_UPDATED)),
 	DELETE("D", String.valueOf(DataSet.ROW_TYPE_DELETED));
 	
-	private static final String gridRowStatusColumn = "GUBUN";
+	private static final String gridRowStatusColumn = "gubun";
 	
 	private static final String rowStatusColumn = DataSetRowTypeAccessor.NAME;
 	
@@ -64,9 +64,10 @@ public enum DataRowStatus {
 	}
 	
 	private static Optional<Boolean> getOptional(Map<String, Object> map, String statusColumn, DataRowStatus rowStatus) {
-		return Optional.ofNullable(map.get(statusColumn)).map(status -> {
-			return status.equals(getRowStatus(statusColumn, rowStatus));
-		});
+		return Optional.ofNullable(map.get(statusColumn))
+				.map(status -> {
+					return String.valueOf(status).equals(getRowStatus(statusColumn, rowStatus));
+				});
 	}
 	
 	private static String getRowStatus(String statusColumn, DataRowStatus rowStatus) {

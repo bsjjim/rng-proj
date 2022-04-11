@@ -21,7 +21,7 @@ public class NexacroMapController {
     private NexacroMapService nexacroService;
 
     @PostMapping("/selectnexacromap")
-    public NexacroResult selectNexacroMap(@ParamDataSet(name = "dsSearch") Map<String, Object> nexacroMap) {
+    public NexacroResult selectNexacroMap(@ParamDataSet(name = "dsImp") Map<String, Object> nexacroMap) {
     	log.info("parameter = {}", nexacroMap);
     	Map<String, Object> resultMap = nexacroService.selectNexacroMap(nexacroMap);
         NexacroResult result = new NexacroResult();
@@ -30,7 +30,7 @@ public class NexacroMapController {
     }
     
     @PostMapping("/selectnexacromaplist")
-    public NexacroResult selectNexacroMapList(@ParamDataSet(name = "dsSearch") Map<String, Object> nexacroMap) {
+    public NexacroResult selectNexacroMapList(@ParamDataSet(name = "dsImp") Map<String, Object> nexacroMap) {
     	log.info("parameter = {}", nexacroMap);
         List<Map<String, Object>> resultMapList = nexacroService.selectNexacroMapList(nexacroMap);
         NexacroResult result = new NexacroResult();
@@ -46,7 +46,7 @@ public class NexacroMapController {
     }
     
     @PostMapping("/savenexacromaplist")
-    public NexacroResult saveNexacroMapList(@ParamDataSet(name = "dsSaveList") List<Map<String, Object>> nexacroMapList) {
+    public NexacroResult saveNexacroMapList(@ParamDataSet(name = "dsList") List<Map<String, Object>> nexacroMapList) {
     	log.info("parameter = {}", nexacroMapList);
     	nexacroService.saveNexacroMapList(nexacroMapList);
         return new NexacroResult();

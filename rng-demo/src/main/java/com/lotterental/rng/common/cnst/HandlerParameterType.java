@@ -26,15 +26,12 @@ public enum HandlerParameterType {
 		Optional.ofNullable(object)
 			.orElseThrow(() -> new IllegalArgumentException("null 파라미터 불가"));
 		return Arrays.stream(values())
-				.map(HandlerParameterType::getType)
-				.filter(type -> isAssignableFrom(type, object))
-				.findAny()
-				.isPresent();
+				.anyMatch(value -> isAssignableFrom(value, object));
 	}
 	
-	private static boolean isAssignableFrom(Class<?> type, Object object) {
+	private static boolean isAssignableFrom(HandlerParameterType type, Object object) {
 		log.info("object.getClass() = {}", object.getClass());
-		return type.isAssignableFrom(object.getClass());
+		return type.getType().isAssignableFrom(object.getClass());
 	}
 	
 }

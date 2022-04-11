@@ -10,9 +10,9 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 public abstract class BaseGridVo extends BaseMetaVo {
 	@ResponseIgnore
-	private String chk;
+	private String _chk;
 	@ResponseIgnore
-	private String GUBUN;
+	private String gubun;
 	
 	@Override
 	public boolean isInsertedRow() {
@@ -30,6 +30,6 @@ public abstract class BaseGridVo extends BaseMetaVo {
 	}
 	
 	private boolean isValidRowStatus(DataRowStatus rowStatus) {
-		return (GUBUN != null) ? false : rowStatus.getGridRowStatus().equals(GUBUN);
+		return (gubun != null) ? false : rowStatus.getGridRowStatus().equals(gubun);
 	}
 }

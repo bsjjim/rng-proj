@@ -21,7 +21,7 @@ public class NexacroDataController {
     private NexacroDataService nexacroService;
 
     @PostMapping("/selectnexacrodata")
-    public NexacroResult selectNexacroData(@ParamDataSet(name = "dsSearch") BusinessData nexacroData) {
+    public NexacroResult selectNexacroData(@ParamDataSet(name = "dsImp") BusinessData nexacroData) {
     	log.info("parameter = {}", nexacroData);
         BusinessData resultData = nexacroService.selectNexacroData(nexacroData);
         NexacroResult result = new NexacroResult();
@@ -30,7 +30,7 @@ public class NexacroDataController {
     }
     
     @PostMapping("/selectnexacrodatalist")
-    public NexacroResult selectNexacroDataList(@ParamDataSet(name = "dsSearch") BusinessData nexacroData) {
+    public NexacroResult selectNexacroDataList(@ParamDataSet(name = "dsImp") BusinessData nexacroData) {
     	log.info("parameter = {}", nexacroData);
         List<BusinessData> resultDataList = nexacroService.selectNexacroDataList(nexacroData);
         NexacroResult result = new NexacroResult();
@@ -46,7 +46,7 @@ public class NexacroDataController {
     }
     
     @PostMapping("/savenexacrodatalist")
-    public NexacroResult saveNexacroDataList(@ParamDataSet(name = "dsSaveList") List<BusinessData> nexacroDataList) {
+    public NexacroResult saveNexacroDataList(@ParamDataSet(name = "dsList") List<BusinessData> nexacroDataList) {
     	log.info("parameter = {}", nexacroDataList);
     	nexacroService.saveNexacroDataList(nexacroDataList);
         return new NexacroResult();

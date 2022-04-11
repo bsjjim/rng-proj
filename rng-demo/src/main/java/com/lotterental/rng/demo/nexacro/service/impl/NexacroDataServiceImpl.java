@@ -24,8 +24,10 @@ public class NexacroDataServiceImpl implements NexacroDataService {
 
     @Override
     public List<BusinessData> selectNexacroDataList(BusinessData nexacroData) {
-    	if (!StringUtils.hasText(nexacroData.getString("name"))) {
-    		throw new BusinessException("required", "이름");	// 이름은 필수값 입니다.
+    	if (!StringUtils.hasText(nexacroData.getString("modId"))) {
+    		throw new BusinessException("required", "모듈ID");	// 모듈ID는 필수값 입니다.
+    	} else if (!StringUtils.hasText(nexacroData.getString("modNm"))) {
+    		throw new BusinessException("required", "모듈명");	// 모듈명은 필수값 입니다.
     	}
     	return nexacroMapper.selectNexacroDataList(nexacroData);
     }

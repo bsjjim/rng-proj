@@ -27,8 +27,10 @@ public class NexacroMapServiceImpl implements NexacroMapService {
     
     @Override
     public List<Map<String,Object>> selectNexacroMapList(Map<String, Object> nexacroMap) {
-    	if (!StringUtils.hasText((String) nexacroMap.get("name"))) {
-    		throw new BusinessException("required", "이름");	// 이름은 필수값 입니다.
+    	if (!StringUtils.hasText((String) nexacroMap.get("modId"))) {
+    		throw new BusinessException("required", "모듈ID");	// 모듈ID는 필수값 입니다.
+    	} else if (!StringUtils.hasText((String) nexacroMap.get("modNm"))) {
+    		throw new BusinessException("required", "모듈명");	// 모듈명은 필수값 입니다.
     	}
     	return nexacroMapper.selectNexacroMapList(nexacroMap);
     }
