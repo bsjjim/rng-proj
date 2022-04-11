@@ -30,8 +30,10 @@ public class NexacroVoServiceImpl implements NexacroVoService {
     
     @Override
     public List<NexacroVo> selectNexacroVoList(NexacroVo nexacroVo) {
-    	if (!StringUtils.hasText(nexacroVo.getName())) {
-    		throw new BusinessException("required", "이름");	// 이름은 필수값 입니다.
+    	if (!StringUtils.hasText(nexacroVo.getModId())) {
+    		throw new BusinessException("required", "모듈ID");	// 모듈ID는 필수값 입니다.
+    	} else if (!StringUtils.hasText(nexacroVo.getModNm())) {
+    		throw new BusinessException("required", "모듈명");	// 모듈명은 필수값 입니다.
     	}
 		return nexacroVoMapper.selectNexacroVoList(nexacroVo).stream()
 				.map(d -> d.build())

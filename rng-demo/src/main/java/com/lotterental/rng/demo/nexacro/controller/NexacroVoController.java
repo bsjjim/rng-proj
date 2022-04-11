@@ -27,7 +27,7 @@ public class NexacroVoController {
     private NexacroVoService nexacroService;
 
     @PostMapping("/selectnexacrovo")
-    public NexacroResult selectNexacroVo(@ParamDataSet(name = "dsSearch") NexacroVo nexacroVo) {
+    public NexacroResult selectNexacroVo(@ParamDataSet(name = "dsImp") NexacroVo nexacroVo) {
     	log.info("parameter = {}", nexacroVo);
         NexacroVo resultVo = nexacroService.selectNexacroVo(nexacroVo);
         NexacroResult result = new NexacroResult();
@@ -36,7 +36,7 @@ public class NexacroVoController {
     }
     
     @PostMapping("/selectnexacrovolist")
-    public NexacroResult selectNexacroVoList(@ParamDataSet(name = "dsSearch") NexacroVo nexacroVo) {
+    public NexacroResult selectNexacroVoList(@ParamDataSet(name = "dsImp") NexacroVo nexacroVo) {
     	log.info("parameter = {}", nexacroVo);
         List<NexacroVo> resultVoList = nexacroService.selectNexacroVoList(nexacroVo);
         NexacroResult result = new NexacroResult();
@@ -52,7 +52,7 @@ public class NexacroVoController {
     }
     
     @PostMapping("/savenexacrovolist")
-    public NexacroResult saveNexacroVoList(@ParamDataSet(name = "dsSaveList") List<NexacroVo> nexacroVoList) {
+    public NexacroResult saveNexacroVoList(@ParamDataSet(name = "dsList") List<NexacroVo> nexacroVoList) {
     	log.info("parameter = {}", nexacroVoList);
     	nexacroService.saveNexacroVoList(nexacroVoList);
         return new NexacroResult();
