@@ -462,8 +462,8 @@
             var oArgs  = {
         			  svcId 	: 	"searchSD10040",
         			  /*svcUrl 	: 	"selectsamplelist",*/
-        			  svcUrl 	: 	"selectnexacrolist",
-        			  inDs 		: 	"dsImp=dsImp",
+        			  svcUrl 	: 	"selectnexacrovolist",
+        			  inDs 		: 	"dsSearch=dsImp",
         			  outDs 	: 	"dsList=dsList",
         			  svcType 	: 	"R"
         	}
@@ -478,8 +478,8 @@
             var oArgs  = {
         			  svcId 	: 	"saveSampleList",
         			  /*svcUrl 	: 	"saveSampleList2.do",*/
-        			  svcUrl 	: 	"saveSampleList2.do",
-        			  inDs 		: 	"dsList=dsList:A",
+        			  svcUrl 	: 	"savenexacromap",
+        			  inDs 		: 	"dsSave=dsList:A",
         			  outDs 	: 	"",
         			  svcType 	: 	"S"
         	}

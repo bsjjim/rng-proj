@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lotterental.rng.demo.nexacro.mapper.NexacroMapMapper">
+
+	<select id="selectNexacroMap" parameterType="map" resultType="map">
+		SELECT ID
+			 , NAME
+			 , DESCRIPTION
+			 , USE_YN
+			 , REG_USER
+		  FROM SAMPLE
+		 WHERE ID = #{id}
+    </select>
+    
+    <select id="selectNexacroMapList" parameterType="map" resultType="map">
+		SELECT ID
+			 , NAME
+			 , DESCRIPTION
+			 , USE_YN
+			 , REG_USER
+		  FROM SAMPLE
+		 WHERE NAME = #{name}
+    </select>
+    
+    <insert id="insertNexacroMap" parameterType="map">
+		<selectKey keyProperty="id" resultType="int" order="BEFORE">
+			select SEQ_ID.nextval FROM DUAL
+		</selectKey>
+    	INSERT INTO SAMPLE (
+    		ID
+			 , NAME
+			 , DESCRIPTION
+			 , USE_YN
+			 , REG_USER
+    	) VALUES (
+    		#{id}
+			 , #{name}
+			 , #{description}
+			 , #{useYn}
+			 , #{regUser}
+    	)
+    </insert>
+
+    <update id="updateNexacroMap" parameterType="map">
+        UPDATE SAMPLE
+           SET NAME = #{name}
+			 , DESCRIPTION = #{description}
+			 , USE_YN = #{useYn}
+			 , REG_USER = #{regUser}
+         WHERE ID = #{id}
+    </update>
+
+    <delete id="deleteNexacroMap" parameterType="map">
+        DELETE SAMPLE
+         WHERE ID = #{id}
+    </delete>
+
+</mapper>

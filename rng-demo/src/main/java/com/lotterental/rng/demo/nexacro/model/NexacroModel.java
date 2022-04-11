@@ -3,6 +3,7 @@ package com.lotterental.rng.demo.nexacro.model;
 
 import com.lotterental.rng.common.base.BaseModel;
 import com.lotterental.rng.demo.nexacro.vo.NexacroVo;
+
 import lombok.Data;
 
 @Data

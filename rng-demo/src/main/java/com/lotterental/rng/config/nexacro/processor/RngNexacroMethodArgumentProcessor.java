@@ -7,9 +7,7 @@ import java.util.Map;
 
 import com.lotterental.rng.common.cnst.HandlerParameterType;
 import com.lotterental.rng.core.common.exception.BusinessException;
-import org.springframework.stereotype.Component;
 
-@Component
 public class RngNexacroMethodArgumentProcessor {
 	
 	public void handleInputValue(Object object) {
@@ -17,7 +15,7 @@ public class RngNexacroMethodArgumentProcessor {
 		executePreProcess(object);
 	}
 	
-	public void validateParameterType(Object object) {
+	private void validateParameterType(Object object) {
 		if (!isAllowedParameterType(object)) {
 			throw new BusinessException("허용되지 않은 파라미터 타입");
 		}
@@ -31,7 +29,7 @@ public class RngNexacroMethodArgumentProcessor {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public void executePreProcess(Object object) {
+	private void executePreProcess(Object object) {
 		if (object instanceof List) {
 			((List<?>) object).stream()
 				.forEach(this::executePreProcess);

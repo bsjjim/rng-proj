@@ -1,63 +1,77 @@
 package com.lotterental.rng.common.cnst;
 
-import com.lotterental.rng.core.common.exception.BusinessException;
-
-import java.util.Arrays;
+import java.util.Map;
 import java.util.Optional;
+
+import com.lotterental.rng.core.common.exception.BusinessException;
+import com.nexacro.java.xapi.data.DataSet;
+import com.nexacro.uiadapter.spring.core.data.DataSetRowTypeAccessor;
 
 public enum DataRowStatus {
 	
-	INSERT("I"),
-	UPDATE("U"),
-	DELETE("D");
+	NORMAL("N", String.valueOf(DataSet.ROW_TYPE_NORMAL)),
+	INSERT("I", String.valueOf(DataSet.ROW_TYPE_INSERTED)),
+	UPDATE("U", String.valueOf(DataSet.ROW_TYPE_UPDATED)),
+	DELETE("D", String.valueOf(DataSet.ROW_TYPE_DELETED));
 	
-	private static final String rowStatusColumn = "GUBUN";
+	private static final String gridRowStatusColumn = "GUBUN";
+	
+	private static final String rowStatusColumn = DataSetRowTypeAccessor.NAME;
+	
+	private String gridRowStatus;
 	
 	private String rowStatus;
 	
-	DataRowStatus(String rowStatus) {
+	DataRowStatus(String gridRowStatus, String rowStatus) {
+		this.gridRowStatus = gridRowStatus;
 		this.rowStatus = rowStatus;
+	}
+	
+	public String getGridRowStatus() {
+		return gridRowStatus;
 	}
 	
 	public String getRowStatus() {
 		return rowStatus;
 	}
 	
-	public static String getRowStatusColumn() {
-		return rowStatusColumn;
+	public static boolean isInsertedRow(Map<String, Object> map) {
+		return isValidStatus(map, INSERT);
 	}
 	
-	public static boolean isInsertedRow(String rowStatus) {
-		validateRowStatus(rowStatus);
-		return INSERT.getRowStatus().equals(rowStatus);
+	public static boolean isUpdatedRow(Map<String, Object> map) {
+		return isValidStatus(map, UPDATE);
 	}
 	
-	public static boolean isUpdatedRow(String rowStatus) {
-		validateRowStatus(rowStatus);
-		return UPDATE.getRowStatus().equals(rowStatus);
+	public static boolean isDeletedRow(Map<String, Object> map) {
+		return isValidStatus(map, DELETE);
 	}
 	
-	public static boolean isDeletedRow(String rowStatus) {
-		validateRowStatus(rowStatus);
-		return DELETE.getRowStatus().equals(rowStatus);
+	private static boolean isValidStatus(Map<String, Object> map, DataRowStatus rowStatus) {
+//		if (map.get(gridRowStatusColumn) != null) {
+//			return rowStatus.getGridRowStatus().equals((String) map.get(gridRowStatusColumn));
+//		} else if (map.get(rowStatusColumn) != null) {
+//			return rowStatus.getRowStatus().equals(String.valueOf(map.get(rowStatusColumn)));
+//		} else {
+//			raiseException();
+//		}
+//		return false;
+		return getOptional(map, gridRowStatusColumn, rowStatus)
+				.orElseGet(() -> {
+					return getOptional(map, rowStatusColumn, rowStatus)
+								.orElseThrow(DataRowStatus::raiseException);
+				});
 	}
 	
-	private static void validateRowStatus(String rowStatus) {
-		checkNull(rowStatus);
-		checkValidStatus(rowStatus);
+	private static Optional<Boolean> getOptional(Map<String, Object> map, String statusColumn, DataRowStatus rowStatus) {
+		return Optional.ofNullable(map.get(statusColumn)).map(status -> {
+			return status.equals(getRowStatus(statusColumn, rowStatus));
+		});
 	}
 	
-	private static void checkNull(String rowStatus) {
-		Optional.ofNullable(rowStatus)
-			.orElseThrow(DataRowStatus::raiseException);
-	}
-	
-	private static void checkValidStatus(String rowStatus) {
-		Arrays.stream(values())
-			.map(DataRowStatus::getRowStatus)
-			.filter(rowStatus::equals)
-			.findAny()
-			.orElseThrow(DataRowStatus::raiseException);
+	private static String getRowStatus(String statusColumn, DataRowStatus rowStatus) {
+		return statusColumn.equals(gridRowStatusColumn) ? 
+				rowStatus.getGridRowStatus() : rowStatus.getRowStatus();
 	}
 	
 	private static RuntimeException raiseException() {

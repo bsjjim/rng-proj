@@ -12,8 +12,6 @@ import javax.annotation.PostConstruct;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 
-import com.lotterental.rng.config.WebAppConfig;
-import com.lotterental.rng.core.common.exception.BusinessException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.web.servlet.WebMvcRegistrations;
 import org.springframework.boot.web.servlet.ServletContextInitializer;
@@ -33,6 +31,8 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 
 import com.lotterental.rng.common.converter.RentalDataSetToListConverter;
 import com.lotterental.rng.common.converter.RentalDataSetToObjectConverter;
+import com.lotterental.rng.config.WebAppConfig;
+import com.lotterental.rng.core.common.exception.BusinessException;
 import com.nexacro.java.xapi.tx.PlatformType;
 import com.nexacro.java.xeni.services.GridExportImportServlet;
 import com.nexacro.uiadapter.spring.core.context.ApplicationContextProvider;
@@ -136,7 +136,6 @@ public class NexacroConfig extends WebAppConfig implements WebMvcRegistrations {
         nexacroException.setView(getNexacroView());
         nexacroException.setShouldLogStackTrace(true);
         nexacroException.setShouldSendStackTrace(true);
-//        nexacroException.setDefaultErrorMsg("fail.common.msg");
         nexacroException.setDefaultErrorMsg(defaultErrorMsg);
         nexacroException.setMessageSource(messageSource());
         nexacroException.setOrder(1);
@@ -153,7 +152,6 @@ public class NexacroConfig extends WebAppConfig implements WebMvcRegistrations {
     public DbVendorsProvider dbmsProvider() {
         DbVendorsProvider dbmsProvider = new DbVendorsProvider();
         Map<String, Dbms> dbvendors = new HashMap<>();
-//        dbvendors.put("HSQL Database Engine",new Hsql());
         dbvendors.put(dbVendor, new Hsql());
         dbmsProvider.setDbvendors(dbvendors);
         return dbmsProvider;
@@ -165,7 +163,6 @@ public class NexacroConfig extends WebAppConfig implements WebMvcRegistrations {
     @Bean
     public ServletRegistrationBean<GridExportImportServlet> gridExportImportServletBean() {
         ServletRegistrationBean<GridExportImportServlet> bean =
-//                new ServletRegistrationBean<>( new GridExportImportServlet(), "/XExportImport.do");
         		new ServletRegistrationBean<>( new GridExportImportServlet(), excelUrl);
         bean.setLoadOnStartup(1);
         return bean;
@@ -182,12 +179,6 @@ public class NexacroConfig extends WebAppConfig implements WebMvcRegistrations {
              */
             @Override
             public void onStartup(ServletContext servletContext) throws ServletException {
-//                servletContext.setInitParameter("export-path"       , "file:///C:/Temp/export/");  //엑셀 export 임시폴더 생성 기준 디렉터리
-//                servletContext.setInitParameter("import-path"       , "file:///C:/Temp/import/");  //엑셀 import 임시폴더 생성 기준 디렉터리
-//                servletContext.setInitParameter("monitor-enabled"   , "true");    //임시파일 삭제를 위한 모니터링 여부
-//                servletContext.setInitParameter("monitor-cycle-time", "30");      //임시파일 삭제를 위한 모니터링 주기( default:분)
-//                servletContext.setInitParameter("file-storage-time" , "10");      //임시파일 생성 디렉터리 모니터링 주기 (default:분)
-            	
             	servletContext.setInitParameter("export-path"       , exportPath);  		//엑셀 export 임시폴더 생성 기준 디렉터리
                 servletContext.setInitParameter("import-path"       , importPath);  		//엑셀 import 임시폴더 생성 기준 디렉터리
                 servletContext.setInitParameter("monitor-enabled"   , monitorEnabled);		//임시파일 삭제를 위한 모니터링 여부
@@ -205,10 +196,6 @@ public class NexacroConfig extends WebAppConfig implements WebMvcRegistrations {
     @Bean
     public CommonsMultipartResolver multipartResolver() throws IOException {
         CommonsMultipartResolver resolver = new CommonsMultipartResolver();
-//        resolver.setDefaultEncoding("utf-8");
-//        resolver.setMaxUploadSize(100000000);
-//        resolver.setMaxInMemorySize(100000000);
-        
         resolver.setDefaultEncoding(defaultEncoding);
         resolver.setMaxUploadSize(maxUploadSize);
         resolver.setMaxInMemorySize(maxInMemorySize);
@@ -222,7 +209,6 @@ public class NexacroConfig extends WebAppConfig implements WebMvcRegistrations {
      */
     @Bean
     public FileSystemResource tempFileDir() {
-//        FileSystemResource resource = new FileSystemResource("C:\\Temp");
     	FileSystemResource resource = new FileSystemResource(fileSystemResource);
         return resource;
     }
@@ -234,7 +220,6 @@ public class NexacroConfig extends WebAppConfig implements WebMvcRegistrations {
     @Order(0)
     public MultipartFilter multipartFilter() {
         MultipartFilter multipartFilter = new MultipartFilter();
-//        multipartFilter.setMultipartResolverBeanName("multipartResolver");
         multipartFilter.setMultipartResolverBeanName(multipartResolverBeanName);
         return multipartFilter;
     }

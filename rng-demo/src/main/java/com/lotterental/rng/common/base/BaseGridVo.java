@@ -3,30 +3,33 @@ package com.lotterental.rng.common.base;
 import com.lotterental.rng.common.annotation.ResponseIgnore;
 import com.lotterental.rng.common.cnst.DataRowStatus;
 
-import com.lotterental.rng.core.base.BaseVo;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = false)
-public abstract class BaseGridVo extends BaseVo {
-
+public abstract class BaseGridVo extends BaseMetaVo {
 	@ResponseIgnore
 	private String chk;
 	@ResponseIgnore
 	private String GUBUN;
-	@ResponseIgnore
-	private String datasetRowType;
 	
+	@Override
 	public boolean isInsertedRow() {
-		return DataRowStatus.isInsertedRow(GUBUN);
+		return isValidRowStatus(DataRowStatus.INSERT) || super.isInsertedRow();
 	}
 	
+	@Override
 	public boolean isUpdatedRow() {
-		return DataRowStatus.isUpdatedRow(GUBUN);
+		return isValidRowStatus(DataRowStatus.UPDATE) || super.isUpdatedRow();
 	}
 	
+	@Override
 	public boolean isDeletedRow() {
-		return DataRowStatus.isDeletedRow(GUBUN);
+		return isValidRowStatus(DataRowStatus.DELETE) || super.isDeletedRow();
+	}
+	
+	private boolean isValidRowStatus(DataRowStatus rowStatus) {
+		return (GUBUN != null) ? false : rowStatus.getGridRowStatus().equals(GUBUN);
 	}
 }

@@ -8,15 +8,13 @@ import java.util.function.Function;
 import java.util.stream.Stream;
 
 import com.lotterental.rng.common.annotation.ResponseIgnore;
+import com.lotterental.rng.common.base.BaseGridVo;
 import com.lotterental.rng.common.cnst.HandlerParameterType;
 import com.lotterental.rng.common.cnst.HandlerReturnType;
-import com.lotterental.rng.common.base.BaseGridVo;
 import com.lotterental.rng.core.base.BaseVo;
 import com.lotterental.rng.core.common.exception.BusinessException;
 import com.nexacro.uiadapter.spring.core.data.NexacroResult;
-import org.springframework.stereotype.Component;
 
-@Component
 public class RngNexacroMethodReturnValueProcessor {
 	
 	private final Field[] baseVoFields;

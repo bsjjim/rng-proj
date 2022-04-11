@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.lotterental.rng.demo.nexacro.mapper.Nexacro1Mapper">
+<mapper namespace="com.lotterental.rng.demo.nexacro.mapper.NexacroVoMapper">
 
-	<select id="selectNexacro" parameterType="NexacroVo" resultType="NexacroModel">
+	<select id="selectNexacroVo" parameterType="NexacroVo" resultType="NexacroModel">
 		SELECT ID
 			 , NAME
 			 , DESCRIPTION
@@ -12,39 +12,19 @@
 		 WHERE ID = #{id}
     </select>
     
-    <select id="selectNexacroList" parameterType="NexacroVo" resultType="NexacroModel">
+    <select id="selectNexacroVoList" parameterType="NexacroVo" resultType="NexacroModel">
 		SELECT ID
 			 , NAME
 			 , DESCRIPTION
 			 , USE_YN
 			 , REG_USER
 		  FROM SAMPLE
-		 WHERE ID = #{id}
+		 WHERE NAME = #{name}
     </select>
     
-    <select id="selectNexacroList2" parameterType="map" resultType="map">
-		SELECT ID
-			 , NAME
-			 , DESCRIPTION
-			 , USE_YN
-			 , REG_USER
-		  FROM SAMPLE
-		 WHERE ID = #{id}
-    </select>
-    
-    <select id="selectNexacroList3" parameterType="bizDataMap" resultType="bizDataMap">
-		SELECT ID
-			 , NAME
-			 , DESCRIPTION
-			 , USE_YN
-			 , REG_USER
-		  FROM SAMPLE
-		 WHERE ID = #{id}
-    </select>
-
-    <insert id="insertNexacro" parameterType="NexacroVo">
+    <insert id="insertNexacroVo" parameterType="NexacroVo">
 		<selectKey keyProperty="id" resultType="int" order="BEFORE">
-			select SEQ_ID.nextval FROM DUAL
+			select SEQ_ID.nextval
 		</selectKey>
     	INSERT INTO SAMPLE (
     		ID
@@ -61,7 +41,7 @@
     	)
     </insert>
 
-    <update id="updateNexacro" parameterType="NexacroVo">
+    <update id="updateNexacroVo" parameterType="NexacroVo">
         UPDATE SAMPLE
            SET NAME = #{name}
 			 , DESCRIPTION = #{description}
@@ -70,7 +50,7 @@
          WHERE ID = #{id}
     </update>
 
-    <delete id="deleteNexacro" parameterType="NexacroVo">
+    <delete id="deleteNexacroVo" parameterType="NexacroVo">
         DELETE SAMPLE
          WHERE ID = #{id}
     </delete>

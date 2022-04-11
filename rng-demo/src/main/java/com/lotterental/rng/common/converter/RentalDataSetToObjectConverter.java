@@ -2,7 +2,7 @@ package com.lotterental.rng.common.converter;
 
 import java.util.Map;
 
-import com.lotterental.rng.common.base.BizDataMap;
+import com.lotterental.rng.common.base.BusinessData;
 import com.nexacro.java.xapi.data.DataSet;
 import com.nexacro.uiadapter.spring.core.data.convert.ConvertDefinition;
 import com.nexacro.uiadapter.spring.core.data.convert.NexacroConvertException;
@@ -30,7 +30,7 @@ public class RentalDataSetToObjectConverter extends DataSetToObjectConverter {
 	    if (Map.class.isAssignableFrom(genericType)) {
 	    	definition.setGenericType(Map.class);
 	    	Object object = (Map<String, Object>) super.convert(source, definition);
-	    	return (BizDataMap.class.equals(genericType)) ? new BizDataMap(object) : object;
+	    	return (BusinessData.class.equals(genericType)) ? new BusinessData(object) : object;
 	    }
 	    return super.convert(source, definition);
 	}

@@ -7,13 +7,12 @@ import java.util.Optional;
 import com.lotterental.rng.common.cnst.DataRowStatus;
 import com.lotterental.rng.core.common.exception.BusinessException;
 
-
 @SuppressWarnings("serial")
-public class BizDataMap extends HashMap<String,Object> {
+public class BusinessData extends HashMap<String,Object> {
 	
 	@SuppressWarnings("unchecked")
-	public BizDataMap(Object object) {
-		Object obj = Optional.ofNullable(object).orElseThrow(() -> new BusinessException(""));
+	public BusinessData(Object object) {
+		Object obj = Optional.ofNullable(object).orElseThrow(() -> new BusinessException("error_code"));		
 		Optional.of(obj)
 			.filter(o -> HashMap.class.isAssignableFrom(o.getClass()))
 			.ifPresent(e -> putAll((HashMap<String,Object>) e));
@@ -41,19 +40,15 @@ public class BizDataMap extends HashMap<String,Object> {
 	}
 	
 	public boolean isInsertedRow() {
-		return DataRowStatus.isInsertedRow(getRowStatus());
+		return DataRowStatus.isInsertedRow(this);
 	}
 	
 	public boolean isUpdatedRow() {
-		return DataRowStatus.isUpdatedRow(getRowStatus());
+		return DataRowStatus.isUpdatedRow(this);
 	}
 	
 	public boolean isDeletedRow() {
-		return DataRowStatus.isDeletedRow(getRowStatus());
-	}
-	
-	private String getRowStatus() {
-		return (String) get(DataRowStatus.getRowStatusColumn());
+		return DataRowStatus.isDeletedRow(this);
 	}
 	
 }
