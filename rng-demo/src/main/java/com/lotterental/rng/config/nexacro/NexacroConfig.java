@@ -237,7 +237,7 @@ public class NexacroConfig extends WebAppConfig implements WebMvcRegistrations {
 
 	  	private void removeNexacroConverter() {
 	  		@SuppressWarnings("rawtypes")
-				Set<NexacroConverter> converterSet = pickOutConverterSets();
+			Set<NexacroConverter> converterSet = pickOutConverterSets();
 	  		converterSet.removeIf(converter -> converter instanceof DataSetToObjectConverter);
 	  		converterSet.removeIf(converter -> converter instanceof DataSetToListConverter);
 	  	}

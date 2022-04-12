@@ -11,6 +11,7 @@ import com.lotterental.rng.common.component.BasicGridBizComponent;
 import com.lotterental.rng.core.common.exception.BusinessException;
 import com.lotterental.rng.demo.nexacro.mapper.NexacroComponentMapper;
 import com.lotterental.rng.demo.nexacro.mapper.NexacroVoMapper;
+import com.lotterental.rng.demo.nexacro.model.NexacroModel;
 import com.lotterental.rng.demo.nexacro.service.NexacroVoService;
 import com.lotterental.rng.demo.nexacro.vo.NexacroVo;
 
@@ -25,7 +26,8 @@ public class NexacroVoServiceImpl implements NexacroVoService {
 
     @Override
 	public NexacroVo selectNexacroVo(NexacroVo nexacroVo) {
-		return nexacroVoMapper.selectNexacroVo(nexacroVo).build();
+    	NexacroModel model = nexacroVoMapper.selectNexacroVo(nexacroVo);
+    	return model != null ? model.build() : null;
 	}
     
     @Override

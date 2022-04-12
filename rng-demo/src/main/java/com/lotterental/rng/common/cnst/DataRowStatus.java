@@ -48,14 +48,6 @@ public enum DataRowStatus {
 	}
 	
 	private static boolean isValidStatus(Map<String, Object> map, DataRowStatus rowStatus) {
-//		if (map.get(gridRowStatusColumn) != null) {
-//			return rowStatus.getGridRowStatus().equals((String) map.get(gridRowStatusColumn));
-//		} else if (map.get(rowStatusColumn) != null) {
-//			return rowStatus.getRowStatus().equals(String.valueOf(map.get(rowStatusColumn)));
-//		} else {
-//			raiseException();
-//		}
-//		return false;
 		return getOptional(map, gridRowStatusColumn, rowStatus)
 				.orElseGet(() -> {
 					return getOptional(map, rowStatusColumn, rowStatus)
