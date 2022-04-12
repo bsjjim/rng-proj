@@ -28,7 +28,8 @@
 			 , AEDAT
 			 , MESSAGE
 		  FROM NEXA_SAMPLE
-		 WHERE MOD_ID = #{modId}
+		 WHERE MOD_ID LIKE #{modId} || '%'
+		   AND MOD_NM LIKE '%' || #{modNm} || '%'
     </select>
     
     <select id="selectNexacroVoList" parameterType="NexacroVo" resultType="NexacroModel">
@@ -57,7 +58,7 @@
 			 , AEDAT
 			 , MESSAGE
 		  FROM NEXA_SAMPLE
-		 WHERE MOD_ID = #{modId}
+		 WHERE MOD_ID LIKE #{modId} || '%'
 		   AND MOD_NM LIKE '%' || #{modNm} || '%'
 		<if test="modGcd != null and modGcd != ''">		   
 		   AND MOD_GCD = #{modGcd}
