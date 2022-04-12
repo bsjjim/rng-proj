@@ -1,18 +1,23 @@
-package com.lotterental.rng.core.data.redis.local;
+package com.lotterental.rng.core.data.redis.config;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lotterental.rng.core.data.redis.properties.RedisObjectProperties;
+import com.lotterental.rng.core.utils.JsonUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.data.redis.connection.RedisClusterConfiguration;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
+import org.springframework.session.data.redis.config.ConfigureRedisAction;
 import redis.clients.jedis.JedisPoolConfig;
 
 /**
@@ -25,7 +30,7 @@ import redis.clients.jedis.JedisPoolConfig;
 
 @Slf4j
 @Configuration
-@Profile({ "local", "dev" })
+@Profile({ "local", "dev", "prd" })
 public class RedisObjectConfig {
 
     @Value("${spring.redis.object.max-pooling:100}")
@@ -37,10 +42,31 @@ public class RedisObjectConfig {
     @Autowired
     protected RedisObjectProperties redisObjectProperties;
 
-    @Bean
-    @Profile("redis")
-    public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
-        return new PropertySourcesPlaceholderConfigurer();
+    /**
+     * Redis 연결용 ConnectionFactory를 얻는다.
+     *
+     * @return JedisConnectionFactory Redis 연결용 ConnectionFactory
+     */
+    @Bean(name = "redisObjectConnectionFactory")
+    public JedisConnectionFactory jedisConnectionFactory() {
+        if (redisObjectProperties.getCluster() == null) {
+            log.debug("RedisManager Object - redisClientType : NONE");
+            JedisConnectionFactory jedisConnectionFactory = new JedisConnectionFactory(jedisPoolConfig());
+            jedisConnectionFactory.setHostName(redisObjectProperties.getHost());
+            jedisConnectionFactory.setPort(redisObjectProperties.getPort());
+            jedisConnectionFactory.setDatabase(redisObjectProperties.getDatabase());
+            jedisConnectionFactory.setTimeout((int)(redisObjectProperties.getTimeout().toMillis() * 1000)); // milliseconds이므로 seconds로변환
+            jedisConnectionFactory.setUsePool(true);
+            jedisConnectionFactory.afterPropertiesSet();
+            return jedisConnectionFactory;
+        } else {
+            log.debug("RedisManager Object - redisClientType : CLUSTER");
+            JedisConnectionFactory factory = new JedisConnectionFactory(new RedisClusterConfiguration(redisObjectProperties.getCluster().getNodes()));
+            //factory.setDatabase(redisObjectProperties.getDatabase());
+            factory.setTimeout((int)(redisObjectProperties.getTimeout().toMillis() * 1000)); // milliseconds이므로 seconds로변환
+            return factory;
+
+        }
     }
 
     /**
@@ -59,39 +85,10 @@ public class RedisObjectConfig {
     }
 
     /**
-     * Redis 연결용 ConnectionFactory를 얻는다.
-     *
-     * @return JedisConnectionFactory Redis 연결용 ConnectionFactory
-     */
-    @Profile("redis")
-    @Bean(name = "redisObjectConnectionFactory")
-    public JedisConnectionFactory jedisConnectionFactory() {
-        if (redisObjectProperties.getCluster() == null) {
-            log.debug("RedisManager Object - redisClientType : NONE");
-            JedisConnectionFactory factory = new JedisConnectionFactory(jedisPoolConfig());
-            factory.setHostName(redisObjectProperties.getHost());
-            factory.setPort(redisObjectProperties.getPort());
-            factory.setDatabase(redisObjectProperties.getDatabase());
-            factory.setTimeout((int)(redisObjectProperties.getTimeout().toMillis() * 1000)); // milliseconds이므로 seconds로변환
-            factory.setUsePool(true);
-            factory.afterPropertiesSet();
-            return factory;
-        } else {
-            log.debug("RedisManager Object - redisClientType : CLUSTER");
-            JedisConnectionFactory factory = new JedisConnectionFactory(new RedisClusterConfiguration(redisObjectProperties.getCluster().getNodes()));
-            //factory.setDatabase(redisObjectProperties.getDatabase());
-            factory.setTimeout((int)(redisObjectProperties.getTimeout().toMillis() * 1000)); // milliseconds이므로 seconds로변환
-            return factory;
-
-        }
-    }
-
-    /**
      * Redis Object사용을 위한 RedisTemplate를 얻는다.
      *
      * @return Redis Object사용을 위한 RedisTemplate
      */
-    @Profile("redis")
     @Bean(name = "redisObjectTemplate")
     public RedisTemplate redisObjectTemplate() {
         RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
@@ -103,5 +100,11 @@ public class RedisObjectConfig {
         redisTemplate.setDefaultSerializer(stringSerializer);
         redisTemplate.setConnectionFactory(this.jedisConnectionFactory());
         return redisTemplate;
+    }
+
+    @Primary
+    @Bean(name = "defaultRedisSerializer")
+    public RedisSerializer<Object> defaultRedisSerializer() {
+        return new GenericJackson2JsonRedisSerializer(JsonUtils.getObjectMapper());
     }
 }

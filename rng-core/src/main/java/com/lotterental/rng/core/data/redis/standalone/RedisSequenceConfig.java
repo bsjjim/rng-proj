@@ -1,4 +1,4 @@
-package com.lotterental.rng.core.data.redis.local;
+package com.lotterental.rng.core.data.redis.standalone;
 
 import com.lambdaworks.redis.RedisClient;
 import com.lambdaworks.redis.RedisException;
@@ -25,8 +25,7 @@ import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @Configuration
-//@Profile({ "local", "dev" })
-@Profile({ "dev" })
+@Profile({ "local", "dev" })
 public class RedisSequenceConfig {
 
     @Autowired

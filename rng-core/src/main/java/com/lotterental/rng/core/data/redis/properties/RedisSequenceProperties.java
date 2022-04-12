@@ -3,6 +3,7 @@ package com.lotterental.rng.core.data.redis.properties;
 import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
 /**
  * 환경변수 Properties
@@ -14,6 +15,7 @@ import org.springframework.context.annotation.Configuration;
 
 
 @Configuration
+@Profile({ "local", "dev", "prd" })
 @ConfigurationProperties(prefix = "spring.redis.sequence")
 public class RedisSequenceProperties extends RedisProperties {
 }

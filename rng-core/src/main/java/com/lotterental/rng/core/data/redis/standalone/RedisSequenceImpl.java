@@ -1,4 +1,4 @@
-package com.lotterental.rng.core.data.redis.local;
+package com.lotterental.rng.core.data.redis.standalone;
 
 import com.lambdaworks.redis.api.StatefulRedisConnection;
 import com.lambdaworks.redis.api.sync.RedisCommands;
@@ -16,8 +16,7 @@ import org.springframework.stereotype.Repository;
  * @since 2022. 3. 2.
  */
 @Repository
-//@Profile({ "local", "dev" })
-@Profile({ "dev" })
+@Profile({ "local", "dev" })
 public class RedisSequenceImpl implements RedisSequence {
 
     @Autowired

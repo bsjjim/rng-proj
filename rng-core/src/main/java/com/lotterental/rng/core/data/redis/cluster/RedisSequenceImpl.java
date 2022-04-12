@@ -1,4 +1,4 @@
-package com.lotterental.rng.core.data.redis.prd;
+package com.lotterental.rng.core.data.redis.cluster;
 
 import com.lambdaworks.redis.cluster.api.StatefulRedisClusterConnection;
 import com.lambdaworks.redis.cluster.api.sync.RedisAdvancedClusterCommands;
