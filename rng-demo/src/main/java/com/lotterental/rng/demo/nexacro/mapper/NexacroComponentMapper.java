@@ -9,10 +9,10 @@ import com.lotterental.rng.demo.nexacro.model.NexacroModel;
 import com.lotterental.rng.demo.nexacro.vo.NexacroVo;
 
 @Mapper
-public interface Nexacro2Mapper extends BaseGridMapper {
-
-	NexacroModel selectNexacro(NexacroVo nexacroVo);
+public interface NexacroComponentMapper extends BaseGridMapper {
 	
-	List<NexacroModel> selectNexacroList(NexacroVo nexacroVo);
+	NexacroModel selectNexacroVo(NexacroVo nexacroVo);
+	
+	List<NexacroModel> selectNexacroVoList(NexacroVo nexacroVo);
 
 }

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lotterental.rng.demo.nexacro.mapper.NexacroMapMapper">
+
+	<select id="selectNexacroMap" parameterType="map" resultType="map">
+		SELECT SYS_CD
+			 , MOD_ID
+			 , MOD_NM
+			 , MOD_TY
+			 , MOD_GCD
+			 , CLA_NM
+			 , USE_YN
+			 , DES2
+			 , DUT_L
+			 , DUT_M
+			 , DUT_S
+			 , INQ_YN
+			 , RG_YN
+			 , DEL_YN
+			 , PRT_YN
+			 , EXL_YN
+			 , CON_YN
+			 , ERNAM
+			 , ERNAMT
+			 , ERDAT
+			 , AENAM
+			 , AENAMT
+			 , AEDAT
+			 , MESSAGE
+		  FROM NEXA_SAMPLE
+		 WHERE MOD_ID LIKE #{modId} || '%'
+		   AND MOD_NM LIKE '%' || #{modNm} || '%'
+    </select>
+    
+    <select id="selectNexacroMapList" parameterType="map" resultType="map">
+		SELECT SYS_CD
+			 , MOD_ID
+			 , MOD_NM
+			 , MOD_TY
+			 , MOD_GCD
+			 , CLA_NM
+			 , USE_YN
+			 , DES2
+			 , DUT_L
+			 , DUT_M
+			 , DUT_S
+			 , INQ_YN
+			 , RG_YN
+			 , DEL_YN
+			 , PRT_YN
+			 , EXL_YN
+			 , CON_YN
+			 , ERNAM
+			 , ERNAMT
+			 , ERDAT
+			 , AENAM
+			 , AENAMT
+			 , AEDAT
+			 , MESSAGE
+		  FROM NEXA_SAMPLE
+		 WHERE MOD_ID LIKE #{modId} || '%'
+		   AND MOD_NM LIKE '%' || #{modNm} || '%'
+		<if test="modGcd != null and modGcd != ''">		   
+		   AND MOD_GCD = #{modGcd}
+		</if>
+		<if test="modTy != null and modTy != ''">
+		   AND MOD_TY = #{modTy}
+		</if>
+		<if test="sysCd != null and sysCd != ''">
+		   AND SYS_CD = #{sysCd}
+		</if>
+    </select>
+    
+    <insert id="insertNexacroMap" parameterType="map">
+		INSERT 
+    	  INTO NEXA_SAMPLE (
+    	  	SYS_CD
+			 , MOD_ID
+			 , MOD_NM
+			 , MOD_TY
+			 , MOD_GCD
+			 , CLA_NM
+			 , USE_YN
+			 , DES2
+			 , DUT_L
+			 , DUT_M
+			 , DUT_S
+			 , INQ_YN
+			 , RG_YN
+			 , DEL_YN
+			 , PRT_YN
+			 , EXL_YN
+			 , CON_YN
+			 , ERNAM
+			 , ERNAMT
+			 , ERDAT
+			 , AENAM
+			 , AENAMT
+			 , AEDAT
+			 , MESSAGE
+		) VALUES (
+			#{sysCd}
+			 , #{modId}
+			 , #{modNm}
+			 , #{modTy}
+			 , #{modGcd}
+			 , #{claNm}
+			 , #{useYn}
+			 , #{des2}
+			 , #{dutL}
+			 , #{dutM}
+			 , #{dutS}
+			 , #{inqYn}
+			 , #{rgYn}
+			 , #{delYn}
+			 , #{prtYn}
+			 , #{exlYn}
+			 , #{conYn}
+			 , #{ernam}
+			 , #{ernamt}
+			 , #{erdat}
+			 , #{aenam}
+			 , #{aenamt}
+			 , #{aedat}
+			 , #{message}
+		)
+    </insert>
+
+    <update id="updateNexacroMap" parameterType="map">
+        UPDATE NEXA_SAMPLE
+           SET SYS_CD = #{sysCd}
+			 , MOD_NM = #{modNm}
+			 , MOD_TY = #{modTy}
+			 , MOD_GCD = #{modGcd}
+			 , CLA_NM = #{claNm}
+			 , USE_YN = #{useYn}
+			 , DES2 = #{des2}
+			 , DUT_L = #{dutL}
+			 , DUT_M = #{dutM}
+			 , DUT_S = #{dutS}
+			 , INQ_YN = #{inqYn}
+			 , RG_YN = #{rgYn}
+			 , DEL_YN = #{delYn}
+			 , PRT_YN = #{prtYn}
+			 , EXL_YN = #{exlYn}
+			 , CON_YN = #{conYn}
+			 , ERNAM = #{ernam}
+			 , ERNAMT = #{ernamt}
+			 , ERDAT = #{erdat}
+			 , AENAM = #{aenam}
+			 , AENAMT = #{aenamt}
+			 , AEDAT = #{aedat}
+			 , MESSAGE = #{message}
+         WHERE MOD_ID = #{modId}
+    </update>
+
+    <delete id="deleteNexacroMap" parameterType="map">
+        DELETE NEXA_SAMPLE
+         WHERE MOD_ID = #{modId}
+    </delete>
+
+</mapper>

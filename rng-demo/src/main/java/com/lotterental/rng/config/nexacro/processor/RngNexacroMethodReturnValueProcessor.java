@@ -8,24 +8,17 @@ import java.util.function.Function;
 import java.util.stream.Stream;
 
 import com.lotterental.rng.common.annotation.ResponseIgnore;
+import com.lotterental.rng.common.base.BaseGridVo;
 import com.lotterental.rng.common.cnst.HandlerParameterType;
 import com.lotterental.rng.common.cnst.HandlerReturnType;
-import com.lotterental.rng.common.base.BaseGridVo;
 import com.lotterental.rng.core.base.BaseVo;
 import com.lotterental.rng.core.common.exception.BusinessException;
 import com.nexacro.uiadapter.spring.core.data.NexacroResult;
-import org.springframework.stereotype.Component;
 
-@Component
 public class RngNexacroMethodReturnValueProcessor {
 	
-	private final Field[] baseVoFields;
-	private final Field[] baseGridVoFields;
-	
-	public RngNexacroMethodReturnValueProcessor() {
-		this.baseVoFields = BaseVo.class.getDeclaredFields();
-		this.baseGridVoFields = BaseGridVo.class.getDeclaredFields();
-	}
+	private static final Field[] baseVoFields = BaseVo.class.getDeclaredFields();
+	private static final Field[] baseGridVoFields = BaseGridVo.class.getDeclaredFields();
 	
 	public void handleReturnValue(Object object) {
 		validateReturnType(object);
@@ -40,9 +33,17 @@ public class RngNexacroMethodReturnValueProcessor {
 	
 	private void executePostProcess(Object object) {
 		NexacroResult.class.cast(object).getDataSets().values().stream()
+			.filter(this::isExistsDataObject)
 			.map(this::transElementToStream)
 			.flatMap(Function.identity())
 			.forEach(this::removeIgnoredField);
+	}
+	
+	private boolean isExistsDataObject(Object object) {
+		if (object instanceof List) {
+			return ((List<?>) object).size() > 0;
+		}
+		return object != null;
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -71,12 +72,10 @@ public class RngNexacroMethodReturnValueProcessor {
 	}
 	
 	private void assignVoModelPolicy(BaseVo baseVo) {
-
 //		assignIgnoredFieldToNull(baseVoFields, baseVo);
 		if (baseVo instanceof BaseGridVo) {
 //			assignIgnoredFieldToNull(baseGridVoFields, (BaseGridVo) baseVo);
 		}
-
 	}
 	
 	private void assignIgnoredFieldToNull(Field[] fields, BaseVo baseVo) {
@@ -90,10 +89,11 @@ public class RngNexacroMethodReturnValueProcessor {
 	}
 	
 	private void assginFieldToNull(Field field, BaseVo baseVo) {
+		field.setAccessible(true);
 		try {
-			field.setAccessible(true);
 			field.set(baseVo, null);
-		} catch (Exception e) {
+		} catch (IllegalArgumentException | IllegalAccessException e) {
+			throw new BusinessException("", e);	// TODO: 적절한 시스템 에러 메시지
 		} finally {
 			field.setAccessible(false);
 		}

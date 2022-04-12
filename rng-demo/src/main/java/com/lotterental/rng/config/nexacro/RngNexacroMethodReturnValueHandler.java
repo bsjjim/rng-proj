@@ -1,6 +1,5 @@
 package com.lotterental.rng.config.nexacro;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.MethodParameter;
 import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.ModelAndViewContainer;
@@ -10,14 +9,11 @@ import com.nexacro.uiadapter.spring.core.resolve.NexacroHandlerMethodReturnValue
 
 public class RngNexacroMethodReturnValueHandler extends NexacroHandlerMethodReturnValueHandler {
 
-//	private static final HandlerExecPostProcessor processor;
-//
-//	static {
-//		processor = new HandlerExecPostProcessor();
-//	}
-
-	@Autowired
-	RngNexacroMethodReturnValueProcessor rngNexacroMethodReturnValueProcessor;
+	private RngNexacroMethodReturnValueProcessor rngNexacroMethodReturnValueProcessor;
+	
+	public RngNexacroMethodReturnValueHandler() {
+		this.rngNexacroMethodReturnValueProcessor = new RngNexacroMethodReturnValueProcessor();
+	}
 
 	@Override
 	public void handleReturnValue(
