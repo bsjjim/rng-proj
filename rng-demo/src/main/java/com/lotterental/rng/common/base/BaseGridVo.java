@@ -12,24 +12,43 @@ public abstract class BaseGridVo extends BaseMetaVo {
 	@ResponseIgnore
 	private String _chk;
 	@ResponseIgnore
-	private String gubun;
+	private String _gubun;
 	
 	@Override
 	public boolean isInsertedRow() {
-		return isValidRowStatus(DataRowStatus.INSERT) || super.isInsertedRow();
+		return isValidRowStatus(DataRowStatus.INSERT);
 	}
 	
 	@Override
 	public boolean isUpdatedRow() {
-		return isValidRowStatus(DataRowStatus.UPDATE) || super.isUpdatedRow();
+		return isValidRowStatus(DataRowStatus.UPDATE);
 	}
 	
 	@Override
 	public boolean isDeletedRow() {
-		return isValidRowStatus(DataRowStatus.DELETE) || super.isDeletedRow();
+		return isValidRowStatus(DataRowStatus.DELETE);
 	}
 	
 	private boolean isValidRowStatus(DataRowStatus rowStatus) {
-		return (gubun != null) ? false : rowStatus.getGridRowStatus().equals(gubun);
+		return isGridRow()
+				? rowStatus.getGridRowStatus().equals(_gubun)
+				: isValidSuperRowStatus(rowStatus);
+	}
+	
+	private boolean isGridRow() {
+		return _gubun != null;
+	}
+	
+	private boolean isValidSuperRowStatus(DataRowStatus status) {
+		switch (status) {
+		case INSERT:
+			return super.isInsertedRow();
+		case UPDATE:
+			return super.isUpdatedRow();
+		case DELETE:
+			return super.isDeletedRow();
+		default:
+			return false;
+		}
 	}
 }

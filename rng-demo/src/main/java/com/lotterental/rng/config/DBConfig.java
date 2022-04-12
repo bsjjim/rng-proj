@@ -29,10 +29,10 @@ public class DBConfig {
     public SqlSessionFactory sqlSessionFactory(@Value("${config.db-config.config-location}") String configLocationPath,
 												@Value("${config.db-config.mapper-location}") String mapperLocationPath,
 												@Value("${config.db-config.type-aliases-package}") String typeAliasesPackage) throws Exception {
-		SqlSessionFactoryBean sqlSessionFactory = new SqlSessionFactoryBean();
-		sqlSessionFactory.setDataSource(dataSource());
-		Resource configLocation = new PathMatchingResourcePatternResolver().getResource(configLocationPath);
+    	Resource configLocation = new PathMatchingResourcePatternResolver().getResource(configLocationPath);
 		Resource[] mapperLocations = new PathMatchingResourcePatternResolver().getResources(mapperLocationPath);
+    	SqlSessionFactoryBean sqlSessionFactory = new SqlSessionFactoryBean();
+		sqlSessionFactory.setDataSource(dataSource());
 		sqlSessionFactory.setTypeAliasesPackage(typeAliasesPackage);
 		sqlSessionFactory.setConfigLocation(configLocation);
 		sqlSessionFactory.setMapperLocations(mapperLocations);

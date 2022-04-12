@@ -29,7 +29,6 @@
 			 , MESSAGE
 		  FROM NEXA_SAMPLE
 		 WHERE MOD_ID LIKE #{modId} || '%'
-		   AND MOD_NM LIKE '%' || #{modNm} || '%'
     </select>
     
     <select id="selectNexacroDataList" parameterType="bizData" resultType="bizData">

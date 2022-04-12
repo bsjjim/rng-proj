@@ -14,7 +14,7 @@ public enum DataRowStatus {
 	UPDATE("U", String.valueOf(DataSet.ROW_TYPE_UPDATED)),
 	DELETE("D", String.valueOf(DataSet.ROW_TYPE_DELETED));
 	
-	private static final String gridRowStatusColumn = "gubun";
+	private static final String gridRowStatusColumn = "_gubun";
 	
 	private static final String rowStatusColumn = DataSetRowTypeAccessor.NAME;
 	

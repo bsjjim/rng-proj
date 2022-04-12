@@ -10,6 +10,8 @@ import com.lotterental.rng.core.common.exception.BusinessException;
 @SuppressWarnings("serial")
 public class BusinessData extends HashMap<String,Object> {
 	
+	public BusinessData() {}
+	
 	@SuppressWarnings("unchecked")
 	public BusinessData(Object object) {
 		Object obj = Optional.ofNullable(object).orElseThrow(() -> new BusinessException("error_code"));		
