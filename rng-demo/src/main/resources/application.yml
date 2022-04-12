@@ -1,4 +1,111 @@
+################################################################################
+# Spring boot 설정 예제
+# 환경에 따라 공통 설정
+################################################################################
+################################################################################
+# 공통변수 영역 시작 ##############################################################
+################################################################################
+################################################################################
+#
+#  서버환경 기본 데이터
+#  Undertow : Embed Server를 사용한다.
+#
+################################################################################
+server:
+  port: 8080
+  servlet:
+    context-path: /rng # 컨텍스 Path
+    register-default-servlet: true
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  error:
+    whitelabel:
+      enabled: false
+    include-exception: false
+    include-stacktrace: never # 오류 응답에 stacktrace 내용을 포함할 지 여부
+    path: '/error' # 오류 응답을 처리할 Handler의 경로
+#  undertow: ## Undertow 설정
+#    uri-encoding: UTF-8
+#    accesslog: ## Access Log 설정
+#      dir: /app_log
+#      enabled: true # Server Access Log 사용 여부
+#      pattern: "%t %a %r %s %D %I" # Server Access Log Pattern
+#      prefix: nap_demo_access # Server Access Log 파일명
+#      suffix: .out
+  tomcat: ## Tomcat 설정
+    uri-encoding: UTF-8
+    basedir: /app_log
+    accesslog: ## Access Log 설정
+      enabled: true # Server Access Log 사용 여부
+      pattern: "%{yyyy-MM-dd HH:mm:ss}t %a %r %s %{Referer}i %{User-Agent}i %D %I" # Server Access Log Pattern
+      prefix: napexample_acc # Server Access Log 파일명
+      suffix: .out
+      buffered: true
+
+
+################################################################################
+#
+#  Spring Web 서버 설정
+#
+################################################################################
 spring:
+  application:
+    name: nap-be-demo-server
+  servlet:
+    multipart:
+      max-file-size: 1024MB
+      max-request-size: 1024MB
+      enabled: true
+      resolve-lazily: false
+#  profiles:
+#    active: local # Profile 설정 (CI/CD)
+  mvc:
+    throw-exception-if-no-handler-found: true
+  devtools:
+    livereload:
+      enabled: true
+
+
+################################################################################
+#
+# logging config
+#
+################################################################################
+logging:
+  config: classpath:logback-spring.xml
+
+################################################################################
+#
+# DB logging config
+#
+################################################################################
+log4jdbc:
+  spylogdelegator:
+    name: net.sf.log4jdbc.log.slf4j.Slf4jSpyLogDelegator
+
+################################################################################
+#
+# Business config (start with: rng)
+#
+################################################################################
+
+################################################################################
+# 공통변수 영역 종료 ##############################################################
+################################################################################
+
+## 배포환경에 따른 설정
+---
+################################################################################
+#
+# local 환경 (CI/CD)
+#
+################################################################################
+spring:
+  config:
+    activate:
+      on-profile: local
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
@@ -21,28 +128,28 @@ spring:
       enabled: true
       path: /h2-console
 
-server:
-  context-path: lotterental
-  servlet:
-    register-default-servlet: true
-    encoding:
-      charset: UTF-8
-      enabled: true
-      force: true
 
-#logging config
-logging:
-  config: classpath:logback-spring.xml
+  redis:
+    sequence:
+      host: localhost
+      port: 6379
+      database: 0
+      timeout: 50
+    object:
+      host: localhost
+      port: 6379
+      database: 1
+      timeout: 50
+      min-pooling: 5
+      max-pooling: 20
+    session:
+      host: localhost
+      port: 6379
+      database: 0
+      timeout: 50
+      min-pooling: 5
+      max-pooling: 20
 
-log4jdbc:
-  spylogdelegator:
-    name: net.sf.log4jdbc.log.slf4j.Slf4jSpyLogDelegator
-    
----
-
-
-
----
 # framework config
 config:
   db-config:
@@ -81,4 +188,199 @@ config:
     cache-seconds: 60
     use_code_as-default-message: true
     locale-change-interceptor:
-      param-name: lang    
+      param-name: lang
+---
+################################################################################
+#
+# dev 환경 (CI/CD)
+#
+################################################################################
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      driver-class-name: org.h2.Driver
+      jdbc-url: jdbc:h2:~/test
+      username: sa
+      password:
+      minimumIdle: 5
+      maximumPoolSize: 50
+      idleTimeout: 30000
+      maxLifetime: 1800000
+      connectionTimeout: 30000
+      leak-detection-threshold: 48000
+    schema: classpath:schema.sql
+    initialization-mode: always
+  main:
+    allow-bean-definition-overriding: true
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+
+  redis:
+    sequence:
+      host: localhost
+      port: 6379
+      database: 0
+      timeout: 50
+    object:
+      host: localhost
+      port: 6379
+      database: 1
+      timeout: 50
+      min-pooling: 5
+      max-pooling: 20
+    session:
+      host: localhost
+      port: 6379
+      database: 0
+      timeout: 50
+      min-pooling: 5
+      max-pooling: 20
+
+# framework config
+config:
+  db-config:
+    config-location: classpath:mybatis-config.xml
+    mapper-location: classpath:mapper/**/*.xml
+    type-aliases-package: com.lotterental.rng.demo
+    sql-session-bean-name: sqlSession
+  nexacro-config:
+    default-error-msg: fail.common.msg
+    db-vendor: HSQL Database Engine
+    excel-url: /XExportImport.do
+    export-path: file:///C:/Temp/export/
+    import-path: file:///C:/Temp/import/
+    monitor-enabled: true
+    monitor-cycle-time: 30
+    file-storage-time: 10
+    default-encoding: utf-8
+    max-upload-size: 100000000
+    max-in-memory-size: 100000000
+    file-system-resource: C:\\Temp
+    multipart-resolver-bean-name: multipartResolver
+  simple-cors-filter:
+    allow-credentials: true
+    max-age: 3600
+    http-method: OPTIONS
+  tr-config:
+    expression: execution(* com.lotterental..service.impl.*Impl.*(..))
+  web-app-config:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+      name: forward:/index.html
+    resource-location: /nx/
+    message-base-loc: classpath:/messages/message
+    default-encoding: UTF-8
+    cache-seconds: 60
+    use_code_as-default-message: true
+    locale-change-interceptor:
+      param-name: lang
+
+
+---
+################################################################################
+#
+# prd 환경 (CI/CD)
+#
+################################################################################
+spring:
+  config:
+    activate:
+      on-profile: prd
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      driver-class-name: org.h2.Driver
+      jdbc-url: jdbc:h2:~/test
+      username: sa
+      password:
+      minimumIdle: 5
+      maximumPoolSize: 50
+      idleTimeout: 30000
+      maxLifetime: 1800000
+      connectionTimeout: 30000
+      leak-detection-threshold: 48000
+    schema: classpath:schema.sql
+    initialization-mode: always
+  main:
+    allow-bean-definition-overriding: true
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+
+  redis:
+    sequence:
+      host: localhost
+      port: 6379
+      database: 0
+      timeout: 50
+    object:
+      host: localhost
+      port: 6379
+      database: 1
+      timeout: 50
+      min-pooling: 5
+      max-pooling: 20
+    session:
+      host: localhost
+      port: 6379
+      database: 0
+      timeout: 50
+      min-pooling: 5
+      max-pooling: 20
+
+# framework config
+config:
+  db-config:
+    config-location: classpath:mybatis-config.xml
+    mapper-location: classpath:mapper/**/*.xml
+    type-aliases-package: com.lotterental.rng.demo
+    sql-session-bean-name: sqlSession
+  nexacro-config:
+    default-error-msg: fail.common.msg
+    db-vendor: HSQL Database Engine
+    excel-url: /XExportImport.do
+    export-path: file:///C:/Temp/export/
+    import-path: file:///C:/Temp/import/
+    monitor-enabled: true
+    monitor-cycle-time: 30
+    file-storage-time: 10
+    default-encoding: utf-8
+    max-upload-size: 100000000
+    max-in-memory-size: 100000000
+    file-system-resource: C:\\Temp
+    multipart-resolver-bean-name: multipartResolver
+  simple-cors-filter:
+    allow-credentials: true
+    max-age: 3600
+    http-method: OPTIONS
+  tr-config:
+    expression: execution(* com.lotterental..service.impl.*Impl.*(..))
+  web-app-config:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+      name: forward:/index.html
+    resource-location: /nx/
+    message-base-loc: classpath:/messages/message
+    default-encoding: UTF-8
+    cache-seconds: 60
+    use_code_as-default-message: true
+    locale-change-interceptor:
+      param-name: lang
+
+
+################################################################################
+# CI/CD를 위한 개별변수영역 종료 ###################################################
+################################################################################
+
+
