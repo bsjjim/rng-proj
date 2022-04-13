@@ -18,12 +18,12 @@ public class NexacroDataServiceImpl implements NexacroDataService {
     private NexacroDataMapper nexacroMapper;
     
     @Override
-    public BusinessData selectNexacroData(BusinessData nexacroData) {
+    public BusinessData selectNexacroData(BusinessData nexacroData) throws Exception {
     	return nexacroMapper.selectNexacroData(nexacroData);
     }
 
     @Override
-    public List<BusinessData> selectNexacroDataList(BusinessData nexacroData) {
+    public List<BusinessData> selectNexacroDataList(BusinessData nexacroData) throws Exception {
     	if (!StringUtils.hasText(nexacroData.getString("modId"))) {
     		throw new BusinessException("required", "모듈ID");	// 모듈ID는 필수값 입니다.
     	} else if (!StringUtils.hasText(nexacroData.getString("modNm"))) {
@@ -33,7 +33,7 @@ public class NexacroDataServiceImpl implements NexacroDataService {
     }
     
     @Override
-	public int saveNexacroData(BusinessData nexacroData) {
+	public int saveNexacroData(BusinessData nexacroData) throws Exception {
 		if (nexacroData.isInsertedRow()) {
 			return nexacroMapper.insertNexacroData(nexacroData);
 		} else if (nexacroData.isUpdatedRow()) {
@@ -45,7 +45,7 @@ public class NexacroDataServiceImpl implements NexacroDataService {
 	}
     
     @Override
-    public int saveNexacroDataList(List<BusinessData> nexacroDataList) {
+    public int saveNexacroDataList(List<BusinessData> nexacroDataList) throws Exception {
     	int cnt = 0;
     	for (BusinessData nexacroData : nexacroDataList) {
     		if (nexacroData.isInsertedRow()) {
@@ -60,7 +60,7 @@ public class NexacroDataServiceImpl implements NexacroDataService {
     }
 
     @Override
-    public int saveNexacroDataList2(List<BusinessData> nexacroDataList) {
+    public int saveNexacroDataList2(List<BusinessData> nexacroDataList) throws Exception {
     	return nexacroDataList.stream()
     			.mapToInt(this::process)
     			.sum();

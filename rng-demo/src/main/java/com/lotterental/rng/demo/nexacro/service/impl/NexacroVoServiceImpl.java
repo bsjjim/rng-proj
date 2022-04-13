@@ -25,13 +25,13 @@ public class NexacroVoServiceImpl implements NexacroVoService {
     private NexacroComponentMapper nexacroComponentMapper;
 
     @Override
-	public NexacroVo selectNexacroVo(NexacroVo nexacroVo) {
+	public NexacroVo selectNexacroVo(NexacroVo nexacroVo) throws Exception {
     	NexacroModel model = nexacroVoMapper.selectNexacroVo(nexacroVo);
     	return model != null ? model.build() : null;
 	}
     
     @Override
-    public List<NexacroVo> selectNexacroVoList(NexacroVo nexacroVo) {
+    public List<NexacroVo> selectNexacroVoList(NexacroVo nexacroVo) throws Exception {
     	if (!StringUtils.hasText(nexacroVo.getModId())) {
     		throw new BusinessException("required", "모듈ID");	// 모듈ID는 필수값 입니다.
     	} else if (!StringUtils.hasText(nexacroVo.getModNm())) {
@@ -43,7 +43,7 @@ public class NexacroVoServiceImpl implements NexacroVoService {
     }
     
     @Override
-    public int saveNexacroVo(NexacroVo nexacroVo) {
+    public int saveNexacroVo(NexacroVo nexacroVo) throws Exception {
     	if (nexacroVo.isInsertedRow()) {
 			return nexacroVoMapper.insertNexacroVo(nexacroVo);
 		} else if (nexacroVo.isUpdatedRow()) {
@@ -55,7 +55,7 @@ public class NexacroVoServiceImpl implements NexacroVoService {
     }
     
     @Override
-    public int saveNexacroVoList(List<NexacroVo> nexacroVoList) {
+    public int saveNexacroVoList(List<NexacroVo> nexacroVoList) throws Exception {
     	int cnt = 0;
     	for (NexacroVo nexacroVo : nexacroVoList) {
     		if (nexacroVo.isInsertedRow()) {
@@ -70,7 +70,7 @@ public class NexacroVoServiceImpl implements NexacroVoService {
     }
 
     @Override
-    public int saveNexacroVoList2(List<NexacroVo> nexacroVoList) {
+    public int saveNexacroVoList2(List<NexacroVo> nexacroVoList) throws Exception {
     	return nexacroVoList.stream()
     			.mapToInt(this::process)
     			.sum();
@@ -88,7 +88,7 @@ public class NexacroVoServiceImpl implements NexacroVoService {
 	}
 
     @Override
-    public int saveNexacroVoList3(List<NexacroVo> nexacroVoList) {
+    public int saveNexacroVoList3(List<NexacroVo> nexacroVoList) throws Exception {
     	return BasicGridBizComponent.newInstance(nexacroVoList, nexacroComponentMapper).process();
     }
 

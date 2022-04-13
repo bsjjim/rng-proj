@@ -21,12 +21,12 @@ public class NexacroMapServiceImpl implements NexacroMapService {
     private NexacroMapMapper nexacroMapper;
 
     @Override
-	public Map<String,Object> selectNexacroMap(Map<String, Object> nexacroMap) {
+	public Map<String,Object> selectNexacroMap(Map<String, Object> nexacroMap) throws Exception {
     	return nexacroMapper.selectNexacroMap(nexacroMap);
 	}
     
     @Override
-    public List<Map<String,Object>> selectNexacroMapList(Map<String, Object> nexacroMap) {
+    public List<Map<String,Object>> selectNexacroMapList(Map<String, Object> nexacroMap) throws Exception {
     	if (!StringUtils.hasText((String) nexacroMap.get("modId"))) {
     		throw new BusinessException("required", "모듈ID");	// 모듈ID는 필수값 입니다.
     	} else if (!StringUtils.hasText((String) nexacroMap.get("modNm"))) {
@@ -36,7 +36,7 @@ public class NexacroMapServiceImpl implements NexacroMapService {
     }
     
     @Override
-    public int saveNexacroMap(Map<String, Object> nexacroMap) {
+    public int saveNexacroMap(Map<String, Object> nexacroMap) throws Exception {
     	if (DataRowStatus.isInsertedRow(nexacroMap)) {
 			return nexacroMapper.insertNexacroMap(nexacroMap);
 		} else if (DataRowStatus.isUpdatedRow(nexacroMap)) {
@@ -48,7 +48,7 @@ public class NexacroMapServiceImpl implements NexacroMapService {
     }
     
     @Override
-    public int saveNexacroMapList(List<Map<String, Object>> nexacroMapList) {
+    public int saveNexacroMapList(List<Map<String, Object>> nexacroMapList) throws Exception {
     	int cnt = 0;
     	for (Map<String, Object> nexacroMap : nexacroMapList) {
     		if (DataRowStatus.isInsertedRow(nexacroMap)) {
@@ -63,7 +63,7 @@ public class NexacroMapServiceImpl implements NexacroMapService {
     }
 
     @Override
-    public int saveNexacroMapList2(List<Map<String, Object>> nexacroMapList) {
+    public int saveNexacroMapList2(List<Map<String, Object>> nexacroMapList) throws Exception {
     	return nexacroMapList.stream()
     			.mapToInt(this::process)
     			.sum();
@@ -81,7 +81,7 @@ public class NexacroMapServiceImpl implements NexacroMapService {
     }
     
     @Override
-	public void updateNexacroList(List<Map<String, Object>> mapList) {
+	public void updateNexacroList(List<Map<String, Object>> mapList) throws Exception {
 		int size = mapList.size();
 
 		for (int i=0; i<size; i++) {
