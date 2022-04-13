@@ -32,22 +32,12 @@ public class RngExcelDataStorageBase implements XeniExcelDataStorageBase {
 	@Override
 	public int saveExportStream(VariableList var1, DataSet var2, ByteArrayOutputStream var3, String var4, String var5,
 			HttpServletResponse var6) throws Exception {
-		System.out.println(var1);
-		System.out.println(var2);
-		System.out.println(var3);
-		System.out.println(var4);
-		System.out.println(var5);
 		return 0;
 	}
 
 	@Override
 	public DataSet saveExportStream(VariableList var1, DataSet var2, ByteArrayOutputStream var3, String var4,
 			String var5) throws Exception {
-		System.out.println(var1);
-		System.out.println(var2);
-		System.out.println(var3);
-		System.out.println(var4);
-		System.out.println(var5);
 		return null;
 	}
 	
