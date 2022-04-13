@@ -51,44 +51,38 @@ import com.nexacro.uiadapter.spring.dao.dbms.Hsql;
 @Configuration
 public class NexacroConfig extends WebAppConfig implements WebMvcRegistrations {
 	
-	@Value("${config.nexacro-config.default-error-msg}")
+	@Value("${rng.nexacro.default.error.msg}")
 	private String defaultErrorMsg;
 	
-	@Value("${config.nexacro-config.db-vendor}")
-	private String dbVendor;
-	
-	@Value("${config.nexacro-config.excel-url}")
+	@Value("${rng.nexacro.excel.url}")
 	private String excelUrl;
 	
-	@Value("${config.nexacro-config.export-path}")
+	@Value("${rng.nexacro.excel.path.export}")
 	private String exportPath;
 	
-	@Value("${config.nexacro-config.import-path}")
+	@Value("${rng.nexacro.excel.path.import}")
 	private String importPath;
 	
-	@Value("${config.nexacro-config.monitor-enabled}")
+	@Value("${rng.nexacro.monitor.enabled}")
 	private String monitorEnabled;
 	
-	@Value("${config.nexacro-config.monitor-cycle-time}")
+	@Value("${rng.nexacro.monitor.cycle.time}")
 	private String monitorCycleTime;
 	
-	@Value("${config.nexacro-config.file-storage-time}")
+	@Value("${rng.nexacro.file.storage.time}")
 	private String fileStorageTime;
 	
-	@Value("${config.nexacro-config.default-encoding}")
+	@Value("${rng.nexacro.default.encoding}")
 	private String defaultEncoding;
 	
-	@Value("${config.nexacro-config.max-upload-size}")
+	@Value("${rng.nexacro.size.upload.max}")
 	private long maxUploadSize;
 	
-	@Value("${config.nexacro-config.max-in-memory-size}")
+	@Value("${rng.nexacro.size.in-memory.max}")
 	private int maxInMemorySize;
 	
-	@Value("${config.nexacro-config.file-system-resource}")
+	@Value("${rng.nexacro.file.system.resource}")
 	private String fileSystemResource;
-	
-	@Value("${config.nexacro-config.multipart-resolver-bean-name}")
-	private String multipartResolverBeanName;
 
     /**
      * Spring의 ApplicationContext를 제공한다.
@@ -152,7 +146,7 @@ public class NexacroConfig extends WebAppConfig implements WebMvcRegistrations {
     public DbVendorsProvider dbmsProvider() {
         DbVendorsProvider dbmsProvider = new DbVendorsProvider();
         Map<String, Dbms> dbvendors = new HashMap<>();
-        dbvendors.put(dbVendor, new Hsql());
+        dbvendors.put("HSQL Database Engine", new Hsql());
         dbmsProvider.setDbvendors(dbvendors);
         return dbmsProvider;
     }
@@ -220,7 +214,7 @@ public class NexacroConfig extends WebAppConfig implements WebMvcRegistrations {
     @Order(0)
     public MultipartFilter multipartFilter() {
         MultipartFilter multipartFilter = new MultipartFilter();
-        multipartFilter.setMultipartResolverBeanName(multipartResolverBeanName);
+        multipartFilter.setMultipartResolverBeanName("multipartResolver");
         return multipartFilter;
     }
     

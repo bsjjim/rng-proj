@@ -8,7 +8,6 @@ import org.springframework.aop.Advisor;
 import org.springframework.aop.aspectj.AspectJExpressionPointcut;
 import org.springframework.aop.support.DefaultPointcutAdvisor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -23,8 +22,7 @@ public class TRConfig {
     @Autowired
     private PlatformTransactionManager transactionManager;
     
-    @Value("${config.tr-config.expression}")
-    private String EXPRESSION;
+    private String EXPRESSION = "execution(* com.lotterental..service.impl.*Impl.*(..))";
 
     @Bean
     public TransactionInterceptor transactionAdvice() {

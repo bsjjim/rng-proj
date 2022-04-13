@@ -21,31 +21,31 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 @EnableWebMvc
 public class WebAppConfig implements WebMvcConfigurer {
 	
-	@Value("${config.web-app-config.view.prefix}") 
+	@Value("${rng.webapp.view.prefix}") 
 	private String viewPrefix;
 	
-	@Value("${config.web-app-config.view.suffix}") 
+	@Value("${rng.webapp.view.suffix}") 
 	private String viewSuffix;
 	
-	@Value("${config.web-app-config.view.name}") 
+	@Value("${rng.webapp.view.name}") 
 	private String viewName;
 	
-	@Value("${config.web-app-config.resource-location}") 
+	@Value("${rng.webapp.resource.location}") 
 	private String resourceLocation;
 	
-	@Value("${config.web-app-config.message-base-loc}") 
-	private String messageBaseLoc;
+	@Value("${rng.webapp.message.location}")
+	private String messageLocation;
 	
-	@Value("${config.web-app-config.default-encoding}") 
+	@Value("${rng.webapp.default.encoding}")
 	private String defaultEncoding;
 	
-	@Value("${config.web-app-config.cache-seconds}") 
+	@Value("${rng.webapp.cache.seconds}")
 	private int cacheSeconds;
 	
-	@Value("${config.web-app-config.use_code_as-default-message}") 
-	private boolean useCodeAsDefaultMessage;	
+	@Value("${rng.webapp.default.message}")
+	private boolean useCodeAsDefaultMessage;
 	
-	@Value("${config.web-app-config.locale-change-interceptor.param-name}") 
+	@Value("${rng.webapp.interceptor.locale.param}") 
 	private String interceptorParamName;
 
     /**
@@ -62,10 +62,8 @@ public class WebAppConfig implements WebMvcConfigurer {
      */
     @Override
     public void configureViewResolvers(ViewResolverRegistry registry) {
-//        registry.jsp("/WEB-INF/jsp/", ".jsp");
         registry.jsp(viewPrefix, viewSuffix);
     }
-
 
     /**
      * 루트 "/" 접속시 index 페이지로 포워딩
@@ -73,7 +71,6 @@ public class WebAppConfig implements WebMvcConfigurer {
     @Override
     @Order(Ordered.HIGHEST_PRECEDENCE + 1)
     public void addViewControllers(ViewControllerRegistry registry) {
-//        registry.addViewController("/").setViewName("forward:/index.html");
         registry.addViewController("/").setViewName(viewName);
     }
 
@@ -83,13 +80,6 @@ public class WebAppConfig implements WebMvcConfigurer {
     @Override
     @Order(Ordered.HIGHEST_PRECEDENCE + 2)
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-//        registry.addResourceHandler("/_resource_/**").addResourceLocations("classpath:/static/sample/_resource_/");
-//        registry.addResourceHandler("/FrameBase/**").addResourceLocations("classpath:/static/sample/FrameBase/");
-//        registry.addResourceHandler("/nexacro17lib/**").addResourceLocations("classpath:/static/sample/nexacro17lib/");
-//        registry.addResourceHandler("/*.json").addResourceLocations("classpath:/static/sample/");
-//        registry.addResourceHandler("/*.html").addResourceLocations("classpath:/static/sample/");
-//        registry.addResourceHandler("/*.js").addResourceLocations("classpath:/static/sample/");
-//        registry.addResourceHandler("/**").addResourceLocations("/nx/");
     	registry.addResourceHandler("/**").addResourceLocations(resourceLocation);
     }
 
@@ -98,24 +88,11 @@ public class WebAppConfig implements WebMvcConfigurer {
      */
     @Bean
     public ReloadableResourceBundleMessageSource messageSource() {
-        ReloadableResourceBundleMessageSource source = new ReloadableResourceBundleMessageSource();
-
-        // 메세지 프로퍼티파일의 위치와 이름을 지정한다.
-//        source.setBasename("classpath:/messages/message");
-        source.setBasename(messageBaseLoc);
-
-        // 기본 인코딩을 지정한다.
-//        source.setDefaultEncoding("UTF-8");
-        source.setDefaultEncoding(defaultEncoding);
-
-        // 프로퍼티 파일의 변경을 감지할 시간 간격을 지정한다.
-//        source.setCacheSeconds(60);
-        source.setCacheSeconds(cacheSeconds);
-
-        // 없는 메세지일 경우 예외를 발생시키는 대신 코드를 기본 메세지로 한다.
-//        source.setUseCodeAsDefaultMessage(true);
-        source.setUseCodeAsDefaultMessage(useCodeAsDefaultMessage);
-
+        ReloadableResourceBundleMessageSource source = new ReloadableResourceBundleMessageSource();        
+        source.setBasename(messageLocation);						// 메세지 프로퍼티파일의 위치와 이름을 지정한다.        
+        source.setDefaultEncoding(defaultEncoding);					// 기본 인코딩을 지정한다.        
+        source.setCacheSeconds(cacheSeconds);						// 프로퍼티 파일의 변경을 감지할 시간 간격을 지정한다.        
+        source.setUseCodeAsDefaultMessage(useCodeAsDefaultMessage);	// 없는 메세지일 경우 예외를 발생시키는 대신 코드를 기본 메세지로 한다.
         return source;
     }
 
@@ -135,7 +112,6 @@ public class WebAppConfig implements WebMvcConfigurer {
     @Bean
     public LocaleChangeInterceptor localeChangeInterceptor() {
         LocaleChangeInterceptor interceptor = new LocaleChangeInterceptor();
-//        interceptor.setinterceptorParamName("lang");
         interceptor.setParamName(interceptorParamName);
         return interceptor;
     }

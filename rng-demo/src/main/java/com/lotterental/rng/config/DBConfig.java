@@ -26,9 +26,10 @@ public class DBConfig {
     }
 
     @Bean
-    public SqlSessionFactory sqlSessionFactory(@Value("${config.db-config.config-location}") String configLocationPath,
-												@Value("${config.db-config.mapper-location}") String mapperLocationPath,
-												@Value("${config.db-config.type-aliases-package}") String typeAliasesPackage) throws Exception {
+    public SqlSessionFactory sqlSessionFactory(
+    		@Value("${rng.db.mybatis.config.location}") String configLocationPath,
+    		@Value("${rng.db.mybatis.mapper.location}") String mapperLocationPath,
+    		@Value("${rng.db.mybatis.aliases.package}") String typeAliasesPackage) throws Exception {
     	Resource configLocation = new PathMatchingResourcePatternResolver().getResource(configLocationPath);
 		Resource[] mapperLocations = new PathMatchingResourcePatternResolver().getResources(mapperLocationPath);
     	SqlSessionFactoryBean sqlSessionFactory = new SqlSessionFactoryBean();
@@ -39,7 +40,7 @@ public class DBConfig {
 		return sqlSessionFactory.getObject();
     }
 
-    @Bean("${config.db-config.sql-session-bean-name}")
+    @Bean("sqlSession")
     SqlSessionTemplate sqlSession(SqlSessionFactory sqlSessionFactory) throws Exception {
         return new SqlSessionTemplate(sqlSessionFactory);
     }
