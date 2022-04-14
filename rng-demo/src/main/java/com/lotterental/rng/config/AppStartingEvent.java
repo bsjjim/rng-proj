@@ -47,15 +47,17 @@ public class AppStartingEvent implements ApplicationListener<ApplicationStarting
             }
 
             if (!chkProc) {
-
-                Optional<String> optStr = Optional.of(redisExecStr);
-                optStr.orElse("D:/rng/redis/redis-server.exe D:/rng/redis/redis.windows.conf");
-
-                Runtime rt = Runtime.getRuntime();
-                String execStr = optStr.get();
-                Process proc;
-
                 try {
+                    Optional<String> optStr = Optional.ofNullable(redisExecStr);
+                    Runtime rt = Runtime.getRuntime();
+
+                    Process proc;
+                    String execStr = "";
+                    if (optStr.isPresent()) {
+                        execStr = optStr.get();
+                    } else {
+                        execStr = "D:/rng/redis/redis-server.exe D:/rng/redis/redis.windows.conf";
+                    }
                     proc = rt.exec(execStr);
                     log.debug("실행 시작 Redis Process");
                 } catch (Exception e) {

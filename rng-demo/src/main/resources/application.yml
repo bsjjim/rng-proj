@@ -34,15 +34,15 @@ server:
 #      pattern: "%t %a %r %s %D %I" # Server Access Log Pattern
 #      prefix: nap_demo_access # Server Access Log 파일명
 #      suffix: .out
-  tomcat: ## Tomcat 설정
-    uri-encoding: UTF-8
-    basedir: /app_log
-    accesslog: ## Access Log 설정
-      enabled: true # Server Access Log 사용 여부
-      pattern: "%{yyyy-MM-dd HH:mm:ss}t %a %r %s %{Referer}i %{User-Agent}i %D %I" # Server Access Log Pattern
-      prefix: napexample_acc # Server Access Log 파일명
-      suffix: .out
-      buffered: true
+#  tomcat: ## Tomcat 설정
+#    uri-encoding: UTF-8
+#    basedir: /app_log
+#    accesslog: ## Access Log 설정
+#      enabled: true # Server Access Log 사용 여부
+#      pattern: "%{yyyy-MM-dd HH:mm:ss}t %a %r %s %{Referer}i %{User-Agent}i %D %I" # Server Access Log Pattern
+#      prefix: napexample_acc # Server Access Log 파일명
+#      suffix: .out
+#      buffered: true
 
 
 ################################################################################
@@ -66,6 +66,8 @@ spring:
   devtools:
     livereload:
       enabled: true
+  thymeleaf:
+    cache: true
 
 
 ################################################################################

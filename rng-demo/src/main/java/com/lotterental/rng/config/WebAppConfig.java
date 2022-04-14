@@ -80,7 +80,10 @@ public class WebAppConfig implements WebMvcConfigurer {
     @Override
     @Order(Ordered.HIGHEST_PRECEDENCE + 2)
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-    	registry.addResourceHandler("/**").addResourceLocations(resourceLocation);
+    	registry.addResourceHandler("/**")
+                .addResourceLocations("classpath:/static/")
+                .setCachePeriod(3600)
+                .resourceChain(true);
     }
 
     /**
