@@ -13,7 +13,7 @@
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+//	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
 	implementation 'org.springframework.boot:spring-boot-starter-batch'
 	implementation 'org.springframework.boot:spring-boot-starter-aop'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
@@ -35,4 +35,6 @@ dependencies {
 	implementation 'org.apache.poi:poi:5.0.0'
 	implementation 'com.google.guava:guava:31.1-jre'
 	implementation 'com.h2database:h2'
+	implementation files('libs/tibero6-jdbc-14.jar')
+
 }
