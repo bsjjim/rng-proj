@@ -28,7 +28,7 @@
 			 , AEDAT
 			 , MESSAGE
 		  FROM NEXA_SAMPLE
-		 WHERE MOD_ID LIKE #{modId} || '%'
+		 WHERE MOD_ID = #{modId}
     </select>
     
     <select id="selectNexacroMapList" parameterType="map" resultType="map">

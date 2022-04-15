@@ -3,12 +3,15 @@ package com.lotterental.rng.demo.nexacro.controller;
 import static com.lotterental.rng.common.cnst.ErrorColumn.ERROR_CODE;
 import static com.lotterental.rng.common.cnst.ErrorColumn.ERROR_MSG;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.lotterental.rng.common.http.RestUtils;
 import com.lotterental.rng.core.common.exception.BusinessException;
 import com.lotterental.rng.demo.nexacro.service.NexacroVoService;
 import com.lotterental.rng.demo.nexacro.vo.NexacroVo;
@@ -81,6 +84,27 @@ public class NexacroVoController {
     	try {
     		nexacroService.saveNexacroVoList(nexacroVoList);
     	} catch (Exception e) {
+    		// 에러시 처리 할 업무로직 존재시 처리
+    		result.addVariable(ERROR_CODE.getColumn(), "E0001");
+    		result.addVariable(ERROR_MSG.getColumn(), ErrorCodeUtil.getErrorMsg("E0001"));
+    	}
+    	return result;
+    }
+    
+    @PostMapping("/resttemplate")
+    public NexacroResult resttemplate(@ParamDataSet(name = "dsImp") NexacroVo nexacroVo) throws Exception {
+    	log.debug("parameter = {}", nexacroVo);
+    	NexacroResult result = new NexacroResult();
+    	try {
+    		Map<String, String> param = new HashMap<String, String>();
+    		param.put("modId", nexacroVo.getModId());
+    		param.put("modNm", nexacroVo.getModNm());
+//    		result.add
+    		List<NexacroVo> nxList = RestUtils.getObjectByGetApi("http://localhost:8080/getrestsample", param, NexacroVo.class);
+    		log.debug("result = {}", nxList);
+    		result.addDataSet("dsList", nxList);
+    	} catch (Exception e) {
+    		e.printStackTrace();
     		// 에러시 처리 할 업무로직 존재시 처리
     		result.addVariable(ERROR_CODE.getColumn(), "E0001");
     		result.addVariable(ERROR_MSG.getColumn(), ErrorCodeUtil.getErrorMsg("E0001"));

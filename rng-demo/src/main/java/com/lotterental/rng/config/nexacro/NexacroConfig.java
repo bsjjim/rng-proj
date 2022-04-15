@@ -146,7 +146,8 @@ public class NexacroConfig extends WebAppConfig implements WebMvcRegistrations {
     public DbVendorsProvider dbmsProvider() {
         DbVendorsProvider dbmsProvider = new DbVendorsProvider();
         Map<String, Dbms> dbvendors = new HashMap<>();
-        dbvendors.put("HSQL Database Engine", new Hsql());
+//        dbvendors.put("HSQL Database Engine", new Hsql());
+        dbvendors.put("H2", new Hsql());
         dbmsProvider.setDbvendors(dbvendors);
         return dbmsProvider;
     }

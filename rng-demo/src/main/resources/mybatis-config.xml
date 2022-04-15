@@ -23,7 +23,7 @@
         <!-- NexacroMybatisResultSetHandler :
           ResultSetHandler Plugin – Executor Plugin에서 메타데이터 조회를 위해 쿼리를 실행하였을 경우에만 동작,
           ResultSetMetaData 와 resultType에 존재하는 필드 정보를 확인하여 메타데이터 정보를 조회 한 다.  -->
-<!--         <plugin interceptor="com.nexacro.uiadapter.spring.dao.mybatis.NexacroMybatisResultSetHandler" /> -->
+        <plugin interceptor="com.nexacro.uiadapter.spring.dao.mybatis.NexacroMybatisResultSetHandler" />
 		<!-- map으로 조회시 camel case 적용 -->
         <plugin interceptor="com.lotterental.rng.common.interceptor.mybatis.RngMybatisResultSetHandler" />
     </plugins>
