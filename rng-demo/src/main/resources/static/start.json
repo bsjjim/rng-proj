@@ -1,0 +1,101 @@
+﻿{
+    "version" : "21.0.0.1",
+    "runtime" :
+    {
+        "target" :
+        {
+            "os" : "windows"
+        },
+        "framework" :
+        [    
+        "./nexacrolib/framework/Framework.js"
+        ],
+        "component" :
+        [    
+        "./nexacrolib/component/CompBase.js",
+        "./nexacrolib/component/ComComp.js",
+        "./nexacrolib/component/Grid.js",
+        "./nexacrolib/component/ListView.js",
+        "./nexacrolib/component/DeviceAPI.js",
+        "./nexacrolib/component/extPrototype/Frame.js",
+        "./nexacrolib/component/extPrototype/Util.js",
+        "./nexacrolib/component/extPrototype/Comp.js",
+        "./nexacrolib/component/extPrototype/Transaction.js",
+        "./nexacrolib/component/extPrototype/Grid.js",
+        "./nexacrolib/component/extPrototype/Popup.js",
+        "./nexacrolib/component/extPrototype/Validation.js",
+        "./nexacrolib/component/extPrototype/Excel.js",
+        "./nexacrolib/component/MultiCombo/MultiCombo.js",
+        "./nexacrolib/component/CalMonth/CalMonth.js",
+        "./nexacrolib/component/CalPeriod/CalPeriod.js",
+        "./nexacrolib/component/CalPeriodMonth/CalPeriodMonth.js",
+        "./nexacrolib/component/CalPeriodQuater/CalPeriodQuater.js",
+        "./nexacrolib/component/CalPeriodDay/CalPeriodDay.js",
+        "./nexacrolib/component/CalPeriodTime/CalPeriodTime.js",
+        "./nexacrolib/component/CalTime/CalTime.js",
+        "./nexacrolib/component/pivot/NxPivot.js",
+        "./nexacrolib/component/pivot/NxPivot.message.js",
+        "./nexacrolib/component/pivot/NxPivot.pivot.js",
+        "./nexacrolib/component/pivot/NxPivot.config.js",
+        "./nexacrolib/component/pivot/NxPivot.view.js"
+        ],
+        "environment" :
+        [    
+        {
+        "file":"./environment.xml.js"
+        }
+        ],
+        "screen" :
+        [    
+        {"id":"Desktop_screen","type":"desktop","themeid":"theme::nxui","initvaluefileid":"initvalue::lotte.xiv"}
+        ],
+        "xadl" :
+        [
+        {
+        	"screenid":"Desktop_screen",
+        	"launch":"./Application_Desktop.xadl.js",
+        	"quickview":"./Application_Desktop.xadl.quickview.js",
+        	"form":[
+        				"./Frame/Top.xfdl.js",
+        		"./Frame/Left.xfdl.js",
+        		"./Frame/Mdi.xfdl.js",
+        		"./Frame/Statusbar.xfdl.js"
+        	]
+        }
+        ],  
+        "protocol" :
+        {
+            "adaptors" :
+            []
+        },
+        "resource" :
+        {
+
+        },
+		"deploy" :
+        {
+
+        },
+        "userfont" :
+        [
+        {
+            "font-family" : "NotoKR-Regular",
+            "font-style" : "normal",
+            "font-weight" : "300",
+            "local-font-family" : "NotoKR-Regular"
+        },
+        {
+            "font-family" : "NotoKR-Medium",
+            "font-style" : "normal",
+            "font-weight" : "400",
+            "local-font-family" : "NotoKR-Medium"
+        },
+        {
+            "font-family" : "NotoKR-Bold",
+            "font-style" : "normal",
+            "font-weight" : "500",
+            "local-font-family" : "NotoKR-Bold"
+        }
+        ]
+    }
+}

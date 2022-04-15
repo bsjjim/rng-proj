@@ -1,0 +1,111 @@
+<!-- DOCTYPE : DOCTYPE declaration -->
+<!DOCTYPE html>
+<html > <!-- LANGUAGE : locale setting (value of location property in Environment) -->
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="user-scalable=1, initial-scale=0.1, width=device-width, target-densitydpi=device-dpi">
+	<!-- META_CHECKVERSION : Add if value of checkversion property in Envrionment is true -->
+
+	<script>
+		window._popup = true;
+	</script>
+	
+	<!-- FAVICON : favion setting (value of icon property in Environment. add to value of icon property in Environment) -->
+
+	
+	<!-- USERFONT_STYLE : userfont style setting (value of userfontid property in Environment. crate contents contained in xfont file specified userfontid property in Environment) -->
+    <style id="userfont">
+        @import url("./WebCSS/custom.css");
+
+        @font-face {
+          font-family: 'NotoKR-Regular';
+          src : local("NotoKR-Regular");
+          src : url(./_resource_/_font_/notokr-regular.woff2) format('woff2'),
+                url(./_resource_/_font_/notokr-regular.woff) format('woff'),
+                url(./_resource_/_font_/notokr-regular.ttf) format('turetype');
+          font-weight: 300;
+          font-style: normal;
+        }
+
+
+        @font-face {
+          font-family: 'NotoKR-Medium';
+          src : local("NotoKR-Medium");
+          src : url(./_resource_/_font_/notokr-medium.woff2) format('woff2'),
+                url(./_resource_/_font_/notokr-medium.woff) format('woff'),
+                url(./_resource_/_font_/notokr-medium.ttf) format('turetype');
+          font-weight: 400;
+          font-style: normal;
+        }
+
+
+        @font-face {
+          font-family: 'NotoKR-Bold';
+          src : local("NotoKR-Bold");
+          src : url(./_resource_/_font_/notokr-bold.woff2) format('woff2'),
+                url(./_resource_/_font_/notokr-bold.woff) format('woff'),
+                url(./_resource_/_font_/notokr-bold.ttf) format('turetype');
+          font-weight: 500;
+          font-style: normal;
+        }
+        </style>
+	
+	<!-- FRAMEWORK_LIBRARY : framework lodaing path (list of scripts files in the Framework.json file) -->
+    <script src="./nexacrolib/framework/Framework.js"></script>
+	
+	<!-- COMPONENTS_LIBRARY : commonent lodaing path (list of script file in json file specified in the TypeDefinition module) -->
+    <script src="./nexacrolib/component/CompBase.js"></script>
+    <script src="./nexacrolib/component/ComComp.js"></script>
+    <script src="./nexacrolib/component/Grid.js"></script>
+    <script src="./nexacrolib/component/ListView.js"></script>
+    <script src="./nexacrolib/component/DeviceAPI.js"></script>
+    <script src="./nexacrolib/component/extPrototype/Frame.js"></script>
+    <script src="./nexacrolib/component/extPrototype/Util.js"></script>
+    <script src="./nexacrolib/component/extPrototype/Comp.js"></script>
+    <script src="./nexacrolib/component/extPrototype/Transaction.js"></script>
+    <script src="./nexacrolib/component/extPrototype/Grid.js"></script>
+    <script src="./nexacrolib/component/extPrototype/Popup.js"></script>
+    <script src="./nexacrolib/component/extPrototype/Validation.js"></script>
+    <script src="./nexacrolib/component/extPrototype/Excel.js"></script>
+    <script src="./nexacrolib/component/MultiCombo/MultiCombo.js"></script>
+    <script src="./nexacrolib/component/CalMonth/CalMonth.js"></script>
+    <script src="./nexacrolib/component/CalPeriod/CalPeriod.js"></script>
+    <script src="./nexacrolib/component/CalPeriodMonth/CalPeriodMonth.js"></script>
+    <script src="./nexacrolib/component/CalPeriodQuater/CalPeriodQuater.js"></script>
+    <script src="./nexacrolib/component/CalPeriodDay/CalPeriodDay.js"></script>
+    <script src="./nexacrolib/component/CalPeriodTime/CalPeriodTime.js"></script>
+    <script src="./nexacrolib/component/CalTime/CalTime.js"></script>
+    <script src="./nexacrolib/component/pivot/NxPivot.js"></script>
+    <script src="./nexacrolib/component/pivot/NxPivot.message.js"></script>
+    <script src="./nexacrolib/component/pivot/NxPivot.pivot.js"></script>
+    <script src="./nexacrolib/component/pivot/NxPivot.config.js"></script>
+    <script src="./nexacrolib/component/pivot/NxPivot.view.js"></script>
+	
+	<!-- ENVIRONMENT_LIBRARY : application environment path (path of Environment.xml.js) -->
+    <script src="./environment.xml.js"></script>
+	
+	<title></title>
+</head>
+<body style="margin:0; border:none; -ms-touch-action:none;" onload="oninitframework()">
+	<script>
+  function oninitframework()
+  {
+		<!-- parameter information -->
+		var urlParams = {};
+		(function () {
+			var match,
+			pl = /\+/g,
+			search = /([^&=]+)=?([^&]*)/g,
+			decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+			query = window.location.search.substring(1);
+			while (match = search.exec(query)) { urlParams[decode(match[1])] = decode(match[2]); }
+			})();
+		<!-- create internal iframe -->
+		<!-- USERFONT_INFORMATION : userfontid property is specified in the Environment -->
+		nexacro._preparePopupFrame(window, document, urlParams, [{family:'NotoKR-Regular', style:'normal', weight:300},{family:'NotoKR-Medium', style:'normal', weight:400},{family:'NotoKR-Bold', style:'normal', weight:500}]);
+  }
+	</script>
+</body>
+</html>
+  
