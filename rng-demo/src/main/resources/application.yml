@@ -170,7 +170,7 @@ spring:
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
       driver-class-name: com.tmax.tibero.jdbc.TbDriver
-      jdbc-url: jdbc:tibero:thin:@127.0.0.1:8629:tibero
+      jdbc-url: jdbc:tibero:thin:@10.106.89.133:tibero
       username: sample_tdb
       password: jenta210
       minimumIdle: 5
