@@ -92,7 +92,7 @@ public class RngExcelDataStorageBase implements XeniExcelDataStorageBase {
 		
 		public String mapDrmReleasedFilePath() {
 			int idx = srcFile.indexOf("//") + 1;
-//			System.out.println(idx + ":::" + srcFile.substring(idx));
+//			System.out.println(idx + ":::" + srcFile.substring(idx)); 
 			return srcFile.substring(idx);
 		}
 	}
