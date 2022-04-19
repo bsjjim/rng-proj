@@ -112,8 +112,8 @@ rng:
     excel:
       url: /XExportImport.do
       path:
-        export: file:///C:/Temp/export/
-        import: file:///C:/Temp/import/
+        export: file:///D:/rng/temp/excel/export
+        import: file:///D:/rng/temp/excel/import
     monitor:
       enabled: true
       cycle:
@@ -122,7 +122,7 @@ rng:
       storage:
         time: 10
       system:
-        resource: C:\\Temp
+        resource: D:\\rng\\temp\\file
     size:
       upload:
         max: 100000000
