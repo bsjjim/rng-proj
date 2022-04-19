@@ -582,12 +582,12 @@ textarea::-webkit-scrollbar { display: none; }
 .Button.btn_SA_collapse
 {
 	border : 0px none;
-	background : url("./../../../_resource_/_images_/btn_SA_collapse.png") no-repeat center;
+	background : url("./images/btn_SA_collapse.png") no-repeat center;
 }
 .Button.btn_SA_expand
 {
 	border : 0px none;
-	background : url("./../../../_resource_/_images_/btn_SA_expand.png") no-repeat center;
+	background : url("./images/btn_SA_expand.png") no-repeat center;
 }
 .Button.btn_Block
 {
@@ -871,7 +871,7 @@ textarea::-webkit-scrollbar { display: none; }
 }
 .Static.sta_TF_logo
 {
-	background : url("./../../../_resource_/_images_/logo.png") no-repeat center;
+	background : url("./images/logo.png") no-repeat center;
 	cursor : pointer;
 }
 .Static.sta_TF_breadcrumb .nexacontentsbox
@@ -890,7 +890,7 @@ textarea::-webkit-scrollbar { display: none; }
 }
 .Static.sta_TF_alarm
 {
-	background : url("./../../../_resource_/_images_/sta_TF_alarm.png") no-repeat center;
+	background : url("./images/sta_TF_alarm.png") no-repeat center;
 }
 .Static.sta_Guide
 {
@@ -975,7 +975,7 @@ textarea::-webkit-scrollbar { display: none; }
 }
 .Static.sta_txt_descDot
 {
-	background : url("./../../../_resource_/_images_/sta_txt_descDot.png") no-repeat left center;
+	background : url("./images/sta_txt_descDot.png") no-repeat left center;
 }
 .Static.sta_WF_pageTitle
 {
@@ -1028,7 +1028,7 @@ textarea::-webkit-scrollbar { display: none; }
 .Static.sta_DA_label_req
 {
 	border : 1px solid #ecebeb;
-	background : #f6f7f9 url("./../../../_resource_/_images_/essential.png") no-repeat left top;
+	background : #f6f7f9 url("./images/essential.png") no-repeat left top;
 }
 .Static.sta_DA_labelTop
 {
@@ -1041,7 +1041,7 @@ textarea::-webkit-scrollbar { display: none; }
 .Static.sta_DA_labelTop_req
 {
 	border : 1px solid #dbdddf;
-	background : #eaecef url("./../../../_resource_/_images_/essential.png") no-repeat left top;
+	background : #eaecef url("./images/essential.png") no-repeat left top;
 }
 .Static.sta_DA_data
 {
@@ -1051,30 +1051,30 @@ textarea::-webkit-scrollbar { display: none; }
 .Static.sta_WF_title1
 {
 	font : 15px/normal "NotoKR-Bold";
-	background : url("./../../../_resource_/_images_/sta_WF_title1.png") no-repeat left center;
+	background : url("./images/sta_WF_title1.png") no-repeat left center;
 }
 .Static.sta_WF_title2
 {
 	font : 15px/normal "NotoKR-Bold";
-	background : url("./../../../_resource_/_images_/sta_WF_title2.png") no-repeat left center;
+	background : url("./images/sta_WF_title2.png") no-repeat left center;
 }
 .Static.sta_WF_title3
 {
 	font : 14px/normal "NotoKR-Bold";
-	background : url("./../../../_resource_/_images_/sta_WF_title3.png") no-repeat left center;
+	background : url("./images/sta_WF_title3.png") no-repeat left center;
 }
 .Static.sta_WF_title4
 {
 	font : 14px/normal "NotoKR-Bold";
-	background : url("./../../../_resource_/_images_/sta_WF_title4.png") no-repeat left center;
+	background : url("./images/sta_WF_title4.png") no-repeat left center;
 }
 .Static.sta_WF_help
 {
-	background : url("./../../../_resource_/_images_/sta_WF_help.png") no-repeat left center;
+	background : url("./images/sta_WF_help.png") no-repeat left center;
 }
 .Static.sta_WF_singleLabel
 {
-	background : url("./../../../_resource_/_images_/sta_WF_singleLabel.png") no-repeat left center;
+	background : url("./images/sta_WF_singleLabel.png") no-repeat left center;
 }
 .Tab .prevbuttonTab
 {
@@ -1846,11 +1846,11 @@ textarea::-webkit-scrollbar { display: none; }
 }
 .Grid .head .row .cell.cell_req.dummy.dummy.dummy
 {
-	background : url("./../../../_resource_/_images_/essential.png") no-repeat left top;
+	background : url("./images/essential.png") no-repeat left top;
 }
 .Grid .head .row .cell.cell_req_fix.dummy.dummy.dummy
 {
-	background : url("./../../../_resource_/_images_/essential.png") no-repeat left top;
+	background : url("./images/essential.png") no-repeat left top;
 	border-top : 1px solid #dddddd;
 	border-right : 2px solid #707070;
 	border-bottom : 1px solid #dddddd;
@@ -1858,11 +1858,11 @@ textarea::-webkit-scrollbar { display: none; }
 }
 .Grid .head .row .cell.cell_select.dummy.dummy.dummy
 {
-	background : url("./../../../_resource_/_images_/select.png") no-repeat left top;
+	background : url("./images/select.png") no-repeat left top;
 }
 .Grid .head .row .cell.cell_select_fix.dummy.dummy.dummy
 {
-	background : url("./../../../_resource_/_images_/select.png") no-repeat left top;
+	background : url("./images/select.png") no-repeat left top;
 	border-top : 1px solid #dddddd;
 	border-right : 2px solid #707070;
 	border-bottom : 1px solid #dddddd;
@@ -2387,12 +2387,12 @@ textarea::-webkit-scrollbar { display: none; }
 #nexacontainer .Button.btn_SA_collapse[status=mouseover]
 {
 	border : 0px none;
-	background : url("./../../../_resource_/_images_/btn_SA_collapse_O.png") no-repeat center;
+	background : url("./images/btn_SA_collapse_O.png") no-repeat center;
 }
 #nexacontainer .Button.btn_SA_expand[status=mouseover]
 {
 	border : 0px none;
-	background : url("./../../../_resource_/_images_/btn_SA_expand_O.png") no-repeat center;
+	background : url("./images/btn_SA_expand_O.png") no-repeat center;
 }
 #nexacontainer .Button.btn_Block[status=mouseover]
 {
@@ -3559,12 +3559,12 @@ textarea::-webkit-scrollbar { display: none; }
 #nexacontainer .Button.btn_SA_collapse[userstatus=pushed]
 {
 	border : 0px none;
-	background : url("./../../../_resource_/_images_/btn_SA_collapse_P.png") no-repeat center;
+	background : url("./images/btn_SA_collapse_P.png") no-repeat center;
 }
 #nexacontainer .Button.btn_SA_expand[userstatus=pushed]
 {
 	border : 0px none;
-	background : url("./../../../_resource_/_images_/btn_SA_expand_P.png") no-repeat center;
+	background : url("./images/btn_SA_expand_P.png") no-repeat center;
 }
 #nexacontainer .Button.btn_Block[userstatus=pushed]
 {

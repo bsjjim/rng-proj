@@ -58,195 +58,208 @@
             obj = new Static("Static00","20","18","63","24",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("4");
             obj.set_text("요청기간");
-            obj.set_cssclass("sta_SA_label");
+            obj.set_cssclass("sta_SA_label_req");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Static("Static01_00_00_01","295","0","40","98",null,null,null,null,null,null,this.divSearch.form);
+            obj = new Static("Static01_00_00_01","379","0","40","98",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("5");
             obj.set_text("w40");
             obj.set_cssclass("sta_Guide");
             obj.set_visible("false");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00_00_01","335","18","71","24",null,null,null,null,null,null,this.divSearch.form);
+            obj = new Static("Static00_00_00_01","419","18","71","24",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("6");
             obj.set_text("요청매니저");
             obj.set_cssclass("sta_SA_label");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Static("Static01_00_00_00","628","15","40","60",null,null,null,null,null,null,this.divSearch.form);
+            obj = new Static("Static01_00_00_00","714","15","40","60",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("7");
             obj.set_text("w40");
             obj.set_cssclass("sta_Guide");
             obj.set_visible("false");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00_00","668","18","58","24",null,null,null,null,null,null,this.divSearch.form);
+            obj = new Static("Static00_00_00","754","18","58","24",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("8");
-            obj.set_text("요청상태");
+            obj.set_text("변경구분");
             obj.set_cssclass("sta_SA_label");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Edit("Edit00_01_00_02_00_01_00_00","427","18","57","24",null,null,null,null,null,null,this.divSearch.form);
+            obj = new Combo("cmb01","820","18","150","24",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("9");
-            obj.set_text("0123456789");
+            obj.set_text("선택");
+            obj.set_value("");
+            obj.set_index("-1");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Button("Button00_01_00_01_00_00_00","486","18","24","24",null,null,null,null,null,null,this.divSearch.form);
+            obj = new Static("Static01_00_00_00_00","970","15","40","60",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("10");
-            obj.set_cssclass("btn_Comp_src");
-            this.divSearch.addChild(obj.name, obj);
-
-            obj = new Edit("Edit00_01_00_01_01_00_01_00_00","513","18","115","24",null,null,null,null,null,null,this.divSearch.form);
-            obj.set_taborder("11");
-            obj.set_text("P12345");
-            this.divSearch.addChild(obj.name, obj);
-
-            obj = new Combo("cmb01","734","18","150","24",null,null,null,null,null,null,this.divSearch.form);
-            obj.set_taborder("12");
-            obj.set_codecolumn("codecolumn");
-            obj.set_datacolumn("datacolumn");
-            var divSearch_form_cmb01_innerdataset = new nexacro.NormalDataset("divSearch_form_cmb01_innerdataset", obj);
-            divSearch_form_cmb01_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">전체</Col><Col id=\"datacolumn\">전체</Col></Row><Row><Col id=\"codecolumn\">미처리</Col><Col id=\"datacolumn\">미처리</Col></Row><Row><Col id=\"codecolumn\">승인</Col><Col id=\"datacolumn\">승인</Col></Row><Row><Col id=\"codecolumn\">반려</Col><Col id=\"datacolumn\">반려</Col></Row></Rows>");
-            obj.set_innerdataset(divSearch_form_cmb01_innerdataset);
-            obj.set_text("전체");
-            obj.set_value("전체");
-            obj.set_index("0");
-            this.divSearch.addChild(obj.name, obj);
-
-            obj = new Static("Static01_00_00_00_00","884","15","40","60",null,null,null,null,null,null,this.divSearch.form);
-            obj.set_taborder("13");
             obj.set_text("w40");
             obj.set_cssclass("sta_Guide");
             obj.set_visible("false");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00_00_00","924","18","58","24",null,null,null,null,null,null,this.divSearch.form);
-            obj.set_taborder("14");
-            obj.set_text("계약지점");
+            obj = new Static("Static00_00_00_00","1010","18","58","24",null,null,null,null,null,null,this.divSearch.form);
+            obj.set_taborder("11");
+            obj.set_text("카메이커");
             obj.set_cssclass("sta_SA_label");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Combo("cmb01_00","427","86","201","24",null,null,null,null,null,null,this.divSearch.form);
-            obj.set_taborder("15");
-            obj.set_codecolumn("codecolumn");
-            obj.set_datacolumn("datacolumn");
-            var divSearch_form_cmb01_00_innerdataset = new nexacro.NormalDataset("divSearch_form_cmb01_00_innerdataset", obj);
-            divSearch_form_cmb01_00_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">전체</Col><Col id=\"datacolumn\">전체</Col></Row><Row><Col id=\"codecolumn\">GENERAL MOTORS</Col><Col id=\"datacolumn\">GENERAL MOTORS</Col></Row></Rows>");
-            obj.set_innerdataset(divSearch_form_cmb01_00_innerdataset);
-            obj.set_text("전체");
-            obj.set_value("전체");
-            obj.set_index("0");
-            this.divSearch.addChild(obj.name, obj);
-
             obj = new Static("Static01_00_00_02","153","42","80","10",null,null,null,null,null,null,this.divSearch.form);
-            obj.set_taborder("16");
+            obj.set_taborder("12");
             obj.set_text("10");
             obj.set_cssclass("sta_Guide");
             obj.set_visible("false");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00","335","52","84","24",null,null,null,null,null,null,this.divSearch.form);
-            obj.set_taborder("17");
-            obj.set_text("구매의뢰번호");
+            obj = new Static("Static00_00","419","52","84","24",null,null,null,null,null,null,this.divSearch.form);
+            obj.set_taborder("13");
+            obj.set_text("요청상태");
             obj.set_cssclass("sta_SA_label");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00_00_01_00","668","52","58","24",null,null,null,null,null,null,this.divSearch.form);
-            obj.set_taborder("18");
+            obj = new Static("Static00_00_00_01_00","754","52","58","24",null,null,null,null,null,null,this.divSearch.form);
+            obj.set_taborder("14");
             obj.set_text("계약번호");
             obj.set_cssclass("sta_SA_label");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00_00_01_00_00","924","52","58","24",null,null,null,null,null,null,this.divSearch.form);
-            obj.set_taborder("19");
+            obj = new Static("Static00_00_00_01_00_00","1010","52","58","24",null,null,null,null,null,null,this.divSearch.form);
+            obj.set_taborder("15");
             obj.set_text("발주번호");
             obj.set_cssclass("sta_SA_label");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00_00_01_00_00_00","20","86","45","24",null,null,null,null,null,null,this.divSearch.form);
+            obj = new Static("Static00_00_00_01_00_00_00","20","86","70","24",null,null,null,null,null,null,this.divSearch.form);
+            obj.set_taborder("16");
+            obj.set_text("계약지점");
+            obj.set_cssclass("sta_SA_label");
+            this.divSearch.addChild(obj.name, obj);
+
+            obj = new Edit("Edit00","820","52","150","24",null,null,null,null,null,null,this.divSearch.form);
+            obj.set_taborder("17");
+            obj.set_text("123456789");
+            this.divSearch.addChild(obj.name, obj);
+
+            obj = new Edit("Edit00_00","1073","52","141","24",null,null,null,null,null,null,this.divSearch.form);
+            obj.set_taborder("18");
+            obj.set_text("123456789");
+            this.divSearch.addChild(obj.name, obj);
+
+            obj = new Static("Static01_00_00_02_00","148","76","80","10",null,null,null,null,null,null,this.divSearch.form);
+            obj.set_taborder("19");
+            obj.set_text("10");
+            obj.set_cssclass("sta_Guide");
+            obj.set_visible("false");
+            this.divSearch.addChild(obj.name, obj);
+
+            obj = new Static("Static00_00_01","419","86","58","24",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("20");
             obj.set_text("경유지");
             obj.set_cssclass("sta_SA_label");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new MaskEdit("mae00","427","52","201","24",null,null,null,null,null,null,this.divSearch.form);
+            obj = new Static("Static00_00_01_00","20","52","93","24",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("21");
+            obj.set_text("구매요청번호");
+            obj.set_cssclass("sta_SA_label");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Edit("Edit00","734","52","150","24",null,null,null,null,null,null,this.divSearch.form);
+            obj = new CalPeriod("CalPeriod00","112","18","210","24",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("22");
-            obj.set_text("123456789");
+            obj.set_cssclass("input_req");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Edit("Edit00_00","987","52","226","24",null,null,null,null,null,null,this.divSearch.form);
+            obj = new Combo("cmb01_01","324","18","55","24",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("23");
-            obj.set_text("123456789");
+            obj.set_cssclass("input_req");
+            obj.set_text("30일");
+            obj.set_value("");
+            obj.set_index("-1");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Edit("Edit00_01_00_02_00","987","18","42","24",null,null,null,null,null,null,this.divSearch.form);
+            obj = new Static("Static01_00_00","102","13","10","100",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("24");
-            obj.set_text("3666");
-            this.divSearch.addChild(obj.name, obj);
-
-            obj = new Button("Button00_01_00_01_00","1031","18","24","24",null,null,null,null,null,null,this.divSearch.form);
-            obj.set_taborder("25");
-            obj.set_cssclass("btn_Comp_src");
-            this.divSearch.addChild(obj.name, obj);
-
-            obj = new Edit("Edit00_01_00_01_01_00","1058","18","155","24",null,null,null,null,null,null,this.divSearch.form);
-            obj.set_taborder("26");
-            obj.set_text("서울중앙MOT 강북 Part");
-            this.divSearch.addChild(obj.name, obj);
-
-            obj = new Edit("Edit00_01_00_02_00_00","86","86","50","24",null,null,null,null,null,null,this.divSearch.form);
-            obj.set_taborder("27");
-            obj.set_text("3666");
-            this.divSearch.addChild(obj.name, obj);
-
-            obj = new Button("Button00_01_00_01_00_00","138","86","24","24",null,null,null,null,null,null,this.divSearch.form);
-            obj.set_taborder("28");
-            obj.set_cssclass("btn_Comp_src");
-            this.divSearch.addChild(obj.name, obj);
-
-            obj = new Edit("Edit00_01_00_01_01_00_00","165","86","130","24",null,null,null,null,null,null,this.divSearch.form);
-            obj.set_taborder("29");
-            obj.set_text("서울중앙MOT 강북 Part");
-            this.divSearch.addChild(obj.name, obj);
-
-            obj = new Static("Static01_00_00_02_00","148","76","80","10",null,null,null,null,null,null,this.divSearch.form);
-            obj.set_taborder("30");
             obj.set_text("10");
             obj.set_cssclass("sta_Guide");
             obj.set_visible("false");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00_01","335","86","58","24",null,null,null,null,null,null,this.divSearch.form);
+            obj = new Edit("Edit00_01","112","52","85","24",null,null,null,null,null,null,this.divSearch.form);
+            obj.set_taborder("25");
+            obj.set_text("2021012012");
+            this.divSearch.addChild(obj.name, obj);
+
+            obj = new Edit("Edit00_01_00_02_00_00","112","86","72","24",null,null,null,null,null,null,this.divSearch.form);
+            obj.set_taborder("26");
+            obj.set_displaynulltext("(지점코드)");
+            obj.set_text("3666");
+            this.divSearch.addChild(obj.name, obj);
+
+            obj = new Button("Button00_01_00_01_00_00","186","86","24","24",null,null,null,null,null,null,this.divSearch.form);
+            obj.set_taborder("27");
+            obj.set_cssclass("btn_Comp_src");
+            this.divSearch.addChild(obj.name, obj);
+
+            obj = new Edit("Edit00_01_00_01_01_00_00","213","86","155","24",null,null,null,null,null,null,this.divSearch.form);
+            obj.set_taborder("28");
+            obj.set_text("서울중앙MOT 강북 Part");
+            this.divSearch.addChild(obj.name, obj);
+
+            obj = new Static("Static01_00_00_03","488","8","10","100",null,null,null,null,null,null,this.divSearch.form);
+            obj.set_taborder("29");
+            obj.set_text("10");
+            obj.set_cssclass("sta_Guide");
+            obj.set_visible("false");
+            this.divSearch.addChild(obj.name, obj);
+
+            obj = new Edit("Edit00_01_00_00","498","18","72","24",null,null,null,null,null,null,this.divSearch.form);
+            obj.set_taborder("30");
+            obj.set_displaynulltext("(사원번호)");
+            obj.set_text("P12345");
+            this.divSearch.addChild(obj.name, obj);
+
+            obj = new Button("Button00_01_00_00","572","18","24","24",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("31");
-            obj.set_text("카메이커");
-            obj.set_cssclass("sta_SA_label");
+            obj.set_cssclass("btn_Comp_src");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00_01_00","20","52","58","24",null,null,null,null,null,null,this.divSearch.form);
+            obj = new Edit("Edit00_01_00_01_00","599","18","115","24",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("32");
-            obj.set_text("변경구분");
-            obj.set_cssclass("sta_SA_label");
+            obj.set_text("홍길순");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Combo("cmb01_00_00","86","52","209","24",null,null,null,null,null,null,this.divSearch.form);
+            obj = new Combo("cmb00","498","52","120","24",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("33");
-            obj.set_codecolumn("codecolumn");
-            obj.set_datacolumn("datacolumn");
-            var divSearch_form_cmb01_00_00_innerdataset = new nexacro.NormalDataset("divSearch_form_cmb01_00_00_innerdataset", obj);
-            divSearch_form_cmb01_00_00_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">전체</Col><Col id=\"datacolumn\">전체</Col></Row><Row><Col id=\"codecolumn\">옵션변경</Col><Col id=\"datacolumn\">옵션변경</Col></Row><Row><Col id=\"codecolumn\">용품변경</Col><Col id=\"datacolumn\">용품변경</Col></Row><Row><Col id=\"codecolumn\">외장색상변경</Col><Col id=\"datacolumn\">외장색상변경</Col></Row><Row><Col id=\"codecolumn\">내장색상변경</Col><Col id=\"datacolumn\">내장색상변경</Col></Row><Row><Col id=\"codecolumn\">경유지변경</Col><Col id=\"datacolumn\">경유지변경</Col></Row><Row><Col id=\"codecolumn\">등록지변경</Col><Col id=\"datacolumn\">등록지변경</Col></Row><Row><Col id=\"codecolumn\">발주보류</Col><Col id=\"datacolumn\">발주보류</Col></Row><Row><Col id=\"codecolumn\">보류취소</Col><Col id=\"datacolumn\">보류취소</Col></Row><Row><Col id=\"codecolumn\">발주취소</Col><Col id=\"datacolumn\">발주취소</Col></Row><Row><Col id=\"codecolumn\">출고보류</Col><Col id=\"datacolumn\">출고보류</Col></Row></Rows>");
-            obj.set_innerdataset(divSearch_form_cmb01_00_00_innerdataset);
             obj.set_text("전체");
-            obj.set_value("전체");
-            obj.set_index("0");
+            obj.set_value("");
+            obj.set_index("-1");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new CalPeriod("CalPeriod00","86","18","210","24",null,null,null,null,null,null,this.divSearch.form);
+            obj = new Edit("Edit00_01_00","498","86","67","24",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("34");
+            obj.set_displaynulltext("(지점코드)");
+            obj.set_text("401001");
+            this.divSearch.addChild(obj.name, obj);
+
+            obj = new Button("Button00_01_00","567","86","24","24",null,null,null,null,null,null,this.divSearch.form);
+            obj.set_taborder("35");
+            obj.set_cssclass("btn_Comp_src");
+            obj.set_text("");
+            this.divSearch.addChild(obj.name, obj);
+
+            obj = new Edit("Edit00_01_00_01_00_00_00_00","594","86","120","24",null,null,null,null,null,null,this.divSearch.form);
+            obj.set_taborder("36");
+            obj.set_text("가솔린오일 GS KIXX G1 5W-30 (4L*4EA)");
+            this.divSearch.addChild(obj.name, obj);
+
+            obj = new Combo("cmb01_00","1074","18","140","24",null,null,null,null,null,null,this.divSearch.form);
+            obj.set_taborder("37");
+            obj.set_text("선택");
+            obj.set_value("");
+            obj.set_index("-1");
             this.divSearch.addChild(obj.name, obj);
 
             obj = new Div("divGridWapper","0","divSearch:0",null,null,"40","48",null,null,null,null,this);
@@ -258,7 +271,7 @@
 
             obj = new Static("Static00","0","20","120","24",null,null,null,null,null,null,this.divGridWapper.form);
             obj.set_taborder("0");
-            obj.set_text("구매의뢰목록");
+            obj.set_text("구매요청목록");
             obj.set_cssclass("sta_WF_title1");
             this.divGridWapper.addChild(obj.name, obj);
 

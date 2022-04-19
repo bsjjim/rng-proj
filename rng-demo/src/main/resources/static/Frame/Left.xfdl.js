@@ -208,6 +208,24 @@
             obj.set_background("linear-gradient(to bottom,rgba(0,0,0,0.15) 0%,transparent 100%)");
             obj.set_visible("false");
             this.addChild(obj.name, obj);
+
+            obj = new Button("btn00","5",null,"59","25",null,"64",null,null,null,null,this);
+            obj.set_taborder("24");
+            obj.set_text("Default");
+            obj.set_padding("0px");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("btn00_00","5",null,"59","25",null,"34",null,null,null,null,this);
+            obj.set_taborder("25");
+            obj.set_text("White");
+            obj.set_padding("0px");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("btn00_00_00","5",null,"59","25",null,"4",null,null,null,null,this);
+            obj.set_taborder("26");
+            obj.set_text("Black");
+            obj.set_padding("0px");
+            this.addChild(obj.name, obj);
             // Layout Functions
             //-- Default Layout : this
             obj = new Layout("default","",290,852,this,function(p){});

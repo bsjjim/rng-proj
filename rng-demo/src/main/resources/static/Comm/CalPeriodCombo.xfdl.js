@@ -10,41 +10,41 @@
         this.on_create = function()
         {
             this.set_name("Commperiod");
-            this.set_titletext("기간캘린더");
+            this.set_titletext("기간캘린더(콤보선택)");
             if (Form == this.constructor)
             {
-                this._setFormPosition(210,24);
+                this._setFormPosition(270,24);
             }
             
             // Object(Dataset, ExcelExportObject) Initialize
 
             
             // UI Components Initialize
-            obj = new PopupDiv("pdvCal","0","24","430","340",null,null,null,null,null,null,this);
+            obj = new PopupDiv("pdvCal","0","24","430","276",null,null,null,null,null,null,this);
             obj.set_visible("false");
             obj.set_background("#ffffff");
             obj.set_border("1px solid #dddddd");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnClear",null,"304","62","24","118",null,null,null,null,null,this.pdvCal.form);
+            obj = new Button("btnClear",null,"240","62","24","118",null,null,null,null,null,this.pdvCal.form);
             obj.set_taborder("0");
             obj.set_text("초기화");
             obj.set_cssclass("cal_Pop_BottomBtn");
             this.pdvCal.addChild(obj.name, obj);
 
-            obj = new Button("btnSel",null,"304","50","24","64",null,null,null,null,null,this.pdvCal.form);
+            obj = new Button("btnSel",null,"240","50","24","64",null,null,null,null,null,this.pdvCal.form);
             obj.set_taborder("1");
             obj.set_text("선택");
             obj.set_cssclass("cal_Pop_BottomBtn");
             this.pdvCal.addChild(obj.name, obj);
 
-            obj = new Button("btnClose",null,"304","50","24","10",null,null,null,null,null,this.pdvCal.form);
+            obj = new Button("btnClose",null,"240","50","24","10",null,null,null,null,null,this.pdvCal.form);
             obj.set_taborder("2");
             obj.set_text("닫기");
             obj.set_cssclass("cal_Pop_BottomBtn");
             this.pdvCal.addChild(obj.name, obj);
 
-            obj = new Calendar("calFrom","10","10","200","190",null,null,null,null,null,null,this.pdvCal.form);
+            obj = new Calendar("calFrom","10","10","200","220",null,null,null,null,null,null,this.pdvCal.form);
             obj.set_taborder("3");
             obj.set_type("monthonly");
             obj.set_border("0px none");
@@ -63,7 +63,7 @@
             obj.set_visible("false");
             this.pdvCal.addChild(obj.name, obj);
 
-            obj = new Static("Static01_00_00_01_00_00_00_01_00_00_00_00","184","294","100","10",null,null,null,null,null,null,this.pdvCal.form);
+            obj = new Static("Static01_00_00_01_00_00_00_01_00_00_00_00","184","230","100","10",null,null,null,null,null,null,this.pdvCal.form);
             obj.set_taborder("6");
             obj.set_text("10");
             obj.set_cssclass("sta_Guide");
@@ -77,72 +77,12 @@
             obj.set_visible("false");
             this.pdvCal.addChild(obj.name, obj);
 
-            obj = new Static("Static01_00_00_01_00_00_00_01_00_00_00_00_00","184","328","100","10",null,null,null,null,null,null,this.pdvCal.form);
+            obj = new Static("Static00_00_00_00","10","240","235","24",null,null,null,null,null,null,this.pdvCal.form);
+            obj.set_initvalueid("iv_fc_red");
             obj.set_taborder("8");
-            obj.set_text("10");
-            obj.set_cssclass("sta_Guide");
-            obj.set_visible("false");
+            obj.set_text("※ 시작일이 종료일보다 이후 날짜입니다.");
+            obj.set_cssclass("sta_txt_desc");
             this.pdvCal.addChild(obj.name, obj);
-
-            obj = new Button("btnToday","10","235","50","24",null,null,null,null,null,null,this.pdvCal.form);
-            obj.set_taborder("9");
-            obj.set_text("오늘");
-            obj.set_cssclass("btn_Pop_comp");
-            this.pdvCal.addChild(obj.name, obj);
-
-            obj = new Button("btnMonth1","64","235","55","24",null,null,null,null,null,null,this.pdvCal.form);
-            obj.set_taborder("10");
-            obj.set_text("1개월");
-            obj.set_cssclass("btn_Pop_comp");
-            this.pdvCal.addChild(obj.name, obj);
-
-            obj = new Button("btnMonth2","123","235","55","24",null,null,null,null,null,null,this.pdvCal.form);
-            obj.set_taborder("11");
-            obj.set_text("2개월");
-            obj.set_cssclass("btn_Pop_comp");
-            this.pdvCal.addChild(obj.name, obj);
-
-            obj = new Button("btnMonth3","182","235","55","24",null,null,null,null,null,null,this.pdvCal.form);
-            obj.set_taborder("12");
-            obj.set_text("3개월");
-            obj.set_cssclass("btn_Pop_comp");
-            this.pdvCal.addChild(obj.name, obj);
-
-            obj = new Static("sta00","10","264",null,"30","10",null,null,null,null,null,this.pdvCal.form);
-            obj.set_taborder("13");
-            obj.set_background("#F6F7F9");
-            obj.set_border("1px solid #ECEBEB, 0px none");
-            this.pdvCal.addChild(obj.name, obj);
-
-            obj = new Radio("radQuater","19","267","295","24",null,null,null,null,null,null,this.pdvCal.form);
-            obj.set_initvalueid("iv_Radio");
-            obj.set_taborder("14");
-            obj.set_codecolumn("codecolumn");
-            obj.set_datacolumn("datacolumn");
-            var pdvCal_form_radQuater_innerdataset = new nexacro.NormalDataset("pdvCal_form_radQuater_innerdataset", obj);
-            pdvCal_form_radQuater_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">1</Col><Col id=\"datacolumn\">1분기</Col></Row><Row><Col id=\"codecolumn\">2</Col><Col id=\"datacolumn\">2분기</Col></Row><Row><Col id=\"codecolumn\">3</Col><Col id=\"datacolumn\">3분기</Col></Row><Row><Col id=\"codecolumn\">4</Col><Col id=\"datacolumn\">4분기</Col></Row></Rows>");
-            obj.set_innerdataset(pdvCal_form_radQuater_innerdataset);
-            this.pdvCal.addChild(obj.name, obj);
-
-            obj = new Div("divMsg","0","0",null,null,"0","10",null,null,null,null,this.pdvCal.form);
-            obj.set_taborder("15");
-            obj.set_text("div00");
-            obj.set_visible("false");
-            this.pdvCal.addChild(obj.name, obj);
-
-            obj = new Static("sta00","50","50",null,null,"50","100",null,null,null,null,this.pdvCal.form.divMsg.form);
-            obj.set_taborder("0");
-            obj.set_text("시작일이 종료일보다 이후 날짜입니다.");
-            obj.set_verticalAlign("middle");
-            obj.set_textAlign("center");
-            obj.set_background("#e2e2e2");
-            obj.set_borderRadius("10px");
-            this.pdvCal.form.divMsg.addChild(obj.name, obj);
-
-            obj = new Button("btnDivClose","194","193","50","24",null,null,null,null,null,null,this.pdvCal.form.divMsg.form);
-            obj.set_taborder("1");
-            obj.set_text("닫기");
-            this.pdvCal.form.divMsg.addChild(obj.name, obj);
 
             obj = new MaskEdit("maeCalFrom","0","0","85","24",null,null,null,null,null,null,this);
             obj.set_taborder("0");
@@ -171,53 +111,40 @@
             obj.set_cssclass("btn_WF_cal");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn00","520","243","50","24",null,null,null,null,null,null,this);
+            obj = new Div("divMsg","458","40",null,null,"-676","-290",null,null,null,null,this);
             obj.set_taborder("4");
-            obj.set_text("오늘");
-            obj.set_cssclass("btn_Pop_compS");
+            obj.set_text("div00");
             obj.set_visible("false");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn00_00","574","243","55","24",null,null,null,null,null,null,this);
+            obj = new Static("sta00","50","50",null,null,"50","50",null,null,null,null,this.divMsg.form);
+            obj.set_taborder("0");
+            obj.set_text("시작일이 종료일보다 이후 날짜입니다.");
+            obj.set_verticalAlign("middle");
+            obj.set_textAlign("center");
+            obj.set_background("#e2e2e2");
+            obj.set_borderRadius("10px");
+            this.divMsg.addChild(obj.name, obj);
+
+            obj = new Button("btnDivClose","194","193","50","24",null,null,null,null,null,null,this.divMsg.form);
+            obj.set_taborder("1");
+            obj.set_text("닫기");
+            this.divMsg.addChild(obj.name, obj);
+
+            obj = new Combo("cmb00","212","0","58","24",null,null,null,null,null,null,this);
             obj.set_taborder("5");
-            obj.set_text("1개월");
-            obj.set_cssclass("btn_Pop_compS");
-            obj.set_visible("false");
-            this.addChild(obj.name, obj);
-
-            obj = new Button("btn00_00_00","633","243","55","24",null,null,null,null,null,null,this);
-            obj.set_taborder("6");
-            obj.set_text("2개월");
-            obj.set_cssclass("btn_Pop_compS");
-            obj.set_visible("false");
-            this.addChild(obj.name, obj);
-
-            obj = new Button("btn00_00_00_00","692","243","55","24",null,null,null,null,null,null,this);
-            obj.set_taborder("7");
-            obj.set_text("3개월");
-            obj.set_cssclass("btn_Pop_compS");
-            obj.set_visible("false");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("Static01_00_00_01_00_00_00_01_00_00_00_00","524","208","100","30",null,null,null,null,null,null,this);
-            obj.set_taborder("8");
-            obj.set_text("선택클래스");
-            obj.set_cssclass("sta_Guide");
-            obj.set_visible("false");
-            this.addChild(obj.name, obj);
-
-            obj = new Radio("radHalf","590","121","177","24",null,null,null,null,null,null,this);
-            obj.set_initvalueid("iv_Radio");
-            obj.set_taborder("9");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
-            var radHalf_innerdataset = new nexacro.NormalDataset("radHalf_innerdataset", obj);
-            radHalf_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">1</Col><Col id=\"datacolumn\">상반기</Col></Row><Row><Col id=\"codecolumn\">2</Col><Col id=\"datacolumn\">하반기</Col></Row></Rows>");
-            obj.set_innerdataset(radHalf_innerdataset);
+            var cmb00_innerdataset = new nexacro.NormalDataset("cmb00_innerdataset", obj);
+            cmb00_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">선택</Col><Col id=\"datacolumn\">선택</Col></Row><Row><Col id=\"codecolumn\">30일</Col><Col id=\"datacolumn\">30일</Col></Row><Row><Col id=\"codecolumn\">60일</Col><Col id=\"datacolumn\">60일</Col></Row><Row><Col id=\"codecolumn\">90일</Col><Col id=\"datacolumn\">90일</Col></Row></Rows>");
+            obj.set_innerdataset(cmb00_innerdataset);
+            obj.set_text("30일");
+            obj.set_value("30일");
+            obj.set_index("1");
             this.addChild(obj.name, obj);
             // Layout Functions
             //-- Default Layout : this
-            obj = new Layout("default","",210,24,this,function(p){});
+            obj = new Layout("default","",270,24,this,function(p){});
             this.addLayout(obj.name, obj);
             
             // BindItem Information
@@ -233,7 +160,7 @@
         };
         
         // User Script
-        this.registerScript("CalPeriodQuater.xfdl", function() {
+        this.registerScript("CalPeriodCombo.xfdl", function() {
         /********************************************************************
         *  기간달력 컴포넌트
         *  @FileName 	: CalPeriod.xfdl
@@ -295,7 +222,6 @@
         	   this.maeCalTo.set_cssclass("");
         	}
         }
-
 
         //선택필수 표시
         this.fnSetSelect = function(bAct)
@@ -495,110 +421,23 @@
         	}
         };
 
-        this.pdvCal_btnToday_onclick = function(obj,e)
-        {
-            this.pdvCal.form.radQuater.set_index(-1);
-        	this.pdvCal.form.radHalf.set_index(-1);
-
-            this.pdvCal.form.calFrom.set_value(this.fvToday);
-        	this.pdvCal.form.calTo.set_value(this.fvToday);
-        };
-
-        this.pdvCal_btnMonth_onclick = function(obj,e)
-        {
-            this.pdvCal.form.radQuater.set_index(-1);
-            this.pdvCal.form.radHalf.set_index(-1);
-
-        	var sBtnId = obj.id;
-        	var nMonth = parseInt(sBtnId.substr(sBtnId.length-1,1));
-
-        	var sFromMonth = this.gfnAddMonth(this.fvToday,nMonth);
-
-
-            this.pdvCal.form.calFrom.set_value(sFromMonth);
-        	this.pdvCal.form.calTo.set_value(this.fvToday);
-
-        };
-
-        this.pdvCal_radQuater_onitemchanged = function(obj,e)
-        {
-        	if(e.postindex > -1)
-        	{
-        	    this.pdvCal.form.radHalf.set_index(-1);
-        	    var sYyyy = this.fvToday.substr(0,4);
-        		var sFromDt = "";
-        		var sToDt = "";
-        	    switch(e.postvalue)
-        		{
-        		    case "1" :
-        				sFromDt = sYyyy+"0101";
-        				sToDt = this.gfnGetLastDate(sYyyy+"03");
-        			break;
-        			case "2" :
-        				sFromDt = sYyyy+"0401";
-        				sToDt = this.gfnGetLastDate(sYyyy+"06");
-        			break;
-        			case "3" :
-        				sFromDt = sYyyy+"0701";
-        				sToDt = this.gfnGetLastDate(sYyyy+"09");
-        			break;
-        			case "4" :
-        				sFromDt = sYyyy+"1001";
-        				sToDt = this.gfnGetLastDate(sYyyy+"12");
-        			break;
-        		}
-
-        		this.pdvCal.form.calFrom.set_value(sFromDt);
-        		this.pdvCal.form.calTo.set_value(sToDt);
-        	}
-        };
-
-        this.pdvCal_radHalf_onitemchanged = function(obj,e)
-        {
-        	if(e.postindex > -1)
-        	{
-        	   this.pdvCal.form.radQuater.set_index(-1);
-        	    var sYyyy = this.fvToday.substr(0,4);
-        		var sFromDt = "";
-        		var sToDt = "";
-
-        		if(e.postvalue == "1")
-        		{
-        				sFromDt = sYyyy+"0101";
-        				sToDt = this.gfnGetLastDate(sYyyy+"06");
-        		}
-        		else
-        		{
-        				sFromDt = sYyyy+"0701";
-        				sToDt = this.gfnGetLastDate(sYyyy+"12");
-        		}
-
-        		this.pdvCal.form.calFrom.set_value(sFromDt);
-        		this.pdvCal.form.calTo.set_value(sToDt);
-        	}
-        };
-
         });
         
         // Regist UI Components Event
         this.on_initEvent = function()
         {
             this.addEventHandler("onload",this.fnFormOnload,this);
+            this.addEventHandler("onsetfocus",this.Commperiod_onsetfocus,this);
             this.pdvCal.form.btnClear.addEventHandler("onclick",this.pdvCal_btnClear_onclick,this);
             this.pdvCal.form.btnSel.addEventHandler("onclick",this.pdvCal_btnSel_onclick,this);
             this.pdvCal.form.btnClose.addEventHandler("onclick",this.pdvCal_btnClose_onclick,this);
-            this.pdvCal.form.btnToday.addEventHandler("onclick",this.pdvCal_btnToday_onclick,this);
-            this.pdvCal.form.btnMonth1.addEventHandler("onclick",this.pdvCal_btnMonth_onclick,this);
-            this.pdvCal.form.btnMonth2.addEventHandler("onclick",this.pdvCal_btnMonth_onclick,this);
-            this.pdvCal.form.btnMonth3.addEventHandler("onclick",this.pdvCal_btnMonth_onclick,this);
-            this.pdvCal.form.radQuater.addEventHandler("onitemchanged",this.pdvCal_radQuater_onitemchanged,this);
-            this.pdvCal.form.divMsg.form.btnDivClose.addEventHandler("onclick",this.pdvCal_divMsg_btnDivClose_onclick,this);
+            this.pdvCal.form.calFrom.addEventHandler("onchanged",this.PopupDiv00_Calendar00_onchanged,this);
             this.maeCalFrom.addEventHandler("oninput",this.maeCal_oninput,this);
             this.maeCalTo.addEventHandler("oninput",this.maeCal_oninput,this);
             this.btnCal.addEventHandler("onclick",this.btnCal_onclick,this);
-            this.radHalf.addEventHandler("onitemchanged",this.pdvCal_radHalf_onitemchanged,this);
+            this.divMsg.form.btnDivClose.addEventHandler("onclick",this.pdvCal_divMsg_btnDivClose_onclick,this);
         };
-        this.loadIncludeScript("CalPeriodQuater.xfdl");
+        this.loadIncludeScript("CalPeriodCombo.xfdl");
         this.loadPreloadList();
         
         // Remove Reference
