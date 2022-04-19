@@ -49,7 +49,6 @@ public class RedisManager<T> {
      * @param key redis-key
      * @return value redis-value (에러시 null을 리턴함)
      */
-    @Profile("redis")
     public T getValueOps(String key) {
         try {
             log.debug("redisManager getValue --- key : [{}]", key);
@@ -68,10 +67,9 @@ public class RedisManager<T> {
      * @param timeout redis-해당 값이 유지(ttl)할 시간
      * @param timeUnit redis-해당 값이 유지(ttl)할 시간의 단위
      */
-    @Profile("redis")
     public void setValueOps(String key, T val, long timeout, TimeUnit timeUnit) {
         try {
-//            redisTemplate.opsForValue().set(key, val);
+            // redisTemplate.opsForValue().set(key, val);
             redisValueOps.set(key, val, timeout, timeUnit);
             log.debug("redisManager setValue --- key : [{}]", key);
         } catch (Exception e) {
@@ -85,7 +83,6 @@ public class RedisManager<T> {
      * @param key redis-key
      * @return value redis-list value (에러시 null을 리턴함)
      */
-    @Profile("redis")
     public  List<T> getListOps(String key) {
         try {
             return redisListOps.range(key, 0, -1);
@@ -100,7 +97,6 @@ public class RedisManager<T> {
      * @param key redis-key
      * @param list redis-hashmap value
      */
-    @Profile("redis")
     public void setListOps(String key, List<T> list) {
         try {
             redisListOps.rightPushAll(key, list);
@@ -120,7 +116,13 @@ public class RedisManager<T> {
      * @param hashKey value
      */
     public String getHashOps(String key, String hashKey) {
-        return redisHashOps.hasKey(key, hashKey) ? (String) redisHashOps.get(key, hashKey) : new String();
+        try {
+            log.debug("redisManager getHashOps --- key : [{}]", key);
+            return redisHashOps.hasKey(key, hashKey) ? (String) redisHashOps.get(key, hashKey) : "";
+        } catch (Exception e) {
+            log.error("redisManager getHashOps error : [{}]", e.toString());
+            return "";
+        }
     }
 
     /**
@@ -130,7 +132,12 @@ public class RedisManager<T> {
      * @param value value
      */
     public void setHashOps(String key, HashMap<String, String> value) {
-        redisHashOps.putAll(key, (Map<? extends T, ? extends T>) value);
+        try {
+            log.debug("redisManager setHashOps --- key : [{}]", key);
+            redisHashOps.putAll(key, (Map<? extends T, ? extends T>) value);
+        } catch (Exception e) {
+            log.error("redisManager setHashOps error : [{}]", e.toString());
+        }
     }
 
     /**
@@ -138,8 +145,15 @@ public class RedisManager<T> {
      *
      * @param key redis-key
      */
+    @SuppressWarnings("unchecked")
     public Set<String> getSetOps(String key) {
-        return (Set<String>) redisSetOps.members(key);
+        try {
+            log.debug("redisManager getSetOps --- key : [{}]", key);
+            return (Set<String>) redisSetOps.members(key);
+        } catch (Exception e) {
+            log.error("redisManager getSetOps error : [{}]", e.toString());
+            return null;
+        }
     }
 
     /**
@@ -149,7 +163,12 @@ public class RedisManager<T> {
      * @param values value
      */
     public void setSetOps(String key, T... values) {
-        redisSetOps.add(key, values);
+        try {
+            redisSetOps.add(key, values);
+            log.debug("redisManager setSetOps --- key : [{}]", key);
+        } catch (Exception e) {
+            log.error("redisManager setSetOps error : [{}]", e.toString());
+        }
     }
 
     /**
@@ -158,8 +177,8 @@ public class RedisManager<T> {
      * @param key redis-key
      */
     public Set getSortedSetOps(String key) {
-        Long len = redisZSetOps.size(key);
         try {
+            Long len = redisZSetOps.size(key);
             return len == 0 ? new HashSet<String>() : redisZSetOps.range(key, 0, len-1);
         } catch (Exception e) {
             log.error("redisManager getSortedSetOps error : [{}]", e.toString());
@@ -173,9 +192,15 @@ public class RedisManager<T> {
      * @param key redis-key
      * @param values value
      */
+    @SuppressWarnings("unchecked")
     public void setSortedSetOps(String key, List<SortedSetVo.SetVal> values) {
-        for (SortedSetVo.SetVal v : values) {
-            redisZSetOps.add(key, (T) v.getValue(), v.getScore());
+        try {
+            for (SortedSetVo.SetVal v : values) {
+                redisZSetOps.add(key, (T) v.getValue(), v.getScore());
+            }
+            log.debug("redisManager setSortedSetOps --- key : [{}]", key);
+        } catch (Exception e) {
+            log.error("redisManager setSortedSetOps error : [{}]", e.toString());
         }
     }
 
@@ -185,7 +210,6 @@ public class RedisManager<T> {
      * @param key redis-key
      */
     @SuppressWarnings("unchecked")
-    @Profile("redis")
     public void delete(String key) {
         try {
             redisTemplate.delete(key);
