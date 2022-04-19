@@ -534,10 +534,10 @@
             obj.set_cssclass("sta_txt_desc");
             this.Div01.addChild(obj.name, obj);
 
-            obj = new Static("Static02_00_00_01_00_02_01_00_00","373","270","99","24",null,null,null,null,null,null,this.Div01.form);
+            obj = new Static("Static02_00_00_01_00_02_01_00_00","438","270","99","24",null,null,null,null,null,null,this.Div01.form);
             obj.set_initvalueid("iv_fc_orange");
             obj.set_taborder("84");
-            obj.set_text("210");
+            obj.set_text("210/55");
             obj.set_cssclass("sta_txt_desc");
             this.Div01.addChild(obj.name, obj);
 
@@ -820,6 +820,13 @@
             obj.set_taborder("130");
             obj.set_text("시간에 괄호표시");
             obj.set_cssclass("sta_txt_desc");
+            this.Div01.addChild(obj.name, obj);
+
+            obj = new Combo("cmb01","366","271","55","24",null,null,null,null,null,null,this.Div01.form);
+            obj.set_taborder("131");
+            obj.set_text("30일");
+            obj.set_value("");
+            obj.set_index("-1");
             this.Div01.addChild(obj.name, obj);
 
             obj = new Static("Static01_00_00_01_00_00","528","0","100","35",null,null,null,null,null,null,this);

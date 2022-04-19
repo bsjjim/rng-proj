@@ -116,7 +116,7 @@
         *
         *******************************************************************************
         */
-        this.fileKey = "";
+
         /************************************************************************************************
          * FORM 변수 선언 영역
          ************************************************************************************************/
@@ -418,16 +418,18 @@
         {
         	if (system.navigatorname != "nexacro") {
         		//var sUploadUrl = "http://127.0.0.1:8017/nexacro/" + this.fileConfig.uploadUrl;
-        		/*var sUploadUrl = "http://localhost:8017/nexacro/" + this.fileConfig.uploadUrl;*/
-        		var sUploadUrl = "http://localhost:8080/uploadNexacroFile";
+        		var sUploadUrl = "http://localhost:8017/nexacro/" + this.fileConfig.uploadUrl;
         	} else {
         		var sUploadUrl = this.fileConfig.host + this.fileConfig.uploadUrl;
         	}
 
 
-        	this.FileUpTransfer.setPostData("fileKey", "aaa");
+        	this.FileUpTransfer.setPostData("fileKey", "");
 
+        	// PostData : Dataset 전달 --------------------------------------- End
+        	this.FileUpTransfer.removePostData("removeFile");		// removeFile 삭제
 
+        	trace("sUploadUrl :" + sUploadUrl);
         	this.FileUpTransfer.upload(sUploadUrl);
 
         	this.ProgressBar.set_visible(true);
@@ -457,16 +459,16 @@
         	//trace("FileUpTransfer_onsuccess >> e.url : " + e.url);
         	//trace(e.datasets.length);
 
+        	var rtnRemoveFile = obj.getPostData("removeFile");
         	//trace("rtnRemoveFile  : " + rtnRemoveFile);
 
-        	trace("this.fileKey =="+this.fileKey);
         	var filelist = obj.filelist;
         	trace("this.FileUpTransfer.filelist : " + filelist.length);
 
         	var rtnDataset = e.datasets[0];
         		trace(rtnDataset.saveXML());
 
-        	if (!this.gfnIsNull(fileInfo) ) {
+        	if (!this.gfnIsNull(rtnRemoveFile) ) {
         		trace("~~~~~~~ Remove File Info ~~~~~~~  PostData 이용 file Delete 시");
 
 
@@ -475,7 +477,7 @@
         		if (nIdx != -1) {
         			this.dsUpload.deleteRow(nIdx);
         			obj.removeFile(rtnRemoveFile);		// File  제거
-        			obj.removePostData("fileInfo");	// PostData(removeFile) 제거
+        			obj.removePostData("removeFile");	// PostData(removeFile) 제거
         		}
         		this.grdUpload.set_enableredraw(true);
 

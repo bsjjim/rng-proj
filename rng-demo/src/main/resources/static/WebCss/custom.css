@@ -12,6 +12,7 @@
 .MainFrame .Div.div_group,
 .MainFrame .Div.div_footer{
   background: #ffffff;
+  overflow: hidden;
 }
 
 /* input 요소가 readonly 일 때 border 및 padding 제거 */
@@ -181,4 +182,9 @@ white-space: nowrap;
 /* MaskEdit String 타입 넥사크로 툴과 브라우저에서 align 다르게 나오는 버그 수정*/
 .MaskEdit .nexainput.nexaleftalign {
 	text-align: left;
+}
+
+/* 테이블 label: line-height 조정 */
+.sta_DA_label .nexacontentsbox{
+  line-height: 1.2;
 }

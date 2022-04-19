@@ -20,8 +20,8 @@
 
             
             // UI Components Initialize
-            obj = new Static("Static27_03_00_01_00_00_00","129","1074",null,"507","40",null,null,null,null,null,this);
-            obj.set_taborder("112");
+            obj = new Static("Static27_03_00_01_00_00_00","129","1074",null,"432","40",null,null,null,null,null,this);
+            obj.set_taborder("111");
             obj.set_cssclass("sta_DA_data");
             obj.set_text("");
             this.addChild(obj.name, obj);
@@ -451,7 +451,7 @@
             obj.set_cssclass("sta_DA_data");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static01_00_00_01_00_00_00","495","643","100","50",null,null,null,null,null,null,this);
+            obj = new Static("Static01_00_00_01_00_00_00","723","643","100","50",null,null,null,null,null,null,this);
             obj.set_taborder("68");
             obj.set_text("h50");
             obj.set_cssclass("sta_Guide");
@@ -664,191 +664,184 @@
             obj.set_font("8pt Dotum");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static26_02_00_01_00_00","0","982","130","599",null,null,null,null,null,null,this);
+            obj = new Static("Static26_02_00_01_00_00","0","982","130","524",null,null,null,null,null,null,this);
             obj.set_taborder("100");
             obj.set_text("Calendar");
             obj.set_cssclass("sta_DA_label");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static27_03_00_01_00_00","129","982",null,"248","40",null,null,null,null,null,this);
+            obj = new Static("Static27_03_00_01_00_00","129","982",null,"258","40",null,null,null,null,null,this);
             obj.set_taborder("101");
             obj.set_cssclass("sta_DA_data");
             obj.set_text("");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_02_00_00_02_00","152","1258","978","24",null,null,null,null,null,null,this);
-            obj.set_initvalueid("iv_fc_blue");
+            obj = new Static("Static00_01_03_01_00_00_00","147","1309","90","24",null,null,null,null,null,null,this);
             obj.set_taborder("102");
-            obj.set_text("※ 글자의 자릿수가 정해져 있는 캘린더의 경우 가이드의 컴포넌트 사이즈를 지켜 작업 필요");
-            obj.set_cssclass("sta_txt_desc");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("Static00_01_03_01_00_00_00","142","1366","90","24",null,null,null,null,null,null,this);
-            obj.set_taborder("103");
             obj.set_text("조회기간(일)");
             obj.set_cssclass("sta_SA_label");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_04_00_01_00_00","142","1322","90","24",null,null,null,null,null,null,this);
-            obj.set_taborder("104");
+            obj = new Static("Static00_04_00_01_00_00","147","1265","90","24",null,null,null,null,null,null,this);
+            obj.set_taborder("103");
             obj.set_text("조회기간(월)");
             obj.set_cssclass("sta_SA_label");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_01","169","1102","55","24",null,null,null,null,null,null,this);
-            obj.set_taborder("105");
+            obj = new Static("Static00_01","159","1047","55","24",null,null,null,null,null,null,this);
+            obj.set_taborder("104");
             obj.set_text("년월일");
             obj.set_cssclass("sta_SA_label");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00_04","452","1102","65","24",null,null,null,null,null,null,this);
-            obj.set_taborder("106");
+            obj = new Static("Static00_00_04","442","1047","65","24",null,null,null,null,null,null,this);
+            obj.set_taborder("105");
             obj.set_text("disabled");
             obj.set_cssclass("sta_SA_label");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00_00_04","692","1102","70","24",null,null,null,null,null,null,this);
-            obj.set_taborder("107");
+            obj = new Static("Static00_00_00_04","682","1047","70","24",null,null,null,null,null,null,this);
+            obj.set_taborder("106");
             obj.set_text("readonly");
             obj.set_cssclass("sta_SA_label");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_01_03_00_00_00","1191","1102","70","24",null,null,null,null,null,null,this);
-            obj.set_taborder("108");
+            obj = new Static("Static00_01_03_00_00_00","1181","1047","70","24",null,null,null,null,null,null,this);
+            obj.set_taborder("107");
             obj.set_text("선택필수");
             obj.set_cssclass("sta_SA_label_select");
             this.addChild(obj.name, obj);
 
-            obj = new Calendar("Calendar00_00","282","1102","105","24",null,null,null,null,null,null,this);
-            obj.set_taborder("109");
+            obj = new Calendar("Calendar00_00","272","1047","105","24",null,null,null,null,null,null,this);
+            obj.set_taborder("108");
             obj.set_dateformat("yyyy-MM-dd");
             obj.set_value("20220110");
             this.addChild(obj.name, obj);
 
-            obj = new Calendar("Calendar00_00_00","524","1102","105","24",null,null,null,null,null,null,this);
-            obj.set_taborder("110");
+            obj = new Calendar("Calendar00_00_00","514","1047","105","24",null,null,null,null,null,null,this);
+            obj.set_taborder("109");
             obj.set_enable("false");
             obj.set_dateformat("yyyy-MM-dd");
             obj.set_value("20220110");
             this.addChild(obj.name, obj);
 
-            obj = new Calendar("Calendar00_00_00_00_00_00","1255","1102","105","24",null,null,null,null,null,null,this);
-            obj.set_taborder("111");
+            obj = new Calendar("Calendar00_00_00_00_00_00","1245","1047","105","24",null,null,null,null,null,null,this);
+            obj.set_taborder("110");
             obj.set_cssclass("input_select");
             obj.set_dateformat("yyyy-MM-dd");
             obj.set_value("20220110");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static75_00_00","477","1326","50","15",null,null,null,null,null,null,this);
-            obj.set_taborder("113");
+            obj = new Static("Static75_00_00","482","1269","50","15",null,null,null,null,null,null,this);
+            obj.set_taborder("112");
             obj.set_text("w 170");
             obj.set_cssclass("sta_txt_desc");
             obj.set_textAlign("center");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_01_00","169","1068","55","24",null,null,null,null,null,null,this);
-            obj.set_taborder("114");
+            obj = new Static("Static00_01_00","159","1013","55","24",null,null,null,null,null,null,this);
+            obj.set_taborder("113");
             obj.set_text("년월");
             obj.set_cssclass("sta_SA_label");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00_04_00","452","1068","65","24",null,null,null,null,null,null,this);
-            obj.set_taborder("115");
+            obj = new Static("Static00_00_04_00","442","1013","65","24",null,null,null,null,null,null,this);
+            obj.set_taborder("114");
             obj.set_text("disabled");
             obj.set_cssclass("sta_SA_label");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00_00_04_00","692","1068","71","24",null,null,null,null,null,null,this);
-            obj.set_taborder("116");
+            obj = new Static("Static00_00_00_04_00","682","1013","71","24",null,null,null,null,null,null,this);
+            obj.set_taborder("115");
             obj.set_text("readonly ");
             obj.set_cssclass("sta_SA_label");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_01_03_00_00_00_00","1191","1068","70","24",null,null,null,null,null,null,this);
-            obj.set_taborder("117");
+            obj = new Static("Static00_01_03_00_00_00_00","1181","1013","70","24",null,null,null,null,null,null,this);
+            obj.set_taborder("116");
             obj.set_text("선택필수");
             obj.set_cssclass("sta_SA_label_select");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static02","762","1068","120","24",null,null,null,null,null,null,this);
-            obj.set_taborder("118");
+            obj = new Static("Static02","752","1013","120","24",null,null,null,null,null,null,this);
+            obj.set_taborder("117");
             obj.set_text(" 없음(MaskEdit 사용)");
             obj.set_cssclass("sta_txt_desc");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_01_03_01_00_00_00_01","691","1366","75","24",null,null,null,null,null,null,this);
+            obj = new Static("Static00_01_03_01_00_00_00_01","696","1309","75","24",null,null,null,null,null,null,this);
+            obj.set_taborder("118");
+            obj.set_text("disabled");
+            obj.set_cssclass("sta_SA_label");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static00_04_00_01_00_00_00","696","1265","75","24",null,null,null,null,null,null,this);
             obj.set_taborder("119");
             obj.set_text("disabled");
             obj.set_cssclass("sta_SA_label");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_04_00_01_00_00_00","691","1322","75","24",null,null,null,null,null,null,this);
+            obj = new Static("Static00_00_00_04_00_00","1113","1260","71","24",null,null,null,null,null,null,this);
             obj.set_taborder("120");
-            obj.set_text("disabled");
-            obj.set_cssclass("sta_SA_label");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("Static00_00_00_04_00_00","1108","1317","71","24",null,null,null,null,null,null,this);
-            obj.set_taborder("121");
             obj.set_text("readonly ");
             obj.set_cssclass("sta_SA_label");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static02_01","1191","1317","205","24",null,null,null,null,null,null,this);
-            obj.set_taborder("122");
+            obj = new Static("Static02_01","1196","1260","205","24",null,null,null,null,null,null,this);
+            obj.set_taborder("121");
             obj.set_text(" 없음(Edit 또는 MaskEdit 사용)");
             obj.set_cssclass("sta_txt_desc");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00_00_04_00_00_00","1108","1363","71","24",null,null,null,null,null,null,this);
-            obj.set_taborder("123");
+            obj = new Static("Static00_00_00_04_00_00_00","1113","1306","71","24",null,null,null,null,null,null,this);
+            obj.set_taborder("122");
             obj.set_text("readonly ");
             obj.set_cssclass("sta_SA_label");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static02_02","762","1102","120","24",null,null,null,null,null,null,this);
-            obj.set_taborder("124");
+            obj = new Static("Static02_02","752","1047","120","24",null,null,null,null,null,null,this);
+            obj.set_taborder("123");
             obj.set_text(" 없음(MaskEdit 사용)");
             obj.set_cssclass("sta_txt_desc");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static26_02_00_00_00_00_00","0","525","130","63",null,null,null,null,null,null,this);
-            obj.set_taborder("125");
+            obj.set_taborder("124");
             obj.set_text("Combo");
             obj.set_cssclass("sta_DA_label");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static27_03_00_00_00_00_00_00","129","525",null,"63","40",null,null,null,null,null,this);
-            obj.set_taborder("126");
+            obj.set_taborder("125");
             obj.set_cssclass("sta_DA_data");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_04_01","163","544","70","24",null,null,null,null,null,null,this);
-            obj.set_taborder("127");
+            obj.set_taborder("126");
             obj.set_text("enabled");
             obj.set_cssclass("sta_SA_label");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_00_03_00","402","543","65","24",null,null,null,null,null,null,this);
-            obj.set_taborder("128");
+            obj.set_taborder("127");
             obj.set_text("disabled");
             obj.set_cssclass("sta_SA_label");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_00_00_03_00","638","543","75","24",null,null,null,null,null,null,this);
-            obj.set_taborder("129");
+            obj.set_taborder("128");
             obj.set_text("readonly");
             obj.set_cssclass("sta_SA_label");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_01_03_02","1141","544","70","24",null,null,null,null,null,null,this);
-            obj.set_taborder("130");
+            obj.set_taborder("129");
             obj.set_text("선택필수");
             obj.set_cssclass("sta_SA_label_select");
             this.addChild(obj.name, obj);
 
             obj = new Combo("Combo00","232","544","130","24",null,null,null,null,null,null,this);
-            obj.set_taborder("131");
+            obj.set_taborder("130");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
             var Combo00_innerdataset = new nexacro.NormalDataset("Combo00_innerdataset", obj);
@@ -860,7 +853,7 @@
             this.addChild(obj.name, obj);
 
             obj = new Combo("Combo00_00","474","544","130","24",null,null,null,null,null,null,this);
-            obj.set_taborder("132");
+            obj.set_taborder("131");
             obj.set_enable("false");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
@@ -873,7 +866,7 @@
             this.addChild(obj.name, obj);
 
             obj = new Combo("Combo00_00_00","712","544","130","24",null,null,null,null,null,null,this);
-            obj.set_taborder("133");
+            obj.set_taborder("132");
             obj.set_readonly("true");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
@@ -886,38 +879,38 @@
             this.addChild(obj.name, obj);
 
             obj = new Static("Static01_01",null,"-62","40",null,"0","57",null,null,null,null,this);
-            obj.set_taborder("134");
+            obj.set_taborder("133");
             obj.set_text("40");
             obj.set_cssclass("sta_Guide");
             obj.set_visible("false");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_01_01_01_00","1141","351","70","24",null,null,null,null,null,null,this);
-            obj.set_taborder("135");
+            obj.set_taborder("134");
             obj.set_text("선택필수");
             obj.set_cssclass("sta_SA_label_select");
             this.addChild(obj.name, obj);
 
             obj = new TextArea("TextArea00_01_00","1205","351","140","88",null,null,null,null,null,null,this);
-            obj.set_taborder("136");
+            obj.set_taborder("135");
             obj.set_value("줄바꿈이\n필요할땐\nCtrl + Enter");
             obj.set_cssclass("input_select");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_01_03_03","890","483","70","24",null,null,null,null,null,null,this);
-            obj.set_taborder("137");
+            obj.set_taborder("136");
             obj.set_text("필수입력 ");
             obj.set_cssclass("sta_SA_label_req");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_01_03_02_00","890","544","70","24",null,null,null,null,null,null,this);
-            obj.set_taborder("138");
+            obj.set_taborder("137");
             obj.set_text("필수입력 ");
             obj.set_cssclass("sta_SA_label_req");
             this.addChild(obj.name, obj);
 
             obj = new Spin("Spin00_01_00","960","483","130","24",null,null,null,null,null,null,this);
-            obj.set_taborder("139");
+            obj.set_taborder("138");
             obj.set_cssclass("input_req");
             obj.set_min("2000");
             obj.set_max("2022");
@@ -925,14 +918,14 @@
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_01_03_01_01","163","811","70","24",null,null,null,null,null,null,this);
-            obj.set_taborder("140");
+            obj.set_taborder("139");
             obj.set_text("선택필수");
             obj.set_cssclass("sta_SA_label_select");
             this.addChild(obj.name, obj);
 
             obj = new Radio("Radio00_00_00","232","811","335","24",null,null,null,null,null,null,this);
             obj.set_initvalueid("iv_Radio");
-            obj.set_taborder("141");
+            obj.set_taborder("140");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
             obj.set_cssclass("input_select");
@@ -945,51 +938,51 @@
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_01_03_01_00_00","163","940","70","24",null,null,null,null,null,null,this);
-            obj.set_taborder("142");
+            obj.set_taborder("141");
             obj.set_text("선택필수");
             obj.set_cssclass("sta_SA_label_select");
             this.addChild(obj.name, obj);
 
             obj = new CheckBox("CheckBox00_00_01","232","940","60","24",null,null,null,null,null,null,this);
-            obj.set_taborder("143");
+            obj.set_taborder("142");
             obj.set_text("선택2");
             obj.set_cssclass("input_select");
             obj.set_value("true");
             this.addChild(obj.name, obj);
 
             obj = new CheckBox("CheckBox00_00_00_02","302","940","60","24",null,null,null,null,null,null,this);
-            obj.set_taborder("144");
+            obj.set_taborder("143");
             obj.set_text("선택2");
             obj.set_cssclass("input_select");
             this.addChild(obj.name, obj);
 
             obj = new CheckBox("CheckBox00_00_00_00_01","372","940","60","24",null,null,null,null,null,null,this);
-            obj.set_taborder("145");
+            obj.set_taborder("144");
             obj.set_text("선택2");
             obj.set_cssclass("input_select");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_01_03_00_00_00_01","940","1102","70","24",null,null,null,null,null,null,this);
+            obj = new Static("Static00_01_03_00_00_00_01","930","1047","70","24",null,null,null,null,null,null,this);
+            obj.set_taborder("145");
+            obj.set_text("필수입력 ");
+            obj.set_cssclass("sta_SA_label_req");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static00_01_03_00_00_00_00_00","930","1013","70","24",null,null,null,null,null,null,this);
             obj.set_taborder("146");
             obj.set_text("필수입력 ");
             obj.set_cssclass("sta_SA_label_req");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_01_03_00_00_00_00_00","940","1068","70","24",null,null,null,null,null,null,this);
+            obj = new Calendar("Calendar00_00_00_00_00_00_00","1000","1047","105","24",null,null,null,null,null,null,this);
             obj.set_taborder("147");
-            obj.set_text("필수입력 ");
-            obj.set_cssclass("sta_SA_label_req");
-            this.addChild(obj.name, obj);
-
-            obj = new Calendar("Calendar00_00_00_00_00_00_00","1010","1102","105","24",null,null,null,null,null,null,this);
-            obj.set_taborder("148");
             obj.set_cssclass("input_req");
             obj.set_dateformat("yyyy-MM-dd");
             obj.set_value("20220110");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static01_00_00_00","300","-5","10","40",null,null,null,null,null,null,this);
-            obj.set_taborder("149");
+            obj.set_taborder("148");
             obj.set_text("10");
             obj.set_cssclass("sta_Guide");
             obj.set_visible("false");
@@ -997,47 +990,47 @@
 
             obj = new Static("Static00_01_00_00_01_00_00_00_01","226","663","434","24",null,null,null,null,null,null,this);
             obj.set_initvalueid("iv_fc_blue");
-            obj.set_taborder("150");
+            obj.set_taborder("149");
             obj.set_text("※ 필수입력 클래스 : input_req / 선택필수 클래스: input_select");
             obj.set_usedecorate("true");
             obj.set_cssclass("sta_txt_desc");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static01_00_00_00_00","216","655","10","40",null,null,null,null,null,null,this);
-            obj.set_taborder("151");
+            obj.set_taborder("150");
             obj.set_text("10");
             obj.set_cssclass("sta_Guide");
             obj.set_visible("false");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_01_03_01_00_00_00_03","142","1505","130","24",null,null,null,null,null,null,this);
-            obj.set_taborder("152");
+            obj = new Static("Static00_01_03_01_00_00_00_03","147","1448","130","24",null,null,null,null,null,null,this);
+            obj.set_taborder("151");
             obj.set_text("조회기간(시간포함)");
             obj.set_cssclass("sta_SA_label");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_01_03_01_00_00_00_03_00","691","1505","70","24",null,null,null,null,null,null,this);
-            obj.set_taborder("153");
+            obj = new Static("Static00_01_03_01_00_00_00_03_00","696","1448","70","24",null,null,null,null,null,null,this);
+            obj.set_taborder("152");
             obj.set_text("disabled");
             obj.set_cssclass("sta_SA_label");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static75_00_00_00_00","610","1510","50","15",null,null,null,null,null,null,this);
-            obj.set_taborder("154");
+            obj = new Static("Static75_00_00_00_00","615","1453","50","15",null,null,null,null,null,null,this);
+            obj.set_taborder("153");
             obj.set_text("w310");
             obj.set_cssclass("sta_txt_desc");
             obj.set_textAlign("center");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_04_00_02","569","746","65","24",null,null,null,null,null,null,this);
-            obj.set_taborder("155");
+            obj.set_taborder("154");
             obj.set_text("disabled");
             obj.set_cssclass("sta_SA_label");
             this.addChild(obj.name, obj);
 
             obj = new Radio("Radio00_02","641","746","335","24",null,null,null,null,null,null,this);
             obj.set_initvalueid("iv_Radio");
-            obj.set_taborder("156");
+            obj.set_taborder("155");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
             obj.set_enable("false");
@@ -1050,70 +1043,56 @@
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_04_00_02_00","569","776","65","24",null,null,null,null,null,null,this);
-            obj.set_taborder("157");
+            obj.set_taborder("156");
             obj.set_text("readonly");
             obj.set_cssclass("sta_SA_label");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static02_00","640","776","380","24",null,null,null,null,null,null,this);
-            obj.set_taborder("158");
+            obj.set_taborder("157");
             obj.set_text(" 없음(Static 또는 Edit의 readonly 상태 사용)");
             obj.set_cssclass("sta_txt_desc");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_04_00_02_00_00","565","900","65","24",null,null,null,null,null,null,this);
-            obj.set_taborder("159");
+            obj.set_taborder("158");
             obj.set_text("readonly");
             obj.set_cssclass("sta_SA_label");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_04_00_02_01","565","870","65","24",null,null,null,null,null,null,this);
-            obj.set_taborder("160");
+            obj.set_taborder("159");
             obj.set_text("disabled");
             obj.set_cssclass("sta_SA_label");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static02_00_00","640","900","380","24",null,null,null,null,null,null,this);
-            obj.set_taborder("161");
+            obj.set_taborder("160");
             obj.set_text(" 없음(Static 또는 Edit의 readonly 상태 사용)");
             obj.set_cssclass("sta_txt_desc");
             this.addChild(obj.name, obj);
 
             obj = new CheckBox("CheckBox00_02","645","870","60","24",null,null,null,null,null,null,this);
-            obj.set_taborder("162");
+            obj.set_taborder("161");
             obj.set_text("선택1");
             obj.set_value("true");
             obj.set_enable("false");
             this.addChild(obj.name, obj);
 
             obj = new CheckBox("CheckBox00_01_02","715","870","60","24",null,null,null,null,null,null,this);
-            obj.set_taborder("163");
+            obj.set_taborder("162");
             obj.set_text("선택1");
             obj.set_enable("false");
             this.addChild(obj.name, obj);
 
             obj = new CheckBox("CheckBox00_01_00_01","785","870","60","24",null,null,null,null,null,null,this);
-            obj.set_taborder("164");
+            obj.set_taborder("163");
             obj.set_text("선택1");
             obj.set_enable("false");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_02_00_00_02_02","152","999","1193","24",null,null,null,null,null,null,this);
-            obj.set_initvalueid("iv_fc_blue");
-            obj.set_taborder("165");
-            obj.set_text("※ 년월, 년월일시 캘린더, 기간 캘린터는 넥사크로에서 기본 제공하는 컴포넌트가 아닌 컴포짓 컴포넌트로, 외부 Form으로 만들어진 컴포짓 컴포넌트를 div의 url로 링크시켜 사용하는 형태 입니다.");
-            obj.set_cssclass("sta_txt_desc");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("Static00_02_00_00_02_02_00","152","1023","1323","24",null,null,null,null,null,null,this);
-            obj.set_initvalueid("iv_fc_red");
-            obj.set_taborder("166");
-            obj.set_text("※ 컴포짓 컴포넌트는 현재 공통개발이 진행되지 않은 임시 컴포짓으로 파일의 url이 바뀌거나, 다른형태로 컴포넌트가 교체 될 수 있습니다. 필수입력, 선택필수의 경우, 공통에서 제공하는 함수를 호출하여 디자인이이 입혀지는 형태로 사용예정입니다.");
-            obj.set_cssclass("sta_txt_desc");
-            this.addChild(obj.name, obj);
-
             obj = new Combo("Combo00_01","960","544","130","24",null,null,null,null,null,null,this);
-            obj.set_taborder("167");
+            obj.set_taborder("164");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
             obj.set_cssclass("input_req");
@@ -1126,7 +1105,7 @@
             this.addChild(obj.name, obj);
 
             obj = new Combo("Combo00_01_00","1205","544","130","24",null,null,null,null,null,null,this);
-            obj.set_taborder("168");
+            obj.set_taborder("165");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
             obj.set_cssclass("input_select");
@@ -1138,350 +1117,343 @@
             obj.set_index("0");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_01_01","169","1142","113","24",null,null,null,null,null,null,this);
-            obj.set_taborder("169");
+            obj = new Static("Static00_01_01","159","1087","113","24",null,null,null,null,null,null,this);
+            obj.set_taborder("166");
             obj.set_text("년월일(요일포함)");
             obj.set_cssclass("sta_SA_label");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00_04_01","452","1142","65","24",null,null,null,null,null,null,this);
-            obj.set_taborder("170");
+            obj = new Static("Static00_00_04_01","442","1087","65","24",null,null,null,null,null,null,this);
+            obj.set_taborder("167");
             obj.set_text("disabled");
             obj.set_cssclass("sta_SA_label");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00_00_04_01","692","1142","70","24",null,null,null,null,null,null,this);
-            obj.set_taborder("171");
+            obj = new Static("Static00_00_00_04_01","682","1087","70","24",null,null,null,null,null,null,this);
+            obj.set_taborder("168");
             obj.set_text("readonly");
             obj.set_cssclass("sta_SA_label");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_01_03_00_00_00_02","1191","1142","70","24",null,null,null,null,null,null,this);
-            obj.set_taborder("172");
+            obj = new Static("Static00_01_03_00_00_00_02","1181","1087","70","24",null,null,null,null,null,null,this);
+            obj.set_taborder("169");
             obj.set_text("선택필수");
             obj.set_cssclass("sta_SA_label_select");
             this.addChild(obj.name, obj);
 
-            obj = new Calendar("Calendar00_00_01","282","1142","120","24",null,null,null,null,null,null,this);
-            obj.set_taborder("173");
+            obj = new Calendar("Calendar00_00_01","272","1087","120","24",null,null,null,null,null,null,this);
+            obj.set_taborder("170");
             obj.set_value("20220110");
             this.addChild(obj.name, obj);
 
-            obj = new Calendar("Calendar00_00_00_00","524","1142","120","24",null,null,null,null,null,null,this);
-            obj.set_taborder("174");
+            obj = new Calendar("Calendar00_00_00_00","514","1087","120","24",null,null,null,null,null,null,this);
+            obj.set_taborder("171");
             obj.set_enable("false");
             obj.set_value("20220110");
             this.addChild(obj.name, obj);
 
-            obj = new Calendar("Calendar00_00_00_00_00_00_01","1255","1142","120","24",null,null,null,null,null,null,this);
-            obj.set_taborder("175");
+            obj = new Calendar("Calendar00_00_00_00_00_00_01","1245","1087","120","24",null,null,null,null,null,null,this);
+            obj.set_taborder("172");
             obj.set_cssclass("input_select");
             obj.set_value("20220110");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static02_02_00","762","1142","120","24",null,null,null,null,null,null,this);
-            obj.set_taborder("176");
+            obj = new Static("Static02_02_00","752","1087","120","24",null,null,null,null,null,null,this);
+            obj.set_taborder("173");
             obj.set_text(" 없음(MaskEdit 사용)");
             obj.set_cssclass("sta_txt_desc");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_01_03_00_00_00_01_00","940","1142","70","24",null,null,null,null,null,null,this);
-            obj.set_taborder("177");
+            obj = new Static("Static00_01_03_00_00_00_01_00","930","1087","70","24",null,null,null,null,null,null,this);
+            obj.set_taborder("174");
             obj.set_text("필수입력 ");
             obj.set_cssclass("sta_SA_label_req");
             this.addChild(obj.name, obj);
 
-            obj = new Calendar("Calendar00_00_00_00_00_00_00_00","1010","1142","120","24",null,null,null,null,null,null,this);
-            obj.set_taborder("178");
+            obj = new Calendar("Calendar00_00_00_00_00_00_00_00","1000","1087","120","24",null,null,null,null,null,null,this);
+            obj.set_taborder("175");
             obj.set_cssclass("input_req");
             obj.set_value("20220110");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static75_00_00_01","1385","1145","50","15",null,null,null,null,null,null,this);
-            obj.set_taborder("179");
+            obj = new Static("Static75_00_00_01","1375","1090","50","15",null,null,null,null,null,null,this);
+            obj.set_taborder("176");
             obj.set_text("w120");
             obj.set_cssclass("sta_txt_desc");
             obj.set_textAlign("center");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static75_00_00_01_00","1385","1106","50","15",null,null,null,null,null,null,this);
-            obj.set_taborder("180");
+            obj = new Static("Static75_00_00_01_00","1375","1051","50","15",null,null,null,null,null,null,this);
+            obj.set_taborder("177");
             obj.set_text("w105");
             obj.set_cssclass("sta_txt_desc");
             obj.set_textAlign("center");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static75_00_00_01_00_00","1385","1073","50","15",null,null,null,null,null,null,this);
-            obj.set_taborder("181");
+            obj = new Static("Static75_00_00_01_00_00","1375","1018","50","15",null,null,null,null,null,null,this);
+            obj.set_taborder("178");
             obj.set_text("w100");
             obj.set_cssclass("sta_txt_desc");
             obj.set_textAlign("center");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_01_01_00","169","1182","113","24",null,null,null,null,null,null,this);
-            obj.set_taborder("182");
+            obj = new Static("Static00_01_01_00","159","1127","113","24",null,null,null,null,null,null,this);
+            obj.set_taborder("179");
             obj.set_text("년월일시");
             obj.set_cssclass("sta_SA_label");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00_04_01_00","452","1183","65","24",null,null,null,null,null,null,this);
-            obj.set_taborder("183");
+            obj = new Static("Static00_00_04_01_00","442","1128","65","24",null,null,null,null,null,null,this);
+            obj.set_taborder("180");
             obj.set_text("disabled");
             obj.set_cssclass("sta_SA_label");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00_00_04_01_00","692","1184","70","24",null,null,null,null,null,null,this);
-            obj.set_taborder("184");
+            obj = new Static("Static00_00_00_04_01_00","682","1129","70","24",null,null,null,null,null,null,this);
+            obj.set_taborder("181");
             obj.set_text("readonly");
             obj.set_cssclass("sta_SA_label");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static02_02_00_00","762","1184","120","24",null,null,null,null,null,null,this);
-            obj.set_taborder("185");
+            obj = new Static("Static02_02_00_00","752","1129","120","24",null,null,null,null,null,null,this);
+            obj.set_taborder("182");
             obj.set_text(" 없음(MaskEdit 사용)");
             obj.set_cssclass("sta_txt_desc");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_01_03_00_00_00_01_00_00","940","1184","70","24",null,null,null,null,null,null,this);
-            obj.set_taborder("186");
+            obj = new Static("Static00_01_03_00_00_00_01_00_00","930","1129","70","24",null,null,null,null,null,null,this);
+            obj.set_taborder("183");
             obj.set_text("필수입력 ");
             obj.set_cssclass("sta_SA_label_req");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_01_03_00_00_00_02_00","1191","1184","70","24",null,null,null,null,null,null,this);
-            obj.set_taborder("187");
+            obj = new Static("Static00_01_03_00_00_00_02_00","1181","1129","70","24",null,null,null,null,null,null,this);
+            obj.set_taborder("184");
             obj.set_text("선택필수");
             obj.set_cssclass("sta_SA_label_select");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static75_00_00_01_01","1415","1188","50","15",null,null,null,null,null,null,this);
-            obj.set_taborder("188");
+            obj = new Static("Static75_00_00_01_01","1405","1133","50","15",null,null,null,null,null,null,this);
+            obj.set_taborder("185");
             obj.set_text("w155");
             obj.set_cssclass("sta_txt_desc");
             obj.set_textAlign("center");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static75_00_00_00_01","517","1369","40","15",null,null,null,null,null,null,this);
-            obj.set_taborder("189");
+            obj = new Static("Static75_00_00_00_01","522","1312","40","15",null,null,null,null,null,null,this);
+            obj.set_taborder("186");
             obj.set_text("w210");
             obj.set_cssclass("sta_txt_desc");
             obj.set_textAlign("center");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_01_03_01_00_00_00_03_01","142","1459","130","24",null,null,null,null,null,null,this);
-            obj.set_taborder("190");
+            obj = new Static("Static00_01_03_01_00_00_00_03_01","147","1402","130","24",null,null,null,null,null,null,this);
+            obj.set_taborder("187");
             obj.set_text("조회기간(요일포함)");
             obj.set_cssclass("sta_SA_label");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_01_03_01_00_00_00_03_00_00","691","1458","70","24",null,null,null,null,null,null,this);
-            obj.set_taborder("191");
+            obj = new Static("Static00_01_03_01_00_00_00_03_00_00","696","1401","70","24",null,null,null,null,null,null,this);
+            obj.set_taborder("188");
             obj.set_text("disabled");
             obj.set_cssclass("sta_SA_label");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static75_00_00_00_00_00","542","1463","50","15",null,null,null,null,null,null,this);
-            obj.set_taborder("192");
+            obj = new Static("Static75_00_00_00_00_00","547","1406","50","15",null,null,null,null,null,null,this);
+            obj.set_taborder("189");
             obj.set_text("w240");
             obj.set_cssclass("sta_txt_desc");
             obj.set_textAlign("center");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_02_00_00_02_00_00","152","1278","978","24",null,null,null,null,null,null,this);
-            obj.set_initvalueid("iv_fc_blue");
-            obj.set_taborder("193");
-            obj.set_text("※ 필수입력, 선택필수 디자인은 공통개발에서 클래스를 적용하는 함수제공예정");
-            obj.set_cssclass("sta_txt_desc");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("Static02_01_00","1191","1364","205","24",null,null,null,null,null,null,this);
-            obj.set_taborder("194");
+            obj = new Static("Static02_01_00","1196","1307","205","24",null,null,null,null,null,null,this);
+            obj.set_taborder("190");
             obj.set_text(" 없음(Edit 또는 MaskEdit 사용)");
             obj.set_cssclass("sta_txt_desc");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_01_03_01_00_00_00_00","142","1410","168","24",null,null,null,null,null,null,this);
-            obj.set_taborder("195");
+            obj = new Static("Static00_01_03_01_00_00_00_00","147","1353","168","24",null,null,null,null,null,null,this);
+            obj.set_taborder("191");
             obj.set_text("조회기간(일) - 확장(분기)");
             obj.set_cssclass("sta_SA_label");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static75_00_00_00_01_00","514","1414","45","15",null,null,null,null,null,null,this);
-            obj.set_taborder("196");
+            obj = new Static("Static75_00_00_00_01_00","519","1357","45","15",null,null,null,null,null,null,this);
+            obj.set_taborder("192");
             obj.set_text("w210");
             obj.set_cssclass("sta_txt_desc");
             obj.set_textAlign("center");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_01_03_01_00_00_00_01_00","691","1410","75","24",null,null,null,null,null,null,this);
-            obj.set_taborder("197");
+            obj = new Static("Static00_01_03_01_00_00_00_01_00","696","1353","75","24",null,null,null,null,null,null,this);
+            obj.set_taborder("193");
             obj.set_text("disabled");
             obj.set_cssclass("sta_SA_label");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00_00_04_00_00_00_00","1108","1407","71","24",null,null,null,null,null,null,this);
+            obj = new Static("Static00_00_00_04_00_00_00_00","1113","1350","71","24",null,null,null,null,null,null,this);
+            obj.set_taborder("194");
+            obj.set_text("readonly ");
+            obj.set_cssclass("sta_SA_label");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static02_01_00_00","1196","1351","205","24",null,null,null,null,null,null,this);
+            obj.set_taborder("195");
+            obj.set_text(" 없음(Edit 또는 MaskEdit 사용)");
+            obj.set_cssclass("sta_txt_desc");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static00_00_00_04_00_00_00_00_00","1113","1395","71","24",null,null,null,null,null,null,this);
+            obj.set_taborder("196");
+            obj.set_text("readonly ");
+            obj.set_cssclass("sta_SA_label");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static02_01_00_00_00","1196","1396","205","24",null,null,null,null,null,null,this);
+            obj.set_taborder("197");
+            obj.set_text(" 없음(Edit 또는 MaskEdit 사용)");
+            obj.set_cssclass("sta_txt_desc");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static00_00_00_04_00_00_00_00_00_00","1113","1448","71","24",null,null,null,null,null,null,this);
             obj.set_taborder("198");
             obj.set_text("readonly ");
             obj.set_cssclass("sta_SA_label");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static02_01_00_00","1191","1408","205","24",null,null,null,null,null,null,this);
+            obj = new Static("Static02_01_00_00_00_00","1196","1449","205","24",null,null,null,null,null,null,this);
             obj.set_taborder("199");
             obj.set_text(" 없음(Edit 또는 MaskEdit 사용)");
             obj.set_cssclass("sta_txt_desc");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00_00_04_00_00_00_00_00","1108","1452","71","24",null,null,null,null,null,null,this);
+            obj = new CalMonth("CalMonth00","272","1013","90","24",null,null,null,null,null,null,this);
             obj.set_taborder("200");
-            obj.set_text("readonly ");
-            obj.set_cssclass("sta_SA_label");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static02_01_00_00_00","1191","1453","205","24",null,null,null,null,null,null,this);
+            obj = new CalMonth("CalMonth00_00","514","1013","90","24",null,null,null,null,null,null,this);
             obj.set_taborder("201");
-            obj.set_text(" 없음(Edit 또는 MaskEdit 사용)");
-            obj.set_cssclass("sta_txt_desc");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("Static00_00_00_04_00_00_00_00_00_00","1108","1505","71","24",null,null,null,null,null,null,this);
-            obj.set_taborder("202");
-            obj.set_text("readonly ");
-            obj.set_cssclass("sta_SA_label");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("Static02_01_00_00_00_00","1191","1506","205","24",null,null,null,null,null,null,this);
-            obj.set_taborder("203");
-            obj.set_text(" 없음(Edit 또는 MaskEdit 사용)");
-            obj.set_cssclass("sta_txt_desc");
-            this.addChild(obj.name, obj);
-
-            obj = new CalMonth("CalMonth00","282","1068","90","24",null,null,null,null,null,null,this);
-            obj.set_taborder("204");
-            this.addChild(obj.name, obj);
-
-            obj = new CalMonth("CalMonth00_00","524","1068","90","24",null,null,null,null,null,null,this);
-            obj.set_taborder("205");
             obj.set_enable("false");
             this.addChild(obj.name, obj);
 
-            obj = new CalTime("CalTime00","282","1184","155","24",null,null,null,null,null,null,this);
-            obj.set_taborder("206");
+            obj = new CalTime("CalTime00","272","1129","155","24",null,null,null,null,null,null,this);
+            obj.set_taborder("202");
             obj.set_value("2022-12-12 (12:00:00)");
             this.addChild(obj.name, obj);
 
-            obj = new CalTime("CalTime00_00","524","1184","155","24",null,null,null,null,null,null,this);
-            obj.set_taborder("207");
+            obj = new CalTime("CalTime00_00","514","1129","155","24",null,null,null,null,null,null,this);
+            obj.set_taborder("203");
             obj.set_enable("false");
             this.addChild(obj.name, obj);
 
-            obj = new CalMonth("CalMonth00_01","1010","1068","90","24",null,null,null,null,null,null,this);
+            obj = new CalMonth("CalMonth00_01","1000","1013","90","24",null,null,null,null,null,null,this);
+            obj.set_taborder("204");
+            obj.set_cssclass("input_req");
+            this.addChild(obj.name, obj);
+
+            obj = new CalMonth("CalMonth00_02","1245","1013","90","24",null,null,null,null,null,null,this);
+            obj.set_taborder("205");
+            obj.set_cssclass("input_select");
+            this.addChild(obj.name, obj);
+
+            obj = new CalTime("CalTime00_01","1000","1129","155","24",null,null,null,null,null,null,this);
+            obj.set_taborder("206");
+            obj.set_cssclass("input_req");
+            this.addChild(obj.name, obj);
+
+            obj = new CalTime("CalTime00_01_00","1245","1129","155","24",null,null,null,null,null,null,this);
+            obj.set_taborder("207");
+            obj.set_cssclass("input_select");
+            this.addChild(obj.name, obj);
+
+            obj = new CalPeriod("CalPeriod00","307","1309","210","24",null,null,null,null,null,null,this);
             obj.set_taborder("208");
-            obj.set_cssclass("input_req");
             this.addChild(obj.name, obj);
 
-            obj = new CalMonth("CalMonth00_02","1255","1068","90","24",null,null,null,null,null,null,this);
+            obj = new CalPeriodMonth("CalPeriodMonth00","307","1264","170","24",null,null,null,null,null,null,this);
             obj.set_taborder("209");
-            obj.set_cssclass("input_select");
             this.addChild(obj.name, obj);
 
-            obj = new CalTime("CalTime00_01","1010","1184","155","24",null,null,null,null,null,null,this);
+            obj = new CalPeriodQuater("CalPeriodQuater00","307","1353","210","24",null,null,null,null,null,null,this);
             obj.set_taborder("210");
-            obj.set_cssclass("input_req");
             this.addChild(obj.name, obj);
 
-            obj = new CalTime("CalTime00_01_00","1255","1184","155","24",null,null,null,null,null,null,this);
+            obj = new CalPeriodDay("CalPeriodDay00","307","1401","240","24",null,null,null,null,null,null,this);
             obj.set_taborder("211");
-            obj.set_cssclass("input_select");
             this.addChild(obj.name, obj);
 
-            obj = new CalPeriod("CalPeriod00","302","1366","210","24",null,null,null,null,null,null,this);
+            obj = new CalPeriodTime("CalPeriodTime00","307","1449","310","24",null,null,null,null,null,null,this);
             obj.set_taborder("212");
             this.addChild(obj.name, obj);
 
-            obj = new CalPeriodMonth("CalPeriodMonth00","302","1321","170","24",null,null,null,null,null,null,this);
+            obj = new CalPeriodTime("CalPeriodTime00_00","766","1449","310","24",null,null,null,null,null,null,this);
             obj.set_taborder("213");
+            obj.set_enable("false");
             this.addChild(obj.name, obj);
 
-            obj = new CalPeriodQuater("CalPeriodQuater00","302","1410","210","24",null,null,null,null,null,null,this);
+            obj = new CalPeriodDay("CalPeriodDay00_00","766","1401","240","24",null,null,null,null,null,null,this);
             obj.set_taborder("214");
+            obj.set_enable("false");
             this.addChild(obj.name, obj);
 
-            obj = new CalPeriodDay("CalPeriodDay00","302","1458","240","24",null,null,null,null,null,null,this);
+            obj = new CalPeriodQuater("CalPeriodQuater00_00","766","1353","210","24",null,null,null,null,null,null,this);
             obj.set_taborder("215");
+            obj.set_enable("false");
             this.addChild(obj.name, obj);
 
-            obj = new CalPeriodTime("CalPeriodTime00","302","1506","310","24",null,null,null,null,null,null,this);
+            obj = new CalPeriod("CalPeriod00_00","766","1309","210","24",null,null,null,null,null,null,this);
             obj.set_taborder("216");
+            obj.set_enable("false");
             this.addChild(obj.name, obj);
 
-            obj = new CalPeriodTime("CalPeriodTime00_00","761","1506","310","24",null,null,null,null,null,null,this);
+            obj = new CalPeriodMonth("CalPeriodMonth00_00","766","1264","170","24",null,null,null,null,null,null,this);
             obj.set_taborder("217");
             obj.set_enable("false");
             this.addChild(obj.name, obj);
 
-            obj = new CalPeriodDay("CalPeriodDay00_00","761","1458","240","24",null,null,null,null,null,null,this);
-            obj.set_taborder("218");
-            obj.set_enable("false");
-            this.addChild(obj.name, obj);
-
-            obj = new CalPeriodQuater("CalPeriodQuater00_00","761","1410","210","24",null,null,null,null,null,null,this);
-            obj.set_taborder("219");
-            obj.set_enable("false");
-            this.addChild(obj.name, obj);
-
-            obj = new CalPeriod("CalPeriod00_00","761","1366","210","24",null,null,null,null,null,null,this);
-            obj.set_taborder("220");
-            obj.set_enable("false");
-            this.addChild(obj.name, obj);
-
-            obj = new CalPeriodMonth("CalPeriodMonth00_00","761","1321","170","24",null,null,null,null,null,null,this);
-            obj.set_taborder("221");
-            obj.set_enable("false");
-            this.addChild(obj.name, obj);
-
             obj = new Static("Static26_02_00_00_00_00_00_00","0","587","130","63",null,null,null,null,null,null,this);
-            obj.set_taborder("222");
+            obj.set_taborder("218");
             obj.set_text("MultiCombo");
             obj.set_cssclass("sta_DA_label");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static27_03_00_00_00_00_00_00_00","129","587",null,"63","40",null,null,null,null,null,this);
-            obj.set_taborder("223");
+            obj.set_taborder("219");
             obj.set_cssclass("sta_DA_data");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_04_01_00","163","606","70","24",null,null,null,null,null,null,this);
-            obj.set_taborder("224");
+            obj.set_taborder("220");
             obj.set_text("enabled");
             obj.set_cssclass("sta_SA_label");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_00_03_00_00","402","605","65","24",null,null,null,null,null,null,this);
-            obj.set_taborder("225");
+            obj.set_taborder("221");
             obj.set_text("disabled");
             obj.set_cssclass("sta_SA_label");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_00_00_03_00_00","638","605","75","24",null,null,null,null,null,null,this);
-            obj.set_taborder("226");
+            obj.set_taborder("222");
             obj.set_text("readonly");
             obj.set_cssclass("sta_SA_label");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_01_03_02_01","1141","606","70","24",null,null,null,null,null,null,this);
-            obj.set_taborder("227");
+            obj.set_taborder("223");
             obj.set_text("선택필수");
             obj.set_cssclass("sta_SA_label_select");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00_01_03_02_00_00","890","606","70","24",null,null,null,null,null,null,this);
-            obj.set_taborder("228");
+            obj.set_taborder("224");
             obj.set_text("필수입력 ");
             obj.set_cssclass("sta_SA_label_req");
             this.addChild(obj.name, obj);
 
             obj = new MultiCombo("MultiCombo00","232","606","130","24",null,null,null,null,null,null,this);
-            obj.set_taborder("229");
+            obj.set_taborder("225");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
             obj.set_value("전체");
@@ -1491,7 +1463,7 @@
             this.addChild(obj.name, obj);
 
             obj = new MultiCombo("MultiCombo00_00","474","606","130","24",null,null,null,null,null,null,this);
-            obj.set_taborder("230");
+            obj.set_taborder("226");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
             obj.set_value("전체");
@@ -1502,7 +1474,7 @@
             this.addChild(obj.name, obj);
 
             obj = new MultiCombo("MultiCombo00_01","712","606","130","24",null,null,null,null,null,null,this);
-            obj.set_taborder("231");
+            obj.set_taborder("227");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
             obj.set_value("전체");
@@ -1513,7 +1485,7 @@
             this.addChild(obj.name, obj);
 
             obj = new MultiCombo("MultiCombo00_02","961","606","130","24",null,null,null,null,null,null,this);
-            obj.set_taborder("232");
+            obj.set_taborder("228");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
             obj.set_value("전체");
@@ -1524,7 +1496,7 @@
             this.addChild(obj.name, obj);
 
             obj = new MultiCombo("MultiCombo00_02_00","1205","606","130","24",null,null,null,null,null,null,this);
-            obj.set_taborder("233");
+            obj.set_taborder("229");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
             obj.set_value("전체");
@@ -1532,6 +1504,35 @@
             var MultiCombo00_02_00_innerdataset = new nexacro.NormalDataset("MultiCombo00_02_00_innerdataset", obj);
             MultiCombo00_02_00_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">1</Col><Col id=\"datacolumn\">전체</Col></Row><Row><Col id=\"codecolumn\">2</Col><Col id=\"datacolumn\">선택1</Col></Row><Row><Col id=\"codecolumn\">3</Col><Col id=\"datacolumn\">선택2</Col></Row><Row><Col id=\"codecolumn\">4</Col><Col id=\"datacolumn\">선택3</Col></Row></Rows>");
             obj.set_innerdataset(MultiCombo00_02_00_innerdataset);
+            this.addChild(obj.name, obj);
+
+            obj = new Combo("cmb01_01","484","1172","55","24",null,null,null,null,null,null,this);
+            obj.set_taborder("230");
+            obj.set_text("30일");
+            obj.set_value("");
+            obj.set_index("-1");
+            this.addChild(obj.name, obj);
+
+            obj = new CalPeriod("CalPeriod00_01","272","1172","210","24",null,null,null,null,null,null,this);
+            obj.set_taborder("231");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static00_01_01_00_00","159","1172","113","24",null,null,null,null,null,null,this);
+            obj.set_taborder("232");
+            obj.set_text("년월일기간 + 콤보");
+            obj.set_cssclass("sta_SA_label");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static74_00_00","484","1196","55","13",null,null,null,null,null,null,this);
+            obj.set_taborder("233");
+            obj.set_border("0px none rgba(128,128,128,1), 1px dotted rgba(177,192,203,1)");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static41_01","504","1202","15","15",null,null,null,null,null,null,this);
+            obj.set_taborder("234");
+            obj.set_text("55");
+            obj.set_color("rgba(177,192,203,1)");
+            obj.set_font("8pt Dotum");
             this.addChild(obj.name, obj);
             // Layout Functions
             //-- Default Layout : this

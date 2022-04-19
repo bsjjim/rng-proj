@@ -1971,6 +1971,18 @@
             obj.set_cssclass("sta_Guide");
             obj.set_visible("false");
             this.addChild(obj.name, obj);
+
+            obj = new Static("Static02",null,"728","50","24","1038",null,null,null,null,null,this);
+            obj.set_taborder("249");
+            obj.set_text("0/0");
+            obj.set_cssclass("sta_WF_gridCountNum");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static02_02_00",null,"728","15","24","1024",null,null,null,null,null,this);
+            obj.set_taborder("250");
+            obj.set_text("건");
+            obj.set_cssclass("sta_WF_gridCount");
+            this.addChild(obj.name, obj);
             // Layout Functions
             //-- Default Layout : this
             obj = new Layout("default","",1528,752,this,function(p){});

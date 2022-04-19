@@ -502,71 +502,73 @@
 
             obj = new Static("Static01_00_00_01_00_01_01_01","694","365","35","19",null,null,null,null,null,null,this.Div01.form);
             obj.set_taborder("45");
-            obj.set_text("7px");
+            obj.set_text("8px");
             obj.set_textAlign("center");
             obj.set_cssclass("sta_Guide_txt");
             obj.set_background("#ffffff");
             this.Div01.addChild(obj.name, obj);
 
-            obj = new Static("Static74_00_00_00_00_00_00_01","752","328","7","35",null,null,null,null,null,null,this.Div01.form);
+            obj = new Static("Static74_00_00_00_00_00_00_01_00","724","274","10","75",null,null,null,null,null,null,this.Div01.form);
             obj.set_taborder("46");
             obj.set_border("0px none rgba(128,128,128,1), 1px dotted rgba(177,192,203,1)");
             this.Div01.addChild(obj.name, obj);
 
-            obj = new Static("Static74_00_00_00_00_00_00_01_00","724","274","10","75",null,null,null,null,null,null,this.Div01.form);
-            obj.set_taborder("47");
-            obj.set_border("0px none rgba(128,128,128,1), 1px dotted rgba(177,192,203,1)");
-            this.Div01.addChild(obj.name, obj);
-
             obj = new Static("Static01_00_00_01_00_01_01_01_00","697","255","35","19",null,null,null,null,null,null,this.Div01.form);
-            obj.set_taborder("48");
-            obj.set_text("7px");
+            obj.set_taborder("47");
+            obj.set_text("8px");
             obj.set_textAlign("right");
             obj.set_cssclass("sta_Guide_txt");
             this.Div01.addChild(obj.name, obj);
 
             obj = new Static("Static01_00_00_01_00_00_03_00_00_00","60","45","10","15",null,null,null,null,null,null,this.Div01.form);
-            obj.set_taborder("49");
+            obj.set_taborder("48");
             obj.set_text("10");
             obj.set_cssclass("sta_Guide");
             obj.set_visible("false");
             this.Div01.addChild(obj.name, obj);
 
             obj = new Static("Static02_00","70","45","14","14",null,null,null,null,null,null,this.Div01.form);
-            obj.set_taborder("50");
+            obj.set_taborder("49");
             obj.set_tooltiptext("도움말 툴팁입니다.");
             obj.set_cssclass("sta_WF_help");
             this.Div01.addChild(obj.name, obj);
 
-            obj = new MaskEdit("MaskEdit00_01","655","105","60","24",null,null,null,null,null,null,this.Div01.form);
-            obj.set_taborder("51");
+            obj = new MaskEdit("MaskEdit00_01","651","105","60","24",null,null,null,null,null,null,this.Div01.form);
+            obj.set_taborder("50");
             obj.set_format("#,###.##");
             obj.set_value("30");
             obj.set_readonly("true");
             this.Div01.addChild(obj.name, obj);
 
-            obj = new Static("Static02_01","711","105","20","24",null,null,null,null,null,null,this.Div01.form);
-            obj.set_taborder("52");
+            obj = new Static("Static02_01","707","105","20","24",null,null,null,null,null,null,this.Div01.form);
+            obj.set_taborder("51");
             obj.set_text("%");
             obj.set_cssclass("sta_WF_unit");
             this.Div01.addChild(obj.name, obj);
 
-            obj = new Static("Static01_00_00_01_00_01_01_00_00","627","142","100","19",null,null,null,null,null,null,this.Div01.form);
-            obj.set_taborder("53");
+            obj = new Static("Static01_00_00_01_00_01_01_00_00","623","142","100","19",null,null,null,null,null,null,this.Div01.form);
+            obj.set_taborder("52");
             obj.set_text("readonly일때 3px");
             obj.set_textAlign("center");
             obj.set_cssclass("sta_Guide_txt");
             obj.set_background("#ffffff");
             this.Div01.addChild(obj.name, obj);
 
-            obj = new Static("Static74_00_00_00_00_00_00_00_00","715","117","3","30",null,null,null,null,null,null,this.Div01.form);
-            obj.set_taborder("54");
+            obj = new Static("Static74_00_00_00_00_00_00_00_00","711","117","3","30",null,null,null,null,null,null,this.Div01.form);
+            obj.set_taborder("53");
             obj.set_border("0px none, 1px dotted red");
             this.Div01.addChild(obj.name, obj);
 
-            obj = new Static("Static01_00_00_01_01_00_00","728","68","5","75",null,null,null,null,null,null,this.Div01.form);
+            obj = new Static("Static01_00_00_01_01_00_00","729","33","4","75",null,null,null,null,null,null,this.Div01.form);
+            obj.set_taborder("54");
+            obj.set_text("4");
+            obj.set_cssclass("sta_Guide");
+            obj.set_visible("false");
+            this.Div01.addChild(obj.name, obj);
+
+            obj = new Static("Static01_00_00_01_01_00_00_00","725","103","8","50",null,null,null,null,null,null,this.Div01.form);
             obj.set_taborder("55");
-            obj.set_text("5");
+            obj.set_text("8");
             obj.set_cssclass("sta_Guide");
             obj.set_visible("false");
             this.Div01.addChild(obj.name, obj);
@@ -858,21 +860,21 @@
             obj.set_cssclass("sta_WF_unit");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new MaskEdit("MaskEdit00_01_00_00_00","613","206","60","24",null,null,null,null,null,null,this.Div00.form);
+            obj = new MaskEdit("MaskEdit00_01_00_00_00","608","206","60","24",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("43");
             obj.set_value("16");
             obj.set_enable("false");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static02_01_00_00_00","673","206","45","24",null,null,null,null,null,null,this.Div00.form);
+            obj = new Static("Static02_01_00_00_00","668","206","45","24",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("44");
             obj.set_text("시간");
             obj.set_cssclass("sta_WF_unit");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static01_00_00_01_01_00","598","203","15","75",null,null,null,null,null,null,this.Div00.form);
+            obj = new Static("Static01_00_00_01_01_00","598","203","10","75",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("45");
-            obj.set_text("15");
+            obj.set_text("10");
             obj.set_cssclass("sta_Guide");
             obj.set_visible("false");
             this.Div00.addChild(obj.name, obj);
@@ -889,13 +891,13 @@
             obj.set_cssclass("sta_WF_unit");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new MaskEdit("MaskEdit00_01_00_00_00_00","613","239","60","24",null,null,null,null,null,null,this.Div00.form);
+            obj = new MaskEdit("MaskEdit00_01_00_00_00_00","608","239","60","24",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("48");
             obj.set_value("16");
             obj.set_enable("false");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("Static02_01_00_00_00_00","673","239","45","24",null,null,null,null,null,null,this.Div00.form);
+            obj = new Static("Static02_01_00_00_00_00","668","239","45","24",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("49");
             obj.set_text("km");
             obj.set_cssclass("sta_WF_unit");
@@ -1039,6 +1041,497 @@
             obj.set_cssclass("sta_Guide");
             obj.set_visible("false");
             this.addChild(obj.name, obj);
+
+            obj = new Div("div00","754","504","615","374",null,null,null,null,null,null,this);
+            obj.set_text("Div01");
+            obj.set_cssclass("div_group");
+            obj.set_taborder("5");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static27_03_00","129","99",null,"30","0",null,null,null,null,null,this.div00.form);
+            obj.set_taborder("5");
+            obj.set_cssclass("sta_DA_data");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static27_03","129","70",null,"30","0",null,null,null,null,null,this.div00.form);
+            obj.set_taborder("0");
+            obj.set_cssclass("sta_DA_data");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static26","0","41","130","30",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("1");
+            obj.set_text("계약상태");
+            obj.set_cssclass("sta_DA_label");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static27","129","41",null,"30","0",null,null,null,null,null,this.div00.form);
+            obj.set_taborder("2");
+            obj.set_cssclass("sta_DA_data");
+            obj.set_text("");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static26_02","0","70","130","30",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("3");
+            obj.set_text("계약번호");
+            obj.set_cssclass("sta_DA_label");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static26_02_00","0","99","130","30",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("4");
+            obj.set_text("투입일시");
+            obj.set_cssclass("sta_DA_label");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static00","0","10","170","24",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("7");
+            obj.set_text("높이가 좁은 화면 유형");
+            obj.set_cssclass("sta_WF_title2");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static01_00_00_00_01","-4","29","145","11",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("8");
+            obj.set_text("11");
+            obj.set_cssclass("sta_Guide");
+            obj.set_visible("false");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static26_02_00_00","306","99","130","30",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("9");
+            obj.set_text("투입시 최초Km");
+            obj.set_cssclass("sta_DA_label");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static26_02_01","306","70","130","30",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("10");
+            obj.set_text("계약구분");
+            obj.set_cssclass("sta_DA_label");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static26_00","306","41","130","30",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("11");
+            obj.set_text("고객명");
+            obj.set_cssclass("sta_DA_label");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static27_03_01","129","128",null,"30","0",null,null,null,null,null,this.div00.form);
+            obj.set_taborder("12");
+            obj.set_cssclass("sta_DA_data");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static26_02_02","0","128","130","30",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("13");
+            obj.set_text("반납일시");
+            obj.set_cssclass("sta_DA_label");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static26_02_00_01","0","157","130","30",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("14");
+            obj.set_text("요청채널구분");
+            obj.set_cssclass("sta_DA_label");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static27_03_00_00","129","157",null,"30","0",null,null,null,null,null,this.div00.form);
+            obj.set_taborder("15");
+            obj.set_cssclass("sta_DA_data");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static26_02_00_00_00","306","157","130","30",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("16");
+            obj.set_text("제휴채널");
+            obj.set_cssclass("sta_DA_label");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static26_02_01_00","306","128","130","30",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("17");
+            obj.set_text("반납시 최종Km");
+            obj.set_cssclass("sta_DA_label");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static27_03_02","129","257",null,"30","0",null,null,null,null,null,this.div00.form);
+            obj.set_taborder("18");
+            obj.set_cssclass("sta_DA_data");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static26_01","0","228","130","30",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("19");
+            obj.set_text("상품군코드");
+            obj.set_cssclass("sta_DA_label");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static27_00","129","228",null,"30","0",null,null,null,null,null,this.div00.form);
+            obj.set_taborder("20");
+            obj.set_cssclass("sta_DA_data");
+            obj.set_text("");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static26_02_03","0","257","130","30",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("21");
+            obj.set_text("위약금구분");
+            obj.set_cssclass("sta_DA_label");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static26_02_00_02","0","286","130","30",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("22");
+            obj.set_text("월대여료*");
+            obj.set_cssclass("sta_DA_label");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static27_03_00_01","129","286",null,"30","0",null,null,null,null,null,this.div00.form);
+            obj.set_taborder("23");
+            obj.set_cssclass("sta_DA_data");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static01_00_00_01_00_00_03_00_00_00","435","187","100","40",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("24");
+            obj.set_text("예외 h40");
+            obj.set_cssclass("sta_Guide");
+            obj.set_visible("false");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static00_00","0","197","120","24",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("25");
+            obj.set_text("상세계약정보");
+            obj.set_cssclass("sta_WF_title2");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static01_00_00_00_01_00","-4","216","145","11",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("26");
+            obj.set_text("11");
+            obj.set_cssclass("sta_Guide");
+            obj.set_visible("false");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static01_00_00_01_00_00_03_01_00_00_00_00_00","508","215","100","12",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("27");
+            obj.set_text("12");
+            obj.set_cssclass("sta_Guide");
+            obj.set_visible("false");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static26_02_00_00_01","306","286","130","30",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("28");
+            obj.set_text("월대여료(공급가)");
+            obj.set_cssclass("sta_DA_label");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static26_02_01_01","306","257","130","30",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("29");
+            obj.set_text("위약금률");
+            obj.set_cssclass("sta_DA_label");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static26_00_00","306","228","130","30",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("30");
+            obj.set_text("인수가*");
+            obj.set_cssclass("sta_DA_label");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static27_03_01_00","129","315",null,"30","0",null,null,null,null,null,this.div00.form);
+            obj.set_taborder("32");
+            obj.set_cssclass("sta_DA_data");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static26_02_02_00","0","315","130","30",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("33");
+            obj.set_text("실납월대여료");
+            obj.set_cssclass("sta_DA_label");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static26_02_00_01_00","0","344","130","30",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("34");
+            obj.set_text("잔가유형");
+            obj.set_cssclass("sta_DA_label");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static27_03_00_00_00","129","344",null,"30","0",null,null,null,null,null,this.div00.form);
+            obj.set_taborder("35");
+            obj.set_cssclass("sta_DA_data");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static26_02_00_00_00_00","306","344","130","30",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("36");
+            obj.set_text("잔가조정확인");
+            obj.set_cssclass("sta_DA_label");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static26_02_01_00_00","306","315","130","30",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("37");
+            obj.set_text("선수금");
+            obj.set_cssclass("sta_DA_label");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static01","0","40",null,"2","0",null,null,null,null,null,this.div00.form);
+            obj.set_taborder("6");
+            obj.set_cssclass("sta_DA_topBorder");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static01_00","0","227",null,"2","0",null,null,null,null,null,this.div00.form);
+            obj.set_taborder("31");
+            obj.set_cssclass("sta_DA_topBorder");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static02_02",null,"197","70","24","0",null,null,null,null,null,this.div00.form);
+            obj.set_taborder("38");
+            obj.set_text("[*VAT포함]");
+            obj.set_cssclass("sta_WF_gridUnit");
+            obj.set_textAlign("right");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Edit("edt00","134","44","167","24",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("39");
+            obj.set_value("정상");
+            obj.set_readonly("true");
+            obj.set_text("정상");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Edit("edt00_00","134","73","167","24",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("40");
+            obj.set_value("2021017017");
+            obj.set_readonly("true");
+            obj.set_text("2021017017");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Edit("edt00_00_00_00","134","131","167","24",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("41");
+            obj.set_value("2021-02-02 (10:00:00)");
+            obj.set_readonly("true");
+            obj.set_text("2021-02-02 (10:00:00)");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Edit("edt00_01","134","160","167","24",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("42");
+            obj.set_readonly("true");
+            obj.set_text("정상");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Edit("edt00_02","441","44","166","24",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("43");
+            obj.set_value("홍길동");
+            obj.set_readonly("true");
+            obj.set_text("홍길동");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Edit("edt00_00_01","441","73","166","24",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("44");
+            obj.set_value("신규계약");
+            obj.set_readonly("true");
+            obj.set_text("신규계약");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Edit("edt00_01_00","441","160","167","24",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("45");
+            obj.set_readonly("true");
+            obj.set_text("정상");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Edit("edt00_01_01","134","347","167","24",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("46");
+            obj.set_readonly("true");
+            obj.set_value("표준잔가");
+            obj.set_text("표준잔가");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Edit("edt00_00_02","134","260","167","24",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("47");
+            obj.set_value("고정");
+            obj.set_readonly("true");
+            obj.set_text("고정");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Edit("edt00_03","134","231","167","24",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("48");
+            obj.set_value("월간단기 개인(112)");
+            obj.set_readonly("true");
+            obj.set_text("월간단기 개인(112)");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Edit("edt00_01_00_00","441","347","167","24",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("49");
+            obj.set_readonly("true");
+            obj.set_value("없음");
+            obj.set_text("없음");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Edit("edt00_02_00","441","231","166","24",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("50");
+            obj.set_value("만기반납");
+            obj.set_readonly("true");
+            obj.set_text("만기반납");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new MaskEdit("mae00_00","441","131","143","24",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("51");
+            obj.set_readonly("true");
+            obj.set_format("#,###");
+            obj.set_value("7");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static02_00_00_00_00_00_00","580","131","35","24",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("52");
+            obj.set_text("km");
+            obj.set_cssclass("sta_WF_unit");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static01_00_00_01_00_00_03_00_00_01","604","100","8","70",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("53");
+            obj.set_text("8");
+            obj.set_cssclass("sta_Guide");
+            obj.set_visible("false");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static01_00_00_01_00_00_03_00_00_01_00","584","105","3","45",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("54");
+            obj.set_text("3");
+            obj.set_cssclass("sta_Guide");
+            obj.set_visible("false");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new MaskEdit("mae00_01_00","134","289","66","24",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("55");
+            obj.set_format("#,###");
+            obj.set_value("690000");
+            obj.set_readonly("true");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static02_00_00_00_00_00_01_00","196","289","25","24",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("56");
+            obj.set_text("원");
+            obj.set_cssclass("sta_WF_unit");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new MaskEdit("mae00_01_00_00","221","289","53","24",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("57");
+            obj.set_format("#,###.##");
+            obj.set_value("730.57");
+            obj.set_readonly("true");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static02_00_00_00_00_00_01_00_00","270","289","30","24",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("58");
+            obj.set_text("달러");
+            obj.set_cssclass("sta_WF_unit");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new MaskEdit("mae00_01_00_01","134","318","152","24",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("59");
+            obj.set_format("#,###");
+            obj.set_value("690000");
+            obj.set_readonly("true");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static02_00_00_00_00_00_01_00_00_00","282","318","20","24",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("60");
+            obj.set_text("원");
+            obj.set_cssclass("sta_WF_unit");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static01_00_00_01_00_00_03_00_00_01_01","298","279","8","70",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("61");
+            obj.set_text("8");
+            obj.set_cssclass("sta_Guide");
+            obj.set_visible("false");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static01_00_00_01_00_00_03_00_00_01_00_00","286","309","3","45",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("62");
+            obj.set_text("3");
+            obj.set_cssclass("sta_Guide");
+            obj.set_visible("false");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new MaskEdit("mae00_01","441","260","149","24",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("63");
+            obj.set_readonly("true");
+            obj.set_format("#,###");
+            obj.set_value("25");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static02_00_00_00_00_00_01","587","260","25","24",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("64");
+            obj.set_text("%");
+            obj.set_cssclass("sta_WF_unit");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static01_00_00_01_00_00_03_00_00_01_02","604","258","8","70",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("65");
+            obj.set_text("8");
+            obj.set_cssclass("sta_Guide");
+            obj.set_visible("false");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new MaskEdit("mae00_01_00_02","441","289","65","24",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("66");
+            obj.set_format("#,###");
+            obj.set_value("690000");
+            obj.set_readonly("true");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static02_00_00_00_00_00_01_00_01","501","289","35","24",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("67");
+            obj.set_text("원");
+            obj.set_cssclass("sta_WF_unit");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new MaskEdit("mae00_01_00_00_00","526","289","54","24",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("68");
+            obj.set_format("#,###.##");
+            obj.set_value("730.57");
+            obj.set_readonly("true");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static02_00_00_00_00_00_01_00_00_01","576","289","30","24",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("69");
+            obj.set_text("달러");
+            obj.set_cssclass("sta_WF_unit");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new MaskEdit("mae00_01_00_00_00_00","441","318","139","24",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("70");
+            obj.set_format("#,###.##");
+            obj.set_value("730.57");
+            obj.set_readonly("true");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static02_00_00_00_00_00_01_00_00_01_00","576","318","30","24",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("71");
+            obj.set_text("달러");
+            obj.set_cssclass("sta_WF_unit");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static01_00_00_01_00_00_03_00_00_01_01_00",null,"191","8","125","1",null,null,null,null,null,this.div00.form);
+            obj.set_taborder("72");
+            obj.set_text("8");
+            obj.set_cssclass("sta_Guide");
+            obj.set_visible("false");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static01_00_00_01_00_00_03_00_00_01_00_00_00","200","294","3","45",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("73");
+            obj.set_text("3");
+            obj.set_cssclass("sta_Guide");
+            obj.set_visible("false");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static01_00_00_01_00_00_03_00_00_01_00_00_00_00","211","289","10","20",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("74");
+            obj.set_text("10");
+            obj.set_cssclass("sta_Guide");
+            obj.set_visible("false");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Edit("edt00_00_00_00_00","134","102","167","24",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("75");
+            obj.set_value("2021-02-02 (10:00:00)");
+            obj.set_readonly("true");
+            obj.set_text("2021-02-02 (10:00:00)");
+            this.div00.addChild(obj.name, obj);
+
+            obj = new Static("Static01_00_00_01_00_00_03_00_00_00_00","360","0","100","40",null,null,null,null,null,null,this.div00.form);
+            obj.set_taborder("76");
+            obj.set_text("예외 h40");
+            obj.set_cssclass("sta_Guide");
+            obj.set_visible("false");
+            this.div00.addChild(obj.name, obj);
             // Layout Functions
             //-- Default Layout : this
             obj = new Layout("default","",1528,752,this,function(p){});

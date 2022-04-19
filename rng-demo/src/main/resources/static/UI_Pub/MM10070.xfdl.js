@@ -74,34 +74,34 @@
             obj.set_cssclass("sta_SA_label");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Static("Static01_00_00_00","714","15","40","60",null,null,null,null,null,null,this.divSearch.form);
+            obj = new Static("Static01_00_00_00","739","15","40","60",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("7");
             obj.set_text("w40");
             obj.set_cssclass("sta_Guide");
             obj.set_visible("false");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00_00","754","18","58","24",null,null,null,null,null,null,this.divSearch.form);
+            obj = new Static("Static00_00_00","779","18","58","24",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("8");
             obj.set_text("변경구분");
             obj.set_cssclass("sta_SA_label");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Combo("cmb01","820","18","150","24",null,null,null,null,null,null,this.divSearch.form);
+            obj = new Combo("cmb01","845","18","150","24",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("9");
             obj.set_text("선택");
             obj.set_value("");
             obj.set_index("-1");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Static("Static01_00_00_00_00","970","15","40","60",null,null,null,null,null,null,this.divSearch.form);
+            obj = new Static("Static01_00_00_00_00","995","15","40","60",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("10");
             obj.set_text("w40");
             obj.set_cssclass("sta_Guide");
             obj.set_visible("false");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00_00_00","1010","18","58","24",null,null,null,null,null,null,this.divSearch.form);
+            obj = new Static("Static00_00_00_00","1035","18","58","24",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("11");
             obj.set_text("카메이커");
             obj.set_cssclass("sta_SA_label");
@@ -120,13 +120,13 @@
             obj.set_cssclass("sta_SA_label");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00_00_01_00","754","52","58","24",null,null,null,null,null,null,this.divSearch.form);
+            obj = new Static("Static00_00_00_01_00","779","52","58","24",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("14");
             obj.set_text("계약번호");
             obj.set_cssclass("sta_SA_label");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00_00_01_00_00","1010","52","58","24",null,null,null,null,null,null,this.divSearch.form);
+            obj = new Static("Static00_00_00_01_00_00","1035","52","58","24",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("15");
             obj.set_text("발주번호");
             obj.set_cssclass("sta_SA_label");
@@ -138,12 +138,12 @@
             obj.set_cssclass("sta_SA_label");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Edit("Edit00","820","52","150","24",null,null,null,null,null,null,this.divSearch.form);
+            obj = new Edit("Edit00","845","52","150","24",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("17");
             obj.set_text("123456789");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Edit("Edit00_00","1073","52","141","24",null,null,null,null,null,null,this.divSearch.form);
+            obj = new Edit("Edit00_00","1102","52","150","24",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("18");
             obj.set_text("123456789");
             this.divSearch.addChild(obj.name, obj);
@@ -194,7 +194,6 @@
 
             obj = new Edit("Edit00_01_00_02_00_00","112","86","72","24",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("26");
-            obj.set_displaynulltext("(지점코드)");
             obj.set_text("3666");
             this.divSearch.addChild(obj.name, obj);
 
@@ -203,7 +202,7 @@
             obj.set_cssclass("btn_Comp_src");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Edit("Edit00_01_00_01_01_00_00","213","86","155","24",null,null,null,null,null,null,this.divSearch.form);
+            obj = new Edit("Edit00_01_00_01_01_00_00","213","86","166","24",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("28");
             obj.set_text("서울중앙MOT 강북 Part");
             this.divSearch.addChild(obj.name, obj);
@@ -215,18 +214,17 @@
             obj.set_visible("false");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Edit("Edit00_01_00_00","498","18","72","24",null,null,null,null,null,null,this.divSearch.form);
+            obj = new Edit("Edit00_01_00_00","498","18","57","24",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("30");
-            obj.set_displaynulltext("(사원번호)");
             obj.set_text("P12345");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Button("Button00_01_00_00","572","18","24","24",null,null,null,null,null,null,this.divSearch.form);
+            obj = new Button("Button00_01_00_00","557","18","24","24",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("31");
             obj.set_cssclass("btn_Comp_src");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Edit("Edit00_01_00_01_00","599","18","115","24",null,null,null,null,null,null,this.divSearch.form);
+            obj = new Edit("Edit00_01_00_01_00","584","18","155","24",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("32");
             obj.set_text("홍길순");
             this.divSearch.addChild(obj.name, obj);
@@ -240,7 +238,6 @@
 
             obj = new Edit("Edit00_01_00","498","86","67","24",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("34");
-            obj.set_displaynulltext("(지점코드)");
             obj.set_text("401001");
             this.divSearch.addChild(obj.name, obj);
 
@@ -250,12 +247,12 @@
             obj.set_text("");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Edit("Edit00_01_00_01_00_00_00_00","594","86","120","24",null,null,null,null,null,null,this.divSearch.form);
+            obj = new Edit("Edit00_01_00_01_00_00_00_00","594","86","145","24",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("36");
             obj.set_text("가솔린오일 GS KIXX G1 5W-30 (4L*4EA)");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Combo("cmb01_00","1074","18","140","24",null,null,null,null,null,null,this.divSearch.form);
+            obj = new Combo("cmb01_00","1102","18","150","24",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("37");
             obj.set_text("선택");
             obj.set_value("");
@@ -286,7 +283,7 @@
             obj.set_initvalueid("iv_Grid");
             obj.set_taborder("2");
             obj.set_binddataset("ds_grid");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"50\" band=\"left\"/><Column size=\"40\" band=\"left\"/><Column size=\"100\"/><Column size=\"100\"/><Column size=\"100\"/><Column size=\"100\"/><Column size=\"100\"/><Column size=\"100\"/><Column size=\"100\"/><Column size=\"100\"/><Column size=\"200\"/><Column size=\"100\"/><Column size=\"100\"/><Column size=\"250\"/><Column size=\"250\"/><Column size=\"100\"/><Column size=\"100\"/><Column size=\"100\"/><Column size=\"100\"/><Column size=\"150\"/><Column size=\"150\"/></Columns><Rows><Row size=\"30\" band=\"head\"/><Row size=\"30\"/></Rows><Band id=\"head\"><Cell text=\"No\"/><Cell col=\"1\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"2\" text=\"요청상태\"/><Cell col=\"3\" text=\"변경요청번호\"/><Cell col=\"4\" text=\"구매의뢰번호\"/><Cell col=\"5\" text=\"발주번호\"/><Cell col=\"6\" text=\"진행상태\"/><Cell col=\"7\" text=\"계약번호\"/><Cell col=\"8\" text=\"계약지점\"/><Cell col=\"9\" text=\"경유지\"/><Cell col=\"10\" text=\"차종명\"/><Cell col=\"11\" text=\"고객명\"/><Cell col=\"12\" text=\"변경구분\"/><Cell col=\"13\" text=\"변경전\"/><Cell col=\"14\" text=\"변경후\"/><Cell col=\"15\" text=\"변경구분\"/><Cell col=\"16\" text=\"리스사선택\"/><Cell col=\"17\" text=\"요청매니져\"/><Cell col=\"18\" text=\"요청일자\"/><Cell col=\"19\" text=\"변경요청사유\"/><Cell col=\"20\" text=\"반려사유\"/></Band><Band id=\"body\"><Cell text=\"bind:Column0\"/><Cell col=\"1\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"2\" text=\"bind:Column1\"/><Cell col=\"3\" text=\"bind:Column2\"/><Cell col=\"4\" text=\"bind:Column3\"/><Cell col=\"5\" text=\"bind:Column3\"/><Cell col=\"6\" text=\"bind:Column3\"/><Cell col=\"7\" text=\"bind:Column3\"/><Cell col=\"8\" text=\"bind:Column3\"/><Cell col=\"9\" text=\"bind:Column3\"/><Cell col=\"10\" text=\"bind:Column3\" textAlign=\"left\"/><Cell col=\"11\" text=\"bind:Column3\"/><Cell col=\"12\" text=\"bind:Column3\"/><Cell col=\"13\" text=\"bind:Column3\"/><Cell col=\"14\" text=\"bind:Column3\"/><Cell col=\"15\" text=\"bind:Column3\"/><Cell col=\"16\" text=\"bind:Column3\"/><Cell col=\"17\" text=\"bind:Column3\"/><Cell col=\"18\" text=\"bind:Column3\"/><Cell col=\"19\" text=\"bind:Column3\"/><Cell col=\"20\" text=\"bind:Column3\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"50\" band=\"left\"/><Column size=\"40\" band=\"left\"/><Column size=\"100\"/><Column size=\"100\"/><Column size=\"100\"/><Column size=\"100\"/><Column size=\"100\"/><Column size=\"100\"/><Column size=\"100\"/><Column size=\"100\"/><Column size=\"200\"/><Column size=\"100\"/><Column size=\"100\"/><Column size=\"250\"/><Column size=\"250\"/><Column size=\"100\"/><Column size=\"100\"/><Column size=\"100\"/><Column size=\"100\"/><Column size=\"150\"/><Column size=\"150\"/></Columns><Rows><Row size=\"30\" band=\"head\"/><Row size=\"30\"/></Rows><Band id=\"head\"><Cell text=\"No\"/><Cell col=\"1\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"2\" text=\"요청상태\"/><Cell col=\"3\" text=\"변경요청번호\"/><Cell col=\"4\" text=\"구매의뢰번호\"/><Cell col=\"5\" text=\"발주번호\"/><Cell col=\"6\" text=\"진행상태\"/><Cell col=\"7\" text=\"계약번호\"/><Cell col=\"8\" text=\"계약지점\"/><Cell col=\"9\" text=\"경유지\"/><Cell col=\"10\" text=\"차종명\"/><Cell col=\"11\" text=\"고객명\"/><Cell col=\"12\" text=\"변경구분\"/><Cell col=\"13\" text=\"변경전\"/><Cell col=\"14\" text=\"변경후\"/><Cell col=\"15\" text=\"변경구분\"/><Cell col=\"16\" text=\"리스사선택\"/><Cell col=\"17\" text=\"요청매니저\"/><Cell col=\"18\" text=\"요청일자\"/><Cell col=\"19\" text=\"변경요청사유\"/><Cell col=\"20\" text=\"반려사유\"/></Band><Band id=\"body\"><Cell text=\"bind:Column0\"/><Cell col=\"1\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"2\" text=\"bind:Column1\"/><Cell col=\"3\" text=\"bind:Column2\"/><Cell col=\"4\" text=\"bind:Column3\"/><Cell col=\"5\" text=\"bind:Column3\"/><Cell col=\"6\" text=\"bind:Column3\"/><Cell col=\"7\" text=\"bind:Column3\"/><Cell col=\"8\" text=\"bind:Column3\"/><Cell col=\"9\" text=\"bind:Column3\"/><Cell col=\"10\" text=\"bind:Column3\" textAlign=\"left\"/><Cell col=\"11\" text=\"bind:Column3\"/><Cell col=\"12\" text=\"bind:Column3\"/><Cell col=\"13\" text=\"bind:Column3\"/><Cell col=\"14\" text=\"bind:Column3\"/><Cell col=\"15\" text=\"bind:Column3\"/><Cell col=\"16\" text=\"bind:Column3\"/><Cell col=\"17\" text=\"bind:Column3\"/><Cell col=\"18\" text=\"bind:Column3\"/><Cell col=\"19\" text=\"bind:Column3\"/><Cell col=\"20\" text=\"bind:Column3\"/></Band></Format></Formats>");
             this.divGridWapper.addChild(obj.name, obj);
 
             obj = new Static("Static01_00_00_02","0","39","80","11",null,null,null,null,null,null,this.divGridWapper.form);
@@ -305,7 +302,7 @@
 
             obj = new Static("Static02_00",null,"20","70","24","73",null,null,null,null,null,this.divGridWapper.form);
             obj.set_taborder("5");
-            obj.set_text("0");
+            obj.set_text("0/0");
             obj.set_cssclass("sta_WF_gridCountNum");
             this.divGridWapper.addChild(obj.name, obj);
 
