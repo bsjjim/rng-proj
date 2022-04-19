@@ -4,13 +4,12 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 
-import com.lotterental.rng.demo.vo.FileVo;
 import org.springframework.web.multipart.MultipartFile;
 
-public interface FileService {
+import com.lotterental.rng.demo.vo.FileVo;
 
-	FileVo uploadFile(MultipartFile file) throws FileNotFoundException, IOException;
+public interface FileService {
 	
-	List<FileVo> uploadFileList(List<MultipartFile> fileList) throws FileNotFoundException, IOException;
+	FileVo uploadNexacroFiles(List<MultipartFile> fileList) throws FileNotFoundException, IOException;
 	
 }
