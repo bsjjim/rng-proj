@@ -29,8 +29,8 @@ import org.springframework.web.multipart.support.MultipartFilter;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 
-import com.lotterental.rng.common.converter.RentalDataSetToListConverter;
-import com.lotterental.rng.common.converter.RentalDataSetToObjectConverter;
+import com.lotterental.rng.common.converter.RngDataSetToListConverter;
+import com.lotterental.rng.common.converter.RngDataSetToObjectConverter;
 import com.lotterental.rng.config.WebAppConfig;
 import com.lotterental.rng.core.common.exception.BusinessException;
 import com.nexacro.java.xapi.tx.PlatformType;
@@ -108,6 +108,7 @@ public class NexacroConfig extends WebAppConfig implements WebMvcRegistrations {
     @Override
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
         resolvers.add(new RngNexacroMethodArgumentResolver());
+        resolvers.add(new RngMultipartFileMethodArgumentResolver());
     }
 
     /**
@@ -252,8 +253,8 @@ public class NexacroConfig extends WebAppConfig implements WebMvcRegistrations {
 	  	}
 	
 	  	private void addCustomConverter() {
-	  		NexacroConverterFactory.register(new RentalDataSetToObjectConverter());
-	  		NexacroConverterFactory.register(new RentalDataSetToListConverter());
+	  		NexacroConverterFactory.register(new RngDataSetToObjectConverter());
+	  		NexacroConverterFactory.register(new RngDataSetToListConverter());
 	  	}
     }
     
