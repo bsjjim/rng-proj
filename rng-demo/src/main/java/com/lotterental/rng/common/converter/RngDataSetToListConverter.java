@@ -11,7 +11,7 @@ import com.nexacro.uiadapter.spring.core.data.convert.ConvertDefinition;
 import com.nexacro.uiadapter.spring.core.data.convert.NexacroConvertException;
 import com.nexacro.uiadapter.spring.core.data.support.DataSetToListConverter;
 
-public class RentalDataSetToListConverter extends DataSetToListConverter {
+public class RngDataSetToListConverter extends DataSetToListConverter {
 	
 	@Override
     public List<?> convert(DataSet ds, ConvertDefinition definition) throws NexacroConvertException {

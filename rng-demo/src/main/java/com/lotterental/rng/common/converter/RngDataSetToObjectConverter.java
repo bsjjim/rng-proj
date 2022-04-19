@@ -9,7 +9,7 @@ import com.nexacro.uiadapter.spring.core.data.convert.NexacroConvertException;
 import com.nexacro.uiadapter.spring.core.data.support.DataSetToObjectConverter;
 import com.nexacro.uiadapter.spring.core.util.ReflectionUtil;
 
-public class RentalDataSetToObjectConverter extends DataSetToObjectConverter {
+public class RngDataSetToObjectConverter extends DataSetToObjectConverter {
 	
 	@Override
     public Object convert(DataSet source, ConvertDefinition definition) throws NexacroConvertException {
