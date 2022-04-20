@@ -112,8 +112,8 @@ rng:
     excel:
       url: /XExportImport.do
       path:
-        export: file:///D:/rng/temp/excel/export
-        import: file:///D:/rng/temp/excel/import
+        export: file:///C:/rng/temp/excel/export
+        import: file:///C:/rng/temp/excel/import
     monitor:
       enabled: true
       cycle:
@@ -122,7 +122,7 @@ rng:
       storage:
         time: 10
       system:
-        resource: D:\\rng\\temp\\file\\
+        resource: C:\\rng\\temp\\file\\
     size:
       upload:
         max: 100000000
@@ -170,7 +170,7 @@ spring:
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
       driver-class-name: com.tmax.tibero.jdbc.TbDriver
-      jdbc-url: jdbc:tibero:thin:@10.106.89.133:tibero
+      jdbc-url: jdbc:tibero:thin:@10.106.89.133:8629:tibero
       username: sample_tdb
       password: jenta210
       minimumIdle: 5

@@ -10,7 +10,7 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = false)
-public abstract class BaseMetaVo extends BaseVo implements DataSetRowTypeAccessor {
+public abstract class BaseMetaVo implements BaseVo, DataSetRowTypeAccessor {
 	@ResponseIgnore
 	private int rowType = -1;
 		

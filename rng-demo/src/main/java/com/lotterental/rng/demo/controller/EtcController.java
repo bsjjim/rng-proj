@@ -2,7 +2,9 @@ package com.lotterental.rng.demo.controller;
 
 import com.lotterental.rng.common.base.BusinessData;
 import com.lotterental.rng.core.common.exception.BusinessException;
+import com.lotterental.rng.demo.service.EtcService;
 import com.lotterental.rng.demo.service.NexacroDataService;
+import com.lotterental.rng.demo.vo.CopyVo;
 import com.nexacro.uiadapter.spring.core.annotation.ParamDataSet;
 import com.nexacro.uiadapter.spring.core.data.NexacroResult;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,27 +20,25 @@ import java.util.List;
 @Controller
 public class EtcController {
     @Autowired
-    private NexacroDataService nexacroService;
+    private EtcService etcService;
 
     @GetMapping("/")
     public String index() {
         return "index";
     }
 
-    @PostMapping("/exceptionhandler")
-    public NexacroResult exceptionHandler(@ParamDataSet(name = "dsImp") BusinessData nexacroData) {
+    @GetMapping("/objcopy")
+    public String ObjCopy() {
 
         NexacroResult result = new NexacroResult();
         try {
-            log.debug("parameter = {}", nexacroData);
-            List<BusinessData> resultDataList = nexacroService.selectNexacroDataList(nexacroData);
-            result.addDataSet("dsList", resultDataList);
+            CopyVo copyVo = etcService.objectCopy();
         } catch (BusinessException e) {
 
         } catch (Exception e) {
 
         }
 
-        return result;
+        return "result";
     }
 }

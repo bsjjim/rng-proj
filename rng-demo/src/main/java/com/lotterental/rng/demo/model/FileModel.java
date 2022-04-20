@@ -1,12 +1,12 @@
 package com.lotterental.rng.demo.model;
 
-import com.lotterental.rng.common.base.BaseModel;
+import com.lotterental.rng.core.base.BaseModel;
 import com.lotterental.rng.demo.vo.FileVo;
 
 import lombok.Data;
 
 @Data
-public class FileModel implements BaseModel {
+public class FileModel {
 	private String originalFileName;
     private String logicalFileName;
     private String filePath;

@@ -8,7 +8,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class BaseSearchVo extends BaseVo {
+public class BaseSearchVo implements BaseVo {
     protected int pageIdx;
     protected int rowCount;
     protected int rowOffset;

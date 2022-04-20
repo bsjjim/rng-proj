@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import com.lotterental.rng.core.utils.MessageUtils;
+import com.lotterental.rng.core.utils.MessageUtil;
 
 public enum ErrorCodeUtil {
     ERR_CD1("에러코드1", Arrays.asList("ERR_100", "ERR_101", "ERR_102")),
@@ -44,10 +44,10 @@ public enum ErrorCodeUtil {
     }
     
     public static String getErrorMsg(String errorCode) {
-    	return MessageUtils.getMessage(errorCode);
+    	return MessageUtil.getMessage(errorCode);
     }
     
     public static String getErrorMsg(String errorCode, Object[] args) {
-    	return MessageUtils.getMessage(errorCode, args);
+    	return MessageUtil.getMessage(errorCode, args);
     }
 }
