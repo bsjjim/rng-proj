@@ -18,7 +18,7 @@ import java.util.function.Predicate;
  * @since 2022. 3. 2.
  */
 @Slf4j
-public class ValidUtils {
+public class ValidUtil {
 
     public static <T> void isEmpty(T t, List<String> validFieldNames) throws ValidationException {
         if(Objects.isNull(t) || CollectionUtils.isEmpty(validFieldNames)) {

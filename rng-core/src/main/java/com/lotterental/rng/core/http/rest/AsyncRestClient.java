@@ -1,7 +1,7 @@
 package com.lotterental.rng.core.http.rest;
 
-import com.lotterental.rng.core.utils.JsonUtils;
-import com.lotterental.rng.core.utils.MDCUtils;
+import com.lotterental.rng.core.utils.JsonUtil;
+import com.lotterental.rng.core.utils.MDCUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.ConfigurableEnvironment;
@@ -55,7 +55,7 @@ public class AsyncRestClient extends AsyncRestTemplate {
 		request.getHeaders().add("serviceTime", Long.toString(serviceTime));
 		request.getHeaders().add("appSource", appSource);
 
-		String traceId = MDCUtils.get(MDCUtils.TRACE_ID);
+		String traceId = MDCUtil.get(MDCUtil.TRACE_ID);
 		request.getHeaders().add("X-Trace-Id", traceId);
 
 		log.debug("@# Created asynchronous traceid: {}, method name: {}, request for: {}", traceId, method.name(), url);
@@ -67,7 +67,7 @@ public class AsyncRestClient extends AsyncRestTemplate {
 
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
-		HttpEntity<String> entity = new HttpEntity<>(JsonUtils.toJson(request), headers);
+		HttpEntity<String> entity = new HttpEntity<>(JsonUtil.toJson(request), headers);
 
 		return super.postForEntity(url, entity, responseType, uriVariables);
 	}

@@ -1,6 +1,6 @@
 package com.lotterental.rng.core.http.rest;
 
-import com.lotterental.rng.core.utils.MDCUtils;
+import com.lotterental.rng.core.utils.MDCUtil;
 import com.lotterental.rng.core.utils.QueryStringBuilder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -87,7 +87,7 @@ public class RestClient extends RestTemplate {
 		clientHttpRequest.getHeaders().add("serviceTime", Long.toString(serviceTime));
 		clientHttpRequest.getHeaders().add("appSource", appSource);
 
-		String traceId = MDCUtils.get(MDCUtils.TRACE_ID);
+		String traceId = MDCUtil.get(MDCUtil.TRACE_ID);
 		clientHttpRequest.getHeaders().add("X-Trace-Id", traceId);
 		log.debug("@# Created synchronous traceid: {}, method name: {}, request for: {}", traceId, method.name(), url);
 

@@ -17,7 +17,7 @@ import java.util.Locale;
  * @since 2022. 3. 2.
  */
 @Component
-public class MessageUtils {
+public class MessageUtil {
 
     @Resource(name = "messageSource")
     private MessageSourceSupport source;

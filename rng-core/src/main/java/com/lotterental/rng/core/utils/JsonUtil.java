@@ -29,9 +29,9 @@ import static java.lang.String.format;
  * @version 1.0
  * @since 2022. 3. 2.
  */
-public final class JsonUtils {
+public final class JsonUtil {
 
-    private JsonUtils() {
+    private JsonUtil() {
     }
 
     private static ObjectMapper MAPPER = createNewObjectMapper(true);

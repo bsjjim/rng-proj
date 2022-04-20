@@ -3,7 +3,7 @@ package com.lotterental.rng.core.common.maskcrypt;
 import com.lotterental.rng.core.cnst.Constants;
 import com.lotterental.rng.core.common.maskcrypt.annotation.MaskCryptAno;
 import com.lotterental.rng.core.common.maskcrypt.enums.MaskType;
-import com.lotterental.rng.core.utils.MaskingUtils;
+import com.lotterental.rng.core.utils.MaskingUtil;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -173,40 +173,40 @@ public class MaskCryptProcess {
 	private static String typeMasking(String src , MaskType maskType) {
 		switch (maskType) {
 		case ALL:
-			src = MaskingUtils.masking(src, 0, src.length());
+			src = MaskingUtil.masking(src, 0, src.length());
 			break;
 		case RR_NUMBER:
-			src = MaskingUtils.masking(src, 8, 6);
+			src = MaskingUtil.masking(src, 8, 6);
 			break;
 		case PASSPORT:
-			src = MaskingUtils.masking(src, 1, 4);
+			src = MaskingUtil.masking(src, 1, 4);
 			break;
 		case DRIVER:
-			src = MaskingUtils.masking(src,'*','-', 10, 5);
+			src = MaskingUtil.masking(src,'*','-', 10, 5);
 			break;
 		case CARD_NUMBER:
-			src = MaskingUtils.masking(src,'*','-', 7, 7);
+			src = MaskingUtil.masking(src,'*','-', 7, 7);
 			break;
 		case ACCOUNT_NUMBER:
-			src = MaskingUtils.masking(src,'*','-', 6, 6);
+			src = MaskingUtil.masking(src,'*','-', 6, 6);
 			break;
 		case NAME:
-			src = MaskingUtils.masking(src, 1, 1);
+			src = MaskingUtil.masking(src, 1, 1);
 			break;
 		case CUST_ID:
-			src = MaskingUtils.masking(src, 2, 4);
+			src = MaskingUtil.masking(src, 2, 4);
 			break;
 		case EMAIL:
-			src = MaskingUtils.masking(src, 2, 4);
+			src = MaskingUtil.masking(src, 2, 4);
 			break;
 		case ADDRESS:
 			src = setMaskAddress(src);
 			break;
 		case PHONE_NUMBER:
-			src = MaskingUtils.masking(src,MaskingUtils.LAST_4_CHAR_PATTERN);
+			src = MaskingUtil.masking(src, MaskingUtil.LAST_4_CHAR_PATTERN);
 			break;
 		case VALIDITY:
-			src = MaskingUtils.masking(src,'*','-', 0, src.length());
+			src = MaskingUtil.masking(src,'*','-', 0, src.length());
 			break;
 		default:
 			break;
@@ -226,6 +226,6 @@ public class MaskCryptProcess {
             index = src.indexOf(word, index+word.length());
         }
         
-        return MaskingUtils.masking(src,indexList.get(indexList.size()-2));
+        return MaskingUtil.masking(src,indexList.get(indexList.size()-2));
     }
 }

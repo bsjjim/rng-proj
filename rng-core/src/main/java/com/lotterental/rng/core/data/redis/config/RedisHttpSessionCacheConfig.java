@@ -1,8 +1,7 @@
 package com.lotterental.rng.core.data.redis.config;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lotterental.rng.core.data.redis.properties.RedisHttpSessionProperties;
-import com.lotterental.rng.core.utils.JsonUtils;
+import com.lotterental.rng.core.utils.JsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -14,10 +13,8 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
-import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
-import org.springframework.session.data.redis.config.ConfigureRedisAction;
 import lombok.extern.slf4j.Slf4j;
 import redis.clients.jedis.JedisPoolConfig;
 /**
@@ -104,6 +101,6 @@ public class RedisHttpSessionCacheConfig {
 	@Primary
 	@Bean(name = "httpSessionDefaultRedisSerializer")
 	public RedisSerializer<Object> httpSessionDefaultRedisSerializer() {
-		return new GenericJackson2JsonRedisSerializer(JsonUtils.getObjectMapper());
+		return new GenericJackson2JsonRedisSerializer(JsonUtil.getObjectMapper());
 	}
 }

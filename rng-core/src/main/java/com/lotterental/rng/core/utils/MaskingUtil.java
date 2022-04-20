@@ -12,9 +12,9 @@ import java.lang.reflect.Field;
  * @since 2022. 04. 01
  */
 @Slf4j
-public abstract class MaskingUtils {
+public abstract class MaskingUtil {
 
-    protected MaskingUtils() {
+    protected MaskingUtil() {
 
     }
 
@@ -153,7 +153,7 @@ public abstract class MaskingUtils {
                         log.debug(value.toString());
                         if(!value.equals("")) {
                             String valueStr = value.toString();
-                            field.set(object, MaskingUtils.masking(valueStr, 0, valueStr.length()));
+                            field.set(object, MaskingUtil.masking(valueStr, 0, valueStr.length()));
                         }
                     }
                 }

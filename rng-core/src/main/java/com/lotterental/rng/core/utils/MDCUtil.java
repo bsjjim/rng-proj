@@ -12,7 +12,7 @@ import java.util.Map;
  * @version 1.0
  * @since 2022. 3. 2.
  */
-public class MDCUtils {
+public class MDCUtil {
 
     private static MDCAdapter mdc = MDC.getMDCAdapter();
 
@@ -89,7 +89,7 @@ public class MDCUtils {
      */
     public static void setJsonValue(String key, Object value) {
         if (value != null) {
-            String json = JsonUtils.toJson(value);
+            String json = JsonUtil.toJson(value);
             mdc.put(key, json);
         }
     }

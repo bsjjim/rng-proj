@@ -19,7 +19,7 @@ import java.util.*;
  * @since 2022. 3. 2.
  */
 @Slf4j
-public class RequestUtils {
+public class RequestUtil {
 
     /**
      * 요청 객체의 헤더 값을 맵 형태로 추출한다.
@@ -398,13 +398,13 @@ public class RequestUtils {
         Map<String, String> requestBodyParameterMap = parameterMap(request);
 
         if (requestBodyParameterMap.size() > 0) {
-            return JsonUtils.toJsonNode(requestBodyParameterMap);
+            return JsonUtil.toJsonNode(requestBodyParameterMap);
         }
 
         String requestBody = getRequestBody(request);
 
         if (!StringUtils.isEmpty(requestBody)) {
-            return JsonUtils.readJson(requestBody);
+            return JsonUtil.readJson(requestBody);
         }
 
         return null;

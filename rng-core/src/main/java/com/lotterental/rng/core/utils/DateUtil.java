@@ -18,7 +18,7 @@ import java.util.GregorianCalendar;
  * @since 2022. 3. 2.
  */
 @Slf4j
-public abstract class DateUtils extends org.apache.commons.lang3.time.DateUtils {
+public abstract class DateUtil extends org.apache.commons.lang3.time.DateUtils {
 
     private static final String DEFAULT_PATTERN = "yyyyMMddHHmmss";
 
@@ -138,7 +138,7 @@ public abstract class DateUtils extends org.apache.commons.lang3.time.DateUtils 
      * @param e 예외 객체
      */
     private static void exLogging(String method, Exception e) {
-        log.debug(DateUtils.class.getName() + "." + method + " => " + e.getClass().getName() + "\n" + " 발생원인 : "
+        log.debug(DateUtil.class.getName() + "." + method + " => " + e.getClass().getName() + "\n" + " 발생원인 : "
                 + e.getMessage());
     }
 }

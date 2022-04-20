@@ -19,7 +19,7 @@ import java.io.InputStream;
  * @since 2022. 3. 2.
  */
 @Slf4j
-public class ResponseUtils {
+public class ResponseUtil {
 
     /**
      * 오브젝트 파일 다운로드

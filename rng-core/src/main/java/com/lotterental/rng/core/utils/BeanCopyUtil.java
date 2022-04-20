@@ -15,14 +15,12 @@ import java.util.Objects;
  * @since 2022. 3. 2.
  */
 @Slf4j
-public class BeanCopyUtils {
+public class BeanCopyUtil {
     /**
      *
-     * @param target
      * @param source
      * @param <T>
-     * @param <T2>
-     * @return
+     * @return <T>
      */
     public static <T> T copy(Object source, Class<T> clazz) {
         if(Objects.isNull(source)) {

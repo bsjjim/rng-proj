@@ -20,7 +20,7 @@ import java.io.InputStreamReader;
  * @since 2022. 3. 2.
  */
 @Slf4j
-public class HttpUtils {
+public class HttpUtil {
 
     /**
      * 현재 HTTP 서블릿 요청 객체를 얻는다.
