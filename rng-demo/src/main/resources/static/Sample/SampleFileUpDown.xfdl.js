@@ -18,7 +18,7 @@
             
             // Object(Dataset, ExcelExportObject) Initialize
             obj = new Dataset("dsUpload", this);
-            obj._setContents("<ColumnInfo><Column id=\"fileid\" type=\"STRING\" size=\"256\"/><Column id=\"fileimg\" type=\"STRING\" size=\"256\"/><Column id=\"filename\" type=\"STRING\" size=\"256\"/><Column id=\"filetype\" type=\"STRING\" size=\"256\"/><Column id=\"filesize\" type=\"INT\" size=\"256\"/><Column id=\"tranfilesize\" type=\"INT\" size=\"256\"/><Column id=\"prog\" type=\"INT\" size=\"256\"/><Column id=\"dnimg\" type=\"STRING\" size=\"256\"/><Column id=\"rmimg\" type=\"STRING\" size=\"256\"/><Column id=\"status\" type=\"STRING\" size=\"256\"/><Column id=\"filekey\" type=\"STRING\" size=\"256\"/><Column id=\"downcnt\" type=\"STRING\" size=\"256\"/><Column id=\"filepath\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+            obj._setContents("<ColumnInfo><Column id=\"fileid\" type=\"STRING\" size=\"256\"/><Column id=\"fileimg\" type=\"STRING\" size=\"256\"/><Column id=\"filename\" type=\"STRING\" size=\"256\"/><Column id=\"filetype\" type=\"STRING\" size=\"256\"/><Column id=\"filesize\" type=\"INT\" size=\"256\"/><Column id=\"tranfilesize\" type=\"INT\" size=\"256\"/><Column id=\"prog\" type=\"INT\" size=\"256\"/><Column id=\"dnimg\" type=\"STRING\" size=\"256\"/><Column id=\"rmimg\" type=\"STRING\" size=\"256\"/><Column id=\"status\" type=\"STRING\" size=\"256\"/><Column id=\"filekey\" type=\"STRING\" size=\"256\"/><Column id=\"downcnt\" type=\"STRING\" size=\"256\"/><Column id=\"filepath\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"filename\">test3.txt</Col><Col id=\"filesize\">1</Col><Col id=\"tranfilesize\">1</Col></Row></Rows>");
             this.addChild(obj.name, obj);
 
 
@@ -349,6 +349,7 @@
         	var rmCellIdx = 2;
         	var dnCellIdx = 3;
         	if (e.row < 0) { return; }
+        	alert(e.col + "/" + dnCellIdx);
         	if (e.col == rmCellIdx) {
         		var strID  = this.dsUpload.getColumn(e.row, "filename");
 
@@ -387,9 +388,11 @@
 
         		if (system.navigatorname != "nexacro") {
         			//var sDownLoadUrl = "http://127.0.0.1:8017/nexacro/" + this.fileConfig.downloadUrl + encodeFileName;
-        			var sDownLoadUrl = "http://localhost:8017/nexacro/" + this.fileConfig.downloadUrl + encodeFileName;
+        			//var sDownLoadUrl = "http://localhost:8017/nexacro/" + this.fileConfig.downloadUrl + encodeFileName;
+        			var sDownLoadUrl = "http://localhost:8080/downloadNexacroFile";
         		} else {
-        			var sDownLoadUrl = this.fileConfig.host + this.fileConfig.downloadUrl + encodeFileName;
+        			//var sDownLoadUrl = this.fileConfig.host + this.fileConfig.downloadUrl + encodeFileName;
+        			var sDownLoadUrl = "http://localhost:8080/downloadNexacroFile";
         		}
         		trace("sDownLoadUrl : " + sDownLoadUrl);
 
@@ -418,7 +421,8 @@
         {
         	if (system.navigatorname != "nexacro") {
         		//var sUploadUrl = "http://127.0.0.1:8017/nexacro/" + this.fileConfig.uploadUrl;
-        		var sUploadUrl = "http://localhost:8017/nexacro/" + this.fileConfig.uploadUrl;
+        		//var sUploadUrl = "http://localhost:8017/nexacro/" + this.fileConfig.uploadUrl;
+        		var sUploadUrl = "http://localhost:8080/uploadNexacroFile";
         	} else {
         		var sUploadUrl = this.fileConfig.host + this.fileConfig.uploadUrl;
         	}

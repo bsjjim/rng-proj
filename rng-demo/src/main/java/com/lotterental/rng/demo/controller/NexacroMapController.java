@@ -53,10 +53,10 @@ public class NexacroMapController {
 	        List<Map<String, Object>> resultMapList = nexacroService.selectNexacroMapList(nexacroMap);        
 	        result.addDataSet("dsList", resultMapList);
     	} catch (BusinessException e) {
-	    		// 에러시 처리 할 업무로직 존재시 처리
-	    		result.addVariable(ERROR_CODE.getColumn(), e.getMessageId());
-	    		result.addVariable(ERROR_MSG.getColumn(), ErrorCodeUtil.getErrorMsg(e.getMessageId()));
-//	    		result.addVariable(ErrorInfo.getMsg(), ErrorCodeUtil.getErrorMsg(e.getMessageId(), e.getMessageArgs()));
+    		// 에러시 처리 할 업무로직 존재시 처리
+    		result.addVariable(ERROR_CODE.getColumn(), e.getMessageId());
+    		result.addVariable(ERROR_MSG.getColumn(), ErrorCodeUtil.getErrorMsg(e.getMessageId()));
+//	    	result.addVariable(ErrorInfo.getMsg(), ErrorCodeUtil.getErrorMsg(e.getMessageId(), e.getMessageArgs()));
     	} catch (Exception e) {
     		// 에러시 처리 할 업무로직 존재시 처리
     		result.addVariable(ERROR_CODE.getColumn(), "E0001");

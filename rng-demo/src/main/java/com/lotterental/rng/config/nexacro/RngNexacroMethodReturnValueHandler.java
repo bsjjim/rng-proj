@@ -6,6 +6,7 @@ import org.springframework.web.method.support.ModelAndViewContainer;
 
 import com.lotterental.rng.common.cnst.ErrorColumn;
 import com.lotterental.rng.config.nexacro.processor.RngNexacroMethodReturnValueProcessor;
+import com.nexacro.uiadapter.spring.core.data.NexacroFileResult;
 import com.nexacro.uiadapter.spring.core.data.NexacroResult;
 import com.nexacro.uiadapter.spring.core.resolve.NexacroHandlerMethodReturnValueHandler;
 
@@ -24,8 +25,10 @@ public class RngNexacroMethodReturnValueHandler extends NexacroHandlerMethodRetu
 			ModelAndViewContainer mavContainer,
             NativeWebRequest webRequest
 	) throws Exception {
-		rngNexacroMethodReturnValueProcessor.handleReturnValue(returnValue);
-		handleException(returnValue);
+		if (returnValue.getClass() != NexacroFileResult.class) {
+			rngNexacroMethodReturnValueProcessor.handleReturnValue(returnValue);
+			handleException(returnValue);
+		}
 		super.handleReturnValue(returnValue, returnType, mavContainer, webRequest);
 	}
 	

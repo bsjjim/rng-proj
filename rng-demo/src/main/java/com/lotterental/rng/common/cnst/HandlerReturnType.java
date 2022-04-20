@@ -3,6 +3,7 @@ package com.lotterental.rng.common.cnst;
 import java.util.Arrays;
 import java.util.Optional;
 
+import com.nexacro.uiadapter.spring.core.data.NexacroFileResult;
 import com.nexacro.uiadapter.spring.core.data.NexacroResult;
 
 import lombok.extern.slf4j.Slf4j;
@@ -10,7 +11,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public enum HandlerReturnType {
 
-	NEXACRORESULT(NexacroResult.class);
+	NEXACRORESULT(NexacroResult.class),
+	NEXACROFILERESULT(NexacroFileResult.class);
 	
 	private Class<?> type;
 	

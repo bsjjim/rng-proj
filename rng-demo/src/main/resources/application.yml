@@ -122,7 +122,7 @@ rng:
       storage:
         time: 10
       system:
-        resource: D:\\rng\\temp\\file
+        resource: D:\\rng\\temp\\file\\
     size:
       upload:
         max: 100000000

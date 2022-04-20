@@ -10,24 +10,24 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.lotterental.rng.core.common.exception.BusinessException;
 import com.lotterental.rng.demo.service.FileService;
 import com.lotterental.rng.demo.vo.FileVo;
+import com.lotterental.rng.utils.FileUtil;
+import com.nexacro.uiadapter.spring.core.data.NexacroFileResult;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class FileServiceImpl implements FileService {
 	
-	private final String fileRoot;
-
-	public FileServiceImpl(@Value("${rng.nexacro.file.system.resource}") String fileRoot) throws IOException {
-		this.fileRoot = fileRoot;
-		File rootDir = new File(fileRoot);
-		if (!rootDir.exists() && !rootDir.mkdirs()) {
-        	throw new IOException();
-        }
-	}
+	@Value("${rng.nexacro.file.system.resource}")
+	private String fileRoot;
 	
 	@Override
 	public FileVo uploadNexacroFiles(List<MultipartFile> fileList) throws FileNotFoundException, IOException {
+		validateFileRoot();
         for (MultipartFile file : fileList) {
         	writeFile(file);
         	// TODO: 파일 문서번호 및 첨부파일 번호 채번
@@ -39,19 +39,24 @@ public class FileServiceImpl implements FileService {
         return fileVo;
 	}
 	
-//	private void getFileSeq() {
-//		
-//	}
-//	
-//	private String getLogicalFileName(String fileName) {
-//		// TODO: logical 파일명 생성 및 리턴
-//		return "";
-//	}
+	private void validateFileRoot() {
+		if (!FileUtil.isRootPathExists()) {
+			throw new BusinessException("파일 디렉토리 미존재");
+		}
+	}
 	
 	private void writeFile(MultipartFile file) throws FileNotFoundException, IOException {
-		try (FileOutputStream writer = new FileOutputStream(fileRoot + "/" + file.getOriginalFilename())) {
-			writer.write(file.getBytes());
+		try (FileOutputStream fos = new FileOutputStream(fileRoot + "/" + file.getOriginalFilename())) {
+			fos.write(file.getBytes());
 		}
+	}
+	
+	@Override
+	public NexacroFileResult downloadNexacroFiles(String filePath, String fileSeq) {
+		validateFileRoot();
+		// TODO: DB조회
+		log.debug("download file = {}", fileRoot + "test3.txt");
+        return new NexacroFileResult(new File(fileRoot + "test3.txt"));
 	}
 	
 }

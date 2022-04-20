@@ -6,20 +6,16 @@ import static com.lotterental.rng.common.cnst.ErrorColumn.ERROR_MSG;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.Resource;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.lotterental.rng.common.file.RngMultipartFile;
 import com.lotterental.rng.demo.service.FileService;
 import com.lotterental.rng.utils.ErrorCodeUtil;
+import com.nexacro.uiadapter.spring.core.data.NexacroFileResult;
 import com.nexacro.uiadapter.spring.core.data.NexacroResult;
 
 import lombok.extern.slf4j.Slf4j;
@@ -45,39 +41,12 @@ public class FileController {
     	}
         return result;
     }
-
-//    @ApiOperation(value = "Download Test", notes = "다운로드 테스트입니다")
-//    @ApiResponses({
-//            @ApiResponse(code = 200, message = "ok"),
-//            @ApiResponse(code = 404, message = "page not found!")
-//    })
-    @GetMapping("/download/{fileName:.+}")
-    public ResponseEntity<Resource> downloadFile(
-            HttpServletRequest httpServletRequest,
-            @PathVariable String fileName)
-    {
-//        Resource resource = fileDemoService.downloadFile(fileName, httpServletRequest);
-//        String contentType = null;
-//        if(resource.exists()) {
-//            try {
-//                contentType = httpServletRequest.getServletContext().getMimeType(resource.getFile().getAbsolutePath());
-//            } catch (IOException ex) {
-//                log.info("Could not determine file type.");
-//            }
-//
-//            // Fallback to the default content type if type could not be determined
-//            if(contentType == null) {
-//                contentType = "application/octet-stream";
-//            }
-//
-//        } else {
-//            log.error("파일을 찾을 수 없습니다.");
-//        }
-//
-//        return ResponseEntity.ok()
-//                .contentType(MediaType.parseMediaType(contentType))
-//                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
-//                .body(resource);
-    	return null;
+    
+    @PostMapping(value = "/downloadNexacroFile") //, headers = ("content-type=multipart/*"), consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
+    public NexacroFileResult downloadNexacroFile(String filePath, String fileSeq) {
+    	log.debug("filePath = {}, fileSeq = {}", filePath, fileSeq);
+    	NexacroFileResult result = fileService.downloadNexacroFiles(filePath, fileSeq);
+    	return result;
     }
+    
 }
