@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lotterental.rng.demo.mapper.FileMapper">
+
+	<select id="selectFileInfoList" parameterType="FileVo" resultType="FileModel">
+		SELECT DOCUMENT_NO
+			 , FILE_NO
+			 , ORIGINAL_FILE_NAME
+			 , SAVED_FILE_NAME
+			 , FILE_SIZE
+			 , FILE_PATH
+			 , FILE_CONTENTS_TYPE_NAME
+		  FROM ATTACH_FILE
+		 WHERE DOCUMENT_NO = #{documentNo}
+		   AND DELETE_YN = 'N'
+    </select>
+    
+    <select id="selectFileInfo" parameterType="FileVo" resultType="FileVo">
+		SELECT DOCUMENT_NO
+			 , FILE_NO
+			 , ORIGINAL_FILE_NAME
+			 , SAVED_FILE_NAME
+			 , FILE_SIZE
+			 , FILE_PATH
+			 , FILE_CONTENTS_TYPE_NAME
+		  FROM ATTACH_FILE
+		 WHERE DOCUMENT_NO = #{documentNo}
+		   AND FILE_NO = #{fileNo}
+		   AND DELETE_YN = 'N'
+    </select>
+    
+    <select id="selectDocumentNo" parameterType="string" resultType="string">
+		SELECT SYSDATE || DOCUMENT_NO.NEXTVAL AS DOCUMENT_NO
+		  FROM DUAL
+    </select>
+    
+    <insert id="insertFileInfo" parameterType="FileVo">
+	    <selectKey resultType="string" keyProperty="fileNo" order="BEFORE">
+	        SELECT NVL(MAX(FILE_NO), 0) + 1 
+	          FROM ATTACH_FILE
+	         WHERE DOCUMENT_NO = #{documentNo}
+	    </selectKey>
+    	INSERT 
+    	  INTO ATTACH_FILE (
+    	  	DOCUMENT_NO,
+			FILE_NO,
+			ORIGINAL_FILE_NAME,
+			SAVED_FILE_NAME,
+			FILE_SIZE,
+			FILE_PATH,
+			FILE_CONTENTS_TYPE_NAME,
+			DELETE_YN,
+			DELETE_DTM,
+			REG_ID,
+			REG_DTM,
+			UPD_ID,
+			UPD_DTM
+		) VALUES (
+			#{documentNo},
+			#{fileNo},
+			#{originalFileName},
+			#{savedFileName},
+			#{fileSize},
+			#{filePath},
+			#{fileContentsTypeName},
+			#{deleteYn},
+			SYSDATE,
+			#{regId},
+			SYSDATE,
+			#{updId},
+			SYSDATE
+		)
+    </insert>
+
+    <delete id="deleteFileInfo" parameterType="FileVo">
+        UPDATE ATTACH_FILE
+           SET DELETE_YN = 'Y'
+             , DELETE_DTM = SYSDATE
+             , UPD_ID = #{updId}
+             , UPD_DTM = SYSDATE
+         WHERE DOCUMENT_NO = #{documentNo}
+    </delete>
+
+</mapper>

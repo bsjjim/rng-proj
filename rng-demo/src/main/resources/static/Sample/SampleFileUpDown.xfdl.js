@@ -18,7 +18,8 @@
             
             // Object(Dataset, ExcelExportObject) Initialize
             obj = new Dataset("dsUpload", this);
-            obj._setContents("<ColumnInfo><Column id=\"fileid\" type=\"STRING\" size=\"256\"/><Column id=\"fileimg\" type=\"STRING\" size=\"256\"/><Column id=\"filename\" type=\"STRING\" size=\"256\"/><Column id=\"filetype\" type=\"STRING\" size=\"256\"/><Column id=\"filesize\" type=\"INT\" size=\"256\"/><Column id=\"tranfilesize\" type=\"INT\" size=\"256\"/><Column id=\"prog\" type=\"INT\" size=\"256\"/><Column id=\"dnimg\" type=\"STRING\" size=\"256\"/><Column id=\"rmimg\" type=\"STRING\" size=\"256\"/><Column id=\"status\" type=\"STRING\" size=\"256\"/><Column id=\"filekey\" type=\"STRING\" size=\"256\"/><Column id=\"downcnt\" type=\"STRING\" size=\"256\"/><Column id=\"filepath\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"filename\">test3.txt</Col><Col id=\"filesize\">1</Col><Col id=\"tranfilesize\">1</Col></Row></Rows>");
+            obj.set_useclientlayout("true");
+            obj._setContents("<ColumnInfo><Column id=\"_chk\" type=\"STRING\" size=\"256\"/><Column id=\"deleteDtm\" type=\"string\" size=\"32\"/><Column id=\"deleteYn\" type=\"string\" size=\"32\"/><Column id=\"documentNo\" type=\"string\" size=\"32\"/><Column id=\"fileContentsTypeName\" type=\"string\" size=\"32\"/><Column id=\"fileNo\" type=\"string\" size=\"32\"/><Column id=\"filePath\" type=\"string\" size=\"32\"/><Column id=\"fileSize\" type=\"bigdecimal\" size=\"8\"/><Column id=\"originalFileName\" type=\"string\" size=\"32\"/><Column id=\"regDtm\" type=\"string\" size=\"32\"/><Column id=\"regId\" type=\"string\" size=\"32\"/><Column id=\"savedFileName\" type=\"string\" size=\"32\"/><Column id=\"updDtm\" type=\"string\" size=\"32\"/><Column id=\"updId\" type=\"string\" size=\"32\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
 
 
@@ -63,7 +64,7 @@
             obj.set_taborder("2");
             obj.set_binddataset("dsUpload");
             obj.set_autofittype("col");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"300\"/><Column size=\"60\"/><Column size=\"60\"/></Columns><Rows><Row size=\"34\"/></Rows><Band id=\"body\"><Cell text=\"bind:fileimg\" displaytype=\"imagecontrol\"/><Cell col=\"1\" text=\"bind:filename\"/><Cell col=\"2\" text=\"bind:rmimg\" displaytype=\"imagecontrol\"/><Cell col=\"3\" displaytype=\"imagecontrol\" text=\"bind:dnimg\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"300\"/><Column size=\"60\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"34\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"파일명\"/><Cell col=\"2\" text=\"사이즈\"/></Band><Band id=\"body\"><Cell text=\"bind:fileimg\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:originalFileName\"/><Cell col=\"2\" text=\"bind:fileSize\" displaytype=\"number\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
             obj = new Button("Button02","438","65","80","25",null,null,null,null,null,null,this);
@@ -339,78 +340,7 @@
 
         };
 
-        /**
-         * @ grdUpload oncellclick & FileUpTransfer removeFile
-         * @
-         * @
-         */
-        this.grdUpload_oncellclick = function(obj,e)
-        {
-        	var rmCellIdx = 2;
-        	var dnCellIdx = 3;
-        	if (e.row < 0) { return; }
-        	alert(e.col + "/" + dnCellIdx);
-        	if (e.col == rmCellIdx) {
-        		var strID  = this.dsUpload.getColumn(e.row, "filename");
 
-        		if (this.gfnIsNull(this.dsUpload.getColumn(e.row, "filesize"))) {
-        			var dIdx = e.row;
-        			this.grdUpload.set_enableredraw(false);
-        			this.dsUpload.deleteRow(dIdx);
-        			this.grdUpload.set_enableredraw(true);
-        			this.FileUpTransfer.removeFile(strID);		// File  제거
-
-        		} else {
-        			// 하기 FileUpTransfer 이용한 파일 삭제 로직은 테스트 용도 임...
-        			// PostData 이용 file Delete ------------------------ Start
-        			if (system.navigatorname != "nexacro") {
-        				this.fileConfig.downloadUrl
-        				//var sUploadUrl = "http://127.0.0.1:8017/nexacro/" + this.fileConfig.uploadUrl;
-        				var sUploadUrl = "http://localhost:8017/nexacro/" + this.fileConfig.uploadUrl;
-        			} else {
-        				var sUploadUrl = this.fileConfig.host + this.fileConfig.uploadUrl;
-        			}
-
-        			// PostData set
-        			this.FileUpTransfer.removePostData("infoDatasets");	// infoDatasets 삭제
-        			this.FileUpTransfer.setPostData("removeFile", strID);
-        			trace("getPostData - removeFile :" + this.FileUpTransfer.getPostData("removeFile"));
-
-        			this.FileUpTransfer.upload(sUploadUrl);
-        			// PostData 이용 file Delete ------------------------ End
-        		}
-
-        	} else if (e.col == dnCellIdx) {
-        		var sFilename = this.dsUpload.getColumn(e.row, "filename");
-        			sFilename = this.gfnTrim(sFilename);
-        		//trace("sFilename :" + sFilename);
-        		var encodeFileName = encodeURIComponent(sFilename);
-
-        		if (system.navigatorname != "nexacro") {
-        			//var sDownLoadUrl = "http://127.0.0.1:8017/nexacro/" + this.fileConfig.downloadUrl + encodeFileName;
-        			//var sDownLoadUrl = "http://localhost:8017/nexacro/" + this.fileConfig.downloadUrl + encodeFileName;
-        			var sDownLoadUrl = "http://localhost:8080/downloadNexacroFile";
-        		} else {
-        			//var sDownLoadUrl = this.fileConfig.host + this.fileConfig.downloadUrl + encodeFileName;
-        			var sDownLoadUrl = "http://localhost:8080/downloadNexacroFile";
-        		}
-        		trace("sDownLoadUrl : " + sDownLoadUrl);
-
-        		// download
-        		this.FileDownTransfer.clearPostDataList();
-        		this.FileDownTransfer.download(sDownLoadUrl);
-        	}
-        	/*
-        	// FileUpTransfer filelist
-        	var filelist = this.FileUpTransfer.filelist;
-        	trace("this.FileUpTransfer.filelist : " + filelist.length);
-        	for (var i = 0; i < filelist.length; i++) {
-        		trace("filename :" + filelist[i].filename);
-        		trace("fullpath : "+ filelist[i].fullpath);
-        		trace("path : " + filelist[i].path);
-        	}
-        	*/
-        };
 
         /**
          * @ FileUpTransfer upload
@@ -422,9 +352,10 @@
         	if (system.navigatorname != "nexacro") {
         		//var sUploadUrl = "http://127.0.0.1:8017/nexacro/" + this.fileConfig.uploadUrl;
         		//var sUploadUrl = "http://localhost:8017/nexacro/" + this.fileConfig.uploadUrl;
-        		var sUploadUrl = "http://localhost:8080/uploadNexacroFile";
+        		var sUploadUrl = "http://localhost:8080/uploadnexacrofiles";
         	} else {
-        		var sUploadUrl = this.fileConfig.host + this.fileConfig.uploadUrl;
+        		//var sUploadUrl = this.fileConfig.host + this.fileConfig.uploadUrl;
+        		var sUploadUrl = "http://localhost:8080/uploadnexacrofiles";
         	}
 
 
@@ -514,6 +445,8 @@
         		trace("path : " + filelist[i].path);
         	}
         	*/
+
+        	this.fn_search(rtnDataset.getColumn(0, "documentNo"));
 
         };
 
@@ -630,6 +563,45 @@
         };
 
 
+
+        this.fn_search = function(documentNo) {
+        trace("documentNo : " , documentNo);
+        	var oArgs  = {
+        			  svcId 	: 	"search",
+        			  //rfcName 	: 	"ZCM_WEB_PRO_LIST",
+        			  svcUrl    : "selectnexacrofiles",
+        			  /*inDs 		: 	"dsFile=dsFile",*/
+        			  outDs 	: 	"dsUpload=dsUpload",
+        			  arg		: 	"documentNo=" + documentNo,
+        			  svcType 	: 	"R"
+        	}
+
+        	// 공통 트랜잭션 호출
+        	this.gfnTransaction(oArgs);
+        }
+
+        this.fnCallback = function(sSvcId, nErrCode, sErrMsg)
+        {
+            trace(this.dsUpload.saveXML());
+        }
+
+        this.grdUpload_oncelldblclick = function(obj,e)
+        {
+
+            var sDocumentNo = this.dsUpload.getColumn(e.row,"documentNo");
+        	var sFileNo = this.dsUpload.getColumn(e.row,"fileNo");
+
+        	if(this.gfnIsNull(sDocumentNo) || this.gfnIsNull(sFileNo)) return;
+
+        	var sDownLoadUrl = "http://localhost:8080/downloadnexacrofile";
+
+        	this.FileDownTransfer.setPostData("documentNo", sDocumentNo);
+        	this.FileDownTransfer.setPostData("fileNo", sFileNo);
+        	//this.FileDownTransfer.clearPostDataList();
+        	this.FileDownTransfer.download(sDownLoadUrl);
+
+        };
+
         });
         
         // Regist UI Components Event
@@ -638,8 +610,8 @@
             this.addEventHandler("onload",this.form_onload,this);
             this.Button00.addEventHandler("onclick",this.Button00_onclick,this);
             this.Button01.addEventHandler("onclick",this.Button01_onclick,this);
-            this.grdUpload.addEventHandler("oncellclick",this.grdUpload_oncellclick,this);
             this.grdUpload.addEventHandler("ondrop",this.grdUpload_ondrop,this);
+            this.grdUpload.addEventHandler("oncelldblclick",this.grdUpload_oncelldblclick,this);
             this.Button02.addEventHandler("onclick",this.Button02_onclick,this);
             this.FileDialog.addEventHandler("onclose",this.FileDialog_onclose,this);
             this.FileUpTransfer.addEventHandler("onerror",this.FileUpTransfer_onerror,this);

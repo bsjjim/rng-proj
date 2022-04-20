@@ -12,10 +12,13 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.lotterental.rng.common.file.RngFileResult;
 import com.lotterental.rng.common.file.RngMultipartFile;
+import com.lotterental.rng.core.common.exception.BusinessException;
 import com.lotterental.rng.demo.service.FileService;
+import com.lotterental.rng.demo.vo.FileVo;
 import com.lotterental.rng.utils.ErrorCodeUtil;
-import com.nexacro.uiadapter.spring.core.data.NexacroFileResult;
+import com.nexacro.uiadapter.spring.core.annotation.ParamVariable;
 import com.nexacro.uiadapter.spring.core.data.NexacroResult;
 
 import lombok.extern.slf4j.Slf4j;
@@ -29,12 +32,31 @@ public class FileController {
 	@Autowired
 	private FileService fileService;
 	
-    @PostMapping(value = "/uploadNexacroFile", headers = ("content-type=multipart/*"), consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
+	@PostMapping(value = "/selectnexacrofiles")
+	public NexacroResult selectNexacroFiles(@ParamVariable(name = "documentNo") String documentNo) throws BusinessException {
+		log.debug("parameter = {}", documentNo);
+		NexacroResult result = new NexacroResult();
+		try {
+			result.addDataSet("dsUpload", fileService.selectNexacroFiles(documentNo));
+		} catch (BusinessException e) {
+    		result.addVariable(ERROR_CODE.getColumn(), e.getMessageId());
+    		result.addVariable(ERROR_MSG.getColumn(), ErrorCodeUtil.getErrorMsg(e.getMessageId()));
+    	} catch (Exception e) {
+    		result.addVariable(ERROR_CODE.getColumn(), "E0001");
+    		result.addVariable(ERROR_MSG.getColumn(), ErrorCodeUtil.getErrorMsg("E0001"));
+    	}
+        return result;
+	}
+	
+    @PostMapping(value = "/uploadnexacrofiles", headers = ("content-type=multipart/*"), consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
     public NexacroResult uploadNexacroFile(RngMultipartFile rngMultipartFile) throws IOException, ServletException {
     	log.debug("parameter = {}", rngMultipartFile);
     	NexacroResult result = new NexacroResult();
     	try {
     		result.addDataSet(FILE_DATASET, fileService.uploadNexacroFiles(rngMultipartFile.getFileList()));
+    	} catch (BusinessException e) {
+    		result.addVariable(ERROR_CODE.getColumn(), e.getMessageId());
+    		result.addVariable(ERROR_MSG.getColumn(), ErrorCodeUtil.getErrorMsg(e.getMessageId()));
     	} catch (Exception e) {
     		result.addVariable(ERROR_CODE.getColumn(), "E0001");
     		result.addVariable(ERROR_MSG.getColumn(), ErrorCodeUtil.getErrorMsg("E0001"));
@@ -42,11 +64,10 @@ public class FileController {
         return result;
     }
     
-    @PostMapping(value = "/downloadNexacroFile") //, headers = ("content-type=multipart/*"), consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
-    public NexacroFileResult downloadNexacroFile(String filePath, String fileSeq) {
-    	log.debug("filePath = {}, fileSeq = {}", filePath, fileSeq);
-    	NexacroFileResult result = fileService.downloadNexacroFiles(filePath, fileSeq);
-    	return result;
+    @PostMapping(value = "/downloadnexacrofile")
+    public RngFileResult downloadNexacroFile(FileVo fileVo) {
+    	log.debug("parameter = {}", fileVo);
+    	return fileService.downloadNexacroFiles(fileVo);	
     }
     
 }

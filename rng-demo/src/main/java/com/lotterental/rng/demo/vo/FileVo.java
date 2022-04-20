@@ -14,9 +14,21 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper=false)
 public class FileVo extends BaseMetaVo {
-	private String fileKey;
+	private String documentNo;
+	private String fileNo;
 	private String originalFileName;
-    private String logicalFileName;
-    private String filePath;
-    private String fileUri;
+	private String savedFileName;
+	private long fileSize;
+	private String filePath;
+	private String fileContentsTypeName;
+	private String deleteYn;
+	private String deleteDtm;
+	private String regId;
+	private String regDtm;
+	private String updId;
+	private String updDtm;
+	
+	public FileVo(String documentNo) {
+		this.documentNo = documentNo;
+	}
 }

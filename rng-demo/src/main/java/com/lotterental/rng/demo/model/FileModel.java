@@ -7,27 +7,38 @@ import lombok.Data;
 
 @Data
 public class FileModel {
+	private String documentNo;
+	private String fileNo;
 	private String originalFileName;
-    private String logicalFileName;
-    private String filePath;
-    private String fileUri;
+	private String savedFileName;
+	private long fileSize;
+	private String filePath;
+	private String fileContentsTypeName;
+	private String deleteYn;
+	private String deleteDtm;
+	private String regId;
+	private String regDtm;
+	private String updId;
+	private String updDtm;
     
     public FileVo build(BaseModel baseModel) {
         FileModel fileModel = (FileModel) baseModel;
         return FileVo.builder()
+        		.documentNo(fileModel.getDocumentNo())
+        		.fileNo(fileModel.getFileNo())
         		.originalFileName(fileModel.getOriginalFileName())
-        		.logicalFileName(fileModel.getLogicalFileName())
-        		.filePath(fileModel.getFilePath())
-        		.fileUri(fileModel.getFileUri())
+        		.fileSize(fileModel.getFileSize())
+        		.fileContentsTypeName(fileModel.getFileContentsTypeName())
         		.build();
     }
-
+    
     public FileVo build() {
         return FileVo.builder()
+        		.documentNo(documentNo)
+        		.fileNo(fileNo)
         		.originalFileName(originalFileName)
-        		.logicalFileName(logicalFileName)
-        		.filePath(filePath)
-        		.fileUri(fileUri)
+        		.fileSize(fileSize)
+        		.fileContentsTypeName(fileContentsTypeName)
                 .build();
     }
 }
