@@ -4,7 +4,7 @@ import java.io.File;
 
 import org.springframework.http.MediaType;
 
-import com.lotterental.rng.demo.vo.FileVo;
+import com.lotterental.rng.example.vo.FileVo;
 import com.nexacro.uiadapter.spring.core.data.NexacroFileResult;
 
 public class RngFileResult extends NexacroFileResult {
