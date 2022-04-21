@@ -1,7 +1,8 @@
-package com.lotterental.rng.core.utils;
+package com.lotterental.rng.utils;
 
-import com.lotterental.rng.core.common.maskcrypt.annotation.MaskCryptAno;
+import com.lotterental.rng.common.crypt.annotation.MaskCryptAno;
 import lombok.extern.slf4j.Slf4j;
+
 import java.lang.reflect.Field;
 
 /**

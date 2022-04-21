@@ -1,8 +1,8 @@
-package com.lotterental.rng.core.utils;
+package com.lotterental.rng.utils;
 
 
+import com.lotterental.rng.common.mask.MaskCryptProcess;
 import com.lotterental.rng.core.base.BaseVo;
-import com.lotterental.rng.core.common.maskcrypt.MaskCryptProcess;
 import com.nexacro.uiadapter.spring.core.data.NexacroResult;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -24,8 +24,6 @@ public class ResBuilder {
         }
         return nexacroResult;
     }
-
-
 
     /**
      * 마스킹 처리
