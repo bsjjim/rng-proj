@@ -7,16 +7,16 @@ import java.io.IOException;
 
 import javax.servlet.ServletException;
 
-import com.lotterental.rng.demo.example.service.FileService;
-import com.lotterental.rng.demo.example.vo.FileVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.lotterental.rng.core.common.exception.BusinessException;
 import com.lotterental.rng.demo.common.file.RngFileResult;
 import com.lotterental.rng.demo.common.file.RngMultipartFile;
-import com.lotterental.rng.core.common.exception.BusinessException;
+import com.lotterental.rng.demo.example.service.FileService;
+import com.lotterental.rng.demo.example.vo.FileVo;
 import com.lotterental.rng.demo.utils.ErrorCodeUtil;
 import com.nexacro.uiadapter.spring.core.annotation.ParamVariable;
 import com.nexacro.uiadapter.spring.core.data.NexacroResult;
@@ -68,6 +68,19 @@ public class FileController {
     public RngFileResult downloadNexacroFile(FileVo fileVo) {
     	log.debug("parameter = {}", fileVo);
     	return fileService.downloadNexacroFiles(fileVo);	
+    }
+    
+    @PostMapping(value = "/deletenexacrofile")
+    public NexacroResult deletenexacrofile(FileVo fileVo) {
+    	log.debug("parameter = {}", fileVo);
+    	NexacroResult result = new NexacroResult();
+    	try {
+    		fileService.downloadNexacroFiles(fileVo);
+    	} catch (Exception e) {
+    		result.addVariable(ERROR_CODE.getColumn(), "E0001");
+    		result.addVariable(ERROR_MSG.getColumn(), ErrorCodeUtil.getErrorMsg("E0001"));
+    	}
+    	return result;
     }
     
 }
