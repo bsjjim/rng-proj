@@ -103,7 +103,7 @@ rng:
       mapper:
         location: classpath:mapper/**/*.xml
       aliases:
-        package: com.lotterental.rng.demo
+        package: com.lotterental.rng.example
   nexacro:
     default:
       error:
