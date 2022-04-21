@@ -3,7 +3,7 @@ package com.lotterental.rng.common.mask;
 import com.lotterental.rng.common.crypt.annotation.MaskCryptAno;
 import com.lotterental.rng.common.cnst.Constants;
 import com.lotterental.rng.common.mask.enums.MaskType;
-import com.lotterental.rng.core.utils.MaskingUtil;
+import com.lotterental.rng.utils.MaskingUtil;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -21,7 +21,6 @@ public class MaskCryptProcess {
 	static class ProtectField {
 		private Field field;
 		private MaskCryptAno maskCryptAno;
-		
 		static ProtectField create(Field field, MaskCryptAno maskCryptAno) {
 			ProtectField protectField = new ProtectField();
 			protectField.field = field;

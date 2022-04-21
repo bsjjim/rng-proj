@@ -13,11 +13,14 @@ import org.springframework.stereotype.Controller;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Slf4j
-@Controller
+@RestController
+
 public class EtcController {
     @Autowired
     private EtcService etcService;
@@ -41,4 +44,19 @@ public class EtcController {
 
         return "result";
     }
+
+    @GetMapping("/masking")
+    public String masking(HttpServletRequest HttpServletRequest) {
+
+        try {
+            CopyVo copyVo = etcService.masking(HttpServletRequest);
+        } catch (BusinessException e) {
+
+        } catch (Exception e) {
+
+        }
+
+        return "result";
+    }
+
 }

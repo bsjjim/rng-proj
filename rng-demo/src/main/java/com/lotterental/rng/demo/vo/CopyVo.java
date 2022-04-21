@@ -1,6 +1,7 @@
 package com.lotterental.rng.demo.vo;
 
 
+import com.lotterental.rng.common.crypt.annotation.MaskCryptAno;
 import com.lotterental.rng.core.base.BaseVo;
 import lombok.*;
 
@@ -10,6 +11,8 @@ import lombok.*;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper=false)
 public class CopyVo implements BaseVo {
+
+    @MaskCryptAno
     private String originalFileName;
     private String logicalFileName;
     private String filePath;
