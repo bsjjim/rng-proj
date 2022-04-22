@@ -1,8 +1,9 @@
 package com.lotterental.rng.demo.common.base;
 
+import com.lotterental.rng.core.base.BaseVo;
 import com.lotterental.rng.demo.common.annotation.ResponseIgnore;
 import com.lotterental.rng.demo.common.cnst.DataRowStatus;
-import com.lotterental.rng.core.base.BaseVo;
+import com.lotterental.rng.demo.common.validation.information.RngValidationResult;
 import com.nexacro.uiadapter.spring.core.data.DataSetRowTypeAccessor;
 
 import lombok.Data;
@@ -13,6 +14,9 @@ import lombok.EqualsAndHashCode;
 public abstract class BaseMetaVo implements BaseVo, DataSetRowTypeAccessor {
 	@ResponseIgnore
 	private int rowType = -1;
+	
+	@ResponseIgnore
+	private RngValidationResult errorResult;
 		
 	public boolean isInsertedRow() {
 		return isSameType(DataRowStatus.INSERT);
@@ -41,4 +45,11 @@ public abstract class BaseMetaVo implements BaseVo, DataSetRowTypeAccessor {
     		this.rowType = rowType;
     	}
     }
+	
+	public void setErrorResult(RngValidationResult errorResult) throws IllegalAccessException {
+		if (this.errorResult != null) {
+			throw new IllegalAccessException("접근 불가 필드");
+		}
+		this.errorResult = errorResult;
+	}
 }
