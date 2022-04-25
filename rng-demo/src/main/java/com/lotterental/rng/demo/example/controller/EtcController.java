@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Slf4j
 @RestController
@@ -39,18 +40,10 @@ public class EtcController {
         return "result";
     }
 
-    @GetMapping("/masking")
-    public String masking(HttpServletRequest HttpServletRequest) {
-
-        try {
-            CopyVo copyVo = etcService.masking(HttpServletRequest);
-        } catch (BusinessException e) {
-
-        } catch (Exception e) {
-
-        }
-
-        return "result";
+    @GetMapping("/session")
+    public String masking(HttpSession httpSession) {
+        log.debug("세션 : [{}]", httpSession.getId());
+        return httpSession.getId();
     }
 
 }

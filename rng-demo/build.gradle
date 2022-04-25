@@ -1,22 +1,10 @@
-//buildscript {
-//	ext {
-//		nexacroUiadapterVersion = '1.0.0-SNAPSHOT'
-//	}
-//}
-//
-//repositories {
-//	maven {
-//		url "http://mangosteen.tobesoft.co.kr/nexus/repository/maven-public"
-//		allowInsecureProtocol = true
-//	}
-//}
-
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 //	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
 	implementation 'org.springframework.boot:spring-boot-starter-batch'
 	implementation 'org.springframework.boot:spring-boot-starter-aop'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
 	implementation project(path: ':rng-core', configuration: 'default')
 
