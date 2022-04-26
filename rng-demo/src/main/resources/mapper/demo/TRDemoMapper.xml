@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lotterental.rng.demo.example.mapper.TRDemoMapper">
+
+    <insert id="insertRequired" parameterType="com.lotterental.rng.demo.example.model.TRDemoModel">
+        INSERT INTO SAMPLE_TDB.TRDEMO(
+            NAME
+            , UPDATE_TIME
+            )VALUES(
+            #{name}
+            , SYSTIMESTAMP
+            )
+    </insert>
+
+</mapper>
