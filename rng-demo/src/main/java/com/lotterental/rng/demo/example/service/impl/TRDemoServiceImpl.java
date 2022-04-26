@@ -21,6 +21,7 @@ public class TRDemoServiceImpl  implements TRDemoService {
     /**
      * 트랜잭션은 service 안에서만 작업하는걸 원칙으로 한다.
      * service에서 공통 트랜잭션이 수행된다.
+     *
      * Transaction Propagation.REQUIRED 예제
      * 문제가 생기면 연결되어있는 모든 트랜잭션은 롤백
      */
