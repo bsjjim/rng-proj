@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.lotterental.rng.core.common.exception.BusinessException;
 import com.lotterental.rng.demo.common.validation.information.RngErrorInfo;
-import com.lotterental.rng.demo.common.validation.information.RngValidationResult;
+import com.lotterental.rng.demo.common.validation.information.RngBindingResult;
 import com.lotterental.rng.demo.example.service.ValidationService;
 import com.lotterental.rng.demo.example.vo.ValidationVo;
 import com.lotterental.rng.demo.utils.ErrorCodeUtil;
@@ -32,12 +32,17 @@ public class ValidationController {
 	public NexacroResult validateSimpleCase(@ParamDataSet(name = "dsData") ValidationVo validationVo) {
 		log.debug("parameter = {}", validationVo);
 		NexacroResult result = new NexacroResult();
-		try {
-			if (!StringUtils.hasText(validationVo.getName())) {
-	    		throw new BusinessException("required", "이름");	// 이름은 필수값 입니다.
-	    	} else if (!StringUtils.hasText(validationVo.getGrade())) {
-	    		throw new BusinessException("required", "성적");	// 성적은 필수값 입니다.
-	    	}
+		if (!StringUtils.hasText(validationVo.getId())) {
+			result.addVariable(ERROR_CODE.getColumn(), "required");
+    		result.addVariable(ERROR_MSG.getColumn(), ErrorCodeUtil.getErrorMsg("required", new String[] {"ID"}));
+    		return result;
+    	} else if (!StringUtils.hasText(validationVo.getName())) {
+    		result.addVariable(ERROR_CODE.getColumn(), "required");
+    		result.addVariable(ERROR_MSG.getColumn(), ErrorCodeUtil.getErrorMsg("required", new String[] {"이름"}));
+    		return result;
+    	}
+		
+		try {			
 			result.addDataSet("dsBiz", validationService.selectBusinessInfo(validationVo));
 		} catch (BusinessException e) {
     		// 에러시 처리 할 업무로직 존재시 처리
@@ -73,7 +78,7 @@ public class ValidationController {
 	public NexacroResult validateByCommonErrorInfo(@ParamDataSet(name = "dsData") ValidationVo validationVo) {
 		log.debug("parameter = {}", validationVo);
 		NexacroResult result = new NexacroResult();
-		RngValidationResult errorResult = validationVo.getErrorResult();
+		RngBindingResult errorResult = validationVo.getBindingResult();
 		if (errorResult.hasErrors()) {
 			RngErrorInfo errorInfo = errorResult.findFirst();
 			result.addVariable(ERROR_CODE.getColumn(), errorInfo.getMessageCode());
@@ -87,7 +92,7 @@ public class ValidationController {
 	public NexacroResult validateByCommonError2Info(@ParamDataSet(name = "dsData") ValidationVo validationVo) {
 		log.debug("parameter = {}", validationVo);
 		NexacroResult result = new NexacroResult();
-		RngValidationResult errorResult = validationVo.getErrorResult();
+		RngBindingResult errorResult = validationVo.getBindingResult();
 		if (errorResult.hasErrors()) {
 			RngErrorInfo errorInfo = errorResult.findFirst();
 			result.addVariable(ERROR_CODE.getColumn(), errorInfo.getMessageCode());
@@ -100,7 +105,7 @@ public class ValidationController {
 	@PostMapping("/validatebycommonerrorresult")
 	public NexacroResult validateByCommonErrorResult(@ParamDataSet(name = "dsData") ValidationVo validationVo) {
 		log.debug("parameter = {}", validationVo);
-		RngValidationResult errorResult = validationVo.getErrorResult();
+		RngBindingResult errorResult = validationVo.getBindingResult();
 		if (errorResult.hasErrors()) {
 			RngErrorInfo errorInfo = errorResult.findFirst();
 			return errorInfo.getErrorResult();
@@ -111,7 +116,7 @@ public class ValidationController {
 	@PostMapping("/validatebycommonerror2result")
 	public NexacroResult validateByCommonError2Result(@ParamDataSet(name = "dsData") ValidationVo validationVo) {
 		log.debug("parameter = {}", validationVo);
-		RngValidationResult errorResult = validationVo.getErrorResult();
+		RngBindingResult errorResult = validationVo.getBindingResult();
 		if (errorResult.hasErrors()) {
 			RngErrorInfo errorInfo = errorResult.findFirst();
 			return errorInfo.getErrorResult("E0005", new String[] {"이름", "나이"});
@@ -121,12 +126,13 @@ public class ValidationController {
 	
 	@PostMapping("/validatebyallcommonerrorresult")
 	public NexacroResult validateByAllCommonErrorResult(@ParamDataSet(name = "dsData") ValidationVo validationVo) {
-		log.debug("parameter = {}, error = {}", validationVo, validationVo.getErrorResult());
-		RngValidationResult errorResult = validationVo.getErrorResult();
+		log.debug("parameter = {}, error = {}", validationVo, validationVo.getBindingResult());
+		RngBindingResult errorResult = validationVo.getBindingResult();
 		if (errorResult.hasErrors()) {
 			List<RngErrorInfo> errors = errorResult.getErrors();
 			errors.forEach(error -> {
 				// 전체 에러에 대한 처리 가능
+				log.debug("error = {}", error);
 			});
 		}
 		return doBusiness(new NexacroResult());

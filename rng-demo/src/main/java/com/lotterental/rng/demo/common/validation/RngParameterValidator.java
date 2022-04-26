@@ -9,14 +9,14 @@ import javax.validation.metadata.ConstraintDescriptor;
 
 import com.lotterental.rng.demo.common.base.BaseMetaVo;
 import com.lotterental.rng.demo.common.validation.information.RngErrorInfo;
-import com.lotterental.rng.demo.common.validation.information.RngValidationResult;
+import com.lotterental.rng.demo.common.validation.information.RngBindingResult;
 
 public class RngParameterValidator {
 
 	private static final Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
 	
 	public void validate(BaseMetaVo vo) throws IllegalAccessException {
-		RngValidationResult result = new RngValidationResult();
+		RngBindingResult result = new RngBindingResult();
 		validator.validate(vo).stream()
 			.forEach(violation -> {
 				System.out.println(violation);

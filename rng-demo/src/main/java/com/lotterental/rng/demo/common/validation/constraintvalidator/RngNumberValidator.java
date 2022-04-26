@@ -6,119 +6,89 @@ import java.math.BigInteger;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import org.hibernate.validator.internal.constraintvalidators.bv.number.InfinityNumberComparatorHelper;
-
 import com.lotterental.rng.demo.common.validation.annotation.RngMax;
 import com.lotterental.rng.demo.common.validation.annotation.RngMin;
 
-public class RngValidatorForNumber {
+public final class RngNumberValidator {
 	
-	public static class MaxValidatorForByte extends AbstractMaxValidator<Byte> {
+	public static final class RngMaxValidatorForByte extends AbstractMaxValidator<Byte> {
 		@Override
 		protected int compare(Byte number) {
 			return NumberComparatorHelper.compare(number.longValue(), maxValue);
 		}
 	}
 	
-	public static class MaxValidatorForShort extends AbstractMaxValidator<Short> {
+	public static final class RngMaxValidatorForShort extends AbstractMaxValidator<Short> {
 		@Override
 		protected int compare(Short number) {
 			return NumberComparatorHelper.compare(number.longValue(), maxValue);
 		}
 	}
 	
-	public static class MaxValidatorForInteger extends AbstractMaxValidator<Integer> {
+	public static final class RngMaxValidatorForInteger extends AbstractMaxValidator<Integer> {
 		@Override
 		protected int compare(Integer number) {
 			return NumberComparatorHelper.compare(number.longValue(), maxValue);
 		}
 	}
 	
-	public static class MaxValidatorForLong extends AbstractMaxValidator<Long> {
+	public static final class RngMaxValidatorForLong extends AbstractMaxValidator<Long> {
 		@Override
 		protected int compare(Long number) {
 			return NumberComparatorHelper.compare(number.longValue(), maxValue);
 		}
 	}
 	
-	public static class MaxValidatorForFloat extends AbstractMaxValidator<Float> {
-		@Override
-		protected int compare(Float number) {
-			return NumberComparatorHelper.compare(number, maxValue, InfinityNumberComparatorHelper.GREATER_THAN);
-		}
-	}
-	
-	public static class MaxValidatorForDouble extends AbstractMaxValidator<Double> {
-		@Override
-		protected int compare(Double number) {
-			return NumberComparatorHelper.compare(number, maxValue, InfinityNumberComparatorHelper.GREATER_THAN);
-		}
-	}
-	
-	public static class MaxValidatorForBigInteger extends AbstractMaxValidator<BigInteger> {
+	public static final class RngMaxValidatorForBigInteger extends AbstractMaxValidator<BigInteger> {
 		@Override
 		protected int compare(BigInteger number) {
 			return NumberComparatorHelper.compare(number, maxValue);
 		}
 	}
 	
-	public static class MaxValidatorForBigDecimal extends AbstractMaxValidator<BigDecimal> {
+	public static final class RngMaxValidatorForBigDecimal extends AbstractMaxValidator<BigDecimal> {
 		@Override
 		protected int compare(BigDecimal number) {
 			return NumberComparatorHelper.compare(number, maxValue);
 		}
 	}
 	
-	public static class MinValidatorForByte extends AbstractMinValidator<Byte> {
+	public static final class RngMinValidatorForByte extends AbstractMinValidator<Byte> {
 		@Override
 		protected int compare(Byte number) {
 			return NumberComparatorHelper.compare(number.longValue(), minValue);
 		}
 	}
 	
-	public static class MinValidatorForShort extends AbstractMinValidator<Short> {
+	public static final class RngMinValidatorForShort extends AbstractMinValidator<Short> {
 		@Override
 		protected int compare(Short number) {
 			return NumberComparatorHelper.compare(number.longValue(), minValue);
 		}
 	}
 	
-	public static class MinValidatorForInteger extends AbstractMinValidator<Integer> {
+	public static final class RngMinValidatorForInteger extends AbstractMinValidator<Integer> {
 		@Override
 		protected int compare(Integer number) {
 			return NumberComparatorHelper.compare(number.longValue(), minValue);
 		}
 	}
 	
-	public static class MinValidatorForLong extends AbstractMinValidator<Long> {
+	public static final class RngMinValidatorForLong extends AbstractMinValidator<Long> {
 		@Override
 		protected int compare(Long number) {
 			return NumberComparatorHelper.compare(number.longValue(), minValue);
 		}
 	}
 	
-	public static class MinValidatorForFloat extends AbstractMinValidator<Float> {
-		@Override
-		protected int compare(Float number) {
-			return NumberComparatorHelper.compare(number, minValue, InfinityNumberComparatorHelper.LESS_THAN);
-		}
-	}
-	
-	public static class MinValidatorForDouble extends AbstractMinValidator<Double> {
-		@Override
-		protected int compare(Double number) {
-			return NumberComparatorHelper.compare(number, minValue, InfinityNumberComparatorHelper.LESS_THAN);
-		}
-	}
-	
-	public static class MinValidatorForBigInteger extends AbstractMinValidator<BigInteger> {
+	public static final class RngMinValidatorForBigInteger extends AbstractMinValidator<BigInteger> {
 		@Override
 		protected int compare(BigInteger number) {
 			return NumberComparatorHelper.compare(number, minValue);
 		}
 	}
 	
-	public static class MinValidatorForBigDecimal extends AbstractMinValidator<BigDecimal> {
+	public static final class RngMinValidatorForBigDecimal extends AbstractMinValidator<BigDecimal> {
 		@Override
 		protected int compare(BigDecimal number) {
 			return NumberComparatorHelper.compare(number, minValue);
@@ -135,7 +105,7 @@ public class RngValidatorForNumber {
 
 		@Override
 		public boolean isValid(T value, ConstraintValidatorContext constraintValidatorContext) {
-			return (value == null) ? true : compare(value) <= 0;
+			return (value == null) ? false : compare(value) <= 0;
 		}
 
 		protected abstract int compare(T number);
@@ -151,7 +121,7 @@ public class RngValidatorForNumber {
 
 		@Override
 		public boolean isValid(T value, ConstraintValidatorContext constraintValidatorContext) {
-			return (value == null) ? true : compare(value) >= 0;
+			return (value == null) ? false : compare(value) >= 0;
 		}
 
 		protected abstract int compare(T number);
