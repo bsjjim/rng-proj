@@ -1,9 +1,5 @@
 package com.lotterental.rng.demo.example.model;
 
-
-import java.util.List;
-import java.util.Map;
-
 import com.lotterental.rng.core.base.BaseModel;
 import com.lotterental.rng.demo.example.vo.ValidationVo;
 
@@ -11,33 +7,33 @@ import lombok.Data;
 
 @Data
 public class ValidationModel {
+	private String id;
 	private String name;
+	private String major;
 	private int age;
 	private int height;
-	private String grade;
-	private Map<String, Object> testMap;
-	private List<Map<String, Object>> testList;
+	private int weight;
 
     public ValidationVo build(BaseModel baseModel) {
         ValidationModel validationModel = (ValidationModel) baseModel;
         return ValidationVo.builder()
+        		.id(validationModel.getId())
         		.name(validationModel.getName())
+        		.major(validationModel.getMajor())
         		.age(validationModel.getAge())
         		.height(validationModel.getHeight())
-        		.grade(validationModel.getGrade())
-        		.testMap(validationModel.getTestMap())
-        		.testList(validationModel.getTestList())
+        		.weight(validationModel.getWeight())
                 .build();
     }
 
     public ValidationVo build() {
         return ValidationVo.builder()
+        		.id(id)
         		.name(name)
+        		.major(major)
         		.age(age)
         		.height(height)
-        		.grade(grade)
-        		.testMap(testMap)
-        		.testList(testList)
+        		.weight(weight)
                 .build();
     }
 

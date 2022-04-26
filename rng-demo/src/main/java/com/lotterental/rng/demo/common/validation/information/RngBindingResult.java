@@ -3,7 +3,7 @@ package com.lotterental.rng.demo.common.validation.information;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RngValidationResult {
+public class RngBindingResult {
 	
 	private final List<RngErrorInfo> errorList = new ArrayList<>();
 	

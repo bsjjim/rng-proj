@@ -9,20 +9,18 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-import com.lotterental.rng.demo.common.validation.constraintvalidator.RngValidatorForNumber.MinValidatorForBigDecimal;
-import com.lotterental.rng.demo.common.validation.constraintvalidator.RngValidatorForNumber.MinValidatorForBigInteger;
-import com.lotterental.rng.demo.common.validation.constraintvalidator.RngValidatorForNumber.MinValidatorForByte;
-import com.lotterental.rng.demo.common.validation.constraintvalidator.RngValidatorForNumber.MinValidatorForDouble;
-import com.lotterental.rng.demo.common.validation.constraintvalidator.RngValidatorForNumber.MinValidatorForFloat;
-import com.lotterental.rng.demo.common.validation.constraintvalidator.RngValidatorForNumber.MinValidatorForInteger;
-import com.lotterental.rng.demo.common.validation.constraintvalidator.RngValidatorForNumber.MinValidatorForLong;
-import com.lotterental.rng.demo.common.validation.constraintvalidator.RngValidatorForNumber.MinValidatorForShort;
+import com.lotterental.rng.demo.common.validation.constraintvalidator.RngNumberValidator.RngMinValidatorForBigDecimal;
+import com.lotterental.rng.demo.common.validation.constraintvalidator.RngNumberValidator.RngMinValidatorForBigInteger;
+import com.lotterental.rng.demo.common.validation.constraintvalidator.RngNumberValidator.RngMinValidatorForByte;
+import com.lotterental.rng.demo.common.validation.constraintvalidator.RngNumberValidator.RngMinValidatorForInteger;
+import com.lotterental.rng.demo.common.validation.constraintvalidator.RngNumberValidator.RngMinValidatorForLong;
+import com.lotterental.rng.demo.common.validation.constraintvalidator.RngNumberValidator.RngMinValidatorForShort;
 
 @Target(FIELD)
 @Retention(RUNTIME)
 @Constraint(validatedBy = {
-		MinValidatorForByte.class, MinValidatorForShort.class, MinValidatorForInteger.class, MinValidatorForLong.class, 
-		MinValidatorForFloat.class, MinValidatorForDouble.class, MinValidatorForBigInteger.class, MinValidatorForBigDecimal.class})
+		RngMinValidatorForByte.class, RngMinValidatorForShort.class, RngMinValidatorForInteger.class,
+		RngMinValidatorForLong.class, RngMinValidatorForBigInteger.class, RngMinValidatorForBigDecimal.class})
 public @interface RngMin {
 
 	String message() default "";

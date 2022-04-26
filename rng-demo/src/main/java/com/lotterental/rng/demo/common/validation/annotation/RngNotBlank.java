@@ -9,9 +9,9 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-import com.lotterental.rng.demo.common.validation.constraintvalidator.RngNotBlankValidator;
+import com.lotterental.rng.demo.common.validation.constraintvalidator.RngNotEmptyValidator.RngNotBlankValidator;
 
-@Constraint(validatedBy=RngNotBlankValidator.class)
+@Constraint(validatedBy = RngNotBlankValidator.class)
 @Target(FIELD)
 @Retention(RUNTIME)
 public @interface RngNotBlank {
