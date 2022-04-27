@@ -1,11 +1,14 @@
 package com.lotterental.rng.demo.config.nexacro;
 
+import java.util.Locale;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import com.nexacro.uiadapter.spring.core.data.NexacroResult;
+import com.lotterental.rng.core.common.exception.BusinessException;
+import com.lotterental.rng.demo.common.component.RngResult;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -13,37 +16,22 @@ import lombok.extern.slf4j.Slf4j;
 @ControllerAdvice
 public class RngNexacroHandlerExceptionResolver {
 	
-//	@Autowired
-//    private MessageSource messageSource;
-//
-//	@ResponseStatus(HttpStatus.BAD_REQUEST)
-//	@ExceptionHandler
-//	public NexacroResult handleBizException(BusinessException ex, Locale locale) {
-//		log.debug("exception = {}", ex);
-//		return getErrorResult(100, "비즈에러발생");
-//	}
-//	
-//	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-//	@ExceptionHandler
-//	public NexacroResult handleSysException(BusinessException ex, Locale locale) {
-//		log.debug("exception = {}", ex);
-//		return getErrorResult(100, "시스에러발생");
-//	}
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	@ExceptionHandler
+	public RngResult handleBusinessException(BusinessException ex, Locale locale) {
+		log.debug("exception = {}", ex);
+		return getErrorResult(ex.getMessageId(), ex.getMessage());
+	}
 	
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	@ExceptionHandler
-	public NexacroResult handleException(Exception ex) {
+	public RngResult handleException(Exception ex) {
 		log.debug("exception = {}", ex);
-		return getErrorResult(100, "에러발생");
+		return getErrorResult("기본에러메시지코드", "기본에러메시지");
 	}
 	
-//	@SuppressWarnings("unused")
-//	private String getErrorMessage(BusinessException ex, Locale locale) {
-//		return messageSource.getMessage(ex.getMessageId(), ex.getMessageArgs(), locale);
-//	}
-	
-	private NexacroResult getErrorResult(int errorCode, String errorMessage) {
-		NexacroResult result = new NexacroResult();
+	private RngResult getErrorResult(String errorCode, String errorMessage) {
+		RngResult result = new RngResult();
         result.setErrorCode(errorCode);
         result.setErrorMsg(errorMessage);
         return result;

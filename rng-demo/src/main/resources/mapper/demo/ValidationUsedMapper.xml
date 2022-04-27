@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lotterental.rng.demo.example.mapper.ValidationMapper">
+
+	<select id="selectBusinessRule" parameterType="ValidationVo" resultType="ValidationModel">
+		SELECT '' AS ID
+		  FROM DUAL
+		 WHERE 1 = 2
+    </select>
+    
+</mapper>

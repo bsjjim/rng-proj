@@ -1,41 +1,42 @@
 package com.lotterental.rng.demo.common.validation;
 
-import java.util.Optional;
+import java.util.Objects;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
-import javax.validation.metadata.ConstraintDescriptor;
 
+import com.lotterental.rng.core.common.exception.BusinessException;
 import com.lotterental.rng.demo.common.base.BaseMetaVo;
-import com.lotterental.rng.demo.common.validation.information.RngErrorInfo;
-import com.lotterental.rng.demo.common.validation.information.RngBindingResult;
 
 public class RngParameterValidator {
 
 	private static final Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
 	
-	public void validate(BaseMetaVo vo) throws IllegalAccessException {
-		RngBindingResult result = new RngBindingResult();
+	public void validate(BaseMetaVo vo) {
+		Objects.requireNonNull(vo);
 		validator.validate(vo).stream()
-			.forEach(violation -> {
-				System.out.println(violation);
-				result.add(mapErrorInfo(violation));
+			.sorted((v1, v2) -> getOrder(v1) - getOrder(v2))
+			.findFirst()
+			.ifPresent(violation -> {
+				throw new BusinessException(getMessageCode(violation), getMessageParams(violation));
 			});
-		vo.setErrorResult(result);
 	}
 	
-	private RngErrorInfo mapErrorInfo(ConstraintViolation<BaseMetaVo> violation) {
-		return createErrorInfo(violation, (ConstraintDescriptor<?>) violation.getConstraintDescriptor());
+	private int getOrder(ConstraintViolation<BaseMetaVo> violation) {
+		return (Integer) getDataFromViolation(violation, "order");
 	}
 	
-	private RngErrorInfo createErrorInfo(ConstraintViolation<BaseMetaVo> violation, ConstraintDescriptor<?> descriptor) {
-		String fieldName = violation.getPropertyPath().toString();
-		String fieldValue = Optional.ofNullable(violation.getInvalidValue()).map(Object::toString).orElse(null);
-		String messageCode = (String) descriptor.getAttributes().get(RngErrorInfo.MESSAGE_CODE);
-		String[] messageParams = (String[]) descriptor.getAttributes().get(RngErrorInfo.MESSAGE_PARAMS);
-		int order = (Integer) descriptor.getAttributes().get(RngErrorInfo.ORDER);
-		return new RngErrorInfo(fieldName, fieldValue, messageCode, messageParams, order);
+	private String getMessageCode(ConstraintViolation<BaseMetaVo> violation) {
+		return (String) getDataFromViolation(violation, "messageCode");
+	}
+	
+	private String[] getMessageParams(ConstraintViolation<BaseMetaVo> violation) {
+		return (String[]) getDataFromViolation(violation, "messageParams");
+	}
+	
+	private Object getDataFromViolation(ConstraintViolation<BaseMetaVo> violation, String key) {
+		return violation.getConstraintDescriptor().getAttributes().get(key);
 	}
 	
 }
