@@ -3,16 +3,16 @@ package com.lotterental.rng.demo.common.cnst;
 import java.util.Arrays;
 import java.util.Optional;
 
-import com.nexacro.uiadapter.spring.core.data.NexacroFileResult;
-import com.nexacro.uiadapter.spring.core.data.NexacroResult;
+import com.lotterental.rng.demo.common.component.result.RngResult;
+import com.lotterental.rng.demo.common.file.RngFileResult;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public enum HandlerReturnType {
 
-	NEXACRORESULT(NexacroResult.class),
-	NEXACROFILERESULT(NexacroFileResult.class);
+	RNG_RESULT(RngResult.class),
+	RNG_FILE_RESULT(RngFileResult.class);
 	
 	private Class<?> type;
 	
@@ -32,7 +32,7 @@ public enum HandlerReturnType {
 	}
 	
 	private static boolean isAssignableFrom(HandlerReturnType type, Object object) {
-		log.info("object.getClass() = {}", object.getClass());
+		log.debug("object.getClass() = {}", object.getClass());
 		return type.getType().isAssignableFrom(object.getClass());
 	}
 	

@@ -5,9 +5,9 @@ import org.springframework.lang.Nullable;
 import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.ModelAndViewContainer;
 
-import com.lotterental.rng.demo.common.component.RngResult;
+import com.lotterental.rng.demo.common.component.result.RngResult;
+import com.lotterental.rng.demo.common.file.RngFileResult;
 import com.lotterental.rng.demo.config.nexacro.processor.RngNexacroMethodReturnValueProcessor;
-import com.nexacro.uiadapter.spring.core.data.NexacroFileResult;
 import com.nexacro.uiadapter.spring.core.resolve.NexacroHandlerMethodReturnValueHandler;
 
 public class RngNexacroMethodReturnValueHandler extends NexacroHandlerMethodReturnValueHandler {
@@ -26,10 +26,9 @@ public class RngNexacroMethodReturnValueHandler extends NexacroHandlerMethodRetu
 	@Override
 	public void handleReturnValue(@Nullable Object returnValue, MethodParameter returnType,
 			ModelAndViewContainer mavContainer, NativeWebRequest webRequest) throws Exception {
-		if (!NexacroFileResult.class.isAssignableFrom(returnValue.getClass())) {
+		if (!RngFileResult.class.isAssignableFrom(returnValue.getClass())) {
 			rngNexacroMethodReturnValueProcessor.handleReturnValue(returnValue);
 		}
-		returnValue = ((RngResult) returnValue).getResult();
 		super.handleReturnValue(returnValue, returnType, mavContainer, webRequest);
 	}
 	

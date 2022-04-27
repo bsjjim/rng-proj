@@ -1,6 +1,7 @@
 package com.lotterental.rng.demo.common.aspect;
 
 import java.util.Arrays;
+import java.util.List;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -8,9 +9,9 @@ import org.aspectj.lang.annotation.Aspect;
 
 import com.lotterental.rng.core.common.exception.BusinessException;
 import com.lotterental.rng.demo.common.base.BaseMetaVo;
-import com.lotterental.rng.demo.common.component.RngResult;
+import com.lotterental.rng.demo.common.component.result.RngErrorResult;
+import com.lotterental.rng.demo.common.component.result.RngResult;
 import com.lotterental.rng.demo.common.validation.RngParameterValidator;
-import com.lotterental.rng.demo.utils.ErrorCodeUtil;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -24,8 +25,8 @@ public class ValidationAspect {
 	
 	@Around(value = bizControllerPointcut)
 	public Object validate(ProceedingJoinPoint joinPoint) throws Throwable {
-		log.info("signature = {}", joinPoint.getSignature());
-		log.info("args = {}", joinPoint.getArgs());		
+		log.debug("signature = {}", joinPoint.getSignature());
+		log.debug("args = {}", joinPoint.getArgs());		
 		try {
 			validateHandlerParameters(joinPoint);
 		} catch (BusinessException e) {
@@ -40,16 +41,35 @@ public class ValidationAspect {
 	}
 	
 	private void validateHandlerParameter(Object object) {
-		if (object instanceof BaseMetaVo) {
-			validator.validate((BaseMetaVo) object);
+		if (!isVerifiableParameterType(object)) {
+			return;
+		}
+		validateObject(object);
+	}
+	
+	private boolean isVerifiableParameterType(Object object) {
+		if (object instanceof List) {
+			return isVerifiableParameterType(((List<?>) object).get(0));
+		}
+		return object instanceof BaseMetaVo;
+	}
+	
+	@SuppressWarnings("unchecked")
+	private void validateObject(Object object) {
+		if (object instanceof List) {
+			((List<? extends BaseMetaVo>) object).stream()
+			.forEach(this::validateTarget);
+		} else {
+			validateTarget((BaseMetaVo) object);
 		}
 	}
 	
+	private void validateTarget(BaseMetaVo vo) {
+		validator.validate(vo);
+	}
+	
 	private RngResult getErrorResult(BusinessException e) {
-		RngResult result = new RngResult();
-        result.setErrorCode(e.getMessageId());
-        result.setErrorMsg(ErrorCodeUtil.getErrorMsg(e.getMessageId(), e.getMessageArgs()));
-        return result;
+		return new RngErrorResult(e).getResult();
 	}
 	
 }

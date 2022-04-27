@@ -4,13 +4,14 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.Optional;
 
-import com.lotterental.rng.core.base.BaseVo;
+import com.lotterental.rng.demo.common.base.BaseMetaVo;
+
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public enum HandlerParameterType {
 
-	VO(BaseVo.class), MAP(Map.class);
+	VO(BaseMetaVo.class), MAP(Map.class);
 	
 	private Class<?> type;
 	

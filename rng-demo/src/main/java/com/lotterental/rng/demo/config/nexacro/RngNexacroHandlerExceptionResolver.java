@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.lotterental.rng.core.common.exception.BusinessException;
-import com.lotterental.rng.demo.common.component.RngResult;
+import com.lotterental.rng.demo.common.component.result.RngErrorResult;
+import com.lotterental.rng.demo.common.component.result.RngResult;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -31,10 +32,10 @@ public class RngNexacroHandlerExceptionResolver {
 	}
 	
 	private RngResult getErrorResult(String errorCode, String errorMessage) {
-		RngResult result = new RngResult();
+		RngErrorResult result = new RngErrorResult();
         result.setErrorCode(errorCode);
         result.setErrorMsg(errorMessage);
-        return result;
+        return result.getResult();
 	}
 
 }

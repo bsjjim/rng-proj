@@ -1,12 +1,8 @@
 package com.lotterental.rng.demo.example.controller;
 
-import static com.lotterental.rng.demo.common.cnst.ErrorColumn.ERROR_CODE;
-import static com.lotterental.rng.demo.common.cnst.ErrorColumn.ERROR_MSG;
-
 import java.util.List;
 import java.util.Map;
 
-import com.lotterental.rng.demo.example.service.NexacroMapService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
@@ -14,9 +10,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.lotterental.rng.core.common.exception.BusinessException;
+import com.lotterental.rng.demo.common.component.result.RngResult;
+import com.lotterental.rng.demo.example.service.NexacroMapService;
 import com.lotterental.rng.demo.utils.ErrorCodeUtil;
 import com.nexacro.uiadapter.spring.core.annotation.ParamDataSet;
-import com.nexacro.uiadapter.spring.core.data.NexacroResult;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -31,80 +28,80 @@ public class NexacroMapController {
     private NexacroMapService nexacroService;
 
     @PostMapping("/selectnexacromap")
-    public NexacroResult selectNexacroMap(@ParamDataSet(name = "dsImp") Map<String, Object> nexacroMap) throws Exception {
+    public RngResult selectNexacroMap(@ParamDataSet(name = "dsImp") Map<String, Object> nexacroMap) throws Exception {
     	log.debug("parameter = {}", nexacroMap);
-    	NexacroResult result = new NexacroResult();
+    	RngResult result = new RngResult();
     	try {
     		Map<String, Object> resultMap = nexacroService.selectNexacroMap(nexacroMap);
     		result.addDataSet("dsRes", resultMap);
     	} catch (Exception e) {
     		// 에러시 처리 할 업무로직 존재시 처리
-    		result.addVariable(ERROR_CODE.getColumn(), "E0001");
-    		result.addVariable(ERROR_MSG.getColumn(), ErrorCodeUtil.getErrorMsg("E0001"));
+    		result.setErrorCode("E0001");
+    		result.setErrorMsg(ErrorCodeUtil.getErrorMsg("E0001"));
     	}
         return result;
     }
     
     @PostMapping("/selectnexacromaplist")
-    public NexacroResult selectNexacroMapList(@ParamDataSet(name = "dsImp") Map<String, Object> nexacroMap) throws Exception {
+    public RngResult selectNexacroMapList(@ParamDataSet(name = "dsImp") Map<String, Object> nexacroMap) throws Exception {
     	log.debug("parameter = {}", nexacroMap);
-    	NexacroResult result = new NexacroResult();
+    	RngResult result = new RngResult();
     	try {
 	        List<Map<String, Object>> resultMapList = nexacroService.selectNexacroMapList(nexacroMap);        
 	        result.addDataSet("dsList", resultMapList);
     	} catch (BusinessException e) {
     		// 에러시 처리 할 업무로직 존재시 처리
-    		result.addVariable(ERROR_CODE.getColumn(), e.getMessageId());
-    		result.addVariable(ERROR_MSG.getColumn(), ErrorCodeUtil.getErrorMsg(e.getMessageId()));
+    		result.setErrorCode(e.getMessageId());
+    		result.setErrorMsg(ErrorCodeUtil.getErrorMsg(e.getMessageId(), e.getMessageArgs()));
 //	    	result.addVariable(ErrorInfo.getMsg(), ErrorCodeUtil.getErrorMsg(e.getMessageId(), e.getMessageArgs()));
     	} catch (Exception e) {
     		// 에러시 처리 할 업무로직 존재시 처리
-    		result.addVariable(ERROR_CODE.getColumn(), "E0001");
-    		result.addVariable(ERROR_MSG.getColumn(), ErrorCodeUtil.getErrorMsg("E0001"));
+    		result.setErrorCode("E0001");
+    		result.setErrorMsg(ErrorCodeUtil.getErrorMsg("E0001"));
     	}
         return result;
     }
     
     @PostMapping("/savenexacromap")
-    public NexacroResult saveNexacroMap(@ParamDataSet(name = "dsSave") Map<String, Object> nexacroMap) throws Exception {
+    public RngResult saveNexacroMap(@ParamDataSet(name = "dsSave") Map<String, Object> nexacroMap) throws Exception {
     	log.debug("parameter = {}", nexacroMap);
-    	NexacroResult result = new NexacroResult();
+    	RngResult result = new RngResult();
     	try {
     		nexacroService.saveNexacroMap(nexacroMap);
     	} catch (Exception e) {
     		// 에러시 처리 할 업무로직 존재시 처리
-    		result.addVariable(ERROR_CODE.getColumn(), "E0001");
-    		result.addVariable(ERROR_MSG.getColumn(), ErrorCodeUtil.getErrorMsg("E0001"));
+    		result.setErrorCode("E0001");
+    		result.setErrorMsg(ErrorCodeUtil.getErrorMsg("E0001"));
     	}
     	return result;
     }
     
     @PostMapping("/savenexacromaplist")
-    public NexacroResult saveNexacroMapList(@ParamDataSet(name = "dsList") List<Map<String, Object>> nexacroMapList) throws Exception {
+    public RngResult saveNexacroMapList(@ParamDataSet(name = "dsList") List<Map<String, Object>> nexacroMapList) throws Exception {
     	log.debug("parameter = {}", nexacroMapList);
-    	NexacroResult result = new NexacroResult();
+    	RngResult result = new RngResult();
     	try {
     		nexacroService.saveNexacroMapList(nexacroMapList);
     	} catch (Exception e) {
     		// 에러시 처리 할 업무로직 존재시 처리
-    		result.addVariable(ERROR_CODE.getColumn(), "E0001");
-    		result.addVariable(ERROR_MSG.getColumn(), ErrorCodeUtil.getErrorMsg("E0001"));
+    		result.setErrorCode("E0001");
+    		result.setErrorMsg(ErrorCodeUtil.getErrorMsg("E0001"));
     	}
     	return result;
     }
     
     @RequestMapping(value = "/echo")
-    public NexacroResult echo(
+    public RngResult echo(
             @ParamDataSet(name = "dsInput", required = false) Map<String, Object> selectNexacroMap
     ) throws Exception {
         log.debug(selectNexacroMap.toString());
-        NexacroResult result = new NexacroResult();
+        RngResult result = new RngResult();
         result.addDataSet("dsList", null);
         return result;
     }
     
 //  @RequestMapping(value = "/updateSampleList.do")
-//  public NexacroResult updateSampleList(
+//  public RngResult updateSampleList(
 //          @ParamDataSet(name = "input1") List<Map<String,Object>> updateSampleList,
 //          Locale locale
 //  ) throws Exception {
@@ -132,7 +129,7 @@ public class NexacroMapController {
 //          }
 //      }
 //
-//      NexacroResult result = new NexacroResult();
+//      RngResult result = new RngResult();
 //      return result;
 //  }
     

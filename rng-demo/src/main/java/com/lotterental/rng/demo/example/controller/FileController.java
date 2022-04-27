@@ -1,8 +1,5 @@
 package com.lotterental.rng.demo.example.controller;
 
-import static com.lotterental.rng.demo.common.cnst.ErrorColumn.ERROR_CODE;
-import static com.lotterental.rng.demo.common.cnst.ErrorColumn.ERROR_MSG;
-
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -13,13 +10,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.lotterental.rng.core.common.exception.BusinessException;
+import com.lotterental.rng.demo.common.component.result.RngResult;
 import com.lotterental.rng.demo.common.file.RngFileResult;
 import com.lotterental.rng.demo.common.file.RngMultipartFile;
 import com.lotterental.rng.demo.example.service.FileService;
 import com.lotterental.rng.demo.example.vo.FileVo;
 import com.lotterental.rng.demo.utils.ErrorCodeUtil;
 import com.nexacro.uiadapter.spring.core.annotation.ParamVariable;
-import com.nexacro.uiadapter.spring.core.data.NexacroResult;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -33,33 +30,33 @@ public class FileController {
 	private FileService fileService;
 	
 	@PostMapping(value = "/selectnexacrofiles")
-	public NexacroResult selectNexacroFiles(@ParamVariable(name = "documentNo") String documentNo) throws BusinessException {
+	public RngResult selectNexacroFiles(@ParamVariable(name = "documentNo") String documentNo) throws BusinessException {
 		log.debug("parameter = {}", documentNo);
-		NexacroResult result = new NexacroResult();
+		RngResult result = new RngResult();
 		try {
 			result.addDataSet("dsUpload", fileService.selectNexacroFiles(documentNo));
 		} catch (BusinessException e) {
-    		result.addVariable(ERROR_CODE.getColumn(), e.getMessageId());
-    		result.addVariable(ERROR_MSG.getColumn(), ErrorCodeUtil.getErrorMsg(e.getMessageId()));
+			result.setErrorCode(e.getMessageId());
+    		result.setErrorMsg(ErrorCodeUtil.getErrorMsg(e.getMessageId(), e.getMessageArgs()));
     	} catch (Exception e) {
-    		result.addVariable(ERROR_CODE.getColumn(), "E0001");
-    		result.addVariable(ERROR_MSG.getColumn(), ErrorCodeUtil.getErrorMsg("E0001"));
+    		result.setErrorCode("E0001");
+    		result.setErrorMsg(ErrorCodeUtil.getErrorMsg("E0001"));
     	}
         return result;
 	}
 	
     @PostMapping(value = "/uploadnexacrofiles", headers = ("content-type=multipart/*"), consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
-    public NexacroResult uploadNexacroFile(RngMultipartFile rngMultipartFile) throws IOException, ServletException {
+    public RngResult uploadNexacroFile(RngMultipartFile rngMultipartFile) throws IOException, ServletException {
     	log.debug("parameter = {}", rngMultipartFile);
-    	NexacroResult result = new NexacroResult();
+    	RngResult result = new RngResult();
     	try {
     		result.addDataSet(FILE_DATASET, fileService.uploadNexacroFiles(rngMultipartFile.getFileList()));
     	} catch (BusinessException e) {
-    		result.addVariable(ERROR_CODE.getColumn(), e.getMessageId());
-    		result.addVariable(ERROR_MSG.getColumn(), ErrorCodeUtil.getErrorMsg(e.getMessageId()));
+    		result.setErrorCode(e.getMessageId());
+    		result.setErrorMsg(ErrorCodeUtil.getErrorMsg(e.getMessageId(), e.getMessageArgs()));
     	} catch (Exception e) {
-    		result.addVariable(ERROR_CODE.getColumn(), "E0001");
-    		result.addVariable(ERROR_MSG.getColumn(), ErrorCodeUtil.getErrorMsg("E0001"));
+    		result.setErrorCode("E0001");
+    		result.setErrorMsg(ErrorCodeUtil.getErrorMsg("E0001"));
     	}
         return result;
     }
@@ -71,14 +68,14 @@ public class FileController {
     }
     
     @PostMapping(value = "/deletenexacrofile")
-    public NexacroResult deletenexacrofile(FileVo fileVo) {
+    public RngResult deletenexacrofile(FileVo fileVo) {
     	log.debug("parameter = {}", fileVo);
-    	NexacroResult result = new NexacroResult();
+    	RngResult result = new RngResult();
     	try {
     		fileService.downloadNexacroFiles(fileVo);
     	} catch (Exception e) {
-    		result.addVariable(ERROR_CODE.getColumn(), "E0001");
-    		result.addVariable(ERROR_MSG.getColumn(), ErrorCodeUtil.getErrorMsg("E0001"));
+    		result.setErrorCode("E0001");
+    		result.setErrorMsg(ErrorCodeUtil.getErrorMsg("E0001"));
     	}
     	return result;
     }

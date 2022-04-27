@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import com.lotterental.rng.core.common.exception.BusinessException;
 import com.lotterental.rng.demo.example.mapper.ValidationMapper;
 import com.lotterental.rng.demo.example.model.ValidationModel;
-import com.lotterental.rng.demo.example.model.ValidationUsedModel;
 import com.lotterental.rng.demo.example.service.ValidationService;
 import com.lotterental.rng.demo.example.vo.ValidationUsedVo;
 import com.lotterental.rng.demo.example.vo.ValidationVo;
@@ -39,10 +38,6 @@ public class ValidationServiceImpl implements ValidationService {
     
     @Override
     public List<ValidationUsedVo> selectBusinessInfoList(ValidationUsedVo validationUsedVo) throws BusinessException {
-    	ValidationUsedModel model = validationMapper.selectBusinessRule(validationUsedVo);
-    	if (model == null) {
-    		throw new BusinessException("error", "업무 룰");	// 업무 룰에 위반됩니다.
-    	}		
 		return validationMapper.selectBusinessInfoList(validationUsedVo).stream()
 				.map(d -> d.build())
 				.collect(Collectors.toList());

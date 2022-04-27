@@ -7,13 +7,13 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
+import com.lotterental.rng.core.base.BaseVo;
+import com.lotterental.rng.core.common.exception.BusinessException;
 import com.lotterental.rng.demo.common.annotation.ResponseIgnore;
 import com.lotterental.rng.demo.common.base.BaseGridVo;
 import com.lotterental.rng.demo.common.cnst.HandlerParameterType;
 import com.lotterental.rng.demo.common.cnst.HandlerReturnType;
-import com.lotterental.rng.core.base.BaseVo;
-import com.lotterental.rng.core.common.exception.BusinessException;
-import com.nexacro.uiadapter.spring.core.data.NexacroResult;
+import com.lotterental.rng.demo.common.component.result.RngResult;
 
 public class RngNexacroMethodReturnValueProcessor {
 	
@@ -32,7 +32,7 @@ public class RngNexacroMethodReturnValueProcessor {
 	}
 	
 	private void executePostProcess(Object object) {
-		NexacroResult.class.cast(object).getDataSets().values().stream()
+		RngResult.class.cast(object).getDataSets().values().stream()
 			.filter(this::isExistsDataObject)
 			.map(this::transElementToStream)
 			.flatMap(Function.identity())
