@@ -12,6 +12,8 @@ log/
 *.log
 *.out
 
+*.rdb
+
 ### STS ###
 .apt_generated
 .classpath
