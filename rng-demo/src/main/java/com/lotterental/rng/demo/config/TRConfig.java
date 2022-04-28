@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.interceptor.MatchAlwaysTransactionAttributeSource;
 import org.springframework.transaction.interceptor.RollbackRuleAttribute;
 import org.springframework.transaction.interceptor.RuleBasedTransactionAttribute;
@@ -30,6 +31,7 @@ public class TRConfig {
         RuleBasedTransactionAttribute transactionAttribute = new RuleBasedTransactionAttribute();
         transactionAttribute.setRollbackRules(rollbackRules);
         transactionAttribute.setName("*");
+        transactionAttribute.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
         MatchAlwaysTransactionAttributeSource attributeSource = new MatchAlwaysTransactionAttributeSource();
         attributeSource.setTransactionAttribute(transactionAttribute);
 

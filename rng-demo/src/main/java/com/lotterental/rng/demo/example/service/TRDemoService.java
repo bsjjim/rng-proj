@@ -13,4 +13,6 @@ public interface TRDemoService {
     void insertSupport();
 
     void insertNotSupport();
+
+    void selectTRList();
 }
