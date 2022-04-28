@@ -44,4 +44,9 @@ public class TRDemoController {
     public  void insertNotSupport() {
         trDemoService.insertNotSupport();
     }
+
+    @GetMapping("/selecttrlist")
+    public void selectTRList() {
+        trDemoService.selectTRList();
+    }
 }

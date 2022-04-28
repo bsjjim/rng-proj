@@ -6,7 +6,10 @@ import com.lotterental.rng.demo.example.service.TRDemoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Slf4j
 @Service
@@ -109,9 +112,9 @@ public class TRDemoServiceImpl  implements TRDemoService {
     }
 
     /**
-     * Transaction Propagation.NOT_SUPPORT 예제
+     * Transaction Propagation.NOT_SUPPORTED 예제
      * 무조건 non-transactional로 실행한다.
-     * 부모 트랜잭션이 있다면 중지시킨다.
+     * 이미 진행된 트랜잭션이 있으면 보류시킨다.
      */
     @Transactional(rollbackFor = Exception.class)
     @Override
@@ -124,5 +127,15 @@ public class TRDemoServiceImpl  implements TRDemoService {
         trDemoModel.setName("notSupport2");
         trDemoMapper.insertRequired(trDemoModel);
         throw new RuntimeException("부모가 문제");
+    }
+
+    /**
+     * select 조건만 있을때는 Propagation.NOT_SUPPORTED 를 선언해준다.
+     */
+    @Transactional(propagation = Propagation.NOT_SUPPORTED)
+    @Override
+    public void selectTRList() {
+        List<TRDemoModel> trList = trDemoMapper.selectTRList();
+        log.info("trList ================ {}", trList);
     }
 }

@@ -12,4 +12,10 @@
             )
     </insert>
 
+    <select id="selectTRList" resultType="com.lotterental.rng.demo.example.model.TRDemoModel">
+        SELECT
+            NAME
+        FROM SAMPLE_TDB.TRDEMO
+    </select>
+
 </mapper>
