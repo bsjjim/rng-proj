@@ -14,6 +14,8 @@ public interface NexacroVoMapper {
 		
 	List<NexacroModel> selectNexacroVoList(NexacroVo nexacroVo);
 	
+	NexacroModel selectBusinessRule(NexacroVo nexacroVo);
+	
     int insertNexacroVo(NexacroVo nexacroVo);
 
     int updateNexacroVo(NexacroVo nexacroVo);

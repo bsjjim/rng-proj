@@ -7,18 +7,18 @@ import com.lotterental.rng.demo.example.vo.NexacroVo;
 public interface NexacroVoService {
 	
 	//단건 조회
-	NexacroVo selectNexacroVo(NexacroVo nexacroVo) throws Exception;
+	NexacroVo selectNexacroVo(NexacroVo nexacroVo);
 
     //다건 조회
-    List<NexacroVo> selectNexacroVoList(NexacroVo nexacroVo) throws Exception;
+    List<NexacroVo> selectNexacroVoList(NexacroVo nexacroVo);
 
     //데이터 추가/수정/삭제
-    int saveNexacroVo(NexacroVo nexacroVo) throws Exception;
+    int saveNexacroVo(NexacroVo nexacroVo);
     
-    int saveNexacroVoList(List<NexacroVo> nexacroVoList) throws Exception;
+    int saveNexacroVoList(List<NexacroVo> nexacroVoList);
     
-    int saveNexacroVoList2(List<NexacroVo> nexacroVoList) throws Exception;
+    int saveNexacroVoList2(List<NexacroVo> nexacroVoList);
     
-    int saveNexacroVoList3(List<NexacroVo> nexacroVoList) throws Exception;
+    int saveNexacroVoList3(List<NexacroVo> nexacroVoList);
     
 }

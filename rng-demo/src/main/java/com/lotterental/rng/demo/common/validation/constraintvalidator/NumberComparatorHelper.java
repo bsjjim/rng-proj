@@ -6,7 +6,7 @@ import java.util.OptionalInt;
 
 import org.hibernate.validator.internal.constraintvalidators.bv.number.InfinityNumberComparatorHelper;
 
-final class NumberComparatorHelper {
+public final class NumberComparatorHelper {
 
 	private NumberComparatorHelper() {
 	}

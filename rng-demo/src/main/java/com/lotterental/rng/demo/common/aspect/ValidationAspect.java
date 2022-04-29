@@ -6,12 +6,13 @@ import java.util.List;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.lotterental.rng.core.common.exception.BusinessException;
 import com.lotterental.rng.demo.common.base.BaseMetaVo;
 import com.lotterental.rng.demo.common.component.result.RngErrorResult;
 import com.lotterental.rng.demo.common.component.result.RngResult;
-import com.lotterental.rng.demo.common.validation.RngParameterValidator;
+import com.lotterental.rng.demo.common.validation.impl.RngConstraintValidator;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -19,9 +20,10 @@ import lombok.extern.slf4j.Slf4j;
 @Aspect
 public class ValidationAspect {
 	
-	public static final RngParameterValidator validator = new RngParameterValidator();
-		
 	private final String bizControllerPointcut = "com.lotterental.rng.demo.common.aspect.pointcut.RngPointcut.bizController()";
+	
+	@Autowired
+	private RngConstraintValidator validator;// = new RngParameterValidator();
 	
 	@Around(value = bizControllerPointcut)
 	public Object validate(ProceedingJoinPoint joinPoint) throws Throwable {

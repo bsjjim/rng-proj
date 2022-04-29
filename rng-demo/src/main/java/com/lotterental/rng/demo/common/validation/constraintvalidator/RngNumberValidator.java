@@ -115,8 +115,8 @@ public final class RngNumberValidator {
 		protected long minValue;
 
 		@Override
-		public void initialize(RngMin maxValue) {
-			this.minValue = maxValue.value();
+		public void initialize(RngMin minValue) {
+			this.minValue = minValue.value();
 		}
 
 		@Override

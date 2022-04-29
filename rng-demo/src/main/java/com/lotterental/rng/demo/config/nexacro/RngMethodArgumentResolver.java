@@ -10,11 +10,11 @@ import com.lotterental.rng.demo.config.nexacro.processor.RngNexacroMethodArgumen
 import com.nexacro.uiadapter.spring.core.annotation.ParamVariable;
 import com.nexacro.uiadapter.spring.core.resolve.NexacroMethodArgumentResolver;
 
-public class RngNexacroMethodArgumentResolver extends NexacroMethodArgumentResolver {
+public class RngMethodArgumentResolver extends NexacroMethodArgumentResolver {
 	
 	private final RngNexacroMethodArgumentProcessor rngNexacroMethodArgumentProcessor;
 	
-	public RngNexacroMethodArgumentResolver() {
+	public RngMethodArgumentResolver() {
 		this.rngNexacroMethodArgumentProcessor = new RngNexacroMethodArgumentProcessor();
 	}
 	

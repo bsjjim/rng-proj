@@ -13,6 +13,8 @@ public interface NexacroDataMapper {
 	    
     List<BusinessData> selectNexacroDataList(BusinessData nexacroData);
     
+    BusinessData selectBusinessRule(BusinessData nexacroData);
+    
     int insertNexacroData(BusinessData nexacroData);
     
     int updateNexacroData(BusinessData nexacroData);

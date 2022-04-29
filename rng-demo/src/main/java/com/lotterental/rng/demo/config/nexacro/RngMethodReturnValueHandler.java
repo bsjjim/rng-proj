@@ -10,11 +10,11 @@ import com.lotterental.rng.demo.common.file.RngFileResult;
 import com.lotterental.rng.demo.config.nexacro.processor.RngNexacroMethodReturnValueProcessor;
 import com.nexacro.uiadapter.spring.core.resolve.NexacroHandlerMethodReturnValueHandler;
 
-public class RngNexacroMethodReturnValueHandler extends NexacroHandlerMethodReturnValueHandler {
+public class RngMethodReturnValueHandler extends NexacroHandlerMethodReturnValueHandler {
 
 	private final RngNexacroMethodReturnValueProcessor rngNexacroMethodReturnValueProcessor;
 	
-	public RngNexacroMethodReturnValueHandler() {
+	public RngMethodReturnValueHandler() {
 		this.rngNexacroMethodReturnValueProcessor = new RngNexacroMethodReturnValueProcessor();
 	}
 	

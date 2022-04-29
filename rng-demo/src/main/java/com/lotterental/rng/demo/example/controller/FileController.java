@@ -36,11 +36,9 @@ public class FileController {
 		try {
 			result.addDataSet("dsUpload", fileService.selectNexacroFiles(documentNo));
 		} catch (BusinessException e) {
-			result.setErrorCode(e.getMessageId());
-    		result.setErrorMsg(ErrorCodeUtil.getErrorMsg(e.getMessageId(), e.getMessageArgs()));
+    		result.setError(e);
     	} catch (Exception e) {
     		result.setErrorCode("E0001");
-    		result.setErrorMsg(ErrorCodeUtil.getErrorMsg("E0001"));
     	}
         return result;
 	}
@@ -52,11 +50,9 @@ public class FileController {
     	try {
     		result.addDataSet(FILE_DATASET, fileService.uploadNexacroFiles(rngMultipartFile.getFileList()));
     	} catch (BusinessException e) {
-    		result.setErrorCode(e.getMessageId());
-    		result.setErrorMsg(ErrorCodeUtil.getErrorMsg(e.getMessageId(), e.getMessageArgs()));
+    		result.setError(e);
     	} catch (Exception e) {
     		result.setErrorCode("E0001");
-    		result.setErrorMsg(ErrorCodeUtil.getErrorMsg("E0001"));
     	}
         return result;
     }

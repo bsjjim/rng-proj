@@ -30,7 +30,7 @@ public class ValidationUsedVo extends BaseMetaVo {
 	private String major;
 	
 	@RngMax(value = 20, messageCode = "CODE0004", messageParams = "나이", order = 3)		// age <= 20
-	private int age;
+	private Integer age;
 	
 	@RngMin(value = 99, messageCode = "CODE0005", messageParams = "키")					// height >= 99
 	private int height;

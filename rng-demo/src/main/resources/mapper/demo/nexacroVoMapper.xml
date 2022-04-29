@@ -70,6 +70,11 @@
 		</if>
     </select>
     
+    <select id="selectBusinessRule" parameterType="NexacroVo" resultType="NexacroModel">
+		SELECT 'RULE' AS MESSAGE
+		  FROM DUAL
+    </select>
+    
     <insert id="insertNexacroVo" parameterType="NexacroVo">
     	INSERT 
     	  INTO NEXA_SAMPLE (

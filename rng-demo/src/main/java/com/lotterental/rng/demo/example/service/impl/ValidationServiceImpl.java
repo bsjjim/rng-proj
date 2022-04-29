@@ -29,7 +29,7 @@ public class ValidationServiceImpl implements ValidationService {
     public List<ValidationVo> selectBusinessInfoList(ValidationVo validationVo) throws BusinessException {
     	ValidationModel model = validationMapper.selectBusinessRule(validationVo);
     	if (model == null) {
-    		throw new BusinessException("error", "업무 룰");	// 업무 룰에 위반됩니다.
+    		throw new BusinessException("error", "업무 규칙");
     	}		
 		return validationMapper.selectBusinessInfoList(validationVo).stream()
 				.map(d -> d.build())

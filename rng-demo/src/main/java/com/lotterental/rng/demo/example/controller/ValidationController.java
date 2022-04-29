@@ -12,7 +12,6 @@ import com.lotterental.rng.demo.common.component.result.RngResult;
 import com.lotterental.rng.demo.example.service.ValidationService;
 import com.lotterental.rng.demo.example.vo.ValidationUsedVo;
 import com.lotterental.rng.demo.example.vo.ValidationVo;
-import com.lotterental.rng.demo.utils.ErrorCodeUtil;
 import com.nexacro.uiadapter.spring.core.annotation.ParamDataSet;
 
 import lombok.extern.slf4j.Slf4j;
@@ -30,20 +29,17 @@ public class ValidationController {
 		RngResult result = new RngResult();
 		if (!StringUtils.hasText(validationVo.getId())) {
 			result.setErrorCode("required");
-    		result.setErrorMsg(ErrorCodeUtil.getErrorMsg("required", new String[] {"ID"}));
+    		result.setErrorParams("ID", "학번");
     		return result;
     	}
-		
-		try {			
+		try {
 			result.addDataSet("dsBiz", validationService.selectBusinessInfo(validationVo));
 		} catch (BusinessException e) {
-    		// 에러시 처리 할 업무로직 존재시 처리
-    		result.setErrorCode(e.getMessageId());
-    		result.setErrorMsg(ErrorCodeUtil.getErrorMsg(e.getMessageId(), e.getMessageArgs()));
+    		// 필요한 업무로직 존재시 처리
+    		result.setError(e);	// 에러코드 : e.getMessageId(), 파라미터 : e.getMessageArgs()
 		} catch (Exception e) {
-			// 에러시 처리 할 업무로직 존재시 처리
-    		result.setErrorCode("E0001");
-    		result.setErrorMsg(ErrorCodeUtil.getErrorMsg("E0001"));
+			// 필요한 업무로직 존재시 처리
+    		result.setErrorCode("E0001");	// 보여주고 싶은 에러 메시지
 		}
 		return result;
 	}
@@ -55,13 +51,11 @@ public class ValidationController {
 		try {
 			result.addDataSet("dsBizList", validationService.selectBusinessInfoList(validationVo));
 		} catch (BusinessException e) {
-    		// 에러시 처리 할 업무로직 존재시 처리
-			result.setErrorCode(e.getMessageId());
-    		result.setErrorMsg(ErrorCodeUtil.getErrorMsg(e.getMessageId(), e.getMessageArgs()));
+			// 필요한 업무로직 존재시 처리
+    		result.setError(e);	// 에러코드 : e.getMessageId(), 파라미터 : e.getMessageArgs()
 		} catch (Exception e) {
-			// 에러시 처리 할 업무로직 존재시 처리
-			result.setErrorCode("E0001");
-    		result.setErrorMsg(ErrorCodeUtil.getErrorMsg("E0001"));
+			// 필요한 업무로직 존재시 처리
+    		result.setErrorCode("E0001");	// 보여주고 싶은 에러 메시지
 		}
 		return result;
 	}
@@ -73,13 +67,11 @@ public class ValidationController {
 		try {
 			result.addDataSet("dsBizList", validationService.selectBusinessInfoList(validationUsedVo));
 		} catch (BusinessException e) {
-    		// 에러시 처리 할 업무로직 존재시 처리
-			result.setErrorCode(e.getMessageId());
-    		result.setErrorMsg(ErrorCodeUtil.getErrorMsg(e.getMessageId(), e.getMessageArgs()));
+			// 필요한 업무로직 존재시 처리
+    		result.setError(e);	// 에러코드 : e.getMessageId(), 파라미터 : e.getMessageArgs()
 		} catch (Exception e) {
-			// 에러시 처리 할 업무로직 존재시 처리
-			result.setErrorCode("E0001");
-    		result.setErrorMsg(ErrorCodeUtil.getErrorMsg("E0001"));
+			// 필요한 업무로직 존재시 처리
+    		result.setErrorCode("E0001");	// 보여주고 싶은 에러 메시지
 		}
 		return result;
 	}
@@ -88,18 +80,16 @@ public class ValidationController {
 	public RngResult validateByFrameworkWith2Params(
 			@ParamDataSet(name = "dsData") ValidationUsedVo validationUsedVo,
 			@ParamDataSet(name = "dsList") List<ValidationUsedVo> validationUsedVoList) {
-		log.debug("parameter = {}, {}", validationUsedVo, validationUsedVoList);
+		log.debug("parameters = {}, {}", validationUsedVo, validationUsedVoList);
 		RngResult result = new RngResult();
 		try {
 			result.addDataSet("dsBizList", validationService.selectBusinessInfoList(validationUsedVo));
 		} catch (BusinessException e) {
-    		// 에러시 처리 할 업무로직 존재시 처리
-			result.setErrorCode(e.getMessageId());
-    		result.setErrorMsg(ErrorCodeUtil.getErrorMsg(e.getMessageId(), e.getMessageArgs()));
+			// 필요한 업무로직 존재시 처리
+    		result.setError(e);	// 에러코드 : e.getMessageId(), 파라미터 : e.getMessageArgs()
 		} catch (Exception e) {
-			// 에러시 처리 할 업무로직 존재시 처리
-			result.setErrorCode("E0001");
-    		result.setErrorMsg(ErrorCodeUtil.getErrorMsg("E0001"));
+			// 필요한 업무로직 존재시 처리
+    		result.setErrorCode("E0001");	// 보여주고 싶은 에러 메시지
 		}
 		return result;
 	}

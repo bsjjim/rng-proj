@@ -12,6 +12,8 @@ public interface NexacroMapMapper {
 	
     List<Map<String, Object>> selectNexacroMapList(Map<String, Object> nexacroMap);
     
+    Map<String, Object> selectBusinessRule(Map<String, Object> nexacroMap);
+    
     int insertNexacroMap(Map<String, Object> nexacroMap);
     
     int updateNexacroMap(Map<String, Object> nexacroMap);

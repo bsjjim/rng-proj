@@ -5,10 +5,9 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
-import com.lotterental.rng.demo.common.component.BasicGridBizComponent;
 import com.lotterental.rng.core.common.exception.BusinessException;
+import com.lotterental.rng.demo.common.component.BasicGridBizComponent;
 import com.lotterental.rng.demo.example.mapper.NexacroComponentMapper;
 import com.lotterental.rng.demo.example.mapper.NexacroVoMapper;
 import com.lotterental.rng.demo.example.model.NexacroModel;
@@ -25,17 +24,16 @@ public class NexacroVoServiceImpl implements NexacroVoService {
     private NexacroComponentMapper nexacroComponentMapper;
 
     @Override
-	public NexacroVo selectNexacroVo(NexacroVo nexacroVo) throws Exception {
+	public NexacroVo selectNexacroVo(NexacroVo nexacroVo) {
     	NexacroModel model = nexacroVoMapper.selectNexacroVo(nexacroVo);
     	return model != null ? model.build() : null;
 	}
     
     @Override
-    public List<NexacroVo> selectNexacroVoList(NexacroVo nexacroVo) throws Exception {
-    	if (!StringUtils.hasText(nexacroVo.getModId())) {
-    		throw new BusinessException("required", "모듈ID");	// 모듈ID는 필수값 입니다.
-    	} else if (!StringUtils.hasText(nexacroVo.getModNm())) {
-    		throw new BusinessException("required", "모듈명");	// 모듈명은 필수값 입니다.
+    public List<NexacroVo> selectNexacroVoList(NexacroVo nexacroVo) {
+    	NexacroModel model = nexacroVoMapper.selectBusinessRule(nexacroVo);
+    	if (model == null) {
+    		throw new BusinessException("error", "업무 규칙");
     	}
 		return nexacroVoMapper.selectNexacroVoList(nexacroVo).stream()
 				.map(d -> d.build())
@@ -43,7 +41,7 @@ public class NexacroVoServiceImpl implements NexacroVoService {
     }
     
     @Override
-    public int saveNexacroVo(NexacroVo nexacroVo) throws Exception {
+    public int saveNexacroVo(NexacroVo nexacroVo) {
     	if (nexacroVo.isInsertedRow()) {
 			return nexacroVoMapper.insertNexacroVo(nexacroVo);
 		} else if (nexacroVo.isUpdatedRow()) {
@@ -55,7 +53,7 @@ public class NexacroVoServiceImpl implements NexacroVoService {
     }
     
     @Override
-    public int saveNexacroVoList(List<NexacroVo> nexacroVoList) throws Exception {
+    public int saveNexacroVoList(List<NexacroVo> nexacroVoList) {
     	int cnt = 0;
     	for (NexacroVo nexacroVo : nexacroVoList) {
     		if (nexacroVo.isInsertedRow()) {
@@ -70,7 +68,7 @@ public class NexacroVoServiceImpl implements NexacroVoService {
     }
 
     @Override
-    public int saveNexacroVoList2(List<NexacroVo> nexacroVoList) throws Exception {
+    public int saveNexacroVoList2(List<NexacroVo> nexacroVoList) {
     	return nexacroVoList.stream()
     			.mapToInt(this::process)
     			.sum();
@@ -88,7 +86,7 @@ public class NexacroVoServiceImpl implements NexacroVoService {
 	}
 
     @Override
-    public int saveNexacroVoList3(List<NexacroVo> nexacroVoList) throws Exception {
+    public int saveNexacroVoList3(List<NexacroVo> nexacroVoList) {
     	return BasicGridBizComponent.newInstance(nexacroVoList, nexacroComponentMapper).process();
     }
 

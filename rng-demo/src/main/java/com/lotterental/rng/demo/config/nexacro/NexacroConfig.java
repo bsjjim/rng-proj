@@ -107,7 +107,7 @@ public class NexacroConfig extends WebAppConfig implements WebMvcRegistrations {
      */
     @Override
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
-        resolvers.add(new RngNexacroMethodArgumentResolver());
+        resolvers.add(new RngMethodArgumentResolver());
         resolvers.add(new RngMultipartFileMethodArgumentResolver());
     }
 
@@ -116,7 +116,7 @@ public class NexacroConfig extends WebAppConfig implements WebMvcRegistrations {
      */
     @Override
     public void addReturnValueHandlers(List<HandlerMethodReturnValueHandler> handlers) {
-    	RngNexacroMethodReturnValueHandler returnValueHandler = new RngNexacroMethodReturnValueHandler();
+    	RngMethodReturnValueHandler returnValueHandler = new RngMethodReturnValueHandler();
         returnValueHandler.setView(getNexacroView());
         returnValueHandler.setFileView(new NexacroFileView());
         handlers.add(returnValueHandler);

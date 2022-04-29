@@ -7,16 +7,16 @@ import com.lotterental.rng.demo.common.base.BusinessData;
 public interface NexacroDataService {
 	
 //	단건 조회
-    BusinessData selectNexacroData(BusinessData nexacroData) throws Exception;
+    BusinessData selectNexacroData(BusinessData nexacroData);
 	
 	//다건조회
-    List<BusinessData> selectNexacroDataList(BusinessData nexacroData) throws Exception;
+    List<BusinessData> selectNexacroDataList(BusinessData nexacroData);
     
     //데이터 추가/수정/삭제
-    int saveNexacroData(BusinessData nexacroData) throws Exception;
+    int saveNexacroData(BusinessData nexacroData);
     
-    int saveNexacroDataList(List<BusinessData> nexacroDataList) throws Exception;
+    int saveNexacroDataList(List<BusinessData> nexacroDataList);
     
-    int saveNexacroDataList2(List<BusinessData> nexacroDataList) throws Exception;
+    int saveNexacroDataList2(List<BusinessData> nexacroDataList);
     
 }

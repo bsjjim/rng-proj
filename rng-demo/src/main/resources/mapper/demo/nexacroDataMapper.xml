@@ -69,6 +69,11 @@
 		   AND SYS_CD = #{sysCd}
 		</if>
     </select>
+    
+    <select id="selectBusinessRule" parameterType="bizData" resultType="bizData">
+		SELECT 'RULE' AS MESSAGE
+		  FROM DUAL
+    </select>
 
     <insert id="insertNexacroData" parameterType="bizData">
 		INSERT 
