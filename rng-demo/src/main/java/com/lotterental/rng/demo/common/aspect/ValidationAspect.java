@@ -12,7 +12,7 @@ import com.lotterental.rng.core.common.exception.BusinessException;
 import com.lotterental.rng.demo.common.base.BaseMetaVo;
 import com.lotterental.rng.demo.common.component.result.RngErrorResult;
 import com.lotterental.rng.demo.common.component.result.RngResult;
-import com.lotterental.rng.demo.common.validation.impl.RngConstraintValidator;
+import com.lotterental.rng.demo.common.validation.RngValidator;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -23,7 +23,7 @@ public class ValidationAspect {
 	private final String bizControllerPointcut = "com.lotterental.rng.demo.common.aspect.pointcut.RngPointcut.bizController()";
 	
 	@Autowired
-	private RngConstraintValidator validator;// = new RngParameterValidator();
+	private RngValidator validator;
 	
 	@Around(value = bizControllerPointcut)
 	public Object validate(ProceedingJoinPoint joinPoint) throws Throwable {

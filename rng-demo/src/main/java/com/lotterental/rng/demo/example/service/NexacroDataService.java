@@ -17,6 +17,6 @@ public interface NexacroDataService {
     
     int saveNexacroDataList(List<BusinessData> nexacroDataList);
     
-    int saveNexacroDataList2(List<BusinessData> nexacroDataList);
+    int saveNexacroDataListByStream(List<BusinessData> nexacroDataList);
     
 }

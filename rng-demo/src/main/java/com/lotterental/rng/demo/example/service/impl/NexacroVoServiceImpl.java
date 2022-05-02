@@ -30,63 +30,45 @@ public class NexacroVoServiceImpl implements NexacroVoService {
 	}
     
     @Override
-    public List<NexacroVo> selectNexacroVoList(NexacroVo nexacroVo) {
-    	NexacroModel model = nexacroVoMapper.selectBusinessRule(nexacroVo);
-    	if (model == null) {
+    public List<NexacroVo> selectNexacroVoList(NexacroVo nexacroVo) throws BusinessException {
+    	NexacroModel rule = nexacroVoMapper.selectBusinessRule(nexacroVo);
+    	if (rule == null) {
     		throw new BusinessException("error", "업무 규칙");
     	}
 		return nexacroVoMapper.selectNexacroVoList(nexacroVo).stream()
-				.map(d -> d.build())
+				.map(NexacroModel::build)
 				.collect(Collectors.toList());
     }
     
     @Override
     public int saveNexacroVo(NexacroVo nexacroVo) {
-    	if (nexacroVo.isInsertedRow()) {
-			return nexacroVoMapper.insertNexacroVo(nexacroVo);
-		} else if (nexacroVo.isUpdatedRow()) {
-			return nexacroVoMapper.updateNexacroVo(nexacroVo);
-		} else if (nexacroVo.isDeletedRow()) {
-			return nexacroVoMapper.deleteNexacroVo(nexacroVo);
-		}
-    	return 0;
+    	return process(nexacroVo);
     }
     
     @Override
     public int saveNexacroVoList(List<NexacroVo> nexacroVoList) {
     	int cnt = 0;
     	for (NexacroVo nexacroVo : nexacroVoList) {
-    		if (nexacroVo.isInsertedRow()) {
-    			cnt += nexacroVoMapper.insertNexacroVo(nexacroVo);
-    		} else if (nexacroVo.isUpdatedRow()) {
-    			cnt += nexacroVoMapper.updateNexacroVo(nexacroVo);
-    		} else if (nexacroVo.isDeletedRow()) {
-    			cnt += nexacroVoMapper.deleteNexacroVo(nexacroVo);
-    		}
+    		cnt += process(nexacroVo);
     	}
     	return cnt;
     }
 
     @Override
-    public int saveNexacroVoList2(List<NexacroVo> nexacroVoList) {
+    public int saveNexacroVoListByStream(List<NexacroVo> nexacroVoList) {
     	return nexacroVoList.stream()
     			.mapToInt(this::process)
     			.sum();
     }
     
     private int process(NexacroVo nexacroVo) {
-		if (nexacroVo.isInsertedRow()) {
-			return nexacroVoMapper.insertNexacroVo(nexacroVo);
-		} else if (nexacroVo.isUpdatedRow()) {
-			return nexacroVoMapper.updateNexacroVo(nexacroVo);
-		} else if (nexacroVo.isDeletedRow()) {
-			return nexacroVoMapper.deleteNexacroVo(nexacroVo);
-		}
-		return 0;
-	}
-
+    	return (nexacroVo.isInsertedRow()) ? nexacroVoMapper.insertNexacroVo(nexacroVo) : 
+    			(nexacroVo.isUpdatedRow()) ? nexacroVoMapper.updateNexacroVo(nexacroVo) : 
+    			(nexacroVo.isDeletedRow()) ? nexacroVoMapper.deleteNexacroVo(nexacroVo) : 0;
+    }
+    
     @Override
-    public int saveNexacroVoList3(List<NexacroVo> nexacroVoList) {
+    public int saveNexacroVoListByComponent(List<NexacroVo> nexacroVoList) {
     	return BasicGridBizComponent.newInstance(nexacroVoList, nexacroComponentMapper).process();
     }
 

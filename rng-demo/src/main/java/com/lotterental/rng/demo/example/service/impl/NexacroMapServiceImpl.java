@@ -33,47 +33,29 @@ public class NexacroMapServiceImpl implements NexacroMapService {
     
     @Override
     public int saveNexacroMap(Map<String, Object> nexacroMap) {
-    	if (DataRowStatus.isInsertedRow(nexacroMap)) {
-			return nexacroMapper.insertNexacroMap(nexacroMap);
-		} else if (DataRowStatus.isUpdatedRow(nexacroMap)) {
-			return nexacroMapper.updateNexacroMap(nexacroMap);
-		} else if (DataRowStatus.isDeletedRow(nexacroMap)) {
-			return nexacroMapper.deleteNexacroMap(nexacroMap);
-		}
-    	return 0;
+    	return process(nexacroMap);
     }
     
     @Override
     public int saveNexacroMapList(List<Map<String, Object>> nexacroMapList) {
     	int cnt = 0;
     	for (Map<String, Object> nexacroMap : nexacroMapList) {
-    		if (DataRowStatus.isInsertedRow(nexacroMap)) {
-    			cnt += nexacroMapper.insertNexacroMap(nexacroMap);
-    		} else if (DataRowStatus.isUpdatedRow(nexacroMap)) {
-    			cnt += nexacroMapper.updateNexacroMap(nexacroMap);
-    		} else if (DataRowStatus.isDeletedRow(nexacroMap)) {
-    			cnt += nexacroMapper.deleteNexacroMap(nexacroMap);
-    		}
+    		cnt += process(nexacroMap);
     	}
     	return cnt;
     }
 
     @Override
-    public int saveNexacroMapList2(List<Map<String, Object>> nexacroMapList) {
+    public int saveNexacroMapListByStream(List<Map<String, Object>> nexacroMapList) {
     	return nexacroMapList.stream()
     			.mapToInt(this::process)
     			.sum();
     }
     
     private int process(Map<String, Object> nexacroMap) {
-    	if (DataRowStatus.isInsertedRow(nexacroMap)) {
-			return nexacroMapper.insertNexacroMap(nexacroMap);
-		} else if (DataRowStatus.isUpdatedRow(nexacroMap)) {
-			return nexacroMapper.updateNexacroMap(nexacroMap);
-		} else if (DataRowStatus.isDeletedRow(nexacroMap)) {
-			return nexacroMapper.deleteNexacroMap(nexacroMap);
-		}
-		return 0;
+    	return (DataRowStatus.isInsertedRow(nexacroMap)) ? nexacroMapper.insertNexacroMap(nexacroMap) : 
+    			(DataRowStatus.isUpdatedRow(nexacroMap)) ? nexacroMapper.updateNexacroMap(nexacroMap) : 
+    			(DataRowStatus.isDeletedRow(nexacroMap)) ? nexacroMapper.deleteNexacroMap(nexacroMap) : 0;
     }
     
 }

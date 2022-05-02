@@ -16,6 +16,6 @@ public interface NexacroMapService {
     
     int saveNexacroMapList(List<Map<String, Object>> nexacroMapList);
     
-    int saveNexacroMapList2(List<Map<String, Object>> nexacroMapList);
+    int saveNexacroMapListByStream(List<Map<String, Object>> nexacroMapList);
     
 }

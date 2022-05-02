@@ -17,8 +17,8 @@ public interface NexacroVoService {
     
     int saveNexacroVoList(List<NexacroVo> nexacroVoList);
     
-    int saveNexacroVoList2(List<NexacroVo> nexacroVoList);
+    int saveNexacroVoListByStream(List<NexacroVo> nexacroVoList);
     
-    int saveNexacroVoList3(List<NexacroVo> nexacroVoList);
+    int saveNexacroVoListByComponent(List<NexacroVo> nexacroVoList);
     
 }

@@ -32,47 +32,29 @@ public class NexacroDataServiceImpl implements NexacroDataService {
     
     @Override
 	public int saveNexacroData(BusinessData nexacroData) {
-		if (nexacroData.isInsertedRow()) {
-			return nexacroMapper.insertNexacroData(nexacroData);
-		} else if (nexacroData.isUpdatedRow()) {
-			return nexacroMapper.updateNexacroData(nexacroData);
-		} else if (nexacroData.isDeletedRow()) {
-			return nexacroMapper.deleteNexacroData(nexacroData);
-		}
-		return 0;
+    	return process(nexacroData);
 	}
     
     @Override
     public int saveNexacroDataList(List<BusinessData> nexacroDataList) {
     	int cnt = 0;
     	for (BusinessData nexacroData : nexacroDataList) {
-    		if (nexacroData.isInsertedRow()) {
-    			cnt += nexacroMapper.insertNexacroData(nexacroData);
-    		} else if (nexacroData.isUpdatedRow()) {
-    			cnt += nexacroMapper.updateNexacroData(nexacroData);
-    		} else if (nexacroData.isDeletedRow()) {
-    			cnt += nexacroMapper.deleteNexacroData(nexacroData);
-    		}
+    		cnt += process(nexacroData);
     	}
     	return cnt;
     }
 
     @Override
-    public int saveNexacroDataList2(List<BusinessData> nexacroDataList) {
+    public int saveNexacroDataListByStream(List<BusinessData> nexacroDataList) {
     	return nexacroDataList.stream()
     			.mapToInt(this::process)
     			.sum();
     }
     
     private int process(BusinessData nexacroData) {
-    	if (nexacroData.isInsertedRow()) {
-			return nexacroMapper.insertNexacroData(nexacroData);
-    	} else if (nexacroData.isUpdatedRow()) {
-			return nexacroMapper.updateNexacroData(nexacroData);
-    	} else if (nexacroData.isDeletedRow()) {
-			return nexacroMapper.deleteNexacroData(nexacroData);
-		}
-		return 0;
+    	return (nexacroData.isInsertedRow()) ? nexacroMapper.insertNexacroData(nexacroData) : 
+				(nexacroData.isUpdatedRow()) ? nexacroMapper.updateNexacroData(nexacroData) : 
+				(nexacroData.isDeletedRow()) ? nexacroMapper.deleteNexacroData(nexacroData) : 0;
     }
     
 }
