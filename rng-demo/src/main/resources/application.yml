@@ -52,7 +52,7 @@ server:
 ################################################################################
 spring:
   application:
-    name: nap-be-demo-server
+    name: rng-demo-server
   servlet:
     multipart:
       max-file-size: 1024MB
