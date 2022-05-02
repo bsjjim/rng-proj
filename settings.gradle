@@ -2,5 +2,6 @@ rootProject.name = 'rng-proj'
 include 'rng-core'
 include 'rng-biz'
 include 'rng-be'
-include 'rng-demo'
 include 'rng-erp'
+include 'rng-demo'
+
