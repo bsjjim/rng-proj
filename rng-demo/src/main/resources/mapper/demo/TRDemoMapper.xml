@@ -3,7 +3,7 @@
 <mapper namespace="com.lotterental.rng.demo.example.mapper.TRDemoMapper">
 
     <insert id="insertRequired" parameterType="com.lotterental.rng.demo.example.model.TRDemoModel">
-        INSERT INTO SAMPLE_TDB.TRDEMO(
+        INSERT INTO SAMPLE_TDB.DEMO_TR(
             NAME
             , UPDATE_TIME
             )VALUES(
@@ -15,7 +15,7 @@
     <select id="selectTRList" resultType="com.lotterental.rng.demo.example.model.TRDemoModel">
         SELECT
             NAME
-        FROM SAMPLE_TDB.TRDEMO
+        FROM SAMPLE_TDB.DEMO_TR
     </select>
 
 </mapper>

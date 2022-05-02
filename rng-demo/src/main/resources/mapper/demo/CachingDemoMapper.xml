@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lotterental.rng.demo.example.mapper.CachingDemoMapper">
+
+    <select id="getComCd" resultType="com.lotterental.rng.demo.example.vo.CachingDemoVo">
+        SELECT
+            COM_CD
+             , COM_NAME
+        FROM SAMPLE_TDB.DEMO_CACHING
+        WHERE COM_CD = #{id}
+    </select>
+
+    <select id="selectComCdList" resultType="com.lotterental.rng.demo.example.vo.CachingDemoVo">
+        SELECT
+            COM_CD
+            , COM_NAME
+        FROM SAMPLE_TDB.DEMO_CACHING
+    </select>
+
+</mapper>
