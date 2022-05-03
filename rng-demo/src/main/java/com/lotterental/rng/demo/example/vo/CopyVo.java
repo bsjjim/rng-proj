@@ -1,8 +1,8 @@
 package com.lotterental.rng.demo.example.vo;
 
 
-import com.lotterental.rng.demo.common.crypt.annotation.MaskCryptAno;
-import com.lotterental.rng.core.base.BaseVo;
+import com.lotterental.rng.core.common.annotation.MaskCryptAno;
+import com.lotterental.rng.core.common.base.BaseVo;
 import lombok.*;
 
 @Data

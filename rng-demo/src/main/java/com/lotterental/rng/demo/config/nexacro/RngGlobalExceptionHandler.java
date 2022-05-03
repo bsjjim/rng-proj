@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.lotterental.rng.core.common.exception.BusinessException;
-import com.lotterental.rng.demo.common.component.result.RngErrorResult;
-import com.lotterental.rng.demo.common.component.result.RngResult;
+import com.lotterental.rng.core.common.component.result.RngErrorResult;
+import com.lotterental.rng.core.common.component.result.RngResult;
 
 import lombok.extern.slf4j.Slf4j;
 

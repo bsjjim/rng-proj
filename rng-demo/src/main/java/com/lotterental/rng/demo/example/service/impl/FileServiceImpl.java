@@ -8,12 +8,13 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.lotterental.rng.core.common.exception.BusinessException;
-import com.lotterental.rng.demo.common.file.RngFileResult;
+import com.lotterental.rng.core.common.file.RngFileResult;
 import com.lotterental.rng.demo.example.mapper.FileMapper;
 import com.lotterental.rng.demo.example.service.FileService;
 import com.lotterental.rng.demo.example.vo.FileVo;
@@ -88,7 +89,9 @@ public class FileServiceImpl implements FileService {
 	public RngFileResult downloadNexacroFiles(FileVo fileVo) {
 		validateFileRoot();
 		validateCommonFileInfo(fileVo);
-		return new RngFileResult(fileMapper.selectFileInfo(fileVo));
+		FileVo rlstFileVo = fileMapper.selectFileInfo(fileVo);
+		return new RngFileResult(rlstFileVo.getFilePath(), rlstFileVo.getSavedFileName(),
+				rlstFileVo.getOriginalFileName(), MediaType.APPLICATION_OCTET_STREAM_VALUE);
 	}
 	
 	@Override

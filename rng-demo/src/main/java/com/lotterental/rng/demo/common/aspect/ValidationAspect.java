@@ -9,9 +9,9 @@ import org.aspectj.lang.annotation.Aspect;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.lotterental.rng.core.common.exception.BusinessException;
-import com.lotterental.rng.demo.common.base.BaseMetaVo;
-import com.lotterental.rng.demo.common.component.result.RngErrorResult;
-import com.lotterental.rng.demo.common.component.result.RngResult;
+import com.lotterental.rng.core.common.base.BaseMetaVo;
+import com.lotterental.rng.core.common.component.result.RngErrorResult;
+import com.lotterental.rng.core.common.component.result.RngResult;
 import com.lotterental.rng.demo.common.validation.RngValidator;
 
 import lombok.extern.slf4j.Slf4j;

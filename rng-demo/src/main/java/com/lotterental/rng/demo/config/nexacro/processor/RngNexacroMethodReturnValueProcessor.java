@@ -7,13 +7,13 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
-import com.lotterental.rng.core.base.BaseVo;
+import com.lotterental.rng.core.common.base.BaseVo;
 import com.lotterental.rng.core.common.exception.BusinessException;
-import com.lotterental.rng.demo.common.annotation.ResponseIgnore;
-import com.lotterental.rng.demo.common.base.BaseGridVo;
-import com.lotterental.rng.demo.common.cnst.HandlerParameterType;
-import com.lotterental.rng.demo.common.cnst.HandlerReturnType;
-import com.lotterental.rng.demo.common.component.result.RngResult;
+import com.lotterental.rng.core.common.annotation.ResponseIgnore;
+import com.lotterental.rng.core.common.base.BaseGridVo;
+import com.lotterental.rng.core.common.cnst.HandlerParameterType;
+import com.lotterental.rng.core.common.cnst.HandlerReturnType;
+import com.lotterental.rng.core.common.component.result.RngResult;
 
 public class RngNexacroMethodReturnValueProcessor {
 	

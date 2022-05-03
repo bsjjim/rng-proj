@@ -1,6 +1,6 @@
 package com.lotterental.rng.demo.example.vo;
 
-import com.lotterental.rng.demo.common.base.BaseGridVo;
+import com.lotterental.rng.core.common.base.BaseGridVo;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

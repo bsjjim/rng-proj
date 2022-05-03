@@ -2,7 +2,7 @@ package com.lotterental.rng.demo.example.service;
 
 import java.util.List;
 
-import com.lotterental.rng.demo.common.base.BusinessData;
+import com.lotterental.rng.core.common.base.BusinessData;
 
 public interface NexacroDataService {
 	

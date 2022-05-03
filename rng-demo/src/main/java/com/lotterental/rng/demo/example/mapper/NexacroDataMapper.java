@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.lotterental.rng.demo.common.base.BusinessData;
+import com.lotterental.rng.core.common.base.BusinessData;
 
 @Mapper
 public interface NexacroDataMapper {

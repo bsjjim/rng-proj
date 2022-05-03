@@ -13,7 +13,7 @@ import org.springframework.web.method.support.ModelAndViewContainer;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.support.DefaultMultipartHttpServletRequest;
 
-import com.lotterental.rng.demo.common.file.RngMultipartFile;
+import com.lotterental.rng.core.common.file.RngMultipartFile;
 
 public class RngMultipartFileMethodArgumentResolver implements HandlerMethodArgumentResolver {
 

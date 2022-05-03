@@ -7,7 +7,7 @@ import java.util.List;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.lotterental.rng.core.common.exception.BusinessException;
-import com.lotterental.rng.demo.common.file.RngFileResult;
+import com.lotterental.rng.core.common.file.RngFileResult;
 import com.lotterental.rng.demo.example.vo.FileVo;
 
 public interface FileService {

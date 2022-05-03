@@ -10,8 +10,8 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.lotterental.rng.core.common.exception.BusinessException;
-import com.lotterental.rng.demo.common.component.result.RngResult;
-import com.lotterental.rng.demo.common.http.RestUtils;
+import com.lotterental.rng.core.common.component.result.RngResult;
+import com.lotterental.rng.core.utils.RestUtils;
 import com.lotterental.rng.demo.example.service.NexacroVoService;
 import com.lotterental.rng.demo.example.vo.NexacroVo;
 import com.nexacro.uiadapter.spring.core.annotation.ParamDataSet;
@@ -21,10 +21,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Controller
 public class NexacroVoController {
-
     @Autowired
     private NexacroVoService nexacroService;
-
     @PostMapping("/selectnexacrovo")
     public RngResult selectNexacroVo(@ParamDataSet(name = "dsImp") NexacroVo nexacroVo) {
     	log.debug("parameter = {}", nexacroVo);

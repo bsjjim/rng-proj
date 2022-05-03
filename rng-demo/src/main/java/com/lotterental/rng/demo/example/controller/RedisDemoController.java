@@ -14,6 +14,7 @@ import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @RestController
+@SuppressWarnings("unchecked")
 @RequestMapping("/redisdemo")
 public class RedisDemoController {
 

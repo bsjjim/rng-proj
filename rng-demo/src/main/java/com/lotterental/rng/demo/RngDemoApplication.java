@@ -18,7 +18,7 @@ public class RngDemoApplication {
 
 	public static void main(String[] args)  {
 		String profile = System.getProperty("spring.profiles.active");
-		log.info("Profile test2: [{}]", profile);
+		log.info("Profile test : [{}]", profile);
 		if (profile != null) {
 			if(profile.equals("local")) {
 				AppStartingEvent.getProcInfo(redisServerStr, redisExecStr);

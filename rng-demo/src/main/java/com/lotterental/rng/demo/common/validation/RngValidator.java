@@ -3,7 +3,7 @@ package com.lotterental.rng.demo.common.validation;
 import javax.validation.ConstraintViolation;
 
 import com.lotterental.rng.core.common.exception.BusinessException;
-import com.lotterental.rng.demo.common.base.BaseMetaVo;
+import com.lotterental.rng.core.common.base.BaseMetaVo;
 
 public interface RngValidator {
 	

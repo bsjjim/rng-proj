@@ -5,7 +5,7 @@ import java.lang.reflect.Field;
 import java.util.Objects;
 import java.util.stream.Stream;
 
-import com.lotterental.rng.demo.common.base.BaseMetaVo;
+import com.lotterental.rng.core.common.base.BaseMetaVo;
 import com.lotterental.rng.demo.common.validation.RngValidator;
 
 public class RngReflectionValidator implements RngValidator {

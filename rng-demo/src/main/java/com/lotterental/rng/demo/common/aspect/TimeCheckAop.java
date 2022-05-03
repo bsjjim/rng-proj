@@ -16,7 +16,7 @@ public class TimeCheckAop {
     private long beforeTime;
     private long afterTime;
 
-    @Pointcut("@annotation(com.lotterental.rng.demo.common.annotation.TimeCheck)")
+    @Pointcut("@annotation(com.lotterental.rng.core.common.annotation.TimeCheck)")
     public void TimeCheck() {}
 
     @Before("TimeCheck()")

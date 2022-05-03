@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.lotterental.rng.core.common.exception.BusinessException;
-import com.lotterental.rng.demo.common.component.result.RngResult;
+import com.lotterental.rng.core.common.component.result.RngResult;
 import com.lotterental.rng.demo.example.service.NexacroMapService;
 import com.nexacro.uiadapter.spring.core.annotation.ParamDataSet;
 

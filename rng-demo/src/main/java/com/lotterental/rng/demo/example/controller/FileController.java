@@ -10,12 +10,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.lotterental.rng.core.common.exception.BusinessException;
-import com.lotterental.rng.demo.common.component.result.RngResult;
-import com.lotterental.rng.demo.common.file.RngFileResult;
-import com.lotterental.rng.demo.common.file.RngMultipartFile;
+import com.lotterental.rng.core.common.component.result.RngResult;
+import com.lotterental.rng.core.common.file.RngFileResult;
+import com.lotterental.rng.core.common.file.RngMultipartFile;
 import com.lotterental.rng.demo.example.service.FileService;
 import com.lotterental.rng.demo.example.vo.FileVo;
-import com.lotterental.rng.demo.utils.ErrorCodeUtil;
+import com.lotterental.rng.core.utils.ErrorCodeUtil;
 import com.nexacro.uiadapter.spring.core.annotation.ParamVariable;
 
 import lombok.extern.slf4j.Slf4j;

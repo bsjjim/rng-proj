@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
 
-import com.lotterental.rng.demo.common.cnst.HandlerParameterType;
+import com.lotterental.rng.core.common.cnst.HandlerParameterType;
 import com.lotterental.rng.core.common.exception.BusinessException;
 
 public class RngNexacroMethodArgumentProcessor {

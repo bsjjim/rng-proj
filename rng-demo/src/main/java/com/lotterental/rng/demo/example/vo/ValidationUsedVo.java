@@ -1,6 +1,6 @@
 package com.lotterental.rng.demo.example.vo;
 
-import com.lotterental.rng.demo.common.base.BaseMetaVo;
+import com.lotterental.rng.core.common.base.BaseMetaVo;
 import com.lotterental.rng.demo.common.validation.annotation.RngMax;
 import com.lotterental.rng.demo.common.validation.annotation.RngMin;
 import com.lotterental.rng.demo.common.validation.annotation.RngNotBlank;

@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.lotterental.rng.core.common.exception.BusinessException;
-import com.lotterental.rng.demo.common.component.BasicGridBizComponent;
+import com.lotterental.rng.core.common.component.BasicGridBizComponent;
 import com.lotterental.rng.demo.example.mapper.NexacroComponentMapper;
 import com.lotterental.rng.demo.example.mapper.NexacroVoMapper;
 import com.lotterental.rng.demo.example.model.NexacroModel;

@@ -8,7 +8,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.lotterental.rng.core.common.exception.BusinessException;
-import com.lotterental.rng.demo.common.component.result.RngResult;
+import com.lotterental.rng.core.common.component.result.RngResult;
 import com.lotterental.rng.demo.example.service.ValidationService;
 import com.lotterental.rng.demo.example.vo.ValidationUsedVo;
 import com.lotterental.rng.demo.example.vo.ValidationVo;

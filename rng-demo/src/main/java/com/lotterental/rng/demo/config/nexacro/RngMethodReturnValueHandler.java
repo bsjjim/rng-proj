@@ -5,8 +5,8 @@ import org.springframework.lang.Nullable;
 import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.ModelAndViewContainer;
 
-import com.lotterental.rng.demo.common.component.result.RngResult;
-import com.lotterental.rng.demo.common.file.RngFileResult;
+import com.lotterental.rng.core.common.component.result.RngResult;
+import com.lotterental.rng.core.common.file.RngFileResult;
 import com.lotterental.rng.demo.config.nexacro.processor.RngNexacroMethodReturnValueProcessor;
 import com.nexacro.uiadapter.spring.core.resolve.NexacroHandlerMethodReturnValueHandler;
 

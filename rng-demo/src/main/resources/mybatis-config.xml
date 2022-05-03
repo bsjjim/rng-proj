@@ -13,7 +13,7 @@
         <setting name="jdbcTypeForNull" value="NULL" />
     </settings>
     <typeAliases>
-    	<typeAlias type="com.lotterental.rng.demo.common.base.BusinessData" alias="bizData"/>
+    	<typeAlias type="com.lotterental.rng.core.common.base.BusinessData" alias="bizData"/>
     </typeAliases>
     <!-- myBatis Inteceptor for get column information  -->
     <plugins>

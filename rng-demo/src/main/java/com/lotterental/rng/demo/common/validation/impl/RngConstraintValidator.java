@@ -5,7 +5,7 @@ import java.util.Objects;
 import javax.validation.Validation;
 import javax.validation.Validator;
 
-import com.lotterental.rng.demo.common.base.BaseMetaVo;
+import com.lotterental.rng.core.common.base.BaseMetaVo;
 import com.lotterental.rng.demo.common.validation.RngValidator;
 
 public class RngConstraintValidator implements RngValidator {

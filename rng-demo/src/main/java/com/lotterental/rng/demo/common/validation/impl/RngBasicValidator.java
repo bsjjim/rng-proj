@@ -11,7 +11,7 @@ import java.util.Map;
 import org.hibernate.validator.internal.util.logging.Log;
 import org.hibernate.validator.internal.util.logging.LoggerFactory;
 
-import com.lotterental.rng.demo.common.base.BaseMetaVo;
+import com.lotterental.rng.core.common.base.BaseMetaVo;
 import com.lotterental.rng.demo.common.validation.annotation.RngMax;
 import com.lotterental.rng.demo.common.validation.annotation.RngMin;
 import com.lotterental.rng.demo.common.validation.annotation.RngNotBlank;

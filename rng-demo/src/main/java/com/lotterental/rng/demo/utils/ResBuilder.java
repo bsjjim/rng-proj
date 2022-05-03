@@ -1,8 +1,8 @@
 package com.lotterental.rng.demo.utils;
 
 
-import com.lotterental.rng.demo.common.mask.MaskCryptProcess;
-import com.lotterental.rng.core.base.BaseVo;
+import com.lotterental.rng.core.common.mask.MaskCryptProcess;
+import com.lotterental.rng.core.common.base.BaseVo;
 import com.nexacro.uiadapter.spring.core.data.NexacroResult;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;

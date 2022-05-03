@@ -29,8 +29,8 @@ import org.springframework.web.multipart.support.MultipartFilter;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 
-import com.lotterental.rng.demo.common.converter.RngDataSetToListConverter;
-import com.lotterental.rng.demo.common.converter.RngDataSetToObjectConverter;
+import com.lotterental.rng.core.common.converter.RngDataSetToListConverter;
+import com.lotterental.rng.core.common.converter.RngDataSetToObjectConverter;
 import com.lotterental.rng.demo.config.WebAppConfig;
 import com.lotterental.rng.core.common.exception.BusinessException;
 import com.nexacro.java.xapi.tx.PlatformType;

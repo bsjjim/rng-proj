@@ -1,7 +1,7 @@
 package com.lotterental.rng.demo.example.model;
 
-import com.lotterental.rng.core.base.BaseModel;
-import com.lotterental.rng.core.base.BaseVo;
+import com.lotterental.rng.core.common.base.BaseModel;
+import com.lotterental.rng.core.common.base.BaseVo;
 import com.lotterental.rng.demo.example.vo.CopyVo;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
