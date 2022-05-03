@@ -1,6 +1,6 @@
 package com.lotterental.rng.core.common.exception;
 
-import com.lotterental.rng.core.base.exception.BaseException;
+import com.lotterental.rng.core.common.base.exception.BaseException;
 
 import java.util.Locale;
 
