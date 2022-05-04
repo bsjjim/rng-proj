@@ -2,7 +2,6 @@ package com.lotterental.rng.demo.example.controller;
 
 import com.lotterental.rng.demo.example.service.CachingDemoService;
 import com.lotterental.rng.demo.example.vo.CachingDemoVo;
-import com.nexacro.uiadapter.spring.core.annotation.ParamVariable;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -32,9 +31,13 @@ public class CachingDemoController{
         return cachingDemoService.selectCachingList(key);
     }
 
-    @GetMapping("/insertcaching")
-    public void insertCaching() {
-        cachingDemoService.insertCaching();
+    @RequestMapping("/insert/{key}/{value}")
+    public void insertCaching(@PathVariable("key") String key, @PathVariable("value") String value) {
+        cachingDemoService.insertCaching(key, value);
     }
 
+    @RequestMapping("/get/ehcache/{key}")
+    public String getEhCacheComName(@PathVariable("key") String key) {
+        return cachingDemoService.getEhCacheComName(key);
+    }
 }

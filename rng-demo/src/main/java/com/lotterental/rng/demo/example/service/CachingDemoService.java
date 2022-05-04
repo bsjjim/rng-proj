@@ -12,5 +12,7 @@ public interface CachingDemoService {
 
     List<CachingDemoVo> selectCachingList(String key);
 
-    void insertCaching();
+    void insertCaching(String key, String value);
+
+    String getEhCacheComName(String key);
 }

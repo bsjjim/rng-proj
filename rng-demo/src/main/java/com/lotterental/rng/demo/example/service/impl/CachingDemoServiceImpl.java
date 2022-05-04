@@ -7,6 +7,7 @@ import com.lotterental.rng.demo.example.vo.CachingDemoVo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -27,14 +28,13 @@ public class CachingDemoServiceImpl implements CachingDemoService {
         return cachingDemoMapper.selectComCd(key);
     }
 
-//  (value = "LocalCacheData", key="getComName", cacheManager = "ehCacheManager")
-    @Cacheable(cacheNames = "getComName", key="#key", cacheManager = "redisCacheManager")
+    @Cacheable(cacheNames = "COMNAME", key="#key", cacheManager = "redisCacheManager", unless = "#result == null")
     @Override
     public String getComName(String key) {
         return cachingDemoMapper.getComName(key);
     }
 
-    @Cacheable(cacheNames = "selectCachingList", key= "#key", cacheManager = "redisCacheManager")
+    @Cacheable(cacheNames = "COMCDLIST", key= "#key", cacheManager = "redisCacheManager")
     @Override
     public List<CachingDemoVo> selectCachingList(String key) {
         List<CachingDemoVo> comCdList = cachingDemoMapper.selectCachingList(key);
@@ -42,12 +42,19 @@ public class CachingDemoServiceImpl implements CachingDemoService {
         return comCdList;
     }
 
+    @CacheEvict(cacheNames = "COMNAME", key= "#key", cacheManager = "redisCacheManager")
     @Override
-    public void insertCaching() {
+    public void insertCaching(String key, String value) {
         CachingDemoModel cachingDemoModel = new CachingDemoModel();
-        cachingDemoModel.setComCd("code008");
-        cachingDemoModel.setComName("lmh8");
+        cachingDemoModel.setComCd(key);
+        cachingDemoModel.setComName(value);
         cachingDemoMapper.insertCaching(cachingDemoModel);
+    }
+
+    @Cacheable(value = "CCH:L", key="#key", cacheManager = "ehCacheManager")
+    @Override
+    public String getEhCacheComName(String key) {
+        return cachingDemoMapper.getComName(key);
     }
 
 }

@@ -26,7 +26,7 @@
         WHERE COM_CD = #{key}
     </select>
 
-    <select id="insertCaching" parameterType="com.lotterental.rng.demo.example.model.CachingDemoModel">
+    <insert id="insertCaching" parameterType="com.lotterental.rng.demo.example.model.CachingDemoModel">
         INSERT INTO SAMPLE_TDB.DEMO_CACHING(
             COM_CD
             , COM_NAME
@@ -36,5 +36,5 @@
             , #{comName}
             , SYSDATE
             )
-    </select>
+    </insert>
 </mapper>
