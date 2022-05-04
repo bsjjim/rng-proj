@@ -1,7 +1,7 @@
 package com.lotterental.rng.demo.example.service.impl;
 
-import com.lotterental.rng.demo.common.cache.CacheKey;
 import com.lotterental.rng.demo.example.mapper.CachingDemoMapper;
+import com.lotterental.rng.demo.example.model.CachingDemoModel;
 import com.lotterental.rng.demo.example.service.CachingDemoService;
 import com.lotterental.rng.demo.example.vo.CachingDemoVo;
 import lombok.RequiredArgsConstructor;
@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Slf4j
@@ -20,19 +21,33 @@ public class CachingDemoServiceImpl implements CachingDemoService {
     @Autowired
     private CachingDemoMapper cachingDemoMapper;
 
-//    @Cacheable(value = CacheKey.COMCD, key = "#id", unless = "#result == null")
+    @Cacheable(cacheNames = "selectComCd", key="#key", cacheManager = "redisCacheManager")
     @Override
-    public CachingDemoVo getComCd(String id) {
-        return cachingDemoMapper.getComCd(id);
+    public CachingDemoVo selectComCd(String key) {
+        return cachingDemoMapper.selectComCd(key);
     }
 
-    @Cacheable(value = CacheKey.POST)
+//  (value = "LocalCacheData", key="getComName", cacheManager = "ehCacheManager")
+    @Cacheable(cacheNames = "getComName", key="#key", cacheManager = "redisCacheManager")
     @Override
-    public List<CachingDemoVo> selectComCdList() {
-        List<CachingDemoVo> comCdList = cachingDemoMapper.selectComCdList();
+    public String getComName(String key) {
+        return cachingDemoMapper.getComName(key);
+    }
+
+    @Cacheable(cacheNames = "selectCachingList", key= "#key", cacheManager = "redisCacheManager")
+    @Override
+    public List<CachingDemoVo> selectCachingList(String key) {
+        List<CachingDemoVo> comCdList = cachingDemoMapper.selectCachingList(key);
         log.info("selectComCd ================= {}", comCdList);
         return comCdList;
     }
 
+    @Override
+    public void insertCaching() {
+        CachingDemoModel cachingDemoModel = new CachingDemoModel();
+        cachingDemoModel.setComCd("code008");
+        cachingDemoModel.setComName("lmh8");
+        cachingDemoMapper.insertCaching(cachingDemoModel);
+    }
 
 }

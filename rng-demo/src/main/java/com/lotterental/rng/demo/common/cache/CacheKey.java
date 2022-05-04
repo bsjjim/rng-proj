@@ -1,9 +1,20 @@
 package com.lotterental.rng.demo.common.cache;
 
-public class CacheKey {
-    public static final int DEFAULT_EXPIRE_SEC = 60;
-    public static final int POST_EXPIRE_SEC = 60 * 5;
-    public static final String POST = "POST";
-    public static final int COMCD_EXPIRE_SEC = 60 * 5;
-    public static final String COMCD = "COMCD";
+public enum CacheKey {
+    COMMON("CMN", 3600);
+
+    CacheKey(String key, int timeOut) {
+        this.key = key;
+        this.timeOut = timeOut;
+    }
+
+    private String key;
+    private int timeOut;
+
+    public String key() {
+        return this.key;
+    }
+    public int timeOut() {
+        return this.timeOut;
+    }
 }

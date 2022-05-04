@@ -11,20 +11,30 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@RequestMapping("/caching")
-public class CachingDemoController {
+@RequestMapping("/caching/demo")
+public class CachingDemoController{
 
     @Autowired
     private CachingDemoService cachingDemoService;
 
-    @GetMapping("/getcomcd")
-    public CachingDemoVo getComCd(@RequestParam("id") String id) {
-        return cachingDemoService.getComCd(id);
+    @RequestMapping("/select/{key}")
+    public CachingDemoVo selectComCd(@PathVariable("key") String key) {
+        return cachingDemoService.selectComCd(key);
     }
 
-    @GetMapping("/selectcomcdlist")
-    public List<CachingDemoVo> selectComCdList() {
-        return cachingDemoService.selectComCdList();
+    @RequestMapping("/get/{key}")
+    public String getComName(@PathVariable("key") String key) {
+        return cachingDemoService.getComName(key);
+    }
+
+    @RequestMapping("/select/list/{key}")
+    public List<CachingDemoVo> selectCachingList(@PathVariable("key") String key) {
+        return cachingDemoService.selectCachingList(key);
+    }
+
+    @GetMapping("/insertcaching")
+    public void insertCaching() {
+        cachingDemoService.insertCaching();
     }
 
 }

@@ -5,7 +5,12 @@ import com.lotterental.rng.demo.example.vo.CachingDemoVo;
 import java.util.List;
 
 public interface CachingDemoService {
-    List<CachingDemoVo> selectComCdList();
 
-    CachingDemoVo getComCd(String id);
+    CachingDemoVo selectComCd(String key);
+
+    String getComName(String key);
+
+    List<CachingDemoVo> selectCachingList(String key);
+
+    void insertCaching();
 }

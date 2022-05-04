@@ -2,19 +2,39 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lotterental.rng.demo.example.mapper.CachingDemoMapper">
 
-    <select id="getComCd" resultType="com.lotterental.rng.demo.example.vo.CachingDemoVo">
+    <select id="selectComCd" resultType="com.lotterental.rng.demo.example.vo.CachingDemoVo">
         SELECT
             COM_CD
              , COM_NAME
         FROM SAMPLE_TDB.DEMO_CACHING
-        WHERE COM_CD = #{id}
+        WHERE COM_CD = #{key}
     </select>
 
-    <select id="selectComCdList" resultType="com.lotterental.rng.demo.example.vo.CachingDemoVo">
+    <select id="getComName" resultType="String">
+        SELECT
+            COM_NAME
+        FROM SAMPLE_TDB.DEMO_CACHING
+        WHERE COM_CD = #{key}
+    </select>
+
+    <select id="selectCachingList" resultType="com.lotterental.rng.demo.example.vo.CachingDemoVo">
         SELECT
             COM_CD
             , COM_NAME
+            , REG_DATE
         FROM SAMPLE_TDB.DEMO_CACHING
+        WHERE COM_CD = #{key}
     </select>
 
+    <select id="insertCaching" parameterType="com.lotterental.rng.demo.example.model.CachingDemoModel">
+        INSERT INTO SAMPLE_TDB.DEMO_CACHING(
+            COM_CD
+            , COM_NAME
+            , REG_DATE
+            )VALUES(
+            #{comCd}
+            , #{comName}
+            , SYSDATE
+            )
+    </select>
 </mapper>

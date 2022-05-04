@@ -8,6 +8,6 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 public class CachingDemoVo implements Serializable {
-    private String ComCd;
-    private String ComName;
+    private String comCd;
+    private String comName;
 }
