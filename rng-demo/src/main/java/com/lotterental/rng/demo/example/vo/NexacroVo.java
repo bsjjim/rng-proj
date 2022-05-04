@@ -1,6 +1,7 @@
 package com.lotterental.rng.demo.example.vo;
 
 import com.lotterental.rng.core.common.base.BaseGridVo;
+import com.lotterental.rng.demo.example.model.NexacroModel;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -38,4 +39,33 @@ public final class NexacroVo extends BaseGridVo {
 	private String aenamt;
 	private String aedat;
 	private String message;
+	
+	public NexacroModel toModel() {
+        return NexacroModel.builder()
+        		.sysCd(sysCd)
+        		.modId(modId)
+        		.modNm(modNm)
+        		.modTy(modTy)
+        		.modGcd(modGcd)
+        		.claNm(claNm)
+        		.useYn(useYn)
+        		.des2(des2)
+        		.dutL(dutL)
+        		.dutM(dutM)
+        		.dutS(dutS)
+        		.inqYn(inqYn)
+        		.rgYn(rgYn)
+        		.delYn(delYn)
+        		.prtYn(prtYn)
+        		.exlYn(exlYn)
+        		.conYn(conYn)
+        		.ernam(ernam)
+        		.ernamt(ernamt)
+        		.erdat(erdat)
+        		.aenam(aenam)
+        		.aenamt(aenamt)
+        		.aedat(aedat)
+        		.message(message)
+                .build();
+	}
 }

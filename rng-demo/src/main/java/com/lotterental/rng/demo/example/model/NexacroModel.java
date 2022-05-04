@@ -1,14 +1,16 @@
 package com.lotterental.rng.demo.example.model;
 
-
 import com.lotterental.rng.core.common.base.BaseModel;
 import com.lotterental.rng.demo.example.vo.NexacroVo;
 
+import lombok.Builder;
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 @Data
-public class NexacroModel {
-
+@Builder
+@Accessors(chain = true)
+public class NexacroModel implements BaseModel {
 	private String sysCd;
 	private String modId;
 	private String modNm;

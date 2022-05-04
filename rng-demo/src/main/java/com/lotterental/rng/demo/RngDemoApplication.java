@@ -12,8 +12,8 @@ import org.springframework.context.annotation.ComponentScan;
 public class RngDemoApplication {
 
 	public static String redisServerStr = "redis-server.exe";
-//	public static String redisExecStr = "D:/rng/redis/redis-server.exe D:/rng/redis/redis.windows.conf";
-    public static String redisExecStr = "C:/Users/byun/Documents/rng/redis/redis-server.exe C:/Users/byun/Documents/rng/redis/redis.windows.conf";
+	public static String redisExecStr = "D:/rng/redis/redis-server.exe D:/rng/redis/redis.windows.conf";
+//    public static String redisExecStr = "C:/Users/byun/Documents/rng/redis/redis-server.exe C:/Users/byun/Documents/rng/redis/redis.windows.conf";
 
 
 	public static void main(String[] args)  {

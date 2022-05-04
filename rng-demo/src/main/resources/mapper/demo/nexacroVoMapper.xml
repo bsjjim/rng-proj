@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lotterental.rng.demo.example.mapper.NexacroVoMapper">
 
-	<select id="selectNexacroVo" parameterType="NexacroVo" resultType="NexacroModel">
+	<select id="selectNexacroVoByVo" parameterType="NexacroVo" resultType="NexacroVo">
 		SELECT SYS_CD
 			 , MOD_ID
 			 , MOD_NM
@@ -27,6 +27,24 @@
 			 , AENAMT
 			 , AEDAT
 			 , MESSAGE
+		  FROM NEXA_SAMPLE
+		 WHERE MOD_ID = #{modId}
+    </select>
+    
+    <select id="selectNexacroVoByModel" parameterType="NexacroModel" resultType="NexacroVo">
+		SELECT SYS_CD
+		  FROM NEXA_SAMPLE
+		 WHERE MOD_ID = #{modId}
+    </select>
+    
+    <select id="selectNexacroModelByVo" parameterType="NexacroVo" resultType="NexacroModel">
+		SELECT MOD_NM
+		  FROM NEXA_SAMPLE
+		 WHERE MOD_ID = #{modId}
+    </select>
+    
+    <select id="selectNexacroModelByModel" parameterType="NexacroModel" resultType="NexacroModel">
+		SELECT MOD_TY
 		  FROM NEXA_SAMPLE
 		 WHERE MOD_ID = #{modId}
     </select>
@@ -70,7 +88,71 @@
 		</if>
     </select>
     
-    <select id="selectBusinessRule" parameterType="NexacroVo" resultType="NexacroModel">
+    <select id="selectNexacroVoListByVo" parameterType="NexacroVo" resultType="NexacroVo">
+		SELECT SYS_CD
+		  FROM NEXA_SAMPLE
+		 WHERE MOD_ID LIKE #{modId} || '%'
+		   AND MOD_NM LIKE '%' || #{modNm} || '%'
+		<if test="modGcd != null and modGcd != ''">		   
+		   AND MOD_GCD = #{modGcd}
+		</if>
+		<if test="modTy != null and modTy != ''">
+		   AND MOD_TY = #{modTy}
+		</if>
+		<if test="sysCd != null and sysCd != ''">
+		   AND SYS_CD = #{sysCd}
+		</if>
+    </select>
+    
+    <select id="selectNexacroVoListByModel" parameterType="NexacroModel" resultType="NexacroVo">
+		SELECT MOD_NM
+		  FROM NEXA_SAMPLE
+		 WHERE MOD_ID LIKE #{modId} || '%'
+		   AND MOD_NM LIKE '%' || #{modNm} || '%'
+		<if test="modGcd != null and modGcd != ''">		   
+		   AND MOD_GCD = #{modGcd}
+		</if>
+		<if test="modTy != null and modTy != ''">
+		   AND MOD_TY = #{modTy}
+		</if>
+		<if test="sysCd != null and sysCd != ''">
+		   AND SYS_CD = #{sysCd}
+		</if>
+    </select>
+    
+    <select id="selectNexacroModelListByVo" parameterType="NexacroVo" resultType="NexacroModel">
+		SELECT SYS_CD
+		  FROM NEXA_SAMPLE
+		 WHERE MOD_ID LIKE #{modId} || '%'
+		   AND MOD_NM LIKE '%' || #{modNm} || '%'
+		<if test="modGcd != null and modGcd != ''">		   
+		   AND MOD_GCD = #{modGcd}
+		</if>
+		<if test="modTy != null and modTy != ''">
+		   AND MOD_TY = #{modTy}
+		</if>
+		<if test="sysCd != null and sysCd != ''">
+		   AND SYS_CD = #{sysCd}
+		</if>
+    </select>
+    
+    <select id="selectNexacroModelListByModel" parameterType="NexacroModel" resultType="NexacroModel">
+		SELECT MOD_TY
+		  FROM NEXA_SAMPLE
+		 WHERE MOD_ID LIKE #{modId} || '%'
+		   AND MOD_NM LIKE '%' || #{modNm} || '%'
+		<if test="modGcd != null and modGcd != ''">		   
+		   AND MOD_GCD = #{modGcd}
+		</if>
+		<if test="modTy != null and modTy != ''">
+		   AND MOD_TY = #{modTy}
+		</if>
+		<if test="sysCd != null and sysCd != ''">
+		   AND SYS_CD = #{sysCd}
+		</if>
+    </select>
+    
+    <select id="selectBusinessRule" parameterType="NexacroVo" resultType="NexacroVo">
 		SELECT 'RULE' AS MESSAGE
 		  FROM DUAL
     </select>

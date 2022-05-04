@@ -1,13 +1,14 @@
 package com.lotterental.rng.demo.example.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.lotterental.rng.core.common.exception.BusinessException;
 import com.lotterental.rng.core.common.component.BasicGridBizComponent;
+import com.lotterental.rng.core.common.exception.BusinessException;
 import com.lotterental.rng.demo.example.mapper.NexacroComponentMapper;
 import com.lotterental.rng.demo.example.mapper.NexacroVoMapper;
 import com.lotterental.rng.demo.example.model.NexacroModel;
@@ -24,18 +25,80 @@ public class NexacroVoServiceImpl implements NexacroVoService {
     private NexacroComponentMapper nexacroComponentMapper;
 
     @Override
-	public NexacroVo selectNexacroVo(NexacroVo nexacroVo) {
-    	NexacroModel model = nexacroVoMapper.selectNexacroVo(nexacroVo);
-    	return model != null ? model.build() : null;
+	public NexacroVo selectNexacroVoByVoAndVo(NexacroVo nexacroVo) {
+    	// vo => vo
+    	return nexacroVoMapper.selectNexacroVoByVo(nexacroVo);
 	}
     
     @Override
-    public List<NexacroVo> selectNexacroVoList(NexacroVo nexacroVo) throws BusinessException {
-    	NexacroModel rule = nexacroVoMapper.selectBusinessRule(nexacroVo);
+	public NexacroVo selectNexacroVoByVo2VoAndVo(NexacroVo nexacroVo) {
+    	// vo - vo => vo
+    	nexacroVo.setDes2("input data change");
+    	return nexacroVoMapper.selectNexacroVoByVo(nexacroVo);
+	}
+    
+    @Override
+	public NexacroVo selectNexacroVoByVo2ModelAndVo(NexacroVo nexacroVo) {
+    	// vo - model => vo
+    	NexacroModel nexacroModel = nexacroVo.toModel().setDes2("input data change");
+    	return nexacroVoMapper.selectNexacroVoByModel(nexacroModel);
+	}
+    
+    @Override
+	public NexacroVo selectNexacroVoByVoAndModel2Vo(NexacroVo nexacroVo) {
+    	// vo => model - vo
+    	NexacroModel nexacroModel = nexacroVoMapper.selectNexacroModelByVo(nexacroVo);
+    	return (nexacroModel != null) ? nexacroModel.setDes2("output data change").build() : null;
+	}
+    
+    @Override
+	public NexacroVo selectNexacroVoByVo2ModelAndModel2Vo(NexacroVo nexacroVo) {
+    	// vo - model => model - vo
+    	NexacroModel inputModel = nexacroVo.toModel().setDes2("input data change");
+    	return Optional.ofNullable(nexacroVoMapper.selectNexacroModelByModel(inputModel))
+    			.map(model -> model.setDes2("output data change").build())
+    			.orElse(null);
+	}
+    
+    @Override
+    public List<NexacroVo> selectNexacroVoListByVoAndVo(NexacroVo nexacroVo) throws BusinessException {
+    	// vo => vo
+    	NexacroVo rule = nexacroVoMapper.selectBusinessRule(nexacroVo);
     	if (rule == null) {
     		throw new BusinessException("error", "업무 규칙");
     	}
-		return nexacroVoMapper.selectNexacroVoList(nexacroVo).stream()
+		return nexacroVoMapper.selectNexacroVoListByVo(nexacroVo);
+    }
+    
+    @Override
+    public List<NexacroVo> selectNexacroVoListByVo2VoAndVo(NexacroVo nexacroVo) {
+    	// vo - vo => vo
+    	nexacroVo.setDes2("input data change");
+		return nexacroVoMapper.selectNexacroVoListByVo(nexacroVo);
+    }
+    
+    @Override
+    public List<NexacroVo> selectNexacroVoListByVo2ModelAndVo(NexacroVo nexacroVo) {
+    	// vo - model => vo
+    	NexacroModel nexacroModel = nexacroVo.toModel().setDes2("input data change");
+		return nexacroVoMapper.selectNexacroVoListByModel(nexacroModel);
+    }
+    
+    @Override
+    public List<NexacroVo> selectNexacroVoListByVoAndModel2Vo(NexacroVo nexacroVo) {
+    	// vo => model - vo
+		return nexacroVoMapper.selectNexacroModelListByVo(nexacroVo).stream()
+				.map(model -> model.setDes2("output data change"))
+				.map(NexacroModel::build)
+				.collect(Collectors.toList());
+    }
+    
+    @Override
+    public List<NexacroVo> selectNexacroVoListByVo2ModelAndModel2Vo(NexacroVo nexacroVo) {
+    	// vo - model => model - vo
+    	NexacroModel nexacroModel = nexacroVo.toModel().setDes2("input data change");
+		return nexacroVoMapper.selectNexacroModelListByModel(nexacroModel).stream()
+				.map(model -> model.setDes2("output data change"))
 				.map(NexacroModel::build)
 				.collect(Collectors.toList());
     }

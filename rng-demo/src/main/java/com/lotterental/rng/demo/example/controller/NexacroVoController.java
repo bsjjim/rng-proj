@@ -1,17 +1,14 @@
 package com.lotterental.rng.demo.example.controller;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.lotterental.rng.core.common.exception.BusinessException;
 import com.lotterental.rng.core.common.component.result.RngResult;
-import com.lotterental.rng.core.utils.RestUtils;
+import com.lotterental.rng.core.common.exception.BusinessException;
 import com.lotterental.rng.demo.example.service.NexacroVoService;
 import com.lotterental.rng.demo.example.vo.NexacroVo;
 import com.nexacro.uiadapter.spring.core.annotation.ParamDataSet;
@@ -21,14 +18,16 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Controller
 public class NexacroVoController {
+
     @Autowired
     private NexacroVoService nexacroService;
+
     @PostMapping("/selectnexacrovo")
     public RngResult selectNexacroVo(@ParamDataSet(name = "dsImp") NexacroVo nexacroVo) {
     	log.debug("parameter = {}", nexacroVo);
     	RngResult result = new RngResult();
     	try {
-    		result.addDataSet("dsRes", nexacroService.selectNexacroVo(nexacroVo));
+    		result.addDataSet("dsRes", nexacroService.selectNexacroVoByVoAndVo(nexacroVo));
     	} catch (Exception e) {
     		// 필요한 업무로직 존재시 처리
     		result.setErrorCode("E0001");	// 보여주고 싶은 에러 메시지
@@ -48,7 +47,7 @@ public class NexacroVoController {
     		result.setErrorParams("모듈명");
     	}
     	try {
-    		result.addDataSet("dsList", nexacroService.selectNexacroVoList(nexacroVo));
+    		result.addDataSet("dsList", nexacroService.selectNexacroVoListByVoAndVo(nexacroVo));
     	} catch (BusinessException e) {
     		// 필요한 업무로직 존재시 처리
     		result.setError(e);	// 에러코드 : e.getMessageId(), 파라미터 : e.getMessageArgs()
@@ -85,24 +84,24 @@ public class NexacroVoController {
     	return result;
     }
     
-    @PostMapping("/resttemplate")
-    public RngResult resttemplate(@ParamDataSet(name = "dsImp") NexacroVo nexacroVo) {
-    	log.debug("parameter = {}", nexacroVo);
-    	RngResult result = new RngResult();
-    	try {
-    		Map<String, String> param = new HashMap<String, String>();
-    		param.put("modId", nexacroVo.getModId());
-    		param.put("modNm", nexacroVo.getModNm());
-//    		result.add
-    		List<NexacroVo> nxList = RestUtils.getObjectByGetApi("http://localhost:8080/getrestsample", param, NexacroVo.class);
-    		log.debug("result = {}", nxList);
-    		result.addDataSet("dsList", nxList);
-    	} catch (Exception e) {
-    		e.printStackTrace();
-    		// 필요한 업무로직 존재시 처리
-    		result.setErrorCode("E0001");	// 보여주고 싶은 에러 메시지
-    	}
-    	return result;
-    }
+//    @PostMapping("/resttemplate")
+//    public RngResult resttemplate(@ParamDataSet(name = "dsImp") NexacroVo nexacroVo) {
+//    	log.debug("parameter = {}", nexacroVo);
+//    	RngResult result = new RngResult();
+//    	try {
+//    		Map<String, String> param = new HashMap<String, String>();
+//    		param.put("modId", nexacroVo.getModId());
+//    		param.put("modNm", nexacroVo.getModNm());
+////    		result.add
+//    		List<NexacroVo> nxList = RestUtils.getObjectByGetApi("http://localhost:8080/getrestsample", param, NexacroVo.class);
+//    		log.debug("result = {}", nxList);
+//    		result.addDataSet("dsList", nxList);
+//    	} catch (Exception e) {
+//    		e.printStackTrace();
+//    		// 필요한 업무로직 존재시 처리
+//    		result.setErrorCode("E0001");	// 보여주고 싶은 에러 메시지
+//    	}
+//    	return result;
+//    }
     
 }
