@@ -29,6 +29,7 @@ public class NexacroVoController {
     	try {
     		result.addDataSet("dsRes", nexacroService.selectNexacroVoByVoAndVo(nexacroVo));
     	} catch (Exception e) {
+    		log.error("error = {}", e);
     		// 필요한 업무로직 존재시 처리
     		result.setErrorCode("E0001");	// 보여주고 싶은 에러 메시지
     	}
@@ -36,7 +37,7 @@ public class NexacroVoController {
     }
     
     @PostMapping("/selectnexacrovolist")
-    public RngResult selectNexacroVoList(@ParamDataSet(name = "dsImp") NexacroVo nexacroVo) {
+    public RngResult selectNexacroVoListByVoAndVo(@ParamDataSet(name = "dsImp") NexacroVo nexacroVo) {
     	log.debug("parameter = {}", nexacroVo);
     	RngResult result = new RngResult();
     	if (!StringUtils.hasText(nexacroVo.getModId())) {
@@ -49,15 +50,81 @@ public class NexacroVoController {
     	try {
     		result.addDataSet("dsList", nexacroService.selectNexacroVoListByVoAndVo(nexacroVo));
     	} catch (BusinessException e) {
+    		log.error("error = {}", e);
     		// 필요한 업무로직 존재시 처리
     		result.setError(e);	// 에러코드 : e.getMessageId(), 파라미터 : e.getMessageArgs()
     	} catch (Exception e) {
+    		log.error("error = {}", e);
     		// 필요한 업무로직 존재시 처리
     		result.setErrorCode("E0001");	// 보여주고 싶은 에러 메시지
     	}
         return result;
     }
     
+    @PostMapping("/selectnexacrovolist")
+    public RngResult selectNexacroVoListByVo2ModelAndVo(@ParamDataSet(name = "dsImp") NexacroVo nexacroVo) {
+    	log.debug("parameter = {}", nexacroVo);
+    	RngResult result = new RngResult();
+    	try {
+    		result.addDataSet("dsList", nexacroService.selectNexacroVoListByVo2ModelAndVo(nexacroVo));
+    	} catch (BusinessException e) {
+    		log.error("error = {}", e);
+    		// 필요한 업무로직 존재시 처리
+    		result.setError(e);	// 에러코드 : e.getMessageId(), 파라미터 : e.getMessageArgs()
+    	} catch (Exception e) {
+    		log.error("error = {}", e);
+    		// 필요한 업무로직 존재시 처리
+    		result.setErrorCode("E0001");	// 보여주고 싶은 에러 메시지
+    	}
+        return result;
+    }
+    
+    @PostMapping("/selectnexacrovolist")
+    public RngResult selectNexacroVoListByVoAndModel2Vo(@ParamDataSet(name = "dsImp") NexacroVo nexacroVo) {
+    	log.debug("parameter = {}", nexacroVo);
+    	RngResult result = new RngResult();
+    	if (!StringUtils.hasText(nexacroVo.getModId())) {
+    		result.setErrorCode("required");
+    		result.setErrorParams("모듈ID");
+    	}
+    	try {
+    		result.addDataSet("dsList", nexacroService.selectNexacroVoListByVoAndModel2Vo(nexacroVo));
+    	} catch (BusinessException e) {
+    		log.error("error = {}", e);
+    		// 필요한 업무로직 존재시 처리
+    		result.setError(e);	// 에러코드 : e.getMessageId(), 파라미터 : e.getMessageArgs()
+    	} catch (Exception e) {
+    		log.error("error = {}", e);
+    		// 필요한 업무로직 존재시 처리
+    		result.setErrorCode("E0001");	// 보여주고 싶은 에러 메시지
+    	}
+        return result;
+    }
+    
+    @PostMapping("/selectnexacrovolist")
+    public RngResult selectNexacroVoListByVo2ModelAndModel2Vo(@ParamDataSet(name = "dsImp") NexacroVo nexacroVo) {
+    	log.debug("parameter = {}", nexacroVo);
+    	RngResult result = new RngResult();
+    	if (!StringUtils.hasText(nexacroVo.getModId())) {
+    		result.setErrorCode("required");
+    		result.setErrorParams("모듈ID");
+    	} else if (!StringUtils.hasText(nexacroVo.getModNm())) {
+    		result.setErrorCode("required");
+    		result.setErrorParams("모듈명");
+    	}
+    	try {
+    		result.addDataSet("dsList", nexacroService.selectNexacroVoListByVo2ModelAndModel2Vo(nexacroVo));
+    	} catch (BusinessException e) {
+    		log.error("error = {}", e);
+    		// 필요한 업무로직 존재시 처리
+    		result.setError(e);	// 에러코드 : e.getMessageId(), 파라미터 : e.getMessageArgs()
+    	} catch (Exception e) {
+    		log.error("error = {}", e);
+    		// 필요한 업무로직 존재시 처리
+    		result.setErrorCode("E0001");	// 보여주고 싶은 에러 메시지
+    	}
+        return result;
+    }
     @PostMapping("/savenexacrovo")
     public RngResult saveNexacroVo(@ParamDataSet(name = "dsSave") NexacroVo nexacroVo) {
     	log.debug("parameter = {}", nexacroVo);
@@ -65,6 +132,7 @@ public class NexacroVoController {
     	try {
     		nexacroService.saveNexacroVo(nexacroVo);
     	} catch (Exception e) {
+    		log.error("error = {}", e);
     		// 필요한 업무로직 존재시 처리
     		result.setErrorCode("E0001");	// 보여주고 싶은 에러 메시지
     	}
@@ -78,6 +146,7 @@ public class NexacroVoController {
     	try {
     		nexacroService.saveNexacroVoList(nexacroVoList);
     	} catch (Exception e) {
+    		log.error("error = {}", e);
     		// 필요한 업무로직 존재시 처리
     		result.setErrorCode("E0001");	// 보여주고 싶은 에러 메시지
     	}

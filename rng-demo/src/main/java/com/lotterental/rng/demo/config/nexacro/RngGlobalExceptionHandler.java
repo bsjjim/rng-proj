@@ -20,14 +20,14 @@ public class RngGlobalExceptionHandler {
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	@ExceptionHandler
 	public RngResult handleBusinessException(BusinessException ex, Locale locale) {
-		log.debug("exception = {}", ex);
+		log.error("exception = {}", ex);
 		return getErrorResult(ex.getMessageId(), ex.getMessage());
 	}
 	
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	@ExceptionHandler
 	public RngResult handleException(Exception ex) {
-		log.debug("exception = {}", ex);
+		log.error("exception = {}", ex);
 		return getErrorResult("기본에러메시지코드", "기본에러메시지");
 	}
 	

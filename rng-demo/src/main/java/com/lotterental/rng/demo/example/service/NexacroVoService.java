@@ -9,8 +9,6 @@ public interface NexacroVoService {
 	//단건 조회
 	NexacroVo selectNexacroVoByVoAndVo(NexacroVo nexacroVo);
 	
-	NexacroVo selectNexacroVoByVo2VoAndVo(NexacroVo nexacroVo);
-	
 	NexacroVo selectNexacroVoByVo2ModelAndVo(NexacroVo nexacroVo);
 		
 	NexacroVo selectNexacroVoByVoAndModel2Vo(NexacroVo nexacroVo);
@@ -19,8 +17,6 @@ public interface NexacroVoService {
 
     //다건 조회
     List<NexacroVo> selectNexacroVoListByVoAndVo(NexacroVo nexacroVo);
-    
-    List<NexacroVo> selectNexacroVoListByVo2VoAndVo(NexacroVo nexacroVo);
     
     List<NexacroVo> selectNexacroVoListByVo2ModelAndVo(NexacroVo nexacroVo);
     

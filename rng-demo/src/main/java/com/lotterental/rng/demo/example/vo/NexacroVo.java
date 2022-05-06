@@ -15,6 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 public final class NexacroVo extends BaseGridVo {
+	
 	private String sysCd;
 	private String modId;
 	private String modNm;
@@ -48,24 +49,10 @@ public final class NexacroVo extends BaseGridVo {
         		.modTy(modTy)
         		.modGcd(modGcd)
         		.claNm(claNm)
-        		.useYn(useYn)
         		.des2(des2)
-        		.dutL(dutL)
-        		.dutM(dutM)
-        		.dutS(dutS)
         		.inqYn(inqYn)
-        		.rgYn(rgYn)
-        		.delYn(delYn)
-        		.prtYn(prtYn)
-        		.exlYn(exlYn)
-        		.conYn(conYn)
-        		.ernam(ernam)
-        		.ernamt(ernamt)
-        		.erdat(erdat)
-        		.aenam(aenam)
-        		.aenamt(aenamt)
-        		.aedat(aedat)
         		.message(message)
                 .build();
 	}
+	
 }

@@ -90,6 +90,29 @@
     
     <select id="selectNexacroVoListByVo" parameterType="NexacroVo" resultType="NexacroVo">
 		SELECT SYS_CD
+			 , MOD_ID
+			 , MOD_NM
+			 , MOD_TY
+			 , MOD_GCD
+			 , CLA_NM
+			 , USE_YN
+			 , DES2
+			 , DUT_L
+			 , DUT_M
+			 , DUT_S
+			 , INQ_YN
+			 , RG_YN
+			 , DEL_YN
+			 , PRT_YN
+			 , EXL_YN
+			 , CON_YN
+			 , ERNAM
+			 , ERNAMT
+			 , ERDAT
+			 , AENAM
+			 , AENAMT
+			 , AEDAT
+			 , MESSAGE
 		  FROM NEXA_SAMPLE
 		 WHERE MOD_ID LIKE #{modId} || '%'
 		   AND MOD_NM LIKE '%' || #{modNm} || '%'
@@ -106,14 +129,13 @@
     
     <select id="selectNexacroVoListByModel" parameterType="NexacroModel" resultType="NexacroVo">
 		SELECT MOD_NM
+			 , MOD_GCD
+			 , CLA_NM
+			 , USE_YN
 		  FROM NEXA_SAMPLE
 		 WHERE MOD_ID LIKE #{modId} || '%'
+		<if test="modNm != null and modNm != ''">
 		   AND MOD_NM LIKE '%' || #{modNm} || '%'
-		<if test="modGcd != null and modGcd != ''">		   
-		   AND MOD_GCD = #{modGcd}
-		</if>
-		<if test="modTy != null and modTy != ''">
-		   AND MOD_TY = #{modTy}
 		</if>
 		<if test="sysCd != null and sysCd != ''">
 		   AND SYS_CD = #{sysCd}
@@ -122,27 +144,23 @@
     
     <select id="selectNexacroModelListByVo" parameterType="NexacroVo" resultType="NexacroModel">
 		SELECT SYS_CD
+			 , MOD_ID
+			 , MOD_NM
+			 , MOD_GCD
 		  FROM NEXA_SAMPLE
 		 WHERE MOD_ID LIKE #{modId} || '%'
-		   AND MOD_NM LIKE '%' || #{modNm} || '%'
-		<if test="modGcd != null and modGcd != ''">		   
-		   AND MOD_GCD = #{modGcd}
-		</if>
-		<if test="modTy != null and modTy != ''">
-		   AND MOD_TY = #{modTy}
-		</if>
-		<if test="sysCd != null and sysCd != ''">
-		   AND SYS_CD = #{sysCd}
-		</if>
     </select>
     
     <select id="selectNexacroModelListByModel" parameterType="NexacroModel" resultType="NexacroModel">
-		SELECT MOD_TY
+		SELECT SYS_CD
+			 , MOD_ID
+			 , MOD_NM
+			 , MOD_GCD
+			 , CLA_NM
 		  FROM NEXA_SAMPLE
-		 WHERE MOD_ID LIKE #{modId} || '%'
-		   AND MOD_NM LIKE '%' || #{modNm} || '%'
+		 WHERE CLA_NM LIKE #{claNm} || '%'
 		<if test="modGcd != null and modGcd != ''">		   
-		   AND MOD_GCD = #{modGcd}
+		   AND MOD_NM LIKE '%' || #{modNm} || '%'
 		</if>
 		<if test="modTy != null and modTy != ''">
 		   AND MOD_TY = #{modTy}
