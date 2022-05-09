@@ -23,6 +23,7 @@ dependencies {
 	implementation 'org.apache.poi:poi:5.0.0'
 	implementation 'com.google.guava:guava:31.1-jre'
 	implementation files('libs/tibero6-jdbc-14.jar')
+	implementation files('libs/sapjco3.jar')
 	implementation 'net.sf.ehcache:ehcache'
 
 }

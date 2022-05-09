@@ -209,6 +209,17 @@ spring:
       timeout: 50
       min-pooling: 5
       max-pooling: 20
+
+sap:
+  host: rds4ap.lotterental.net
+  client: 300
+  system-number: 00
+  user: RFC_IF_01
+  password: Rent@RFC1!
+  language: KO
+  capacity: 3
+  limit: 1
+
 ---
 ################################################################################
 #
