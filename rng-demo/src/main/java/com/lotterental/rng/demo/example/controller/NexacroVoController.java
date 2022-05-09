@@ -22,7 +22,7 @@ public class NexacroVoController {
     @Autowired
     private NexacroVoService nexacroService;
 
-    @PostMapping("/selectnexacrovo")
+    @PostMapping("/selectNexacroVo")
     public RngResult selectNexacroVo(@ParamDataSet(name = "dsImp") NexacroVo nexacroVo) {
     	log.debug("parameter = {}", nexacroVo);
     	RngResult result = new RngResult();
@@ -36,7 +36,7 @@ public class NexacroVoController {
         return result;
     }
     
-    @PostMapping("/selectnexacrovolist")
+    @PostMapping("/selectNexacroVoListByVoAndVo")
     public RngResult selectNexacroVoListByVoAndVo(@ParamDataSet(name = "dsImp") NexacroVo nexacroVo) {
     	log.debug("parameter = {}", nexacroVo);
     	RngResult result = new RngResult();
@@ -61,7 +61,7 @@ public class NexacroVoController {
         return result;
     }
     
-    @PostMapping("/selectnexacrovolist")
+    @PostMapping("/selectNexacroVoListByVo2ModelAndVo")
     public RngResult selectNexacroVoListByVo2ModelAndVo(@ParamDataSet(name = "dsImp") NexacroVo nexacroVo) {
     	log.debug("parameter = {}", nexacroVo);
     	RngResult result = new RngResult();
@@ -79,7 +79,7 @@ public class NexacroVoController {
         return result;
     }
     
-    @PostMapping("/selectnexacrovolist")
+    @PostMapping("/selectNexacroVoListByVoAndModel2Vo")
     public RngResult selectNexacroVoListByVoAndModel2Vo(@ParamDataSet(name = "dsImp") NexacroVo nexacroVo) {
     	log.debug("parameter = {}", nexacroVo);
     	RngResult result = new RngResult();
@@ -101,7 +101,7 @@ public class NexacroVoController {
         return result;
     }
     
-    @PostMapping("/selectnexacrovolist")
+    @PostMapping("/selectNexacroVoListByVo2ModelAndModel2Vo")
     public RngResult selectNexacroVoListByVo2ModelAndModel2Vo(@ParamDataSet(name = "dsImp") NexacroVo nexacroVo) {
     	log.debug("parameter = {}", nexacroVo);
     	RngResult result = new RngResult();
