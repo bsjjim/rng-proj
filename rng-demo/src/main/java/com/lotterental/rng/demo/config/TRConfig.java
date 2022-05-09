@@ -24,6 +24,8 @@ public class TRConfig {
     private PlatformTransactionManager transactionManager;
     
     private String EXPRESSION = "execution(* com.lotterental..service.impl.*Impl.*(..))";
+//    private String EXPRESSION = "execution(* com.lotterental..service.impl.TRDemoServiceImpl.*(..)) " +
+//        "|| execution(* com.lotterental..service.impl.TRDemoNotServiceImpl.*(..))"; // 트랜잭션 개별관리하기위한 예제 '||'(or)나 '&&'(and), '!'(not) 을 사용하여 관리
 
     @Bean
     public TransactionInterceptor transactionAdvice() {

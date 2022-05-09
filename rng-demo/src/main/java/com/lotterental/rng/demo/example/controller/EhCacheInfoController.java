@@ -35,8 +35,8 @@ public class EhCacheInfoController {
         ehCacheInfoService.deleteAllEhCache();
     }
 
-    @RequestMapping("/delete/{key}")
-    public void deleteEhCache(@PathVariable("key") String key) {
-        ehCacheInfoService.deleteEhCache(key);
+    @RequestMapping("/delete/{cachename}")
+    public void deleteEhCache(@PathVariable("cachename") String cachename) {
+        ehCacheInfoService.deleteEhCache(cachename);
     }
 }

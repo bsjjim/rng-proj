@@ -51,7 +51,7 @@ public class CachingDemoServiceImpl implements CachingDemoService {
         cachingDemoMapper.insertCaching(cachingDemoModel);
     }
 
-    @Cacheable(value = "CCH:L", key="#key", cacheManager = "ehCacheManager")
+    @Cacheable(value = "CCH:L:COMMON", key="#key", cacheManager = "ehCacheManager", unless = "#result == null")
     @Override
     public String getEhCacheComName(String key) {
         return cachingDemoMapper.getComName(key);

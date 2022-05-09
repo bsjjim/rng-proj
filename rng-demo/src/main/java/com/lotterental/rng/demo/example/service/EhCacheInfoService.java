@@ -12,5 +12,5 @@ public interface EhCacheInfoService {
 
     void deleteAllEhCache();
 
-    void deleteEhCache(String key);
+    void deleteEhCache(String cachename);
 }

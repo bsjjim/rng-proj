@@ -23,8 +23,7 @@
 	memoryStoreEvictionPolicy="LRU">
 	</defaultCache>
 
-	<!-- 사용하고자 하는 캐시 별 설정 -->
-	<cache name="CCH:L"
+	<cache name="CCH:L:COMMON"
 		   eternal="false"
 		   timeToIdleSeconds="0"
 		   timeToLiveSeconds="3600"
@@ -33,4 +32,6 @@
 		   diskExpiryThreadIntervalSeconds="120"
 		   memoryStoreEvictionPolicy="LRU">
 	</cache>
+	<!-- 사용하고자 하는 ehCache 사용자 별 설정 -->
+
 </ehcache>

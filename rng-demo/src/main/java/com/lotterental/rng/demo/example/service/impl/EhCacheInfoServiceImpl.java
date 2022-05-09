@@ -70,8 +70,8 @@ public class EhCacheInfoServiceImpl implements EhCacheInfoService {
     }
 
     @Override
-    public void deleteEhCache(String key) {
-        Cache targetCache = ehCacheCacheManager.getCache(key);
+    public void deleteEhCache(String cachename) {
+        Cache targetCache = ehCacheCacheManager.getCache(cachename);
         targetCache.clear();
     }
 }
