@@ -3,6 +3,7 @@ package com.lotterental.rng.demo.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.lotterental.rng.demo.common.aspect.AopAspect;
 import com.lotterental.rng.demo.common.aspect.ValidationAspect;
 import com.lotterental.rng.demo.common.aspect.pointcut.RngPointcut;
 
@@ -23,6 +24,14 @@ public class AspectConfig {
     @Bean
     public ValidationAspect validationAspect() {
     	return new ValidationAspect();
+    }
+    
+    /**
+	 * AOP 샘플
+	 */
+    @Bean
+    public AopAspect aopAspect() {
+    	return new AopAspect();
     }
 
 }
