@@ -15,7 +15,7 @@ import com.lotterental.rng.core.common.cnst.HandlerParameterType;
 import com.lotterental.rng.core.common.cnst.HandlerReturnType;
 import com.lotterental.rng.core.common.component.result.RngResult;
 
-public class RngNexacroMethodReturnValueProcessor {
+public class RngHandlerPostProcessor {
 	
 	private static final Field[] baseVoFields = BaseVo.class.getDeclaredFields();
 	private static final Field[] baseGridVoFields = BaseGridVo.class.getDeclaredFields();

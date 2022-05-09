@@ -8,7 +8,7 @@ import java.util.Map;
 import com.lotterental.rng.core.common.cnst.HandlerParameterType;
 import com.lotterental.rng.core.common.exception.BusinessException;
 
-public class RngNexacroMethodArgumentProcessor {
+public class RngHandlerPreProcessor {
 	
 	public void handleInputValue(Object object) {
 		validateParameterType(object);

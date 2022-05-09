@@ -6,16 +6,16 @@ import org.springframework.web.bind.support.WebDataBinderFactory;
 import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.ModelAndViewContainer;
 
-import com.lotterental.rng.demo.config.nexacro.processor.RngNexacroMethodArgumentProcessor;
+import com.lotterental.rng.demo.config.nexacro.processor.RngHandlerPreProcessor;
 import com.nexacro.uiadapter.spring.core.annotation.ParamVariable;
 import com.nexacro.uiadapter.spring.core.resolve.NexacroMethodArgumentResolver;
 
 public class RngMethodArgumentResolver extends NexacroMethodArgumentResolver {
 	
-	private final RngNexacroMethodArgumentProcessor rngNexacroMethodArgumentProcessor;
+	private final RngHandlerPreProcessor rngNexacroMethodArgumentProcessor;
 	
 	public RngMethodArgumentResolver() {
-		this.rngNexacroMethodArgumentProcessor = new RngNexacroMethodArgumentProcessor();
+		this.rngNexacroMethodArgumentProcessor = new RngHandlerPreProcessor();
 	}
 	
 	@Override

@@ -7,15 +7,15 @@ import org.springframework.web.method.support.ModelAndViewContainer;
 
 import com.lotterental.rng.core.common.component.result.RngResult;
 import com.lotterental.rng.core.common.file.RngFileResult;
-import com.lotterental.rng.demo.config.nexacro.processor.RngNexacroMethodReturnValueProcessor;
+import com.lotterental.rng.demo.config.nexacro.processor.RngHandlerPostProcessor;
 import com.nexacro.uiadapter.spring.core.resolve.NexacroHandlerMethodReturnValueHandler;
 
 public class RngMethodReturnValueHandler extends NexacroHandlerMethodReturnValueHandler {
 
-	private final RngNexacroMethodReturnValueProcessor rngNexacroMethodReturnValueProcessor;
+	private final RngHandlerPostProcessor rngNexacroMethodReturnValueProcessor;
 	
 	public RngMethodReturnValueHandler() {
-		this.rngNexacroMethodReturnValueProcessor = new RngNexacroMethodReturnValueProcessor();
+		this.rngNexacroMethodReturnValueProcessor = new RngHandlerPostProcessor();
 	}
 	
 	@Override
