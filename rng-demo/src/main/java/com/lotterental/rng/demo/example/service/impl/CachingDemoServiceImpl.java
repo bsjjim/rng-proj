@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -51,10 +52,38 @@ public class CachingDemoServiceImpl implements CachingDemoService {
         cachingDemoMapper.insertCaching(cachingDemoModel);
     }
 
-    @Cacheable(value = "CCH:L:COMMON", key="#key", cacheManager = "ehCacheManager", unless = "#result == null")
+    @CachePut(cacheNames = "COMNAME", key= "#key", cacheManager = "redisCacheManager", unless = "#result == null")
+    @Override
+    public String updateCaching(String key, String value) {
+        CachingDemoModel cachingDemoModel = new CachingDemoModel();
+        cachingDemoModel.setComCd(key);
+        cachingDemoModel.setComName(value);
+        cachingDemoMapper.updateCaching(cachingDemoModel);
+        return value;
+    }
+
+    @Cacheable(value = "CCH:L:COMMON", key="#key", cacheManager = "ehCacheManager", condition = "#key.length() < 100", unless = "#result == null")
     @Override
     public String getEhCacheComName(String key) {
         return cachingDemoMapper.getComName(key);
     }
 
+    @CacheEvict(value = "CCH:L:COMMON", key= "#key", cacheManager = "ehCacheManager")
+    @Override
+    public void insertEhCaching(String key, String value) {
+        CachingDemoModel cachingDemoModel = new CachingDemoModel();
+        cachingDemoModel.setComCd(key);
+        cachingDemoModel.setComName(value);
+        cachingDemoMapper.insertCaching(cachingDemoModel);
+    }
+
+    @CachePut(value = "CCH:L:COMMON", key= "#key", cacheManager = "ehCacheManager", unless = "#result == null")
+    @Override
+    public String updateEhCaching(String key, String value) {
+        CachingDemoModel cachingDemoModel = new CachingDemoModel();
+        cachingDemoModel.setComCd(key);
+        cachingDemoModel.setComName(value);
+        cachingDemoMapper.updateCaching(cachingDemoModel);
+        return value;
+    }
 }
