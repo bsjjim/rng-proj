@@ -86,7 +86,10 @@ public class SapConfiguration {
         try {
             jCoDestination = JCoDestinationManager.getDestination(ABAP_AS_POOLED);
             jCoDestination.ping();
-            log.debug("Connection estiblished.");
+            if (jCoDestination.isValid()) {
+                log.debug("Connection estiblished.");
+                log.debug("Attributes : [{}]", jCoDestination.getAttributes());
+            }
         } catch (JCoException e) {
             log.debug("Connect SAP fault, error msg: " + e.toString());
         }
