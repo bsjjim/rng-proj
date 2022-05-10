@@ -9,8 +9,9 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false)
 public abstract class BaseGridVo extends BaseMetaVo {
-	@ResponseIgnore
+	
 	private String _chk;
+	
 	@ResponseIgnore
 	private String _gubun;
 	
@@ -51,4 +52,5 @@ public abstract class BaseGridVo extends BaseMetaVo {
 			return false;
 		}
 	}
+	
 }

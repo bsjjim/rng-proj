@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lotterental.rng.demo.example.mapper.FileMapper">
 
-	<select id="selectFileInfoList" parameterType="FileVo" resultType="FileModel">
+	<select id="selectFileInfoList" parameterType="FileVo" resultType="FileVo">
 		SELECT DOCUMENT_NO
 			 , FILE_NO
 			 , ORIGINAL_FILE_NAME
@@ -33,6 +33,27 @@
 		SELECT SYSDATE || DOCUMENT_NO.NEXTVAL AS DOCUMENT_NO
 		  FROM DUAL
     </select>
+    
+    <insert id="insertDocumentInfo" parameterType="FileVo">
+    	INSERT 
+    	  INTO ATTACH_DOCUMENT (
+    	  	DOCUMENT_NO,
+    	  	FILE_COUNT,
+    	  	TEMP_YN,
+			REG_ID,
+			REG_DTM,
+			UPD_ID,
+			UPD_DTM
+		) VALUES (
+			#{documentNo},
+			#{fileCount},
+			'Y',
+			#{regId},
+			SYSDATE,
+			#{updId},
+			SYSDATE
+		)
+    </insert>
     
     <insert id="insertFileInfo" parameterType="FileVo">
 	    <selectKey resultType="string" keyProperty="fileNo" order="BEFORE">
@@ -71,6 +92,22 @@
 			SYSDATE
 		)
     </insert>
+    
+    <delete id="updateDocumentInfo" parameterType="FileVo">
+        UPDATE ATTACH_DOCUMENT
+           SET FILE_COUNT = FILE_COUNT + #{fileCount}
+             , UPD_ID = #{updId}
+             , UPD_DTM = SYSDATE
+         WHERE DOCUMENT_NO = #{documentNo}
+    </delete>
+    
+    <delete id="deleteDocumentInfo" parameterType="FileVo">
+        UPDATE ATTACH_DOCUMENT
+           SET FILE_COUNT = FILE_COUNT - #{fileCount}
+             , UPD_ID = #{updId}
+             , UPD_DTM = SYSDATE
+         WHERE DOCUMENT_NO = #{documentNo}
+    </delete>
 
     <delete id="deleteFileInfo" parameterType="FileVo">
         UPDATE ATTACH_FILE
@@ -79,6 +116,7 @@
              , UPD_ID = #{updId}
              , UPD_DTM = SYSDATE
          WHERE DOCUMENT_NO = #{documentNo}
+           AND FILE_NO = #{fileNo}
     </delete>
 
 </mapper>

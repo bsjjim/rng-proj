@@ -12,22 +12,23 @@ import com.nexacro.uiadapter.spring.core.resolve.NexacroHandlerMethodReturnValue
 
 public class RngMethodReturnValueHandler extends NexacroHandlerMethodReturnValueHandler {
 
-	private final RngHandlerPostProcessor rngNexacroMethodReturnValueProcessor;
+	private final RngHandlerPostProcessor rngHandlerPostProcessor;
 	
 	public RngMethodReturnValueHandler() {
-		this.rngNexacroMethodReturnValueProcessor = new RngHandlerPostProcessor();
+		this.rngHandlerPostProcessor = new RngHandlerPostProcessor();
 	}
 	
 	@Override
     public boolean supportsReturnType(MethodParameter returnType) {
-		return RngResult.class.isAssignableFrom(returnType.getParameterType());
+		return RngResult.class.isAssignableFrom(returnType.getParameterType()) ||
+				RngFileResult.class.isAssignableFrom(returnType.getParameterType());
     }
 	
 	@Override
 	public void handleReturnValue(@Nullable Object returnValue, MethodParameter returnType,
 			ModelAndViewContainer mavContainer, NativeWebRequest webRequest) throws Exception {
-		if (!RngFileResult.class.isAssignableFrom(returnValue.getClass())) {
-			rngNexacroMethodReturnValueProcessor.handleReturnValue(returnValue);
+		if (RngResult.class.isAssignableFrom(returnType.getParameterType())) {
+			rngHandlerPostProcessor.handleReturnValue(returnValue);
 		}
 		super.handleReturnValue(returnValue, returnType, mavContainer, webRequest);
 	}

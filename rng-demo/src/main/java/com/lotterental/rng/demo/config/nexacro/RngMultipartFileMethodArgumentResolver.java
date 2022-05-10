@@ -30,7 +30,7 @@ public class RngMultipartFileMethodArgumentResolver implements HandlerMethodArgu
 				.map(Entry::getValue)
 				.flatMap(Collection::stream)
 				.collect(Collectors.toList());
-		return new RngMultipartFile(fileList);
+		return new RngMultipartFile(fileList, request.getParameter("documentNo"));
 	}
 	
 }

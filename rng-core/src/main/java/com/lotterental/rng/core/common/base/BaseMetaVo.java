@@ -1,6 +1,5 @@
 package com.lotterental.rng.core.common.base;
 
-import com.lotterental.rng.core.common.base.BaseVo;
 import com.lotterental.rng.core.common.annotation.ResponseIgnore;
 import com.lotterental.rng.core.common.cnst.DataRowStatus;
 import com.nexacro.uiadapter.spring.core.data.DataSetRowTypeAccessor;
@@ -13,6 +12,14 @@ import lombok.EqualsAndHashCode;
 public abstract class BaseMetaVo implements BaseVo, DataSetRowTypeAccessor {
 	@ResponseIgnore
 	private int rowType = -1;
+	
+	private String regId;
+	
+	private String regDtm;
+	
+	private String updId;
+	
+	private String updDtm;
 			
 	public boolean isInsertedRow() {
 		return isSameType(DataRowStatus.INSERT);

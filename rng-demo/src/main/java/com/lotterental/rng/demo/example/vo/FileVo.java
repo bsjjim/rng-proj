@@ -1,6 +1,6 @@
 package com.lotterental.rng.demo.example.vo;
 
-import com.lotterental.rng.core.common.base.BaseMetaVo;
+import com.lotterental.rng.core.common.base.BaseGridVo;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper=false)
-public class FileVo extends BaseMetaVo {
+public class FileVo extends BaseGridVo {
 	private String documentNo;
 	private String fileNo;
 	private String originalFileName;
@@ -21,13 +21,11 @@ public class FileVo extends BaseMetaVo {
 	private long fileSize;
 	private String filePath;
 	private String fileContentsTypeName;
+	private int fileCount;
+	private String tempYn;
 	private String deleteYn;
 	private String deleteDtm;
-	private String regId;
-	private String regDtm;
-	private String updId;
-	private String updDtm;
-	
+		
 	public FileVo(String documentNo) {
 		this.documentNo = documentNo;
 	}

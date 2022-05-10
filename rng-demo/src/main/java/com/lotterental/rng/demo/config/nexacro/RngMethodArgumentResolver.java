@@ -12,10 +12,10 @@ import com.nexacro.uiadapter.spring.core.resolve.NexacroMethodArgumentResolver;
 
 public class RngMethodArgumentResolver extends NexacroMethodArgumentResolver {
 	
-	private final RngHandlerPreProcessor rngNexacroMethodArgumentProcessor;
+	private final RngHandlerPreProcessor rngHandlerPreProcessor;
 	
 	public RngMethodArgumentResolver() {
-		this.rngNexacroMethodArgumentProcessor = new RngHandlerPreProcessor();
+		this.rngHandlerPreProcessor = new RngHandlerPreProcessor();
 	}
 	
 	@Override
@@ -23,7 +23,7 @@ public class RngMethodArgumentResolver extends NexacroMethodArgumentResolver {
 			NativeWebRequest webRequest, @Nullable WebDataBinderFactory binderFactory) throws Exception {
 		Object object = super.resolveArgument(parameter, mavContainer, webRequest, binderFactory);
 		if (parameter.getParameterAnnotation(ParamVariable.class) == null) {
-			rngNexacroMethodArgumentProcessor.handleInputValue(object);
+			rngHandlerPreProcessor.handleInputValue(object);
 		}
 		return object;
     }

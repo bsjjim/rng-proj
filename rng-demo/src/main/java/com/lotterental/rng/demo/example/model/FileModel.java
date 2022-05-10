@@ -14,6 +14,8 @@ public class FileModel {
 	private long fileSize;
 	private String filePath;
 	private String fileContentsTypeName;
+	private int fileCount;
+	private String tempYn;
 	private String deleteYn;
 	private String deleteDtm;
 	private String regId;
@@ -27,8 +29,11 @@ public class FileModel {
         		.documentNo(fileModel.getDocumentNo())
         		.fileNo(fileModel.getFileNo())
         		.originalFileName(fileModel.getOriginalFileName())
+        		.savedFileName(fileModel.getSavedFileName())
         		.fileSize(fileModel.getFileSize())
+        		.filePath(fileModel.getFilePath())
         		.fileContentsTypeName(fileModel.getFileContentsTypeName())
+        		.deleteYn(fileModel.getDeleteYn())
         		.build();
     }
     
@@ -37,8 +42,11 @@ public class FileModel {
         		.documentNo(documentNo)
         		.fileNo(fileNo)
         		.originalFileName(originalFileName)
+        		.savedFileName(savedFileName)
         		.fileSize(fileSize)
+        		.filePath(filePath)
         		.fileContentsTypeName(fileContentsTypeName)
+        		.deleteYn(deleteYn)
                 .build();
     }
 }
