@@ -36,8 +36,25 @@ public class CachingDemoController{
         cachingDemoService.insertCaching(key, value);
     }
 
+    @RequestMapping("/update/{key}/{value}")
+    public void updateCaching(@PathVariable("key") String key, @PathVariable("value") String value) {
+        String reVal = cachingDemoService.updateCaching(key, value);
+        log.info("updateCaching ===== {}", reVal);
+    }
+
     @RequestMapping("/get/ehcache/{key}")
     public String getEhCacheComName(@PathVariable("key") String key) {
         return cachingDemoService.getEhCacheComName(key);
+    }
+
+    @RequestMapping("/insert/ehcache/{key}/{value}")
+    public void insertEhCaching(@PathVariable("key") String key, @PathVariable("value") String value) {
+        cachingDemoService.insertEhCaching(key, value);
+    }
+
+    @RequestMapping("/update/ehcache/{key}/{value}")
+    public void updateEhCaching(@PathVariable("key") String key, @PathVariable("value") String value) {
+        String reVal = cachingDemoService.updateEhCaching(key, value);
+        log.info("updateEhCaching ===== {}", reVal);
     }
 }

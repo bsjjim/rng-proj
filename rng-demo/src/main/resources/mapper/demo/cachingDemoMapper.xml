@@ -37,4 +37,10 @@
             , SYSDATE
             )
     </insert>
+
+    <update id="updateCaching" parameterType="com.lotterental.rng.demo.example.model.CachingDemoModel">
+        UPDATE SAMPLE_TDB.DEMO_CACHING
+        SET COM_NAME = #{comName}
+        WHERE COM_CD= #{comCd};
+    </update>
 </mapper>

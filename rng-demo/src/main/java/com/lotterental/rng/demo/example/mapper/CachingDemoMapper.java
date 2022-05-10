@@ -15,4 +15,6 @@ public interface CachingDemoMapper {
     List<CachingDemoVo> selectCachingList(String key);
 
     void insertCaching(CachingDemoModel cachingDemoModel);
+
+    void updateCaching(CachingDemoModel cachingDemoModel);
 }

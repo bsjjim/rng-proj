@@ -14,5 +14,11 @@ public interface CachingDemoService {
 
     void insertCaching(String key, String value);
 
+    String updateCaching(String key, String value);
+
     String getEhCacheComName(String key);
+
+    void insertEhCaching(String key, String value);
+
+    String updateEhCaching(String key, String value);
 }
