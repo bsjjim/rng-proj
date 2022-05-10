@@ -23,7 +23,7 @@ public class CachingDemoServiceImpl implements CachingDemoService {
     @Autowired
     private CachingDemoMapper cachingDemoMapper;
 
-    @Cacheable(cacheNames = "selectComCd", key="#key", cacheManager = "redisCacheManager")
+    @Cacheable(cacheNames = "COMCD", key="#key", cacheManager = "redisCacheManager")
     @Override
     public CachingDemoVo selectComCd(String key) {
         return cachingDemoMapper.selectComCd(key);
